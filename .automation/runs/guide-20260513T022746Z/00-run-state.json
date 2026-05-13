@@ -1,0 +1,9 @@
+{
+  "runId": "guide-20260513T022746Z",
+  "lockStatus": "replaced_stale",
+  "lockPath": "/home/ubuntu/app/momentbook-guide/.automation/guide-publisher.lock",
+  "lockPid": 1324326,
+  "acquiredAt": "2026-05-13T02:27:46+00:00",
+  "devClock": "2026-05-13T02:27:46+00:00",
+  "staleLockContentsBase64": "ewogICJwaWQiOiAxMzIwMjA1LAogICJob3N0IjogInVidW50dSIsCiAgImNyZWF0ZWRBdCI6ICIyMDI2LTA1LTEyVDE4OjMzOjQyLjkzNjQ1MCswMDowMCIsCiAgImF1dG9tYXRpb24iOiAibW9tZW50Ym9vay1ndWlkZS1wdWJsaXNoZXItaG91cmx5IiwKICAiY3dkIjogIi9ob21lL3VidW50dS9hcHAvbW9tZW50Ym9vay1ndWlkZSIKfQo="
+}

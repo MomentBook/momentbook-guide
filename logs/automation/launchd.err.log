@@ -1,0 +1,4 @@
+/bin/zsh: can't open input file: /Users/hansol/Documents/New project/momentbook-guide/automation/local-hourly-runner.sh
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted
+job-working-directory: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted
+/bin/zsh: can't open input file: /Users/hansol/Documents/New project/momentbook-guide/automation/local-hourly-runner.sh

@@ -1,0 +1,117 @@
+name: momentbook-guide-dev-to-prod
+version: 2
+purpose: Publish one new Momentbook travel guide from dev authoring through production DB verification using bounded parallel agents and automated quality gates.
+recommended_schedule: every_6_hours
+
+canonical_workspace:
+  host: momentbook-dev
+  ssh: ssh momentbook-dev
+  path: /home/ubuntu/app/momentbook-guide
+
+development:
+  ssh: ssh momentbook-dev
+  guide_workspace: /home/ubuntu/app/momentbook-guide
+  api_workspace: /home/ubuntu/app/momentbook-api
+  web_workspace: /home/ubuntu/app/momentbook-web
+  prompt: /home/ubuntu/app/momentbook-guide/prompts/guide-publisher.md
+  authoring_guide: /home/ubuntu/app/momentbook-guide/playbooks/authoring-guide.md
+  registry: /home/ubuntu/app/momentbook-guide/registry/editorial-guide-registry.md
+
+production:
+  ssh: ssh momentbook
+  db_only: true
+  leave_files: false
+  replication_scope: verified_translationGroupId_only
+
+concurrency:
+  allow_overlap: false
+  allow_parallel_agents_within_run: true
+  lock_host: momentbook-dev
+  lock_path: /home/ubuntu/app/momentbook-guide/.automation/guide-publisher.lock
+  on_existing_lock: skip_and_report
+  stale_lock_after_minutes: 360
+  on_stale_lock: replace_and_report
+  remove_lock_after_run: true
+
+run_artifacts:
+  base_path: /home/ubuntu/app/momentbook-guide/.automation/runs
+  remove_after_verification: true
+  preserve_on_controlled_stop: true
+
+required_languages:
+  - ko
+  - en
+  - ja
+  - zh
+  - es
+  - pt
+  - fr
+  - th
+  - vi
+
+required_first_reads:
+  - AGENTS.md
+  - automation/parallel-agent-workflow.md
+  - automation/agents/orchestrator.md
+  - prompts/guide-publisher.md
+  - playbooks/authoring-guide.md
+  - registry/editorial-guide-registry.md
+
+date_policy:
+  checked_date: execution_environment_today
+  visible_written_date: execution_environment_today
+  slug_date_if_present: execution_environment_today
+  publishedAt: actual_db_write_timestamp
+  future_publishedAt_allowed: false
+
+quality_gates:
+  - official_source_gate
+  - date_gate
+  - readability_gate
+  - accessibility_gate
+  - localization_gate
+  - semantic_parity_gate
+  - automated_article_quality_gate
+  - dev_db_verification
+  - prod_db_verification_when_requested
+
+automated_quality_gate:
+  command: node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json
+  blocks_db_write: true
+  checks:
+    - required_language_set
+    - future_publishedAt
+    - markdown_structure
+    - depth_thresholds
+    - first_image_alt
+    - localized_sources_section
+    - script_and_diacritics
+    - english_heading_leakage
+
+artifact_policy:
+  temporary_scripts_allowed: only_if_needed
+  generated_payloads_allowed: only_if_needed
+  remove_after_verification: true
+  production_artifacts_allowed: false
+
+registry_policy:
+  status_before_db: queued
+  status_after_dev_verification: dev
+  status_after_prod_verification: prod+dev
+
+final_report:
+  include:
+    - topic
+    - country_or_scope
+    - city_or_region
+    - category
+    - translationGroupId
+    - language_slugs
+    - source_pack_summary
+    - checked_date
+    - publishedAt
+    - dev_db_verification
+    - prod_db_verification
+    - registry_status
+    - removed_artifacts
+    - residual_risks
