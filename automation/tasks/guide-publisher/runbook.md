@@ -7,23 +7,25 @@ Run one complete guide publication job without relying on long user instructions
 The operator or scheduler only needs to provide:
 
 ```text
-Use /home/ubuntu/app/momentbook-guide/automation/prompt-dev-to-prod.md and publish one new guide end to end.
+Use /home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/prompt.md and publish one new guide end to end.
 ```
 
-Recommended schedule: every 6 hours.
+Recommended schedule: every 6 hours at 03:00, 09:00, 15:00, and 21:00
+Asia/Seoul. The post-publish review automation should run one hour later at
+04:00, 10:00, 16:00, and 22:00 Asia/Seoul.
 
 ## Invariants
 
 - The canonical workspace is `/home/ubuntu/app/momentbook-guide` on `momentbook-dev`.
 - The detailed contract lives in `prompts/guide-publisher.md`.
-- Scheduled runs must use `automation/parallel-agent-workflow.md`.
-- Role prompts live under `automation/agents/`.
+- Scheduled runs must use `automation/tasks/guide-publisher/workflow.md`.
+- Role prompts live under `automation/tasks/guide-publisher/agents/`.
 - The registry is `registry/editorial-guide-registry.md`.
 - The job publishes one guide only.
 - Production scope is one verified `translationGroupId`.
 - Production writes are DB-only.
 - No temporary files should remain after verification.
-- Overlapping runs are not allowed. Use the lock path in `automation/environment.yaml`.
+- Overlapping runs are not allowed. Use the lock path in `automation/shared/environment.yaml`.
 - Stale locks older than the environment threshold may be replaced only when the recorded PID is not running.
 
 ## Preflight
@@ -38,9 +40,9 @@ cd /home/ubuntu/app/momentbook-guide
 2. Confirm the automation files exist:
 
 ```sh
-test -f automation/environment.yaml
-test -f automation/parallel-agent-workflow.md
-test -f automation/prompt-dev-to-prod.md
+test -f automation/shared/environment.yaml
+test -f automation/tasks/guide-publisher/workflow.md
+test -f automation/tasks/guide-publisher/prompt.md
 test -f prompts/guide-publisher.md
 test -f tools/quality/article-quality-gate.js
 test -f registry/editorial-guide-registry.md
@@ -57,8 +59,9 @@ ssh momentbook
 Use a scheduled Codex automation with:
 
 - Frequency: every 6 hours
+- Times: 03:00, 09:00, 15:00, and 21:00 Asia/Seoul
 - Workspace: the local Codex project that can run `ssh momentbook-dev`
-- Prompt: `Use /home/ubuntu/app/momentbook-guide/automation/prompt-dev-to-prod.md and publish one new guide end to end using the parallel agent workflow.`
+- Prompt: `Use /home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/prompt.md and publish one new guide end to end using the parallel agent workflow.`
 - Execution expectation: the job connects to `momentbook-dev`, reads the canonical remote files, uses bounded role agents with explicit run artifacts, and only then connects to `momentbook` for DB-only replication.
 
 Do not schedule this as a thread heartbeat. It is a standalone recurring job with external SSH and DB verification.

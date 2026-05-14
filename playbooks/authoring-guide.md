@@ -20,7 +20,7 @@
 - registry status는 임시 파일 존재 여부가 아니라 실제 DB 반영 상태를 기준으로 쓴다.
 - 모든 새 guide는 지원 언어 전체인 `ko`, `en`, `ja`, `zh`, `es`, `pt`, `fr`, `th`, `vi` 로 완성한다.
 - 번역은 외부 번역 API나 OpenAI API를 쓰지 않고 직접 작성한다.
-- 예약 자동화는 `automation/parallel-agent-workflow.md`를 사용해 source, master, localization, QA, publish 역할을 분리한다.
+- 예약 자동화는 `automation/tasks/guide-publisher/workflow.md`를 사용해 source, master, localization, QA, publish 역할을 분리한다.
 
 ## 0.1 Hard Quality Gates
 

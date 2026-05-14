@@ -8,7 +8,9 @@ Canonical development location: `/home/ubuntu/app/momentbook-guide`.
 
 - 1 main guide publication prompt in `prompts/`
 - 2 specialist agent prompt templates in `prompts/agent-templates/`
-- 8 scheduled automation role prompts in `automation/agents/`
+- guide publisher automation files in `automation/tasks/guide-publisher/`
+- post-publish review automation files in `automation/tasks/post-publish-review/`
+- shared automation contracts in `automation/shared/`
 - 1 canonical topic registry in `registry/`
 - 6 authoring, workflow, and planning playbook files in `playbooks/`
 - 23 archived Momentbook API guide scripts in `tools/`
@@ -23,7 +25,9 @@ Total files after restructuring: 95.
 - `AGENTS.md`
 - `CLAUDE.md`
 - `prompts/guide-publisher.md`
-- `automation/parallel-agent-workflow.md`
+- `automation/shared/codex-operating-principles.md`
+- `automation/tasks/guide-publisher/workflow.md`
+- `automation/tasks/post-publish-review/workflow.md`
 - `playbooks/authoring-guide.md`
 - `registry/editorial-guide-registry.md`
 - `playbooks/parallel-workflow.md`

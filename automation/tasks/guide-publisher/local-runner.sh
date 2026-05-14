@@ -25,13 +25,14 @@ trap cleanup EXIT
 
 PROMPT="You are running as the unattended six-hourly Momentbook guide publisher.
 
-Use the canonical remote guide automation contract at /home/ubuntu/app/momentbook-guide/automation/prompt-dev-to-prod.md.
+Use the canonical remote guide automation contract at /home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/prompt.md.
 
 Important:
 - Do not author from the local snapshot.
 - Connect to momentbook-dev and work in /home/ubuntu/app/momentbook-guide.
 - Read the remote automation contract fully before doing any guide work.
-- Read and follow /home/ubuntu/app/momentbook-guide/automation/parallel-agent-workflow.md.
+- Read and apply /home/ubuntu/app/momentbook-guide/automation/shared/codex-operating-principles.md.
+- Read and follow /home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/workflow.md.
 - Acquire, skip, or replace the remote lock according to that contract before starting.
 - Publish exactly one new registry-safe travel guide through dev DB verification and scoped production DB replication.
 - Use bounded parallel role agents for source research, localization, and QA where the workflow allows it.

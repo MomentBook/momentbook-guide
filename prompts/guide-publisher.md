@@ -10,15 +10,16 @@
 
 예약 실행은 반드시 아래 파일을 함께 따른다.
 
-- `automation/parallel-agent-workflow.md`
-- `automation/agents/orchestrator.md`
-- `automation/agents/source-researcher.md`
-- `automation/agents/master-writer.md`
-- `automation/agents/localization-cjk-agent.md`
-- `automation/agents/localization-latin-agent.md`
-- `automation/agents/localization-sea-agent.md`
-- `automation/agents/qa-reviewer.md`
-- `automation/agents/publisher.md`
+- `automation/tasks/guide-publisher/workflow.md`
+- `automation/shared/codex-operating-principles.md`
+- `automation/tasks/guide-publisher/agents/orchestrator.md`
+- `automation/tasks/guide-publisher/agents/source-researcher.md`
+- `automation/tasks/guide-publisher/agents/master-writer.md`
+- `automation/tasks/guide-publisher/agents/localization-cjk-agent.md`
+- `automation/tasks/guide-publisher/agents/localization-latin-agent.md`
+- `automation/tasks/guide-publisher/agents/localization-sea-agent.md`
+- `automation/tasks/guide-publisher/agents/qa-reviewer.md`
+- `automation/tasks/guide-publisher/agents/publisher.md`
 
 핵심 원칙:
 
@@ -27,6 +28,7 @@
 - QA는 모든 localization output이 존재한 뒤 병렬 실행한다.
 - DB write 전 `node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json`가 반드시 exit 0이어야 한다.
 - 품질 gate가 실패하면 수동 판단으로 덮어쓰지 말고 publish를 중단한다.
+- 역할 agent는 frozen input과 명확한 output schema를 받아야 하며, raw log나 전체 DB export를 불필요하게 넘기지 않는다.
 
 ## One-Line User Command
 

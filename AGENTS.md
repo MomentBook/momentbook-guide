@@ -9,9 +9,11 @@
 ## Start Points
 
 - Main publication prompt: `prompts/guide-publisher.md`
-- Automation prompt: `automation/prompt-dev-to-prod.md`
-- Automation environment contract: `automation/environment.yaml`
-- Scheduled automation workflow: `automation/parallel-agent-workflow.md`
+- Automation prompt: `automation/tasks/guide-publisher/prompt.md`
+- Automation environment contract: `automation/shared/environment.yaml`
+- Shared Codex automation principles: `automation/shared/codex-operating-principles.md`
+- Scheduled automation workflow: `automation/tasks/guide-publisher/workflow.md`
+- Post-publish review prompt: `automation/tasks/post-publish-review/prompt.md`
 - Authoring policy: `playbooks/authoring-guide.md`
 - Topic registry: `registry/editorial-guide-registry.md`
 - Structure rationale: `docs/architecture/ai-workspace-structure.md`
@@ -37,7 +39,8 @@
 - Run date, localization, and semantic parity gates before DB upsert.
 - Upsert into the active DB, verify 9 records by `translationGroupId`, then update the registry status.
 - If production is requested, connect with `ssh momentbook`, perform DB-only insert/upsert for the verified `translationGroupId`, verify 9 production records, then set registry status to `prod+dev`.
-- For scheduled automation, use the bounded role prompts under `automation/agents/` and run `node tools/quality/article-quality-gate.js` before any DB write.
+- For scheduled automation, use the bounded role prompts under `automation/tasks/guide-publisher/agents/` and run `node tools/quality/article-quality-gate.js` before any DB write.
+- For post-publish review automation, use only content-only patches under the contract in `automation/tasks/post-publish-review/` and preserve `translationGroupId`, `slug`, `category`, `status`, `publishedAt`, and `createdAt`.
 
 ## Path Conventions
 
@@ -47,4 +50,5 @@
 - Reusable or archived scripts belong in `tools/<stage>/`.
 - Generated JSON and DB exports belong in `artifacts/`.
 - Historical notes belong in `logs/`.
-- Automation contracts belong in `automation/`.
+- Automation contracts belong under `automation/tasks/<task-id>/`.
+- Shared automation policy belongs under `automation/shared/`.

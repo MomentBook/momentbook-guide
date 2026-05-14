@@ -28,8 +28,10 @@ Do not write credentials, database URLs, API keys, or environment-specific secre
 
 ## Automation Files
 
-- Environment contract: `/home/ubuntu/app/momentbook-guide/automation/environment.yaml`
-- Automation prompt: `/home/ubuntu/app/momentbook-guide/automation/prompt-dev-to-prod.md`
-- Automation runbook: `/home/ubuntu/app/momentbook-guide/automation/runbook.md`
+- Environment contract: `/home/ubuntu/app/momentbook-guide/automation/shared/environment.yaml`
+- Shared Codex automation principles: `/home/ubuntu/app/momentbook-guide/automation/shared/codex-operating-principles.md`
+- Guide publisher prompt: `/home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/prompt.md`
+- Guide publisher runbook: `/home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/runbook.md`
+- Post-publish review prompt: `/home/ubuntu/app/momentbook-guide/automation/tasks/post-publish-review/prompt.md`
 
-These files contain no secrets. They describe hosts, paths, policies, quality gates, and final reporting requirements for a one-guide dev-to-prod job.
+These files contain no secrets. They describe hosts, paths, policies, quality gates, and final reporting requirements for guide publication and post-publication review.

@@ -13,6 +13,9 @@ works with only the context it needs.
 The workflow is still one guide per run. Parallelism is only used where tasks
 are independent or where review can run against frozen artifacts.
 
+The shared design basis is `automation/shared/codex-operating-principles.md`.
+This workflow applies those rules to new guide publication.
+
 ## Run Directory
 
 Every run creates a development-only working directory:
@@ -54,12 +57,14 @@ itself.
 
 Responsibilities:
 
-- read `AGENTS.md`, `automation/environment.yaml`, this file,
+- read `AGENTS.md`, `automation/shared/environment.yaml`, this file,
+  `automation/shared/codex-operating-principles.md`,
   `prompts/guide-publisher.md`, `playbooks/authoring-guide.md`, and
   `registry/editorial-guide-registry.md`
 - acquire or validate the lock
 - create the run directory
 - launch independent agents in parallel when their inputs are frozen
+- keep subagent fan-out to one level and assign disjoint file ownership
 - reject outputs that do not match the handoff contract
 - run the automated quality gate before DB write
 - produce the final audit report
@@ -97,6 +102,9 @@ Output:
 
 This agent must stop if official sources cannot support the article.
 
+The source researcher returns a compact source pack. It must not paste long
+source excerpts or ask later roles to infer facts from raw pages.
+
 ### Master Writer
 
 Input:
@@ -111,6 +119,10 @@ Output:
 - `04-fact-parity-map.md`
 
 This agent writes only the English master and parity map. It does not translate.
+
+The master article must be useful to a traveler scanning the page: strong lead,
+meaningful H2s, practical bullets, concrete alt text, and no unsupported
+promotional claims.
 
 ### Localization Agents
 
@@ -146,6 +158,9 @@ Parallel gates:
 - `qa-date`: source checked date, slug date, `publishedAt`
 
 Each QA agent writes a pass/fail report under `qa/`. Any failure blocks DB write.
+
+QA reports must be concise and actionable. They should identify the exact
+language, section, and repair direction instead of dumping full article text.
 
 ### Publisher
 

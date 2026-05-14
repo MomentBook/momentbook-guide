@@ -6,9 +6,10 @@ unless a role-specific prompt tells you to.
 Read first:
 
 - `AGENTS.md`
-- `automation/environment.yaml`
-- `automation/parallel-agent-workflow.md`
-- `automation/prompt-dev-to-prod.md`
+- `automation/shared/environment.yaml`
+- `automation/shared/codex-operating-principles.md`
+- `automation/tasks/guide-publisher/workflow.md`
+- `automation/tasks/guide-publisher/prompt.md`
 - `prompts/guide-publisher.md`
 - `playbooks/authoring-guide.md`
 - `registry/editorial-guide-registry.md`
@@ -18,7 +19,7 @@ Your job:
 1. Confirm the development clock.
 2. Acquire, skip, or replace the development lock according to the workflow.
 3. Create `.automation/runs/<run_id>/`.
-4. Use bounded role prompts from `automation/agents/`.
+4. Use bounded role prompts from `automation/tasks/guide-publisher/agents/`.
 5. Run independent role agents in parallel only after their inputs are frozen.
 6. Reject missing, short, ASCII-stripped, or untranslated locale outputs.
 7. Run `node tools/quality/article-quality-gate.js payload/articles.json`.

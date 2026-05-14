@@ -51,8 +51,10 @@ required_languages:
 
 required_first_reads:
   - AGENTS.md
-  - automation/parallel-agent-workflow.md
-  - automation/agents/orchestrator.md
+  - automation/shared/environment.yaml
+  - automation/shared/codex-operating-principles.md
+  - automation/tasks/guide-publisher/workflow.md
+  - automation/tasks/guide-publisher/agents/orchestrator.md
   - prompts/guide-publisher.md
   - playbooks/authoring-guide.md
   - registry/editorial-guide-registry.md
@@ -74,6 +76,38 @@ quality_gates:
   - automated_article_quality_gate
   - dev_db_verification
   - prod_db_verification_when_requested
+
+post_publish_review:
+  purpose: Improve readability and supported-language localization for guides created by the most recent publisher automation run.
+  recommended_schedule: every_6_hours_offset_one_hour_after_publisher
+  prompt: /home/ubuntu/app/momentbook-guide/automation/tasks/post-publish-review/prompt.md
+  workflow: /home/ubuntu/app/momentbook-guide/automation/tasks/post-publish-review/workflow.md
+  lock_path: /home/ubuntu/app/momentbook-guide/.automation/post-publish-review.lock
+  state_path: /home/ubuntu/app/momentbook-guide/.automation/post-publish-review-state.json
+  run_base_path: /home/ubuntu/app/momentbook-guide/.automation/review-runs
+  candidate_window_hours: 8
+  min_candidate_age_minutes: 10
+  skip_reviewed_groups: true
+  preserve_metadata:
+    - translationGroupId
+    - slug
+    - category
+    - status
+    - publishedAt
+    - createdAt
+  writable_fields:
+    - title
+    - body
+  parallel_review_agents:
+    - english-readability-editor
+    - localization-cjk-reviewer
+    - localization-latin-reviewer
+    - localization-sea-reviewer
+  qa_gates:
+    - qa-structure
+    - qa-localization
+    - qa-parity
+    - qa-metadata
 
 automated_quality_gate:
   command: node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json

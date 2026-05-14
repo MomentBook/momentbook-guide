@@ -11,5 +11,6 @@ These files were copied from the Momentbook API project for reference and reuse.
 - `seed/`: development DB seed/upsert helpers.
 - `import/`: production import helpers.
 - `refresh/`: image and translation refresh helpers.
-- `repair/`: one-off repair helpers.
+- `repair/`: one-off and scheduled content repair helpers, including recent
+  group export for post-publish review.
 - `quality/`: reusable quality checks and guards.
