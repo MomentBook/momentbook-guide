@@ -29,6 +29,7 @@
 - DB write 전 `node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json`가 반드시 exit 0이어야 한다.
 - 품질 gate가 실패하면 수동 판단으로 덮어쓰지 말고 publish를 중단한다.
 - 역할 agent는 frozen input과 명확한 output schema를 받아야 하며, raw log나 전체 DB export를 불필요하게 넘기지 않는다.
+- dev/prod 검증과 registry 갱신이 끝난 뒤에는 allowlist 경로만 stage하여 commit 후 `origin main`으로 push한다.
 
 ## One-Line User Command
 
@@ -54,6 +55,7 @@ momentbook-guide의 guide-publisher.md대로 새 guide 1개를 dev 작성부터 
 - prod DB에서 같은 `translationGroupId`의 9개 언어 record를 검증한다.
 - registry status를 실제 DB 상태에 맞게 `dev` 또는 `prod+dev`로 갱신한다.
 - 작업 중 만든 임시 script, generated payload, backup, helper file을 제거한다.
+- 검증된 registry 변경만 commit/push한다. `.automation` lock, run directory, payload, backup, helper file은 commit하지 않는다.
 
 ## Environment Contract
 

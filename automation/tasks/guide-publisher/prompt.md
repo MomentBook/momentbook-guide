@@ -33,22 +33,24 @@ This automation should run every 6 hours. Before doing any guide work, acquire t
 
 1. Read `AGENTS.md`, `automation/shared/environment.yaml`, `automation/shared/codex-operating-principles.md`, `automation/tasks/guide-publisher/workflow.md`, `prompts/guide-publisher.md`, `playbooks/authoring-guide.md`, and `registry/editorial-guide-registry.md`.
 2. Acquire the development lock, or stop if a previous run is active.
-3. Create the run directory declared by the parallel workflow.
-4. Write `00-run-state.json` before role work begins, including clock, lock, model, and phase status.
-5. Run registry audit and source research roles with bounded outputs. Prefer official sources and stop if hard facts cannot be verified.
-6. Freeze the source pack before writing the English master.
-7. Freeze the English master and fact parity map before localization.
-8. Run localization agents in parallel by language group: `ko/ja/zh`, `es/pt/fr`, and `th/vi`. Give every localization agent the same frozen fact parity map and output schema.
-9. Run QA gates in parallel after all localizations exist. QA agents return distilled pass/fail reports, not raw exploration logs.
-10. Assemble `payload/articles.json`.
-11. Run `node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json`.
-12. Upsert the guide into the dev DB only if every QA report and the automated quality gate pass.
-13. Verify dev DB has exactly the expected 9 language records for the new `translationGroupId`.
-14. Replicate only that verified `translationGroupId` to production DB using `ssh momentbook`.
-15. Leave no files in production. Use DB-only or one-shot execution patterns.
-16. Verify production DB has the same 9 language records.
-17. Update the registry to the real final state, normally `prod+dev`.
-18. Remove temporary scripts, generated payloads, backups, helper files, the run directory, and the development lock created during the task.
+3. Update the repo before work with `git fetch origin main` and `git pull --ff-only origin main`. Stop if the branch cannot fast-forward or the workspace has disallowed changes that would be committed.
+4. Create the run directory declared by the parallel workflow.
+5. Write `00-run-state.json` before role work begins, including clock, lock, model, and phase status.
+6. Run registry audit and source research roles with bounded outputs. Prefer official sources and stop if hard facts cannot be verified.
+7. Freeze the source pack before writing the English master.
+8. Freeze the English master and fact parity map before localization.
+9. Run localization agents in parallel by language group: `ko/ja/zh`, `es/pt/fr`, and `th/vi`. Give every localization agent the same frozen fact parity map and output schema.
+10. Run QA gates in parallel after all localizations exist. QA agents return distilled pass/fail reports, not raw exploration logs.
+11. Assemble `payload/articles.json`.
+12. Run `node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json`.
+13. Upsert the guide into the dev DB only if every QA report and the automated quality gate pass.
+14. Verify dev DB has exactly the expected 9 language records for the new `translationGroupId`.
+15. Replicate only that verified `translationGroupId` to production DB using `ssh momentbook`.
+16. Leave no files in production. Use DB-only or one-shot execution patterns.
+17. Verify production DB has the same 9 language records.
+18. Update the registry to the real final state, normally `prod+dev`.
+19. Remove temporary scripts, generated payloads, backups, helper files, the run directory, and the development lock created during the task.
+20. Commit and push the verified repository state: stage only `registry/editorial-guide-registry.md`, commit if the staged diff is non-empty, rebase on `origin/main` only if needed and conflict-free, then push to `origin main`. Never stage locks, run directories, payloads, backups, or helper files.
 
 ## Performance And Quality Rules
 
@@ -57,6 +59,7 @@ This automation should run every 6 hours. Before doing any guide work, acquire t
 - Keep every role input small and frozen. Do not dump logs or full database exports into subagent prompts when a summarized handoff file is enough.
 - If a role output fails schema, depth, localization, or parity checks, repair the artifact and rerun the gate before moving forward.
 - Do not keep retrying without new evidence. Each retry must use a specific gate failure or source conflict as feedback.
+- Do not use broad git staging. Only stage paths listed in `git_persistence.include_paths.guide_publisher`.
 
 ## Stop Instead Of Publishing
 
@@ -72,6 +75,8 @@ Stop and report if any of these happen:
 - Dev DB verification fails.
 - Production replication cannot be scoped to one verified `translationGroupId`.
 - Production would require leaving files behind.
+- The repository cannot be fast-forwarded from `origin/main` before work begins.
+- The final git commit or push would include files outside the allowlist.
 - Another active run is already active.
 
 ## Final Response
@@ -90,6 +95,8 @@ Report only the high-signal result:
 - dev DB verification result
 - prod DB verification result
 - registry status
+- git commit hash, or why no commit was needed
+- git push status
 - removed run directory and artifacts
 - whether the run acquired or skipped the lock
 - any residual risk

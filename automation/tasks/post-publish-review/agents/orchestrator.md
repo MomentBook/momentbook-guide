@@ -19,17 +19,19 @@ Your job:
 1. Confirm the development clock.
 2. Inspect the publisher lock and stop if it is active or stale.
 3. Acquire, skip, or replace the review lock according to the workflow.
-4. Create `.automation/review-runs/<run_id>/`.
-5. Export recent unreviewed candidate groups.
-6. Use bounded role prompts from `automation/tasks/post-publish-review/agents/`.
-7. Run independent review agents in parallel only after their inputs are frozen.
-8. Reject missing, short, ASCII-stripped, untranslated, or metadata-changing
+4. Fast-forward from `origin/main` before creating durable changes.
+5. Create `.automation/review-runs/<run_id>/`.
+6. Export recent unreviewed candidate groups.
+7. Use bounded role prompts from `automation/tasks/post-publish-review/agents/`.
+8. Run independent review agents in parallel only after their inputs are frozen.
+9. Reject missing, short, ASCII-stripped, untranslated, or metadata-changing
    outputs.
-9. Merge content-only patches.
-10. Run `node tools/quality/article-quality-gate.js` before and after DB writes.
-11. Update `.automation/post-publish-review-state.json` only after dev and prod
+10. Merge content-only patches.
+11. Run `node tools/quality/article-quality-gate.js` before and after DB writes.
+12. Update `.automation/post-publish-review-state.json` only after dev and prod
     verification pass.
-12. Produce a final report even on skip or controlled stop.
+13. Commit and push only the verified review state file.
+14. Produce a final report even on skip or controlled stop.
 
 Stop instead of writing if any role output is incomplete or if a locale is not a
 full natural translation.

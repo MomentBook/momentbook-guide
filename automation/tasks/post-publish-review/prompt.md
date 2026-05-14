@@ -58,8 +58,11 @@ Do not create or leave any lock or helper file on production.
    `automation/shared/content-repair-workflow.md`, `playbooks/authoring-guide.md`, and
    `registry/editorial-guide-registry.md`.
 2. Inspect the publisher lock and acquire the review lock.
-3. Create `.automation/review-runs/<run_id>/`.
-4. Export recent unreviewed candidate groups from dev:
+3. Update the repo before work with `git fetch origin main` and
+   `git pull --ff-only origin main`. Stop if the branch cannot fast-forward or
+   the workspace has disallowed changes that would be committed.
+4. Create `.automation/review-runs/<run_id>/`.
+5. Export recent unreviewed candidate groups from dev:
 
    ```sh
    node tools/repair/export-recent-article-groups.js \
@@ -70,33 +73,38 @@ Do not create or leave any lock or helper file on production.
      --out .automation/review-runs/<run_id>/01-candidate-groups.json
    ```
 
-5. If there are no candidate groups, update only the final report, remove the
+6. If there are no candidate groups, update only the final report, remove the
    review run directory and lock, and stop.
-6. For each candidate group, export the current dev records and production
+7. For each candidate group, export the current dev records and production
    records into `groups/<translationGroupId>/`.
-7. Run review work with bounded parallel agents:
+8. Run review work with bounded parallel agents:
    - first run the review planner for each group
    - after each plan is frozen, run the English readability editor, CJK
      localization reviewer, Latin localization reviewer, and SEA localization
      reviewer in parallel
    - after patches are merged, run QA gates in parallel
-8. Merge patches into `merged.content-patch.json`. The patch must include only
+9. Merge patches into `merged.content-patch.json`. The patch must include only
    `translationGroupId` and `updates[]` with `language`, `title`, and `body`.
-9. Validate a patched preview locally with:
+10. Validate a patched preview locally with:
 
    ```sh
    node tools/quality/article-quality-gate.js <patched-preview.json>
    ```
 
-10. Apply the content-only patch to dev only after every QA report and the
+11. Apply the content-only patch to dev only after every QA report and the
     automated quality gate pass.
-11. Export the group from dev and run the same quality gate.
-12. Apply the same content-only patch to production using DB-only execution.
-13. Export the group from production and run the same quality gate.
-14. Update `.automation/post-publish-review-state.json` for each verified
+12. Export the group from dev and run the same quality gate.
+13. Apply the same content-only patch to production using DB-only execution.
+14. Export the group from production and run the same quality gate.
+15. Update `.automation/post-publish-review-state.json` for each verified
     `translationGroupId`.
-15. Remove temporary scripts, generated payloads, backups, helper files, the run
+16. Remove temporary scripts, generated payloads, backups, helper files, the run
     directory, and the review lock created during the task.
+17. Commit and push the verified repository state: stage only
+    `.automation/post-publish-review-state.json`, commit if the staged diff is
+    non-empty, rebase on `origin/main` only if needed and conflict-free, then
+    push to `origin main`. Never stage locks, review run directories, exports,
+    payloads, backups, or helper files.
 
 ## Performance And Patch Rules
 
@@ -111,6 +119,8 @@ Do not create or leave any lock or helper file on production.
 - Prefer natural local writing over literal translation, but preserve every
   hard fact and warning from the verified group.
 - Run the same quality gate against dev and prod exports after applying.
+- Do not use broad git staging. Only stage paths listed in
+  `git_persistence.include_paths.post_publish_review`.
 
 ## Supported Languages
 
@@ -145,6 +155,8 @@ Stop and report if any of these happen:
 - Production replication cannot be scoped to the same verified
   `translationGroupId`.
 - Production would require leaving files behind.
+- The repository cannot be fast-forwarded from `origin/main` before work begins.
+- The final git commit or push would include files outside the allowlist.
 
 ## Final Response
 
@@ -162,6 +174,8 @@ Report only the high-signal result:
 - dev DB verification result
 - prod DB verification result
 - state-file update
+- git commit hash, or why no commit was needed
+- git push status
 - removed run directory and artifacts
 - whether the run acquired or skipped the lock
 - any residual risk

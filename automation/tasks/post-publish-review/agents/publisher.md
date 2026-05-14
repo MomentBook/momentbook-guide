@@ -31,5 +31,9 @@ Responsibilities:
 8. Export production after applying and run the same quality gate.
 9. Update `.automation/post-publish-review-state.json` only after dev and prod
    verification pass.
+10. Stage only `.automation/post-publish-review-state.json`.
+11. Commit the verified review state and push it to `origin main`.
 
-Stop if production cannot be updated without leaving files behind.
+Stop if production cannot be updated without leaving files behind. Stop rather
+than committing if git staging would include locks, review run directories,
+exports, previews, backups, or helper files.

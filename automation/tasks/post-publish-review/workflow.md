@@ -72,6 +72,10 @@ Required files:
 The run directory is temporary. Remove it after dev/prod verification unless a
 controlled stop needs evidence for diagnosis.
 
+Review run directories, locks, exported records, generated previews, backups,
+and helper scripts are not repository state. The only durable review state
+intended for git is `.automation/post-publish-review-state.json`.
+
 ## Lock Policy
 
 Acquire this review lock before doing any DB work:
@@ -113,6 +117,8 @@ Responsibilities:
   `automation/shared/content-repair-workflow.md`, `playbooks/authoring-guide.md`, and
   `registry/editorial-guide-registry.md`
 - inspect the publisher lock and acquire the review lock
+- update the repo with `git fetch origin main` and `git pull --ff-only origin
+  main` before creating durable changes
 - export recent candidate groups from dev
 - skip groups already marked as reviewed
 - run group review workers in parallel only with disjoint
@@ -122,6 +128,7 @@ Responsibilities:
 - merge content-only patches
 - run dev and prod quality gates
 - update `.automation/post-publish-review-state.json` only after verification
+- commit and push the allowlisted review state after successful verification
 - produce the final audit report
 
 ### Review Planner
@@ -217,6 +224,10 @@ Responsibilities:
 - run the same quality gate against production
 - update `.automation/post-publish-review-state.json`
 - remove temporary files and the review lock
+- stage only `.automation/post-publish-review-state.json`
+- commit the review state update with a message that includes the reviewed
+  `translationGroupId`
+- push the commit to `origin main`
 
 ## Parallel Execution Boundaries
 
@@ -233,6 +244,8 @@ Not allowed in parallel:
 - production repair before dev repair and dev quality gate pass
 - metadata changes by any worker
 - review while the publisher lock is active
+- git commit before dev/prod verification and state-file update
+- broad staging such as `git add .`
 
 ## Commands
 
@@ -265,6 +278,14 @@ Run the quality gate:
 node tools/quality/article-quality-gate.js <group.json>
 ```
 
+Persist verified review state:
+
+```sh
+git add .automation/post-publish-review-state.json
+git commit -m "Record guide review: <translationGroupId>"
+git push origin main
+```
+
 ## Stop Instead Of Writing
 
 Stop and report if any of these happen:
@@ -282,6 +303,8 @@ Stop and report if any of these happen:
 - production replication cannot be scoped to the same verified
   `translationGroupId`
 - production would require leaving files behind
+- the repository cannot be fast-forwarded from `origin/main` before work begins
+- the final git commit or push would include files outside the allowlist
 
 ## Required Final Report
 
@@ -297,5 +320,7 @@ The final report must include:
 - dev DB verification result
 - prod DB verification result
 - state-file update summary
+- git commit hash or no-op reason
+- git push status
 - removed run directory and temporary artifacts
 - residual risks

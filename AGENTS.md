@@ -25,6 +25,11 @@
 - If the user asks for production completion, do not stop at dev DB. Replicate only the verified `translationGroupId` to production DB and verify 9 records there too.
 - Keep temporary scripts and generated payloads out of the final workflow unless the user explicitly asks to preserve them.
 - If temporary files are needed to perform a DB write, remove them after verification and report what was removed.
+- Scheduled automation must commit and push only verified durable state after
+  dev/prod verification. Stage explicit allowlisted paths only; never use
+  broad staging.
+- Do not commit `.automation` locks, run directories, exported DB snapshots,
+  generated payloads, backups, or helper scripts.
 - Do not store secrets, credentials, Mongo URIs, API keys, or production host details beyond approved SSH command labels in this repository.
 - Historical logs under `logs/` are references, not current instructions.
 - Archived scripts under `tools/` may contain old paths; inspect and update them before reuse.
@@ -39,6 +44,8 @@
 - Run date, localization, and semantic parity gates before DB upsert.
 - Upsert into the active DB, verify 9 records by `translationGroupId`, then update the registry status.
 - If production is requested, connect with `ssh momentbook`, perform DB-only insert/upsert for the verified `translationGroupId`, verify 9 production records, then set registry status to `prod+dev`.
+- Commit and push the verified registry update after temporary artifacts and
+  locks are removed.
 - For scheduled automation, use the bounded role prompts under `automation/tasks/guide-publisher/agents/` and run `node tools/quality/article-quality-gate.js` before any DB write.
 - For post-publish review automation, use only content-only patches under the contract in `automation/tasks/post-publish-review/` and preserve `translationGroupId`, `slug`, `category`, `status`, `publishedAt`, and `createdAt`.
 
@@ -47,6 +54,8 @@
 - Prompts belong in `prompts/`.
 - Durable authoring procedures belong in `playbooks/`.
 - Mutable topic state belongs in `registry/`.
+- Durable review state may use `.automation/post-publish-review-state.json`.
+  Other `.automation` files are runtime-only.
 - Reusable or archived scripts belong in `tools/<stage>/`.
 - Generated JSON and DB exports belong in `artifacts/`.
 - Historical notes belong in `logs/`.

@@ -25,6 +25,8 @@ Asia/Seoul. The post-publish review automation should run one hour later at
 - Production scope is one verified `translationGroupId`.
 - Production writes are DB-only.
 - No temporary files should remain after verification.
+- Successful runs commit and push the verified registry update to `origin main`.
+- Git staging is allowlist-only; locks and run directories are never committed.
 - Overlapping runs are not allowed. Use the lock path in `automation/shared/environment.yaml`.
 - Stale locks older than the environment threshold may be replaced only when the recorded PID is not running.
 
@@ -86,4 +88,5 @@ The final report must include:
 - dev DB verification for the 9 language records
 - prod DB verification for the same 9 language records
 - final registry status
+- git commit hash and push status
 - removed artifact list

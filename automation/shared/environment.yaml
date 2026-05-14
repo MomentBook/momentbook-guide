@@ -133,6 +133,26 @@ registry_policy:
   status_after_dev_verification: dev
   status_after_prod_verification: prod+dev
 
+git_persistence:
+  enabled: true
+  remote: origin
+  branch: main
+  update_before_work: true
+  commit_after_successful_verification: true
+  push_after_commit: true
+  never_force_push: true
+  require_explicit_path_allowlist: true
+  include_paths:
+    guide_publisher:
+      - registry/editorial-guide-registry.md
+    post_publish_review:
+      - .automation/post-publish-review-state.json
+  exclude_paths:
+    - .automation/guide-publisher.lock
+    - .automation/post-publish-review.lock
+    - .automation/runs/
+    - .automation/review-runs/
+
 final_report:
   include:
     - topic
@@ -147,5 +167,7 @@ final_report:
     - dev_db_verification
     - prod_db_verification
     - registry_status
+    - git_commit
+    - git_push
     - removed_artifacts
     - residual_risks

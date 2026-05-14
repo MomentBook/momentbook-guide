@@ -111,3 +111,9 @@ work to role agents.
     Every run, including no-op and skip cases, reports lock state, target
     groups, phase outputs, gate results, DB verification, state updates, removed
     artifacts, and residual risks.
+
+13. Persist only intentional repository state.
+    After successful verification, stage only the allowlisted paths in
+    `automation/shared/environment.yaml`, commit with a message that names the
+    task and `translationGroupId`, then push to `origin main`. Never use
+    `git add .`, never commit locks or run directories, and never force-push.

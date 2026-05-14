@@ -39,6 +39,9 @@ Required files:
 The run directory is temporary. Remove it after dev/prod verification unless a
 controlled stop needs evidence for diagnosis.
 
+Run directories, locks, generated payloads, backups, and helper scripts are not
+repository state. They must not be staged for the final git commit.
+
 ## Lock Policy
 
 - Acquire `/home/ubuntu/app/momentbook-guide/.automation/guide-publisher.lock`
@@ -62,12 +65,15 @@ Responsibilities:
   `prompts/guide-publisher.md`, `playbooks/authoring-guide.md`, and
   `registry/editorial-guide-registry.md`
 - acquire or validate the lock
+- update the repo with `git fetch origin main` and `git pull --ff-only origin
+  main` before creating durable changes
 - create the run directory
 - launch independent agents in parallel when their inputs are frozen
 - keep subagent fan-out to one level and assign disjoint file ownership
 - reject outputs that do not match the handoff contract
 - run the automated quality gate before DB write
 - produce the final audit report
+- commit and push allowlisted repository changes after successful verification
 
 ### Registry Auditor
 
@@ -177,6 +183,10 @@ Responsibilities:
 - verify production parity
 - update the registry based on actual DB state
 - remove temporary files and the lock
+- stage only `registry/editorial-guide-registry.md`
+- commit the registry update with a message that includes the topic or
+  `translationGroupId`
+- push the commit to `origin main`
 
 ## Parallel Execution Boundaries
 
@@ -193,6 +203,8 @@ Not allowed in parallel:
 - localization before source pack and English master are frozen
 - DB write before all QA gates pass
 - production replication before dev DB verification
+- git commit before dev/prod DB verification and registry update
+- broad staging such as `git add .`
 
 ## Required Final Report
 
@@ -207,5 +219,7 @@ The final report must include:
 - dev DB verification
 - prod DB verification
 - registry status
+- git commit hash or no-op reason
+- git push status
 - removed run directory and temporary artifacts
 - residual risks

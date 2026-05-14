@@ -39,3 +39,12 @@ cd /home/ubuntu/app/momentbook-guide
 ```
 
 Production writes must remain DB-only and must be scoped to the single `translationGroupId` verified in development.
+
+After successful dev/prod verification, automations commit and push only
+allowlisted durable state:
+
+- guide publisher: `registry/editorial-guide-registry.md`
+- post-publish review: `.automation/post-publish-review-state.json`
+
+Locks, run directories, generated payloads, DB exports, backups, and temporary
+helper scripts are runtime artifacts and must not be committed.

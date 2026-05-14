@@ -46,10 +46,12 @@ previously spread across `/Users/hansol/workspace/ai`.
 7. Upsert the 9 language records directly into the active DB.
 8. If production completion is requested, replicate only the verified `translationGroupId` to production DB with no files left behind.
 9. Remove temporary working files and update the registry with the real DB state.
+10. Commit and push only the verified durable state.
 
 Post-publish review uses `automation/tasks/post-publish-review/workflow.md`.
 It only writes `title` and `body`, and it applies the same verified content
-patch to dev and production.
+patch to dev and production. After verification, it commits only
+`.automation/post-publish-review-state.json`.
 
 ## Migration Note
 

@@ -22,6 +22,12 @@ Production work for guide publication should be DB-only unless the user explicit
 
 Production guide replication must be scoped to the single `translationGroupId` verified in development for the current task. Do not copy "everything added this session" by time range unless the user explicitly provides and confirms that range.
 
+Successful scheduled runs commit and push only verified durable repository
+state after dev and production verification. Guide publication stages
+`registry/editorial-guide-registry.md`; post-publish review stages
+`.automation/post-publish-review-state.json`. Runtime locks, run directories,
+exports, payloads, backups, and temporary helper scripts stay out of git.
+
 ## Secret Handling
 
 Do not write credentials, database URLs, API keys, or environment-specific secret values into this workspace. Read environment config from the active application environment when needed.

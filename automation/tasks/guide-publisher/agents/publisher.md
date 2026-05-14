@@ -24,6 +24,10 @@ Responsibilities:
 - verify production has exactly the same 9 records
 - update the registry to match actual DB state
 - remove temporary files after verification
+- stage only `registry/editorial-guide-registry.md`
+- commit the verified registry update and push it to `origin main`
 
 Stop if the quality gate fails, if dev verification fails, or if production
-replication cannot be scoped to one verified `translationGroupId`.
+replication cannot be scoped to one verified `translationGroupId`. Stop rather
+than committing if git staging would include locks, run directories, payloads,
+backups, or helper files.
