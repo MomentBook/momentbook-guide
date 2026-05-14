@@ -114,6 +114,7 @@ work to role agents.
 
 13. Persist only intentional repository state.
     After successful verification, stage only the allowlisted paths in
-    `automation/shared/environment.yaml`, commit with a message that names the
-    task and `translationGroupId`, then push to `origin main`. Never use
-    `git add .`, never commit locks or run directories, and never force-push.
+    `automation/shared/environment.yaml`, commit as
+    `Codex <codex@openai.com>` with a message that names the task and
+    `translationGroupId`, then push to `origin main`. Never use `git add .`,
+    never commit locks or run directories, and never force-push.

@@ -27,6 +27,7 @@ state after dev and production verification. Guide publication stages
 `registry/editorial-guide-registry.md`; post-publish review stages
 `.automation/post-publish-review-state.json`. Runtime locks, run directories,
 exports, payloads, backups, and temporary helper scripts stay out of git.
+Automation commits use `Codex <codex@openai.com>` as both author and committer.
 
 ## Secret Handling
 

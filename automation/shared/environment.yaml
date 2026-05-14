@@ -137,6 +137,9 @@ git_persistence:
   enabled: true
   remote: origin
   branch: main
+  author_name: Codex
+  author_email: codex@openai.com
+  author: Codex <codex@openai.com>
   update_before_work: true
   commit_after_successful_verification: true
   push_after_commit: true

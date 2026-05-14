@@ -26,6 +26,7 @@ Asia/Seoul. The post-publish review automation should run one hour later at
 - Production writes are DB-only.
 - No temporary files should remain after verification.
 - Successful runs commit and push the verified registry update to `origin main`.
+- Commit author and committer: `Codex <codex@openai.com>`.
 - Git staging is allowlist-only; locks and run directories are never committed.
 - Overlapping runs are not allowed. Use the lock path in `automation/shared/environment.yaml`.
 - Stale locks older than the environment threshold may be replaced only when the recorded PID is not running.

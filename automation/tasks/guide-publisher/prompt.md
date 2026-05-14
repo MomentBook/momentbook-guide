@@ -50,7 +50,11 @@ This automation should run every 6 hours. Before doing any guide work, acquire t
 17. Verify production DB has the same 9 language records.
 18. Update the registry to the real final state, normally `prod+dev`.
 19. Remove temporary scripts, generated payloads, backups, helper files, the run directory, and the development lock created during the task.
-20. Commit and push the verified repository state: stage only `registry/editorial-guide-registry.md`, commit if the staged diff is non-empty, rebase on `origin/main` only if needed and conflict-free, then push to `origin main`. Never stage locks, run directories, payloads, backups, or helper files.
+20. Commit and push the verified repository state as `Codex <codex@openai.com>`:
+    stage only `registry/editorial-guide-registry.md`, commit if the staged
+    diff is non-empty, rebase on `origin/main` only if needed and
+    conflict-free, then push to `origin main`. Never stage locks, run
+    directories, payloads, backups, or helper files.
 
 ## Performance And Quality Rules
 
@@ -60,6 +64,8 @@ This automation should run every 6 hours. Before doing any guide work, acquire t
 - If a role output fails schema, depth, localization, or parity checks, repair the artifact and rerun the gate before moving forward.
 - Do not keep retrying without new evidence. Each retry must use a specific gate failure or source conflict as feedback.
 - Do not use broad git staging. Only stage paths listed in `git_persistence.include_paths.guide_publisher`.
+- Git commits created by this automation must use
+  `Codex <codex@openai.com>` as author and committer.
 
 ## Stop Instead Of Publishing
 

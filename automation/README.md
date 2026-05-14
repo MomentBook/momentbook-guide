@@ -48,3 +48,5 @@ allowlisted durable state:
 
 Locks, run directories, generated payloads, DB exports, backups, and temporary
 helper scripts are runtime artifacts and must not be committed.
+
+Automation commits use `Codex <codex@openai.com>` as both author and committer.

@@ -225,8 +225,8 @@ Responsibilities:
 - update `.automation/post-publish-review-state.json`
 - remove temporary files and the review lock
 - stage only `.automation/post-publish-review-state.json`
-- commit the review state update with a message that includes the reviewed
-  `translationGroupId`
+- commit the review state update as `Codex <codex@openai.com>` with a message
+  that includes the reviewed `translationGroupId`
 - push the commit to `origin main`
 
 ## Parallel Execution Boundaries
@@ -282,7 +282,9 @@ Persist verified review state:
 
 ```sh
 git add .automation/post-publish-review-state.json
-git commit -m "Record guide review: <translationGroupId>"
+git -c user.name=Codex -c user.email=codex@openai.com commit \
+  --author="Codex <codex@openai.com>" \
+  -m "Record guide review: <translationGroupId>"
 git push origin main
 ```
 

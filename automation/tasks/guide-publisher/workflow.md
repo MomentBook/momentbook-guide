@@ -184,8 +184,8 @@ Responsibilities:
 - update the registry based on actual DB state
 - remove temporary files and the lock
 - stage only `registry/editorial-guide-registry.md`
-- commit the registry update with a message that includes the topic or
-  `translationGroupId`
+- commit the registry update as `Codex <codex@openai.com>` with a message that
+  includes the topic or `translationGroupId`
 - push the commit to `origin main`
 
 ## Parallel Execution Boundaries

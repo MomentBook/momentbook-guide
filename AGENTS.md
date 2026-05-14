@@ -28,6 +28,8 @@
 - Scheduled automation must commit and push only verified durable state after
   dev/prod verification. Stage explicit allowlisted paths only; never use
   broad staging.
+- Scheduled automation commits must use `Codex <codex@openai.com>` as author
+  and committer.
 - Do not commit `.automation` locks, run directories, exported DB snapshots,
   generated payloads, backups, or helper scripts.
 - Do not store secrets, credentials, Mongo URIs, API keys, or production host details beyond approved SSH command labels in this repository.

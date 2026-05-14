@@ -100,11 +100,11 @@ Do not create or leave any lock or helper file on production.
     `translationGroupId`.
 16. Remove temporary scripts, generated payloads, backups, helper files, the run
     directory, and the review lock created during the task.
-17. Commit and push the verified repository state: stage only
-    `.automation/post-publish-review-state.json`, commit if the staged diff is
-    non-empty, rebase on `origin/main` only if needed and conflict-free, then
-    push to `origin main`. Never stage locks, review run directories, exports,
-    payloads, backups, or helper files.
+17. Commit and push the verified repository state as `Codex <codex@openai.com>`:
+    stage only `.automation/post-publish-review-state.json`, commit if the
+    staged diff is non-empty, rebase on `origin/main` only if needed and
+    conflict-free, then push to `origin main`. Never stage locks, review run
+    directories, exports, payloads, backups, or helper files.
 
 ## Performance And Patch Rules
 
@@ -121,6 +121,8 @@ Do not create or leave any lock or helper file on production.
 - Run the same quality gate against dev and prod exports after applying.
 - Do not use broad git staging. Only stage paths listed in
   `git_persistence.include_paths.post_publish_review`.
+- Git commits created by this automation must use
+  `Codex <codex@openai.com>` as author and committer.
 
 ## Supported Languages
 
