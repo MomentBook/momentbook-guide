@@ -31,10 +31,10 @@ Responsibilities:
 8. Export production after applying and run the same quality gate.
 9. Update `.automation/post-publish-review-state.json` only after dev and prod
    verification pass.
-10. Stage only `.automation/post-publish-review-state.json`.
-11. Commit the verified review state as `Codex <codex@openai.com>` and push it
-    to `origin main`.
+10. Remove runtime artifacts and locks unless needed for diagnosis.
+11. Do not stage, commit, or push. Git persistence is handled by
+    `automation/tasks/repo-persistence/`.
 
 Stop if production cannot be updated without leaving files behind. Stop rather
-than committing if git staging would include locks, review run directories,
-exports, previews, backups, or helper files.
+than writing state if runtime outputs include locks, review run directories,
+exports, previews, backups, or helper files that still need diagnosis.

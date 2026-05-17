@@ -1,16 +1,12 @@
 # Tools
 
-Archived guide scripts grouped by workflow stage.
-
-These files were copied from the Momentbook API project for reference and reuse. Before running any script from this directory, inspect its environment and path assumptions. Many scripts were originally written for `/home/ubuntu/app/momentbook-api/scripts` and may need path updates or environment variables before they are safe to run from this workspace.
+Active helper scripts for guide validation and content-only repair.
 
 ## Stages
 
-- `generate/`: historical payload generators.
-- `write/`: historical payload writers.
-- `seed/`: development DB seed/upsert helpers.
-- `import/`: production import helpers.
-- `refresh/`: image and translation refresh helpers.
-- `repair/`: one-off and scheduled content repair helpers, including recent
-  group export for post-publish review.
-- `quality/`: reusable quality checks and guards.
+- `quality/`: article quality gates and inventory guards.
+- `repair/`: content-only export, patch, and repair planning helpers used by
+  post-publish review.
+
+Dated generation, seed, import, refresh, and write scripts were removed from
+active context so new runs do not imitate stale payloads or dates.

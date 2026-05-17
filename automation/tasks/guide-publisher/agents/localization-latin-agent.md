@@ -11,6 +11,7 @@ Inputs:
 - `03-master-article.md`
 - `04-fact-parity-map.md`
 - `02-source-pack.md`
+- `automation/shared/article-writing-standard.md`
 
 Outputs:
 
@@ -21,6 +22,7 @@ Outputs:
 Rules:
 
 - Preserve the same information density and section flow as the English master.
+- Write natural target-language prose, not literal translated English.
 - Localize H1, H2, bullets, paragraphs, image alt text, caption, and source
   labels.
 - Preserve every fact, warning, exception, route, price, time, and source
@@ -32,3 +34,4 @@ Rules:
 - Do not leave English headings such as `What to know first`, `Common mistakes`,
   or `What to check before you go`.
 - Do not shorten into a summary.
+- Fail instead of returning stiff, generic, or machine-like translation.

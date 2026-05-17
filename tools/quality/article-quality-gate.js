@@ -102,6 +102,35 @@ const ENGLISH_HEADING_LEAKS = [
 
 const PROSE_CASE_LANGUAGES = new Set(['en', 'es', 'pt', 'fr', 'vi']);
 
+const MAX_PARAGRAPH_CHARS = {
+  en: 850,
+  es: 900,
+  pt: 900,
+  fr: 900,
+  vi: 900,
+  ko: 520,
+  ja: 520,
+  zh: 460,
+  th: 1100,
+};
+
+const PLACEHOLDER_HEADING_PATTERNS = [
+  /^overview$/iu,
+  /^details$/iu,
+  /^more information$/iu,
+  /^practical decision section$/iu,
+  /^timing or route section$/iu,
+  /^rules or exceptions section$/iu,
+  /^access, ticket, reservation, or route decision$/iu,
+];
+
+const HYPE_PATTERNS = [
+  /\bultimate guide\b/iu,
+  /\bhidden gem\b/iu,
+  /\bmust[- ]see\b/iu,
+  /\bbucket list\b/iu,
+];
+
 function readInput() {
   const file = process.argv[2];
   const raw = file ? fs.readFileSync(file, 'utf8') : fs.readFileSync(0, 'utf8');
@@ -147,6 +176,68 @@ function h2Headings(body) {
     .split('\n')
     .filter((line) => /^##\s+\S/.test(line))
     .map((line) => line.replace(/^##\s+/, '').trim());
+}
+
+function isProseLine(line) {
+  const value = String(line || '').trim();
+  return Boolean(value) &&
+    !value.startsWith('#') &&
+    !value.startsWith('![') &&
+    !value.startsWith('*') &&
+    !value.startsWith('- ') &&
+    !value.startsWith('|') &&
+    !value.startsWith('>') &&
+    !/^source:/iu.test(value) &&
+    !/^\d+[.)]\s/.test(value);
+}
+
+function proseParagraphs(body) {
+  return String(body || '')
+    .split(/\n\s*\n/)
+    .map((block) => block
+      .split('\n')
+      .map((line) => line.trim())
+      .filter(isProseLine)
+      .join(' ')
+      .trim())
+    .filter(Boolean);
+}
+
+function introParagraphs(body) {
+  const beforeFirstH2 = String(body || '').split(/^##\s+/m)[0] || '';
+  return proseParagraphs(beforeFirstH2);
+}
+
+function sectionBodyByHints(language, body, hintMap) {
+  const hints = hintMap[language] || [];
+  const lines = String(body || '').split('\n');
+  let start = -1;
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    if (/^##\s+\S/.test(line) && hints.some((pattern) => pattern.test(line))) {
+      start = index + 1;
+      break;
+    }
+  }
+  if (start === -1) {
+    return '';
+  }
+
+  const section = [];
+  for (let index = start; index < lines.length; index += 1) {
+    if (/^##\s+\S/.test(lines[index])) {
+      break;
+    }
+    section.push(lines[index]);
+  }
+  return section.join('\n');
+}
+
+function bulletCount(value) {
+  return String(value || '')
+    .split('\n')
+    .filter((line) => /^\s*[-*]\s+\S/.test(line))
+    .length;
 }
 
 function substantiveH2Count(body, language) {
@@ -245,8 +336,20 @@ function validateRecord(record, groupPublishedAt, now) {
     failures.push(`expected at least 6 substantive H2 sections, found ${h2Count}`);
   }
 
+  const placeholderHeadings = h2Headings(body).filter((heading) =>
+    PLACEHOLDER_HEADING_PATTERNS.some((pattern) => pattern.test(heading)),
+  );
+  if (placeholderHeadings.length > 0) {
+    failures.push(`placeholder or generic H2 heading: ${placeholderHeadings.join(', ')}`);
+  }
+
   if (!hasRequiredSection(language, body)) {
     failures.push('missing localized what-to-know-first section');
+  } else {
+    const count = bulletCount(sectionBodyByHints(language, body, REQUIRED_SECTION_HINTS));
+    if (count < 5 || count > 7) {
+      failures.push(`what-to-know-first section should have 5-7 bullets, found ${count}`);
+    }
   }
 
   if (!hasSourceSection(language, body)) {
@@ -262,6 +365,26 @@ function validateRecord(record, groupPublishedAt, now) {
 
   if (PROSE_CASE_LANGUAGES.has(language) && startsWithLowercaseLetter(firstProseParagraph(body))) {
     failures.push('first prose paragraph starts with a lowercase letter');
+  }
+
+  const intros = introParagraphs(body);
+  if (intros.length < 2) {
+    failures.push(`expected at least 2 intro prose paragraphs before first H2, found ${intros.length}`);
+  }
+
+  const maxParagraph = MAX_PARAGRAPH_CHARS[language];
+  if (maxParagraph) {
+    const longParagraph = proseParagraphs(body).find((paragraph) => paragraph.length > maxParagraph);
+    if (longParagraph) {
+      failures.push(`paragraph is too long for scan-first reading: ${longParagraph.length} chars, maximum ${maxParagraph}`);
+    }
+  }
+
+  if (language === 'en') {
+    const hypeHits = HYPE_PATTERNS.filter((pattern) => pattern.test(text)).length;
+    if (hypeHits > 0) {
+      failures.push(`hype or generic travel phrase detected: ${hypeHits}`);
+    }
   }
 
   const depth = MIN_DEPTH[language];

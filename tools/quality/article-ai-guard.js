@@ -8,7 +8,7 @@ function assertArticleAiDisabled(scriptPath) {
     [
       `OpenAI article generation is disabled for ${scriptName}.`,
       'Article writing and translation must not call OpenAI.',
-      'Use the source-backed write-* scripts or manually curated content instead.',
+      'Use the current source pack, fact parity map, and manual article workflow instead.',
     ].join(' '),
   );
 }

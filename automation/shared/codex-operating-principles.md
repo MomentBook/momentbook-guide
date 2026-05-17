@@ -1,120 +1,93 @@
-# Codex Operating Principles For Momentbook Automation
+# Codex Operating Principles
 
-This file is the shared operating layer for scheduled Momentbook guide
-automation. Each task-specific prompt should read this file before it delegates
-work to role agents.
+Shared rules for scheduled Momentbook guide automation.
 
-## Research Basis
+## Basis
 
-- Codex automations are intended for recurring background work. OpenAI's
-  automation docs emphasize independent project automations, reviewable outputs,
-  explicit schedules, and durable prompts:
-  https://developers.openai.com/codex/app/automations
-- OpenAI's general automation guide says recurring tasks should be specific,
-  repeatable, and easy to review:
-  https://openai.com/academy/codex-automations/
-- Codex best practices recommend prompts that state goal, context,
-  constraints, and "done when" criteria:
-  https://developers.openai.com/codex/learn/best-practices
-- Codex reads `AGENTS.md` as persistent project guidance, with narrower files
-  overriding broader guidance:
-  https://developers.openai.com/codex/guides/agents-md
-- Subagents are useful for moving noisy work out of the main thread, running
-  specialized work in parallel, and returning distilled results; OpenAI warns
-  that write-heavy parallel work needs stricter coordination:
-  https://developers.openai.com/codex/concepts/subagents
-- Custom agents should be narrow and opinionated, with clear tool surfaces and
-  instructions that stop them from drifting:
-  https://developers.openai.com/codex/subagents
-- For long-horizon work, OpenAI recommends externalized state in durable files:
-  prompt/spec, plan, implementation runbook, validation commands, and status
-  log:
-  https://developers.openai.com/blog/run-long-horizon-tasks-with-codex
-- The Codex agent loop works best when the agent can plan, act with tools,
-  observe results, and repair based on feedback:
-  https://openai.com/index/unrolling-the-codex-agent-loop/
-- OpenAI's iterative repair-loop cookbook frames reliable automation as
-  review, repair, and validate phases with structured handoffs:
-  https://developers.openai.com/cookbook/examples/codex/build_iterative_repair_loops_with_codex
-- OpenAI's model docs currently recommend `gpt-5.5` for complex reasoning and
-  coding, and smaller variants such as `gpt-5.4-mini` for lower-latency,
-  lower-cost supporting work:
-  https://developers.openai.com/api/docs/models
-- Research on agentic coding-tool configuration finds that repository-level
-  context files are the dominant configuration mechanism and that `AGENTS.md`
-  is emerging as an interoperable standard:
-  https://arxiv.org/abs/2602.14690
-- CI/CD reliability research on agentic PRs reports high but imperfect
-  workflow success for Codex, which supports keeping explicit validation gates
-  rather than trusting agent output alone:
-  https://arxiv.org/abs/2604.18334
-- Community reports about Codex subagents repeatedly point to the same practical
-  risk: subagents help exploration, but under-scoped context can make them
-  drift. For this repository, every subagent must receive frozen inputs,
-  ownership boundaries, and an output schema.
+This contract follows these sources:
 
-## Shared Rules
+- OpenAI Codex automations: recurring tasks should be durable, reviewable, and
+  tested before scheduling.
+  <https://developers.openai.com/codex/app/automations>
+- OpenAI Codex best practices: strong prompts state goal, context, constraints,
+  and done criteria.
+  <https://developers.openai.com/codex/learn/best-practices>
+- OpenAI `AGENTS.md` guidance: repository instructions are persistent project
+  context and closer files override broader files.
+  <https://developers.openai.com/codex/guides/agents-md>
+- OpenAI subagent guidance: parallel agents help with read-heavy or bounded
+  work, but write-heavy parallelism needs ownership boundaries.
+  <https://developers.openai.com/codex/concepts/subagents>
+- OpenAI long-horizon guidance: reliable long runs use durable spec, plan,
+  runbook, validation, and status files.
+  <https://developers.openai.com/blog/run-long-horizon-tasks-with-codex>
+- OpenAI repair-loop guidance: trustworthy automation separates review, repair,
+  and validation with structured records.
+  <https://developers.openai.com/cookbook/examples/codex/build_iterative_repair_loops_with_codex>
+- Agent configuration research: repository context files such as `AGENTS.md`
+  are the dominant agent configuration mechanism, while advanced mechanisms
+  still need clear scope.
+  <https://arxiv.org/abs/2602.14690>
+- CI/CD agent reliability research: agentic changes can succeed at high rates
+  but still need validation gates and reviewable evidence.
+  <https://arxiv.org/abs/2604.18334>
 
-1. Keep task contracts file-based.
-   Each automation has a task directory with its own prompt, workflow, agents,
-   and runbook. Cross-task policy belongs in `automation/shared/`.
+## Rules
 
-2. Start with a bounded run state.
-   Every scheduled run creates a run directory, writes a state file first, and
-   records decisions, locks, candidate IDs, and validation outputs there.
+1. Keep each task independent.
+   A scheduled run must be able to start from its prompt, workflow, environment
+   contract, and durable state files without relying on chat history.
 
-3. Use the main agent as orchestrator.
-   The main agent owns requirements, locks, phase ordering, conflict handling,
-   and the final report. Role agents own narrow work products.
+2. Use one source of truth per concern.
+   `AGENTS.md` defines repo behavior, `environment.yaml` defines machine
+   contract and schedules, task prompts define goals, workflows define steps,
+   `automation/shared/article-writing-standard.md` defines readability and
+   localization quality, and `playbooks/authoring-guide.md` defines article
+   schema and source policy.
 
-4. Parallelize only after inputs are frozen.
-   Source verification can run in parallel by source. Localization can run in
-   parallel only after the English master and fact parity map are frozen.
-   Review patches can run in parallel only when each agent owns disjoint
-   languages or disjoint `translationGroupId`s.
+3. Start every run with state.
+   Record runtime clock, lock state, target IDs, candidate IDs, and validation
+   output under that task's `.automation/` run directory.
 
-5. Avoid nested fan-out.
-   Use one orchestration level. A delegated role agent should not spawn its own
-   subagents unless the workflow explicitly says so.
+4. Orchestrate before delegating.
+   The main agent owns locks, phase order, stop decisions, and the final report.
+   Role agents receive frozen inputs, narrow ownership, and expected output
+   paths.
 
-6. Prefer stronger models for judgment.
-   Use the automation-level `gpt-5.5` with high or xhigh reasoning for
-   orchestration, source-supported writing, factual parity, localization
-   judgment, and final QA. Use faster/lower-cost workers only for read-only
-   scans or mechanical summaries.
+5. Parallelize only bounded work.
+   Source checks may run in parallel by source. Localization may run in parallel
+   after the English master and fact parity map are frozen. Review patches may
+   run in parallel only by disjoint language sets or disjoint
+   `translationGroupId`s.
+
+6. Do not nest fan-out.
+   A delegated role agent should not spawn more agents unless the workflow
+   explicitly requires it.
 
 7. Treat official sources as hard constraints.
-   Do not invent prices, hours, route names, rules, or dates. If official
-   sources conflict or are unavailable, stop or express the uncertainty as a
-   recheck item.
+   Do not invent or smooth over prices, hours, rules, routes, booking terms,
+   closure risks, or dates. Stop when sources are unavailable or conflicting.
 
-8. Preserve semantic parity.
-   Translation is not summarization. Every supported language must carry the
-   same hard facts, warnings, source meaning, image meaning, and decision
-   points.
+8. Keep old memory out of active work.
+   Do not search for old generated articles, old run logs, old batch plans, or
+   dated helper scripts as examples. Use current sources and current DB exports.
 
-9. Make output machine-checkable.
-   Handoffs must use named files and stable schemas where possible. DB writes
-   happen only after automated gates and role QA pass.
+9. Preserve semantic parity.
+   Each supported language must keep the same facts, warnings, source meaning,
+   image meaning, and decision points.
 
-10. Repair by loop, not by hope.
-    For generated or reviewed content, run review -> focused patch -> preview
-    validation -> DB write -> export -> validation. Failed validation feeds the
-    next repair input or stops the run.
+10. Validate before writing.
+   DB writes require passing automated quality gates and role QA. Failed gates
+   feed a repair loop or stop the run.
 
 11. Keep production clean.
-    Production writes are DB-only and scoped to a verified
-    `translationGroupId`. Do not leave scripts, payloads, backups, or helper
-    files on production.
+    Production work is DB-only, scoped to one verified `translationGroupId`,
+    and leaves no files behind.
 
-12. Final reports are audit artifacts.
-    Every run, including no-op and skip cases, reports lock state, target
-    groups, phase outputs, gate results, DB verification, state updates, removed
-    artifacts, and residual risks.
+12. Separate DB work from git work.
+    Guide publication and post-publish review do not stage, commit, or push.
+    Repo persistence is the only task that commits durable state.
 
-13. Persist only intentional repository state.
-    Guide publication and post-publish review tasks update local durable files
-    but do not stage, commit, or push. The separate repo persistence task stages
-    only the allowlisted paths in `automation/shared/environment.yaml`, commits
-    as `Codex <codex@openai.com>`, then pushes to `origin main`. Never use
-    `git add .`, never commit locks or run directories, and never force-push.
+13. Make the final report an audit record.
+    Report target IDs, gate results, DB verification, durable files changed,
+    removed artifacts, git deferral or commit status, and residual risks.

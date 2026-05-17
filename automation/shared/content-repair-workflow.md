@@ -4,6 +4,9 @@ Use this workflow when existing guide articles must be repaired after
 publication. It is separate from new guide generation because the primary risk
 is accidental metadata drift on already indexed URLs.
 
+Use `automation/shared/article-writing-standard.md` as the quality target for
+readability and localization naturalness.
+
 ## Scope
 
 Repair work is always grouped by `translationGroupId`.

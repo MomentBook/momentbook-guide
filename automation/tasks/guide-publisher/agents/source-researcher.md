@@ -25,7 +25,8 @@ Include:
 Rules:
 
 - Do not write article prose.
-- Do not invent or reuse a hardcoded checked date from an old markdown file.
+- Do not invent or reuse a hardcoded checked date from any stale note or old
+  markdown file.
   The checked date must be the actual local date when the source is checked,
   normally the provided `runtimeWrittenDate`.
 - Do not use unofficial sources for hard facts when an official source is

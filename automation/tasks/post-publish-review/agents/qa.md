@@ -10,6 +10,7 @@ Inputs:
 - `groups/<translationGroupId>/review-plan.md`
 - `groups/<translationGroupId>/merged.content-patch.json`
 - `automation/shared/content-repair-workflow.md`
+- `automation/shared/article-writing-standard.md`
 - `playbooks/authoring-guide.md`
 
 Write one report under `groups/<translationGroupId>/qa/` for your assigned
@@ -20,6 +21,8 @@ Review dimensions:
 - patch shape and forbidden metadata fields
 - markdown structure, H1/H2, image, source section, and depth
 - readability improvement without unsupported expansion
+- practical opening, useful headings, paragraph length, and checklist value
+- translation naturalness, not only structural completeness
 - language script and diacritics
 - English placeholder leakage
 - image alt/caption localization

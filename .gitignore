@@ -1,8 +1,3 @@
 .automation/*
 !.automation/
 !.automation/post-publish-review-state.json
-
-# Local repair/export scratch from automation runs. Curated snapshots can still
-# be committed by removing or narrowing these patterns intentionally.
-artifacts/exports/repair-*/
-artifacts/exports/tmp-*/

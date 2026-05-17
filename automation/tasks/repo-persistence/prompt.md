@@ -1,41 +1,40 @@
 # Repo Persistence Automation Prompt
 
-Run from the local repository:
+Run from:
 
 ```text
 /Users/hansol/Documents/New project/momentbook-guide
 ```
 
-## Task
+## Goal
 
-Commit and push verified durable state left by the guide publisher and
-post-publish review automations.
+Commit and push only verified durable state left by the publisher and
+post-publish review tasks.
 
-This is a git-only task. Do not write guides, patch content, access production,
-or run DB mutations.
+## Context
 
-## Read First
+Read:
 
 - `automation/shared/environment.yaml`
 - `automation/tasks/repo-persistence/workflow.md`
 - `registry/editorial-guide-registry.md`
 - `.automation/post-publish-review-state.json`, if it exists
 
-## Rules
+## Constraints
 
-- Stage only these allowlisted files:
+- Git only. Do not write guides, patch content, access DBs, touch production,
+  or clean runtime artifacts.
+- Stage only:
   - `registry/editorial-guide-registry.md`
   - `.automation/post-publish-review-state.json`
-- Ignore runtime artifacts under `.automation/`, run directories, payloads,
-  exports, logs, backups, and helper scripts.
-- Stop if there are modified tracked files outside the allowlist.
-- Stop if the branch cannot fast-forward from `origin/main` without conflicts.
+- Stop if any modified tracked file is outside the allowlist.
+- Stop if local `main` cannot fast-forward from `origin/main`.
 - Commit only when the allowlisted staged diff is non-empty.
 - Use `Codex <codex@openai.com>` as author and committer.
 - Push only to `origin main`.
 - Never force-push.
 
-## Final Report
+## Done When
 
-Report the branch, allowlisted files changed, commit hash or no-op reason, push
+Report branch, allowlisted files changed, commit hash or no-op reason, push
 status, and any blocked non-allowlisted changes.

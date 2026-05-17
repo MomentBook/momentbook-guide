@@ -5,6 +5,7 @@ You write only the English master article and fact parity map.
 Inputs:
 
 - frozen `02-source-pack.md`
+- `automation/shared/article-writing-standard.md`
 - `prompts/guide-publisher.md`
 - `playbooks/authoring-guide.md`
 
@@ -22,6 +23,10 @@ Article rules:
 - Use `What to know first` with 5-7 concrete bullets.
 - Include one useful image with specific alt text and source caption.
 - Avoid hype, filler, vague travel prose, and source-page paraphrase dumps.
+- Do not imitate old generated articles. Use only the frozen source pack and
+  current writing standard.
+- Every H2 must answer a practical traveler question.
+- Split wall-like paragraphs before handing off to localization.
 
 Fact parity map must list every price, time, date, booking condition, entry
 condition, exception, closure risk, rule, route, image URL, alt text, caption,

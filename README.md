@@ -1,64 +1,55 @@
 # Momentbook Guide
 
-Momentbook editorial guide writing workspace.
+Local workspace for Momentbook guide publication, post-publish review, and
+automation state persistence.
 
-Canonical local location: `/Users/hansol/Documents/New project/momentbook-guide`
+Canonical path:
 
-This project gathers the reusable guide prompt, authoring rules, registry,
-previous writing logs, generation scripts, and exported payloads that were
-previously spread across `/Users/hansol/workspace/ai`.
+```text
+/Users/hansol/Documents/New project/momentbook-guide
+```
 
-## Start Here
+## What This Repo Does
 
-- Agent instructions: `AGENTS.md`
-- Claude Code bridge: `CLAUDE.md`
-- Main reusable prompt: `prompts/guide-publisher.md`
-- Guide publisher automation: `automation/tasks/guide-publisher/prompt.md`
-- Post-publish review automation: `automation/tasks/post-publish-review/prompt.md`
-- Git persistence automation: `automation/tasks/repo-persistence/prompt.md`
-- Shared Codex automation principles: `automation/shared/codex-operating-principles.md`
-- Authoring rules: `playbooks/authoring-guide.md`
-- Canonical registry: `registry/editorial-guide-registry.md`
-- Structure rationale: `docs/architecture/ai-workspace-structure.md`
-- Development server access: `ssh momentbook-dev`
-- Production server access: `ssh momentbook`
+1. Publishes one source-backed travel guide at a time.
+2. Reviews recently published guides for readability and localization quality.
+3. Commits only verified durable state after DB verification is complete.
 
-## Project Layout
+The active automation contracts are:
 
-- `prompts/`: reusable agent prompts and specialist prompt templates.
-- `automation/shared/`: shared environment, Codex operating principles, and repair policy.
-- `automation/tasks/guide-publisher/`: new-guide publication automation prompt, workflow, role prompts, and runbook.
-- `automation/tasks/post-publish-review/`: review-and-localization polish automation prompt, workflow, and role prompts.
-- `automation/tasks/repo-persistence/`: git-only commit and push automation.
-- `registry/`: mutable source of truth for guide topics and publication state.
-- `playbooks/`: human-readable procedures, authoring policy, and planning notes.
-- `tools/`: archived scripts grouped by lifecycle stage: generate, write, seed, import, refresh, repair, quality.
-- `artifacts/`: archived generated payloads and DB export snapshots.
-- `logs/`: historical AI work logs, guide sync notes, and old temporary session helpers.
-- `ops/`: environment notes and operational command references without secrets.
-- `docs/architecture/`: design rationale for this workspace.
+- `automation/tasks/guide-publisher/prompt.md`
+- `automation/tasks/post-publish-review/prompt.md`
+- `automation/tasks/repo-persistence/prompt.md`
 
-## Common Workflow
+## Source Of Truth
 
-1. Read `prompts/guide-publisher.md`.
-2. Read `playbooks/authoring-guide.md`.
-3. Check `registry/editorial-guide-registry.md`.
-4. Write and validate the guide against the prompt quality gates.
-5. For scheduled publishing, split source research, master writing, localization, QA, and publishing using `automation/tasks/guide-publisher/workflow.md`.
-6. Run `node tools/quality/article-quality-gate.js` against the article payload before any DB write.
-7. Upsert the 9 language records directly into the active DB.
-8. If production completion is requested, replicate only the verified `translationGroupId` to production DB with no files left behind.
-9. Remove temporary working files and update the registry with the real DB state.
-10. Leave commit and push to `automation/tasks/repo-persistence/`, which runs
-    one hour after post-publish review.
+- Project instructions: `AGENTS.md`
+- Environment and schedules: `automation/shared/environment.yaml`
+- Codex automation rules: `automation/shared/codex-operating-principles.md`
+- Writing and localization standard: `automation/shared/article-writing-standard.md`
+- Authoring and localization policy: `playbooks/authoring-guide.md`
+- Topic and publication state: `registry/editorial-guide-registry.md`
 
-Post-publish review uses `automation/tasks/post-publish-review/workflow.md`.
-It only writes `title` and `body`, and it applies the same verified content
-patch to dev and production. After verification, it updates only
-`.automation/post-publish-review-state.json`; git persistence is separate.
+Old generated articles, logs, import payloads, and dated batch plans were
+removed from active context. Use the registry and live DB verification for
+state, not old examples.
 
-## Migration Note
+## Current Schedule
 
-This repository was copied from the development environment to the local
-notebook. The local checkout is now the automation entrypoint; SSH is used only
-when the task needs development or production environment access.
+Asia/Seoul:
+
+- guide publisher: 03:00, 09:00, 15:00, 21:00
+- post-publish review: 04:00, 10:00, 16:00, 22:00
+- repo persistence: 05:00, 11:00, 17:00, 23:00
+
+## Operating Model
+
+- New guide publication writes verified guide records to dev and, when required,
+  production. It updates the local registry but does not commit.
+- Post-publish review applies content-only `title` and `body` patches to dev
+  and production. It updates only the review state file and does not commit.
+- Repo persistence is git-only. It stages only the allowlisted durable files,
+  commits as `Codex <codex@openai.com>`, and pushes to `origin main`.
+
+Development access uses `ssh momentbook-dev`. Production access uses
+`ssh momentbook` and must remain DB-only for one verified `translationGroupId`.

@@ -8,6 +8,7 @@ Read first:
 - `AGENTS.md`
 - `automation/shared/environment.yaml`
 - `automation/shared/codex-operating-principles.md`
+- `automation/shared/article-writing-standard.md`
 - `automation/tasks/guide-publisher/workflow.md`
 - `automation/tasks/guide-publisher/prompt.md`
 - `prompts/guide-publisher.md`
@@ -24,7 +25,8 @@ Your job:
    `.automation/runs/<run_id>/00-run-state.json`.
 5. Use bounded role prompts from `automation/tasks/guide-publisher/agents/`.
 6. Run independent role agents in parallel only after their inputs are frozen.
-7. Reject missing, short, ASCII-stripped, or untranslated locale outputs.
+7. Reject unreadable, generic, missing, short, ASCII-stripped, literal-machine,
+   or untranslated locale outputs.
 8. Run `node tools/quality/article-quality-gate.js payload/articles.json`.
 9. Publish only after every QA report and the automated quality gate pass.
 10. Update durable local registry state when verification passes.

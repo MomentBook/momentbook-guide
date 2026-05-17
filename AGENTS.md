@@ -1,66 +1,70 @@
 # Momentbook Guide Agent Instructions
 
-## Project Purpose
+## Purpose
 
-- This workspace exists to operate Momentbook editorial guide writing, validation, registry maintenance, and DB publication.
-- Canonical local location: `/Users/hansol/Documents/New project/momentbook-guide`.
-- Active application code and DB helpers may still live in `/home/ubuntu/app/momentbook-api` and `/home/ubuntu/app/momentbook-web`.
+This repository is the local operating manual for Momentbook guide publication,
+post-publish review, and git persistence automation.
 
-## Start Points
+Canonical local path:
 
-- Main publication prompt: `prompts/guide-publisher.md`
-- Automation prompt: `automation/tasks/guide-publisher/prompt.md`
-- Automation environment contract: `automation/shared/environment.yaml`
-- Shared Codex automation principles: `automation/shared/codex-operating-principles.md`
-- Scheduled automation workflow: `automation/tasks/guide-publisher/workflow.md`
-- Post-publish review prompt: `automation/tasks/post-publish-review/prompt.md`
-- Repo persistence prompt: `automation/tasks/repo-persistence/prompt.md`
+```text
+/Users/hansol/Documents/New project/momentbook-guide
+```
+
+## Start Here
+
+- New guide publication: `automation/tasks/guide-publisher/prompt.md`
+- Post-publish review: `automation/tasks/post-publish-review/prompt.md`
+- Git persistence: `automation/tasks/repo-persistence/prompt.md`
+- Shared environment contract: `automation/shared/environment.yaml`
+- Shared Codex automation rules: `automation/shared/codex-operating-principles.md`
+- Writing and localization standard: `automation/shared/article-writing-standard.md`
 - Authoring policy: `playbooks/authoring-guide.md`
-- Topic registry: `registry/editorial-guide-registry.md`
-- Structure rationale: `docs/architecture/ai-workspace-structure.md`
+- Topic and publication ledger: `registry/editorial-guide-registry.md`
 
-## Operating Rules
+Old generated articles, run logs, batch plans, import payloads, and dated helper
+scripts are intentionally not part of this repository's active context.
 
-- Treat `registry/editorial-guide-registry.md` as the canonical topic and status ledger.
-- Do not consider a guide complete until the active environment DB has all 9 language records.
-- If the user asks for production completion, do not stop at dev DB. Replicate only the verified `translationGroupId` to production DB and verify 9 records there too.
-- Keep temporary scripts and generated payloads out of the final workflow unless the user explicitly asks to preserve them.
-- If temporary files are needed to perform a DB write, remove them after verification and report what was removed.
-- Guide publisher and post-publish review automations must not commit or push.
-- The repo persistence automation runs later and commits only verified durable
-  state. Stage explicit allowlisted paths only; never use broad staging.
-- Repo persistence commits must use `Codex <codex@openai.com>` as author and
-  committer.
-- Do not commit `.automation` locks, run directories, exported DB snapshots,
-  generated payloads, backups, or helper scripts.
-- Do not store secrets, credentials, Mongo URIs, API keys, or production host details beyond approved SSH command labels in this repository.
-- Historical logs under `logs/` are references, not current instructions.
-- Archived scripts under `tools/` may contain old paths; inspect and update them before reuse.
+## Non-Negotiable Rules
 
-## Guide Publication Checklist
+1. Treat `registry/editorial-guide-registry.md` as the source of truth for
+   topic coverage and final publication state.
+2. A guide is not complete until the active DB has exactly 9 records for the
+   same `translationGroupId`: `ko`, `en`, `ja`, `zh`, `es`, `pt`, `fr`, `th`,
+   and `vi`.
+3. Time-sensitive facts must be checked from official sources on the run date.
+   Do not invent prices, hours, routes, dates, rules, or reservation terms.
+4. Write for scan-first readability and full natural localization. Follow
+   `automation/shared/article-writing-standard.md` for new writing and review.
+5. Use the `Asia/Seoul` runtime date for written/source-checked dates. Use the
+   actual DB write timestamp for `publishedAt`; it must not be in the future.
+6. Publication and post-publish review tasks must not stage, commit, or push.
+   Only `automation/tasks/repo-persistence/` may commit and push durable state.
+7. Production writes must be DB-only and scoped to one verified
+   `translationGroupId`. Leave no scripts, payloads, backups, or helper files
+   on production.
+8. Do not store secrets, credentials, Mongo URIs, API keys, or raw production
+   host details in this repository.
+9. Remove runtime locks and temporary run outputs after success or controlled
+   stop unless they are needed for diagnosis.
 
-- Read `prompts/guide-publisher.md`, `playbooks/authoring-guide.md`, and `registry/editorial-guide-registry.md`.
-- Select a topic not already covered or queued in the registry.
-- Verify time-sensitive facts from official sources on the working date.
-- Complete the source-language master before writing translations.
-- Produce `ko`, `en`, `ja`, `zh`, `es`, `pt`, `fr`, `th`, and `vi` records.
-- Run date, localization, and semantic parity gates before DB upsert.
-- Upsert into the active DB, verify 9 records by `translationGroupId`, then update the registry status.
-- If production is requested, connect with `ssh momentbook`, perform DB-only insert/upsert for the verified `translationGroupId`, verify 9 production records, then set registry status to `prod+dev`.
-- Leave the verified registry update for the repo persistence automation after
-  temporary artifacts and locks are removed.
-- For scheduled automation, use the bounded role prompts under `automation/tasks/guide-publisher/agents/` and run `node tools/quality/article-quality-gate.js` before any DB write.
-- For post-publish review automation, use only content-only patches under the contract in `automation/tasks/post-publish-review/` and preserve `translationGroupId`, `slug`, `category`, `status`, `publishedAt`, and `createdAt`.
+## Repository Boundaries
 
-## Path Conventions
+- `automation/shared/`: shared contracts used by scheduled tasks.
+- `automation/tasks/<task>/`: task prompt, workflow, role prompts, and runbook.
+- `playbooks/`: durable human-readable policy.
+- `registry/`: mutable topic and publication state.
+- `tools/quality/`: active validation gates.
+- `tools/repair/`: active content-only export, patch, and planning helpers.
+- `.automation/`: runtime state. Only
+  `.automation/post-publish-review-state.json` may be persisted by git.
 
-- Prompts belong in `prompts/`.
-- Durable authoring procedures belong in `playbooks/`.
-- Mutable topic state belongs in `registry/`.
-- Durable review state may use `.automation/post-publish-review-state.json`.
-  Other `.automation` files are runtime-only.
-- Reusable or archived scripts belong in `tools/<stage>/`.
-- Generated JSON and DB exports belong in `artifacts/`.
-- Historical notes belong in `logs/`.
-- Automation contracts belong under `automation/tasks/<task-id>/`.
-- Shared automation policy belongs under `automation/shared/`.
+## Git Policy
+
+Repo persistence may stage only:
+
+- `registry/editorial-guide-registry.md`
+- `.automation/post-publish-review-state.json`
+
+It must use `Codex <codex@openai.com>` as author and committer, push only to
+`origin main`, and never force-push.

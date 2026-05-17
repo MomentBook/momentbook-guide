@@ -1,9 +1,8 @@
 # Guide Publisher Workflow
 
-This workflow publishes one new guide per run. It runs from the local repository
-and uses SSH only for development or production environment access.
+Publishes one new guide per run.
 
-## Local Paths
+## Paths
 
 - repo: `/Users/hansol/Documents/New project/momentbook-guide`
 - lock: `.automation/guide-publisher.lock`
@@ -12,58 +11,40 @@ and uses SSH only for development or production environment access.
 
 ## Steps
 
-1. Confirm the working directory is the local repo.
-2. Determine the runtime date in `Asia/Seoul` and record it in
-   `.automation/runs/<run_id>/00-run-state.json`.
-3. Read the prompt, authoring guide, registry, and environment contract.
-4. Acquire the local publisher lock. If another run is active, stop and report.
-5. Select one registry-safe topic and verify hard facts with official sources.
-6. Write the English master article and a fact parity map.
-7. Produce all supported localizations: `ko`, `en`, `ja`, `zh`, `es`, `pt`,
-   `fr`, `th`, `vi`.
-8. Run review checks for structure, localization, parity, dates, and source
-   quality.
-9. Run `node tools/quality/article-quality-gate.js` on the assembled payload.
-10. Upsert the verified guide group in development, then verify exactly 9 records
-   for the `translationGroupId`.
-11. Replicate only that verified group to production with DB-only execution, then
-    verify production.
-12. Update `registry/editorial-guide-registry.md` with the real final state.
-13. Remove the lock and temporary run artifacts unless preserving them is needed
-    to diagnose a controlled stop.
-14. Report the result. Do not stage, commit, or push.
+1. Confirm the working directory and runtime `Asia/Seoul` clock.
+2. Create the run directory and write `00-run-state.json`.
+3. Read the prompt, environment contract, shared Codex rules, authoring guide,
+   article writing standard, and registry.
+4. Acquire the publisher lock. Stop if another run is active.
+5. Select one registry-safe topic.
+6. Verify hard facts with official sources and write `02-source-pack.md`.
+7. Write the English master under the article writing standard and
+   `04-fact-parity-map.md`.
+8. Localize all 9 supported languages after the master and parity map are
+   frozen.
+9. Assemble `payload/articles.json`.
+10. Run role QA for writing quality, localization naturalness, parity, and
+    `node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json`.
+11. Upsert dev DB and verify exactly 9 records.
+12. Replicate only the verified group to production with DB-only execution and
+    verify exactly 9 records.
+13. Update the registry from verified DB state.
+14. Remove lock and runtime artifacts unless preserved for diagnosis.
+15. Report the result. Do not stage, commit, or push.
 
-## Date Policy
+## Parallelism
 
-The written date is not a static value inside generated markdown. It is a
-runtime value from this automation contract.
+Allowed only after inputs are frozen:
 
-- Use the current `Asia/Seoul` calendar date at run start as the written date.
-- Use that date for visible written/updated dates, `sourceCheckedDate`, and slug
-  dates when the slug includes a date.
-- Use the actual DB write timestamp for `publishedAt`.
-- Stop if these dates cannot be verified or would point to the future.
+- independent official source checks
+- language-group localization after English master and fact parity map
+- QA after all localized records exist
 
-## Parallel Work
-
-Parallel agents are allowed only after their inputs are frozen:
-
-- source checks for independent official sources
-- localization groups after the English master and parity map are done
-- QA gates after all localized records exist
-
-Do not run DB writes, production replication, registry updates, or git
-persistence in parallel.
+Never parallelize DB writes, production replication, registry update, or git
+persistence.
 
 ## Stop Conditions
 
-Stop if the lock is active, the topic overlaps the registry, sources cannot
-verify hard facts, a language is incomplete or unnatural, a quality gate fails,
-dev/prod verification fails, or production replication cannot stay scoped to one
-verified `translationGroupId`.
-
-## Final Report
-
-Include the lock result, topic, `translationGroupId`, language coverage, quality
-gate result, runtime written date, dev verification, prod verification, registry
-update, removed artifacts, and any residual risk.
+Stop if the lock is active, topic overlaps the registry, official sources fail,
+dates fail, localization is incomplete, quality gate fails, DB verification
+fails, production scope is unsafe, or cleanup cannot be completed safely.

@@ -8,6 +8,7 @@ Inputs:
 - `groups/<translationGroupId>/before.dev.json`
 - `groups/<translationGroupId>/before.prod.json`, when available
 - `automation/shared/content-repair-workflow.md`
+- `automation/shared/article-writing-standard.md`
 - `playbooks/authoring-guide.md`
 
 Output:
@@ -22,7 +23,8 @@ Include:
 - dev/prod metadata parity verdict
 - hard facts that must not change
 - image URL, alt, and caption parity requirements
-- per-language repair needs
+- per-language repair needs for weak openings, vague headings, long paragraphs,
+  literal translation, English leakage, source-label drift, and thin bodies
 - worker assignment for English, CJK, Latin, and SEA
 - forbidden changes
 - final pass/fail recommendation

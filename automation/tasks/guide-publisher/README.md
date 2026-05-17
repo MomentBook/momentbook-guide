@@ -10,13 +10,13 @@ push.
 - `workflow.md`: phase contract and handoff schema for the scheduled run.
 - `agents/`: role prompts for orchestrator, source research, writing,
   localization, QA, and publishing.
-- `runbook.md`: operator notes for manual or launchd-style execution.
-- `local-runner.sh` and `launchd/`: legacy local runner assets.
+- `runbook.md`: operator notes for manual execution.
 
 ## Shared Inputs
 
 - `automation/shared/environment.yaml`
 - `automation/shared/codex-operating-principles.md`
+- `automation/shared/article-writing-standard.md`
 - `prompts/guide-publisher.md`
 - `playbooks/authoring-guide.md`
 - `registry/editorial-guide-registry.md`

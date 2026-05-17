@@ -21,6 +21,7 @@ persistence runs one hour later.
 - `automation/shared/environment.yaml`
 - `automation/shared/content-repair-workflow.md`
 - `automation/shared/codex-operating-principles.md`
+- `automation/shared/article-writing-standard.md`
 - `playbooks/authoring-guide.md`
 - `registry/editorial-guide-registry.md`
 

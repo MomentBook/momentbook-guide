@@ -1,60 +1,63 @@
 # Post-Publish Review Automation Prompt
 
-Run from the local repository, not from the remote guide checkout.
-
-Local repo:
+Run from:
 
 ```text
 /Users/hansol/Documents/New project/momentbook-guide
 ```
 
-Development access: `ssh momentbook-dev`
-Production access: `ssh momentbook`
+## Goal
 
-## Task
+Review recent unreviewed guide groups, improve readability and localization,
+apply only verified `title` and `body` patches to development and production,
+update review state, and leave git persistence to the repo-persistence task.
 
-Review recently published Momentbook guide groups and improve readability and
-localization quality. Preserve metadata and URLs. Patch only `title` and `body`.
+## Context
 
-This task updates durable review state only in the local repository. It does not
-commit or push. The separate `repo-persistence` automation handles git one hour
-later.
-
-## Read First
+Read:
 
 - `AGENTS.md`
 - `automation/shared/environment.yaml`
-- `automation/tasks/post-publish-review/workflow.md`
+- `automation/shared/codex-operating-principles.md`
+- `automation/shared/article-writing-standard.md`
 - `automation/shared/content-repair-workflow.md`
+- `automation/tasks/post-publish-review/workflow.md`
 - `playbooks/authoring-guide.md`
 - `registry/editorial-guide-registry.md`
 
-## Rules
+## Constraints
 
-- Work in the local repo path above.
-- Use `ssh momentbook-dev` for development DB export, patch, and verification.
-- Use `ssh momentbook` only for the same scoped content patch in production.
-- Review recent unreviewed groups from the configured candidate window.
-- Patch only `title` and `body`; never change `translationGroupId`, `slug`,
-  `category`, `status`, `publishedAt`, or `createdAt`.
-- Keep all 9 supported languages complete: `ko`, `en`, `ja`, `zh`, `es`, `pt`,
-  `fr`, `th`, `vi`.
+- Stop if the guide publisher lock is active.
+- Review only recent unreviewed groups from the configured window.
+- Build the review from current DB exports only. Do not use old generated
+  bodies, dated plans, or removed archives as examples.
+- Patch only `title` and `body`.
+- Preserve `translationGroupId`, `slug`, `category`, `status`,
+  `publishedAt`, and `createdAt`.
+- Keep all 9 supported languages complete.
+- Improve readability and translation naturalness under
+  `automation/shared/article-writing-standard.md`; structural pass alone is not
+  enough.
 - Run the article quality gate on patched previews and on dev/prod exports.
+- Apply the same verified content patch to dev and production.
+- Use production only for scoped DB-only content patching and verification.
 - Update `.automation/post-publish-review-state.json` only after dev and prod
   verification pass.
-- Remove local review artifacts and locks after success, failure, or controlled
-  stop unless they are needed for diagnosis.
-- Do not commit, push, force-push, or stage files in this task.
+- Remove runtime artifacts and locks after success or controlled stop unless
+  needed for diagnosis.
+- Do not stage, commit, push, or force-push.
 
-## Stop And Report
+## Done When
 
-Stop if the publisher lock is active, no candidate exists, a group is missing a
-language, a patch changes metadata, factual parity cannot be preserved, any
-quality gate fails, dev/prod verification fails, or production work cannot stay
-scoped to the verified `translationGroupId`.
+- each reviewed group passes preview, dev, and production quality gates
+- dev and production contain the same verified content-only patch
+- `.automation/post-publish-review-state.json` records the reviewed groups
+- final report includes candidate window, reviewed groups, language coverage,
+  QA results, DB verification, state update, removed artifacts, and git deferral
 
-## Final Report
+## Stop
 
-Always report the candidate window, reviewed `translationGroupId`s, language
-coverage, QA verdicts, dev/prod verification, state-file update, removed
-artifacts, and the fact that git persistence is deferred to `repo-persistence`.
+Stop and report if no candidate exists, any group is missing a language, a patch
+would change metadata, factual parity cannot be preserved, any quality gate or
+DB verification fails, or production cannot remain scoped to the verified
+`translationGroupId`.

@@ -13,6 +13,7 @@ Inputs:
 - `groups/<translationGroupId>/before.dev.json`
 - `groups/<translationGroupId>/review-plan.md`
 - `groups/<translationGroupId>/english-readability.patch.json`, when present
+- `automation/shared/article-writing-standard.md`
 - `playbooks/authoring-guide.md`
 
 Output:
@@ -29,6 +30,7 @@ Patch rules:
 Localization goals:
 
 - write natural Thai and Vietnamese
+- rewrite stiff translated-English sentence order when needed for naturalness
 - preserve all hard facts, source meaning, image URL, image alt meaning, caption
   meaning, warnings, prices, dates, and routes
 - keep Thai script throughout Thai content
@@ -39,5 +41,5 @@ Localization goals:
 - keep the article complete; do not summarize
 - preserve markdown structure and source links
 
-Fail instead of patching if Vietnamese becomes romanized or mechanically
-accentized.
+Fail instead of patching if Thai or Vietnamese would remain generic, shortened,
+romanized, mechanically accentized, or machine-like.

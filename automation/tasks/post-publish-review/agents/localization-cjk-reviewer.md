@@ -13,6 +13,7 @@ Inputs:
 - `groups/<translationGroupId>/before.dev.json`
 - `groups/<translationGroupId>/review-plan.md`
 - `groups/<translationGroupId>/english-readability.patch.json`, when present
+- `automation/shared/article-writing-standard.md`
 - `playbooks/authoring-guide.md`
 
 Output:
@@ -29,6 +30,7 @@ Patch rules:
 Localization goals:
 
 - write natural Korean, Japanese, and Chinese, not literal machine translation
+- rewrite stiff translated-English sentence order when needed for naturalness
 - preserve all hard facts, source meaning, image URL, image alt meaning, caption
   meaning, warnings, prices, dates, and routes
 - localize H1, H2, source heading, alt text, captions, bullets, and practical
@@ -36,4 +38,5 @@ Localization goals:
 - keep the article complete; do not summarize
 - preserve markdown structure and source links
 
-Fail instead of patching if a source fact cannot be reconciled across languages.
+Fail instead of patching if a source fact cannot be reconciled across languages
+or if a locale would remain generic, shortened, or machine-like.

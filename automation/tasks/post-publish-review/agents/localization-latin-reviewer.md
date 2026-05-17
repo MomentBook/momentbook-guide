@@ -14,6 +14,7 @@ Inputs:
 - `groups/<translationGroupId>/before.dev.json`
 - `groups/<translationGroupId>/review-plan.md`
 - `groups/<translationGroupId>/english-readability.patch.json`, when present
+- `automation/shared/article-writing-standard.md`
 - `playbooks/authoring-guide.md`
 
 Output:
@@ -30,6 +31,7 @@ Patch rules:
 Localization goals:
 
 - write natural Spanish, Portuguese, and French
+- rewrite stiff translated-English sentence order when needed for naturalness
 - preserve all hard facts, source meaning, image URL, image alt meaning, caption
   meaning, warnings, prices, dates, and routes
 - keep Spanish, Portuguese, and French diacritics
@@ -38,5 +40,5 @@ Localization goals:
 - keep the article complete; do not summarize
 - preserve markdown structure and source links
 
-Fail instead of patching if a locale would become generic, shortened, or
-ASCII-stripped.
+Fail instead of patching if a locale would remain generic, shortened,
+ASCII-stripped, or machine-like.

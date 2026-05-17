@@ -9,6 +9,7 @@ Inputs:
 - `03-master-article.md`
 - `04-fact-parity-map.md`
 - `localizations/*.md`
+- `automation/shared/article-writing-standard.md`
 - `prompts/guide-publisher.md`
 - `playbooks/authoring-guide.md`
 
@@ -19,6 +20,8 @@ Review dimensions:
 - source traceability
 - date and `publishedAt` policy
 - markdown structure and readability
+- opening quality, practical headings, paragraph length, and checklist value
+- translation naturalness, not only script presence
 - language script and diacritics
 - English placeholder leakage
 - image alt/caption localization

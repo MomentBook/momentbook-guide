@@ -3,8 +3,34 @@
 const fs = require('fs');
 
 const REQUIRED_LANGUAGES = ['ko', 'en', 'ja', 'zh', 'es', 'pt', 'fr', 'th', 'vi'];
-const WINDOW_START = new Date('2025-11-12T00:00:00.000Z');
-const WINDOW_END = new Date('2026-05-12T23:59:59.999Z');
+const DEFAULT_WINDOW_DAYS = 180;
+
+function valueAfter(argv, name) {
+  const index = argv.indexOf(name);
+  return index >= 0 ? argv[index + 1] : undefined;
+}
+
+function parseDate(value, fallback) {
+  if (!value) {
+    return fallback;
+  }
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) {
+    throw new Error(`Invalid date for audit window: ${value}`);
+  }
+  return date;
+}
+
+const windowEndFallback = new Date();
+const windowStartFallback = new Date(windowEndFallback.getTime() - DEFAULT_WINDOW_DAYS * 24 * 60 * 60 * 1000);
+const WINDOW_END = parseDate(
+  process.env.AUDIT_WINDOW_END || valueAfter(process.argv, '--window-end'),
+  windowEndFallback,
+);
+const WINDOW_START = parseDate(
+  process.env.AUDIT_WINDOW_START || valueAfter(process.argv, '--window-start'),
+  windowStartFallback,
+);
 
 const SCRIPT_PATTERNS = {
   ko: /[\uac00-\ud7a3]/u,

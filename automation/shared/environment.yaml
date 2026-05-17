@@ -1,5 +1,5 @@
 name: momentbook-guide-local-automation
-version: 3
+version: 4
 purpose: Run guide publication, post-publish review, and git persistence from the local momentbook-guide repository.
 
 local_workspace:
@@ -93,6 +93,11 @@ quality_gates:
   - dev_db_verification
   - prod_db_verification
 
+active_contracts:
+  article_writing_standard: automation/shared/article-writing-standard.md
+  authoring_guide: playbooks/authoring-guide.md
+  publisher_contract: prompts/guide-publisher.md
+
 review_patch_policy:
   writable_fields:
     - title
@@ -121,7 +126,6 @@ git_persistence:
     - .automation/post-publish-review.lock
     - .automation/runs/
     - .automation/review-runs/
-    - artifacts/exports/repair-*/
 
 final_report:
   include:

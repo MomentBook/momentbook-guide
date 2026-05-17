@@ -6,6 +6,7 @@ Inputs:
 
 - `groups/<translationGroupId>/before.dev.json`
 - `groups/<translationGroupId>/review-plan.md`
+- `automation/shared/article-writing-standard.md`
 - `playbooks/authoring-guide.md`
 
 Output:
@@ -23,11 +24,13 @@ Patch rules:
 Editorial goals:
 
 - make the article easier to scan without making it shorter
-- improve headings, transitions, opening paragraphs, and checklists
+- improve the opening, practical H2 headings, paragraph breaks, transitions,
+  and decision checklists
 - keep at least six substantive H2 sections
 - preserve image URLs, source links, prices, times, warnings, routes, dates, and
   official policy meaning
 - do not add unsupported facts
 - do not change the article into generic travel copy
+- remove placeholder-like headings and split wall-like paragraphs
 
 If preserving a hard fact is uncertain, stop and report the exact uncertainty.
