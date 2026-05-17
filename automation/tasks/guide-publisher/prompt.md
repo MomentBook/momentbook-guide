@@ -32,6 +32,15 @@ post-publish review.
 ## Rules
 
 - Work in the local repo path above.
+- At the start of the run, determine the runtime date in `Asia/Seoul` and use
+  that value as the guide written date.
+- Do not copy a hardcoded written date from any markdown template or previous
+  guide. If the article body needs a visible written/updated date, use the
+  runtime date from this prompt contract.
+- Use the same runtime date for `sourceCheckedDate` when sources are checked on
+  this run, and for slug dates when a slug includes a date.
+- Use the actual DB write timestamp for `publishedAt`; do not use the topic's
+  event date or travel season as `publishedAt`.
 - Use `ssh momentbook-dev` only when development DB or app environment access is
   needed.
 - Use `ssh momentbook` only for scoped production DB replication and
@@ -48,12 +57,14 @@ post-publish review.
 ## Stop And Report
 
 Stop if a lock is active, the topic overlaps the registry, official sources do
-not verify hard facts, any language is incomplete or unnatural, the quality gate
-fails, dev/prod verification fails, or production work cannot stay scoped to one
-verified `translationGroupId`.
+not verify hard facts, the runtime written date cannot be determined, any
+language is incomplete or unnatural, the quality gate fails, dev/prod
+verification fails, or production work cannot stay scoped to one verified
+`translationGroupId`.
 
 ## Final Report
 
 Always report the topic, `translationGroupId`, language coverage, quality gate
-result, dev verification, prod verification, registry update, removed artifacts,
-and the fact that git persistence is deferred to `repo-persistence`.
+result, runtime written date, dev verification, prod verification, registry
+update, removed artifacts, and the fact that git persistence is deferred to
+`repo-persistence`.

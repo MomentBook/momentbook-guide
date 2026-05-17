@@ -13,23 +13,36 @@ and uses SSH only for development or production environment access.
 ## Steps
 
 1. Confirm the working directory is the local repo.
-2. Read the prompt, authoring guide, registry, and environment contract.
-3. Acquire the local publisher lock. If another run is active, stop and report.
-4. Select one registry-safe topic and verify hard facts with official sources.
-5. Write the English master article and a fact parity map.
-6. Produce all supported localizations: `ko`, `en`, `ja`, `zh`, `es`, `pt`,
+2. Determine the runtime date in `Asia/Seoul` and record it in
+   `.automation/runs/<run_id>/00-run-state.json`.
+3. Read the prompt, authoring guide, registry, and environment contract.
+4. Acquire the local publisher lock. If another run is active, stop and report.
+5. Select one registry-safe topic and verify hard facts with official sources.
+6. Write the English master article and a fact parity map.
+7. Produce all supported localizations: `ko`, `en`, `ja`, `zh`, `es`, `pt`,
    `fr`, `th`, `vi`.
-7. Run review checks for structure, localization, parity, dates, and source
+8. Run review checks for structure, localization, parity, dates, and source
    quality.
-8. Run `node tools/quality/article-quality-gate.js` on the assembled payload.
-9. Upsert the verified guide group in development, then verify exactly 9 records
+9. Run `node tools/quality/article-quality-gate.js` on the assembled payload.
+10. Upsert the verified guide group in development, then verify exactly 9 records
    for the `translationGroupId`.
-10. Replicate only that verified group to production with DB-only execution, then
+11. Replicate only that verified group to production with DB-only execution, then
     verify production.
-11. Update `registry/editorial-guide-registry.md` with the real final state.
-12. Remove the lock and temporary run artifacts unless preserving them is needed
+12. Update `registry/editorial-guide-registry.md` with the real final state.
+13. Remove the lock and temporary run artifacts unless preserving them is needed
     to diagnose a controlled stop.
-13. Report the result. Do not stage, commit, or push.
+14. Report the result. Do not stage, commit, or push.
+
+## Date Policy
+
+The written date is not a static value inside generated markdown. It is a
+runtime value from this automation contract.
+
+- Use the current `Asia/Seoul` calendar date at run start as the written date.
+- Use that date for visible written/updated dates, `sourceCheckedDate`, and slug
+  dates when the slug includes a date.
+- Use the actual DB write timestamp for `publishedAt`.
+- Stop if these dates cannot be verified or would point to the future.
 
 ## Parallel Work
 
@@ -52,5 +65,5 @@ verified `translationGroupId`.
 ## Final Report
 
 Include the lock result, topic, `translationGroupId`, language coverage, quality
-gate result, dev verification, prod verification, registry update, removed
-artifacts, and any residual risk.
+gate result, runtime written date, dev verification, prod verification, registry
+update, removed artifacts, and any residual risk.

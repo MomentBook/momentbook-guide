@@ -6,7 +6,8 @@ Inputs:
 
 - `registry/editorial-guide-registry.md`
 - `01-registry-audit.md`, if present
-- current development date
+- `runtimeWrittenDate` from the orchestrator, computed from the local
+  `Asia/Seoul` runtime date
 
 Output: `.automation/runs/<run_id>/02-source-pack.md`
 
@@ -24,6 +25,9 @@ Include:
 Rules:
 
 - Do not write article prose.
+- Do not invent or reuse a hardcoded checked date from an old markdown file.
+  The checked date must be the actual local date when the source is checked,
+  normally the provided `runtimeWrittenDate`.
 - Do not use unofficial sources for hard facts when an official source is
   available.
 - Mark prices, hours, route, reservation, closure, and rule facts as volatile

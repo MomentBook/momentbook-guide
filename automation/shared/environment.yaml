@@ -25,6 +25,17 @@ schedules_asia_seoul:
   post_publish_review: "04:00, 10:00, 16:00, 22:00"
   repo_persistence: "05:00, 11:00, 17:00, 23:00"
 
+date_policy:
+  timezone: Asia/Seoul
+  written_date_source: automation_runtime_clock
+  written_date_format: YYYY-MM-DD
+  set_written_date_in_prompt: true
+  hardcoded_written_date_in_article_markdown: false
+  sourceCheckedDate: same_as_actual_source_check_local_date
+  slug_date_if_present: same_as_written_date
+  publishedAt: actual_db_write_timestamp
+  future_publishedAt_allowed: false
+
 tasks:
   guide_publisher:
     prompt: automation/tasks/guide-publisher/prompt.md

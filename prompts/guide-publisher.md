@@ -29,7 +29,7 @@
 - DB write 전 `node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json`가 반드시 exit 0이어야 한다.
 - 품질 gate가 실패하면 수동 판단으로 덮어쓰지 말고 publish를 중단한다.
 - 역할 agent는 frozen input과 명확한 output schema를 받아야 하며, raw log나 전체 DB export를 불필요하게 넘기지 않는다.
-- dev/prod 검증과 registry 갱신이 끝난 뒤에는 allowlist 경로만 stage하여 `Codex <codex@openai.com>` author/committer로 commit 후 `origin main`으로 push한다.
+- dev/prod 검증과 registry 갱신이 끝난 뒤에도 이 발행 태스크는 commit/push하지 않는다. Git persistence는 별도 `automation/tasks/repo-persistence/` 태스크가 처리한다.
 
 ## One-Line User Command
 
@@ -45,7 +45,7 @@ momentbook-guide의 guide-publisher.md대로 새 guide 1개를 dev 작성부터 
 
 - `registry/editorial-guide-registry.md`에 없는 새 여행 guide topic 1개를 고른다.
 - 공식 source를 실제로 확인하고, source pack을 만든다.
-- 작성일, source checked date, slug 날짜, `publishedAt`을 실행 당일 기준으로 정확히 다룬다.
+- 작성일은 프롬프트 실행 시점의 `Asia/Seoul` 날짜로 정하고, source checked date, slug 날짜, `publishedAt`을 아래 Date 규칙에 맞게 다룬다.
 - 독자가 읽기 좋은 웹 정보글을 source-language master로 완성한다.
 - `ko`, `en`, `ja`, `zh`, `es`, `pt`, `fr`, `th`, `vi` 9개 언어 전체를 완전한 정보량으로 현지화한다.
 - `es`, `pt`, `fr`, `vi`는 ASCII-only transliteration이 아니라 정상 diacritic과 tone mark가 있는 문장이어야 한다.
@@ -55,19 +55,22 @@ momentbook-guide의 guide-publisher.md대로 새 guide 1개를 dev 작성부터 
 - prod DB에서 같은 `translationGroupId`의 9개 언어 record를 검증한다.
 - registry status를 실제 DB 상태에 맞게 `dev` 또는 `prod+dev`로 갱신한다.
 - 작업 중 만든 임시 script, generated payload, backup, helper file을 제거한다.
-- 검증된 registry 변경만 commit/push한다. `.automation` lock, run directory, payload, backup, helper file은 commit하지 않는다.
+- 검증된 registry 변경은 로컬에 남기되 commit/push하지 않는다. `.automation` lock, run directory, payload, backup, helper file은 git 대상이 아니다.
 
 ## Environment Contract
+
+### Local Repository
+
+- guide repo: `/Users/hansol/Documents/New project/momentbook-guide`
+- prompt path: `prompts/guide-publisher.md`
+- authoring guide: `playbooks/authoring-guide.md`
+- registry path: `registry/editorial-guide-registry.md`
 
 ### Development
 
 - 접속 명령어: `ssh momentbook-dev`
-- guide workspace: `/home/ubuntu/app/momentbook-guide`
 - app/API workspace: `/home/ubuntu/app/momentbook-api`
 - web workspace: `/home/ubuntu/app/momentbook-web`
-- prompt path: `/home/ubuntu/app/momentbook-guide/prompts/guide-publisher.md`
-- authoring guide: `/home/ubuntu/app/momentbook-guide/playbooks/authoring-guide.md`
-- registry path: `/home/ubuntu/app/momentbook-guide/registry/editorial-guide-registry.md`
 
 ### Production
 
@@ -167,12 +170,14 @@ source pack에는 각 source마다 아래를 남긴다.
 
 ## Date And Today Rules
 
-작성일은 항상 실행 환경의 실제 오늘 날짜로 작성한다.
+작성일은 markdown 본문이나 예전 파일에서 가져오지 않는다. 프롬프트 실행 시점에
+계산한 `Asia/Seoul` 기준 오늘 날짜가 작성일이다.
 
-- 작업 시작 시 dev 환경에서 `date` 또는 동등한 명령으로 현재 날짜와 시간, timezone을 확인한다.
-- `sourceCheckedDate`는 source를 실제 확인한 local date다. 미래일 수 없다.
-- article의 visible 작성일 또는 updated date가 필요하면 오늘 날짜를 사용한다.
-- slug에 날짜를 넣는다면 오늘 local date와 같아야 한다.
+- 작업 시작 시 로컬 실행 환경에서 현재 날짜, 시간, timezone을 확인하고 `Asia/Seoul` 날짜를 `runtimeWrittenDate`로 기록한다.
+- `sourceCheckedDate`는 source를 실제 확인한 local date다. 보통 `runtimeWrittenDate`와 같으며 미래일 수 없다.
+- article의 visible 작성일 또는 updated date가 필요하면 `runtimeWrittenDate`를 사용한다.
+- payload나 DB helper가 `writtenDate`, `displayDate`, `createdAt`, `updatedAt` 같은 작성/갱신 계열 필드를 요구하면 실행 시점의 date/timestamp에서 파생한다. 기존 markdown, 행사일, 여행 시즌 날짜를 복사하지 않는다.
+- slug에 날짜를 넣는다면 `runtimeWrittenDate`와 같아야 한다.
 - `publishedAt`은 DB에 실제로 쓰는 공개 발행 timestamp다.
 - `publishedAt`은 topic의 행사일, 여행 시즌, 공식 source 날짜, batch 정렬용 날짜가 아니다.
 - 같은 `translationGroupId`의 9개 language record는 같은 `publishedAt`을 사용한다.
@@ -191,6 +196,10 @@ source pack에는 각 source마다 아래를 남긴다.
 - `body`: markdown article body
 - `publishedAt`: 실제 DB write timestamp
 - `status`: published-only article이면 `PUBLISHED`
+
+작성일 계열 필드가 스키마에 추가로 필요하면 `runtimeWrittenDate` 또는 실제
+insert/update timestamp에서 파생한다. generated markdown 안의 오래된 날짜를
+source of truth로 쓰지 않는다.
 
 category는 제목이 아니라 독자 의도 기준으로 고른다.
 
@@ -313,7 +322,7 @@ depth 기준:
 ### Date Gate
 
 - 실행 환경 clock을 확인했는가
-- 작성일과 source checked date가 오늘인가
+- 작성일과 source checked date가 `runtimeWrittenDate`와 맞는가
 - slug 날짜를 썼다면 오늘 날짜인가
 - `publishedAt`이 실제 DB write timestamp인가
 - `publishedAt`이 미래가 아닌가
@@ -472,7 +481,7 @@ registry에는 최소한 아래를 남긴다.
 - language별 slug
 - title set 요약
 - source pack 요약과 checked date
-- runtime clock과 작성일
+- runtime clock과 `runtimeWrittenDate`
 - publishedAt
 - date gate 결과
 - readability gate 결과
