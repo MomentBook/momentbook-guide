@@ -4,14 +4,14 @@ set -eu
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 RUNNER_HOME="${HOME}/.codex/momentbook-guide-automation"
-BASE_DIR="${RUNNER_HOME}/workspace"
+BASE_DIR="/Users/hansol/Documents/New project/momentbook-guide"
 LOG_DIR="${RUNNER_HOME}/logs"
 LOCK_DIR="${RUNNER_HOME}/lock"
 RUN_ID="$(date -u '+%Y%m%dT%H%M%SZ')"
 RUN_LOG="${LOG_DIR}/guide-publisher-${RUN_ID}.log"
 FINAL_REPORT="${LOG_DIR}/guide-publisher-${RUN_ID}.final.md"
 
-mkdir -p "${BASE_DIR}" "${LOG_DIR}"
+mkdir -p "${LOG_DIR}"
 
 if ! mkdir "${LOCK_DIR}" 2>/dev/null; then
   echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') skipped: local automation lock exists at ${LOCK_DIR}" >> "${LOG_DIR}/guide-publisher-skips.log"
@@ -25,19 +25,21 @@ trap cleanup EXIT
 
 PROMPT="You are running as the unattended six-hourly Momentbook guide publisher.
 
-Use the canonical remote guide automation contract at /home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/prompt.md.
+Use the local guide automation contract at /Users/hansol/Documents/New project/momentbook-guide/automation/tasks/guide-publisher/prompt.md.
 
 Important:
-- Do not author from the local snapshot.
-- Connect to momentbook-dev and work in /home/ubuntu/app/momentbook-guide.
-- Read the remote automation contract fully before doing any guide work.
-- Read and apply /home/ubuntu/app/momentbook-guide/automation/shared/codex-operating-principles.md.
-- Read and follow /home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/workflow.md.
-- Acquire, skip, or replace the remote lock according to that contract before starting.
+- Work in /Users/hansol/Documents/New project/momentbook-guide.
+- Read the local automation contract fully before doing any guide work.
+- Read and apply automation/shared/codex-operating-principles.md.
+- Read and follow automation/tasks/guide-publisher/workflow.md.
+- Acquire, skip, or replace the local lock according to that contract before starting.
 - Publish exactly one new registry-safe travel guide through dev DB verification and scoped production DB replication.
+- Use ssh momentbook-dev only for development environment access.
+- Use ssh momentbook only for scoped production DB replication and verification.
 - Use bounded parallel role agents for source research, localization, and QA where the workflow allows it.
 - Run the automated article quality gate before any DB write.
 - Leave no production files behind.
+- Do not stage, commit, push, or force-push. Git persistence is handled by the repo-persistence automation.
 - Always produce a visible final report for audit, including skip/stop cases.
 - Do not ask for interactive confirmation. If a required action cannot be completed non-interactively, stop and report the blocker."
 

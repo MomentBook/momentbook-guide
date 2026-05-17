@@ -1,7 +1,8 @@
 # Guide Publisher Automation
 
 Publishes exactly one new Momentbook guide from source research through dev and
-production DB verification.
+production DB verification. It updates the local registry but does not commit or
+push.
 
 ## Files
 
@@ -22,8 +23,10 @@ production DB verification.
 
 ## Automation Prompt
 
-The Codex app automation should point to:
+The Codex app automation should point to the local file:
 
 ```text
-/home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/prompt.md
+/Users/hansol/Documents/New project/momentbook-guide/automation/tasks/guide-publisher/prompt.md
 ```
+
+Git persistence is handled by `automation/tasks/repo-persistence/`.

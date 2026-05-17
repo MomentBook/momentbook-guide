@@ -1,108 +1,59 @@
-# Automated Guide Publisher Prompt
+# Guide Publisher Automation Prompt
 
-Run this automation from the canonical development environment. Do not work from a local snapshot.
+Run from the local repository, not from the remote guide checkout.
+
+Local repo:
+
+```text
+/Users/hansol/Documents/New project/momentbook-guide
+```
+
+Development access: `ssh momentbook-dev`
+Production access: `ssh momentbook`
 
 ## Task
 
-Publish one new Momentbook travel guide from dev authoring through production DB verification using the parallel agent workflow.
+Publish exactly one new Momentbook travel guide, verify it in development, then
+replicate only the verified guide group to production.
 
-This is a long-horizon, source-grounded writing workflow. Treat the task
-directory as the durable spec and use shared Codex operating principles to keep
-the run bounded, auditable, and repairable.
+This task updates durable state only in the local repository. It does not commit
+or push. The separate `repo-persistence` automation handles git one hour after
+post-publish review.
 
-## Required Environment
+## Read First
 
-- Connect to development with `ssh momentbook-dev`.
-- Work in `/home/ubuntu/app/momentbook-guide`.
-- Use `/home/ubuntu/app/momentbook-guide/automation/shared/environment.yaml` as the environment contract.
-- Read `/home/ubuntu/app/momentbook-guide/automation/shared/codex-operating-principles.md` and apply it to delegation, validation, and final reporting.
-- Read `/home/ubuntu/app/momentbook-guide/prompts/guide-publisher.md` fully and follow it as the primary execution contract.
-- Read `/home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/workflow.md` fully and follow it as the scheduled-run execution contract.
-- Use the role prompts under `/home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/agents/`.
+- `AGENTS.md`
+- `automation/shared/environment.yaml`
+- `automation/tasks/guide-publisher/workflow.md`
+- `prompts/guide-publisher.md`
+- `playbooks/authoring-guide.md`
+- `registry/editorial-guide-registry.md`
 
-## Concurrency Guard
+## Rules
 
-This automation should run every 6 hours. Before doing any guide work, acquire the development lock declared in `automation/shared/environment.yaml`.
+- Work in the local repo path above.
+- Use `ssh momentbook-dev` only when development DB or app environment access is
+  needed.
+- Use `ssh momentbook` only for scoped production DB replication and
+  verification.
+- Publish one `translationGroupId` per run.
+- Keep all 9 supported languages complete: `ko`, `en`, `ja`, `zh`, `es`, `pt`,
+  `fr`, `th`, `vi`.
+- Run `node tools/quality/article-quality-gate.js` before any DB write.
+- Update `registry/editorial-guide-registry.md` only after real DB verification.
+- Remove local run artifacts and locks after success, failure, or controlled
+  stop unless they are needed for diagnosis.
+- Do not commit, push, force-push, or stage files in this task.
 
-- If the lock already exists, do not start another guide. Report that a previous run appears active and stop.
-- If the lock exists but the PID is not running and the lock is older than the stale threshold in `automation/shared/environment.yaml`, replace it and report the stale lock contents.
-- If you acquire the lock, remove it after success, failure, or a controlled stop.
-- Do not create or leave any lock or helper file on production.
+## Stop And Report
 
-## Execution
+Stop if a lock is active, the topic overlaps the registry, official sources do
+not verify hard facts, any language is incomplete or unnatural, the quality gate
+fails, dev/prod verification fails, or production work cannot stay scoped to one
+verified `translationGroupId`.
 
-1. Read `AGENTS.md`, `automation/shared/environment.yaml`, `automation/shared/codex-operating-principles.md`, `automation/tasks/guide-publisher/workflow.md`, `prompts/guide-publisher.md`, `playbooks/authoring-guide.md`, and `registry/editorial-guide-registry.md`.
-2. Acquire the development lock, or stop if a previous run is active.
-3. Update the repo before work with `git fetch origin main` and `git pull --ff-only origin main`. Stop if the branch cannot fast-forward or the workspace has disallowed changes that would be committed.
-4. Create the run directory declared by the parallel workflow.
-5. Write `00-run-state.json` before role work begins, including clock, lock, model, and phase status.
-6. Run registry audit and source research roles with bounded outputs. Prefer official sources and stop if hard facts cannot be verified.
-7. Freeze the source pack before writing the English master.
-8. Freeze the English master and fact parity map before localization.
-9. Run localization agents in parallel by language group: `ko/ja/zh`, `es/pt/fr`, and `th/vi`. Give every localization agent the same frozen fact parity map and output schema.
-10. Run QA gates in parallel after all localizations exist. QA agents return distilled pass/fail reports, not raw exploration logs.
-11. Assemble `payload/articles.json`.
-12. Run `node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json`.
-13. Upsert the guide into the dev DB only if every QA report and the automated quality gate pass.
-14. Verify dev DB has exactly the expected 9 language records for the new `translationGroupId`.
-15. Replicate only that verified `translationGroupId` to production DB using `ssh momentbook`.
-16. Leave no files in production. Use DB-only or one-shot execution patterns.
-17. Verify production DB has the same 9 language records.
-18. Update the registry to the real final state, normally `prod+dev`.
-19. Remove temporary scripts, generated payloads, backups, helper files, the run directory, and the development lock created during the task.
-20. Commit and push the verified repository state as `Codex <codex@openai.com>`:
-    stage only `registry/editorial-guide-registry.md`, commit if the staged
-    diff is non-empty, rebase on `origin/main` only if needed and
-    conflict-free, then push to `origin main`. Never stage locks, run
-    directories, payloads, backups, or helper files.
+## Final Report
 
-## Performance And Quality Rules
-
-- Use the automation model and reasoning setting for orchestration and final judgment.
-- Use lighter workers only for narrow read-only scans when the workflow allows it; do not trade away source accuracy, readability, or translation quality.
-- Keep every role input small and frozen. Do not dump logs or full database exports into subagent prompts when a summarized handoff file is enough.
-- If a role output fails schema, depth, localization, or parity checks, repair the artifact and rerun the gate before moving forward.
-- Do not keep retrying without new evidence. Each retry must use a specific gate failure or source conflict as feedback.
-- Do not use broad git staging. Only stage paths listed in `git_persistence.include_paths.guide_publisher`.
-- Git commits created by this automation must use
-  `Codex <codex@openai.com>` as author and committer.
-
-## Stop Instead Of Publishing
-
-Stop and report if any of these happen:
-
-- The topic overlaps with the registry.
-- Official sources cannot verify the hard facts.
-- Today's date, `sourceCheckedDate`, slug date, or `publishedAt` cannot be handled correctly.
-- Any supported language would be incomplete, summarized, or not naturally localized.
-- Any supported language is ASCII-stripped where natural writing requires script, accents, or tone marks.
-- The fact parity map fails.
-- The automated article quality gate fails.
-- Dev DB verification fails.
-- Production replication cannot be scoped to one verified `translationGroupId`.
-- Production would require leaving files behind.
-- The repository cannot be fast-forwarded from `origin/main` before work begins.
-- The final git commit or push would include files outside the allowlist.
-- Another active run is already active.
-
-## Final Response
-
-Always produce a visible final report. This automation must never end as "nothing to report" because every run needs an audit trail, even when it skips due to an existing lock or stops at a gate.
-
-Report only the high-signal result:
-
-- topic and why it is registry-safe
-- `translationGroupId`
-- category
-- language slugs
-- checked date and `publishedAt`
-- parallel role outputs and QA gate verdicts
-- automated article quality gate result
-- dev DB verification result
-- prod DB verification result
-- registry status
-- git commit hash, or why no commit was needed
-- git push status
-- removed run directory and artifacts
-- whether the run acquired or skipped the lock
-- any residual risk
+Always report the topic, `translationGroupId`, language coverage, quality gate
+result, dev verification, prod verification, registry update, removed artifacts,
+and the fact that git persistence is deferred to `repo-persistence`.

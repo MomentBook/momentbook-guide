@@ -2,7 +2,7 @@
 
 Created from `/Users/hansol/workspace/ai` on 2026-05-12.
 
-Canonical development location: `/home/ubuntu/app/momentbook-guide`.
+Canonical local location: `/Users/hansol/Documents/New project/momentbook-guide`.
 
 ## Included
 
@@ -10,6 +10,7 @@ Canonical development location: `/home/ubuntu/app/momentbook-guide`.
 - 2 specialist agent prompt templates in `prompts/agent-templates/`
 - guide publisher automation files in `automation/tasks/guide-publisher/`
 - post-publish review automation files in `automation/tasks/post-publish-review/`
+- repo persistence automation files in `automation/tasks/repo-persistence/`
 - shared automation contracts in `automation/shared/`
 - 1 canonical topic registry in `registry/`
 - 6 authoring, workflow, and planning playbook files in `playbooks/`
@@ -28,6 +29,7 @@ Total files after restructuring: 95.
 - `automation/shared/codex-operating-principles.md`
 - `automation/tasks/guide-publisher/workflow.md`
 - `automation/tasks/post-publish-review/workflow.md`
+- `automation/tasks/repo-persistence/workflow.md`
 - `playbooks/authoring-guide.md`
 - `registry/editorial-guide-registry.md`
 - `playbooks/parallel-workflow.md`
@@ -47,6 +49,12 @@ The development environment is reachable with:
 
 ```sh
 ssh momentbook-dev
+```
+
+The production environment is reachable with:
+
+```sh
+ssh momentbook
 ```
 
 During setup, the remote host exposed guide-related files under:

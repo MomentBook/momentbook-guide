@@ -20,7 +20,7 @@
   <true/>
 
   <key>WorkingDirectory</key>
-  <string>/Users/hansol/.codex/momentbook-guide-automation/workspace</string>
+  <string>/Users/hansol/Documents/New project/momentbook-guide</string>
 
   <key>StandardOutPath</key>
   <string>/Users/hansol/.codex/momentbook-guide-automation/logs/launchd.out.log</string>

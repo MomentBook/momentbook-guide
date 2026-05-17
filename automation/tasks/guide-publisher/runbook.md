@@ -1,46 +1,44 @@
-# Automation Runbook
+# Guide Publisher Runbook
 
-## Goal
+This is the manual fallback for the Codex app automation.
 
-Run one complete guide publication job without relying on long user instructions.
+## Schedule
 
-The operator or scheduler only needs to provide:
+- guide publisher: 03:00, 09:00, 15:00, 21:00 Asia/Seoul
+- post-publish review: 04:00, 10:00, 16:00, 22:00 Asia/Seoul
+- repo persistence: 05:00, 11:00, 17:00, 23:00 Asia/Seoul
 
-```text
-Use /home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/prompt.md and publish one new guide end to end.
+## Local Repo
+
+```sh
+cd "/Users/hansol/Documents/New project/momentbook-guide"
 ```
 
-Recommended schedule: every 6 hours at 03:00, 09:00, 15:00, and 21:00
-Asia/Seoul. The post-publish review automation should run one hour later at
-04:00, 10:00, 16:00, and 22:00 Asia/Seoul.
+Use this prompt file:
+
+```text
+automation/tasks/guide-publisher/prompt.md
+```
+
+## Access
+
+- development: `ssh momentbook-dev`
+- production: `ssh momentbook`
+
+Use SSH only when the task needs environment access. The guide repo, registry,
+and automation contracts are local.
 
 ## Invariants
 
-- The canonical workspace is `/home/ubuntu/app/momentbook-guide` on `momentbook-dev`.
-- The detailed contract lives in `prompts/guide-publisher.md`.
-- Scheduled runs must use `automation/tasks/guide-publisher/workflow.md`.
-- Role prompts live under `automation/tasks/guide-publisher/agents/`.
-- The registry is `registry/editorial-guide-registry.md`.
-- The job publishes one guide only.
-- Production scope is one verified `translationGroupId`.
-- Production writes are DB-only.
-- No temporary files should remain after verification.
-- Successful runs commit and push the verified registry update to `origin main`.
-- Commit author and committer: `Codex <codex@openai.com>`.
-- Git staging is allowlist-only; locks and run directories are never committed.
-- Overlapping runs are not allowed. Use the lock path in `automation/shared/environment.yaml`.
-- Stale locks older than the environment threshold may be replaced only when the recorded PID is not running.
+- Publish one guide per run.
+- Verify all 9 supported languages in development before production.
+- Replicate only the verified `translationGroupId` to production.
+- Production writes must be DB-only and must leave no files behind.
+- Update `registry/editorial-guide-registry.md` only after verification.
+- Do not commit or push from this task.
+- Let `automation/tasks/repo-persistence/` handle git one hour after review.
 
 ## Preflight
-
-1. Confirm development access:
-
-```sh
-ssh momentbook-dev
-cd /home/ubuntu/app/momentbook-guide
-```
-
-2. Confirm the automation files exist:
 
 ```sh
 test -f automation/shared/environment.yaml
@@ -51,43 +49,8 @@ test -f tools/quality/article-quality-gate.js
 test -f registry/editorial-guide-registry.md
 ```
 
-3. Confirm production access only when the job is ready to replicate:
-
-```sh
-ssh momentbook
-```
-
-## 6-Hour Automation Setup
-
-Use a scheduled Codex automation with:
-
-- Frequency: every 6 hours
-- Times: 03:00, 09:00, 15:00, and 21:00 Asia/Seoul
-- Workspace: the local Codex project that can run `ssh momentbook-dev`
-- Prompt: `Use /home/ubuntu/app/momentbook-guide/automation/tasks/guide-publisher/prompt.md and publish one new guide end to end using the parallel agent workflow.`
-- Execution expectation: the job connects to `momentbook-dev`, reads the canonical remote files, uses bounded role agents with explicit run artifacts, and only then connects to `momentbook` for DB-only replication.
-
-Do not schedule this as a thread heartbeat. It is a standalone recurring job with external SSH and DB verification.
-
-## Safe Production Pattern
-
-Prefer one-shot execution that leaves no script file behind. If a temporary production file is unavoidable:
-
-- write it to a clearly temporary path
-- use it once
-- remove it before final verification
-- include it in the final removed artifact list
-
 ## Completion Evidence
 
-Every run must leave a visible final report. Do not allow the automation to finish as "nothing to report"; success, skip, and controlled stop outcomes all need an audit trail.
-
-The final report must include:
-
-- role outputs and QA verdicts
-- automated article quality gate result
-- dev DB verification for the 9 language records
-- prod DB verification for the same 9 language records
-- final registry status
-- git commit hash and push status
-- removed artifact list
+Every run must produce a final report with the topic, `translationGroupId`,
+language coverage, quality gate result, dev/prod verification, registry update,
+removed artifacts, and residual risk.

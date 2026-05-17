@@ -1,21 +1,18 @@
-name: momentbook-guide-dev-to-prod
-version: 2
-purpose: Publish one new Momentbook travel guide from dev authoring through production DB verification using bounded parallel agents and automated quality gates.
-recommended_schedule: every_6_hours
+name: momentbook-guide-local-automation
+version: 3
+purpose: Run guide publication, post-publish review, and git persistence from the local momentbook-guide repository.
 
-canonical_workspace:
-  host: momentbook-dev
-  ssh: ssh momentbook-dev
-  path: /home/ubuntu/app/momentbook-guide
+local_workspace:
+  path: /Users/hansol/Documents/New project/momentbook-guide
+  repository: momentbook-guide
+  branch: main
+  remote: origin
 
 development:
   ssh: ssh momentbook-dev
   guide_workspace: /home/ubuntu/app/momentbook-guide
   api_workspace: /home/ubuntu/app/momentbook-api
   web_workspace: /home/ubuntu/app/momentbook-web
-  prompt: /home/ubuntu/app/momentbook-guide/prompts/guide-publisher.md
-  authoring_guide: /home/ubuntu/app/momentbook-guide/playbooks/authoring-guide.md
-  registry: /home/ubuntu/app/momentbook-guide/registry/editorial-guide-registry.md
 
 production:
   ssh: ssh momentbook
@@ -23,20 +20,45 @@ production:
   leave_files: false
   replication_scope: verified_translationGroupId_only
 
+schedules_asia_seoul:
+  guide_publisher: "03:00, 09:00, 15:00, 21:00"
+  post_publish_review: "04:00, 10:00, 16:00, 22:00"
+  repo_persistence: "05:00, 11:00, 17:00, 23:00"
+
+tasks:
+  guide_publisher:
+    prompt: automation/tasks/guide-publisher/prompt.md
+    workflow: automation/tasks/guide-publisher/workflow.md
+    lock_path: .automation/guide-publisher.lock
+    run_base_path: .automation/runs
+    durable_outputs:
+      - registry/editorial-guide-registry.md
+    git_commit_or_push: false
+
+  post_publish_review:
+    prompt: automation/tasks/post-publish-review/prompt.md
+    workflow: automation/tasks/post-publish-review/workflow.md
+    lock_path: .automation/post-publish-review.lock
+    run_base_path: .automation/review-runs
+    state_path: .automation/post-publish-review-state.json
+    candidate_window_hours: 8
+    min_candidate_age_minutes: 10
+    skip_reviewed_groups: true
+    durable_outputs:
+      - .automation/post-publish-review-state.json
+    git_commit_or_push: false
+
+  repo_persistence:
+    prompt: automation/tasks/repo-persistence/prompt.md
+    workflow: automation/tasks/repo-persistence/workflow.md
+    git_only: true
+    runs_after_review_minutes: 60
+    commit_and_push: true
+
 concurrency:
   allow_overlap: false
-  allow_parallel_agents_within_run: true
-  lock_host: momentbook-dev
-  lock_path: /home/ubuntu/app/momentbook-guide/.automation/guide-publisher.lock
-  on_existing_lock: skip_and_report
   stale_lock_after_minutes: 360
-  on_stale_lock: replace_and_report
   remove_lock_after_run: true
-
-run_artifacts:
-  base_path: /home/ubuntu/app/momentbook-guide/.automation/runs
-  remove_after_verification: true
-  preserve_on_controlled_stop: true
 
 required_languages:
   - ko
@@ -49,45 +71,20 @@ required_languages:
   - th
   - vi
 
-required_first_reads:
-  - AGENTS.md
-  - automation/shared/environment.yaml
-  - automation/shared/codex-operating-principles.md
-  - automation/tasks/guide-publisher/workflow.md
-  - automation/tasks/guide-publisher/agents/orchestrator.md
-  - prompts/guide-publisher.md
-  - playbooks/authoring-guide.md
-  - registry/editorial-guide-registry.md
-
-date_policy:
-  checked_date: execution_environment_today
-  visible_written_date: execution_environment_today
-  slug_date_if_present: execution_environment_today
-  publishedAt: actual_db_write_timestamp
-  future_publishedAt_allowed: false
-
 quality_gates:
   - official_source_gate
   - date_gate
   - readability_gate
-  - accessibility_gate
   - localization_gate
   - semantic_parity_gate
   - automated_article_quality_gate
   - dev_db_verification
-  - prod_db_verification_when_requested
+  - prod_db_verification
 
-post_publish_review:
-  purpose: Improve readability and supported-language localization for guides created by the most recent publisher automation run.
-  recommended_schedule: every_6_hours_offset_one_hour_after_publisher
-  prompt: /home/ubuntu/app/momentbook-guide/automation/tasks/post-publish-review/prompt.md
-  workflow: /home/ubuntu/app/momentbook-guide/automation/tasks/post-publish-review/workflow.md
-  lock_path: /home/ubuntu/app/momentbook-guide/.automation/post-publish-review.lock
-  state_path: /home/ubuntu/app/momentbook-guide/.automation/post-publish-review-state.json
-  run_base_path: /home/ubuntu/app/momentbook-guide/.automation/review-runs
-  candidate_window_hours: 8
-  min_candidate_age_minutes: 10
-  skip_reviewed_groups: true
+review_patch_policy:
+  writable_fields:
+    - title
+    - body
   preserve_metadata:
     - translationGroupId
     - slug
@@ -95,82 +92,33 @@ post_publish_review:
     - status
     - publishedAt
     - createdAt
-  writable_fields:
-    - title
-    - body
-  parallel_review_agents:
-    - english-readability-editor
-    - localization-cjk-reviewer
-    - localization-latin-reviewer
-    - localization-sea-reviewer
-  qa_gates:
-    - qa-structure
-    - qa-localization
-    - qa-parity
-    - qa-metadata
-
-automated_quality_gate:
-  command: node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json
-  blocks_db_write: true
-  checks:
-    - required_language_set
-    - future_publishedAt
-    - markdown_structure
-    - depth_thresholds
-    - first_image_alt
-    - localized_sources_section
-    - script_and_diacritics
-    - english_heading_leakage
-
-artifact_policy:
-  temporary_scripts_allowed: only_if_needed
-  generated_payloads_allowed: only_if_needed
-  remove_after_verification: true
-  production_artifacts_allowed: false
-
-registry_policy:
-  status_before_db: queued
-  status_after_dev_verification: dev
-  status_after_prod_verification: prod+dev
 
 git_persistence:
-  enabled: true
+  mode: separate_repo_persistence_task
   remote: origin
   branch: main
   author_name: Codex
   author_email: codex@openai.com
   author: Codex <codex@openai.com>
-  update_before_work: true
-  commit_after_successful_verification: true
-  push_after_commit: true
   never_force_push: true
-  require_explicit_path_allowlist: true
-  include_paths:
-    guide_publisher:
-      - registry/editorial-guide-registry.md
-    post_publish_review:
-      - .automation/post-publish-review-state.json
-  exclude_paths:
+  allowed_paths:
+    - registry/editorial-guide-registry.md
+    - .automation/post-publish-review-state.json
+  ignored_runtime_paths:
     - .automation/guide-publisher.lock
     - .automation/post-publish-review.lock
     - .automation/runs/
     - .automation/review-runs/
+    - artifacts/exports/repair-*/
 
 final_report:
   include:
-    - topic
-    - country_or_scope
-    - city_or_region
-    - category
+    - task_result
     - translationGroupId
-    - language_slugs
-    - source_pack_summary
-    - checked_date
-    - publishedAt
+    - language_coverage
+    - quality_gate_results
     - dev_db_verification
     - prod_db_verification
-    - registry_status
-    - git_commit
-    - git_push
-    - removed_artifacts
+    - durable_files_changed
+    - git_persistence_status
     - residual_risks

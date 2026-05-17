@@ -3,7 +3,7 @@
 ## Project Purpose
 
 - This workspace exists to operate Momentbook editorial guide writing, validation, registry maintenance, and DB publication.
-- Canonical development location: `/home/ubuntu/app/momentbook-guide`.
+- Canonical local location: `/Users/hansol/Documents/New project/momentbook-guide`.
 - Active application code and DB helpers may still live in `/home/ubuntu/app/momentbook-api` and `/home/ubuntu/app/momentbook-web`.
 
 ## Start Points
@@ -14,6 +14,7 @@
 - Shared Codex automation principles: `automation/shared/codex-operating-principles.md`
 - Scheduled automation workflow: `automation/tasks/guide-publisher/workflow.md`
 - Post-publish review prompt: `automation/tasks/post-publish-review/prompt.md`
+- Repo persistence prompt: `automation/tasks/repo-persistence/prompt.md`
 - Authoring policy: `playbooks/authoring-guide.md`
 - Topic registry: `registry/editorial-guide-registry.md`
 - Structure rationale: `docs/architecture/ai-workspace-structure.md`
@@ -25,11 +26,11 @@
 - If the user asks for production completion, do not stop at dev DB. Replicate only the verified `translationGroupId` to production DB and verify 9 records there too.
 - Keep temporary scripts and generated payloads out of the final workflow unless the user explicitly asks to preserve them.
 - If temporary files are needed to perform a DB write, remove them after verification and report what was removed.
-- Scheduled automation must commit and push only verified durable state after
-  dev/prod verification. Stage explicit allowlisted paths only; never use
-  broad staging.
-- Scheduled automation commits must use `Codex <codex@openai.com>` as author
-  and committer.
+- Guide publisher and post-publish review automations must not commit or push.
+- The repo persistence automation runs later and commits only verified durable
+  state. Stage explicit allowlisted paths only; never use broad staging.
+- Repo persistence commits must use `Codex <codex@openai.com>` as author and
+  committer.
 - Do not commit `.automation` locks, run directories, exported DB snapshots,
   generated payloads, backups, or helper scripts.
 - Do not store secrets, credentials, Mongo URIs, API keys, or production host details beyond approved SSH command labels in this repository.
@@ -46,8 +47,8 @@
 - Run date, localization, and semantic parity gates before DB upsert.
 - Upsert into the active DB, verify 9 records by `translationGroupId`, then update the registry status.
 - If production is requested, connect with `ssh momentbook`, perform DB-only insert/upsert for the verified `translationGroupId`, verify 9 production records, then set registry status to `prod+dev`.
-- Commit and push the verified registry update after temporary artifacts and
-  locks are removed.
+- Leave the verified registry update for the repo persistence automation after
+  temporary artifacts and locks are removed.
 - For scheduled automation, use the bounded role prompts under `automation/tasks/guide-publisher/agents/` and run `node tools/quality/article-quality-gate.js` before any DB write.
 - For post-publish review automation, use only content-only patches under the contract in `automation/tasks/post-publish-review/` and preserve `translationGroupId`, `slug`, `category`, `status`, `publishedAt`, and `createdAt`.
 

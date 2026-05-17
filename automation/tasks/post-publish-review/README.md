@@ -6,6 +6,9 @@ translation naturalness, and localization parity without changing metadata.
 Codex app schedule: 04:00, 10:00, 16:00, and 22:00 Asia/Seoul, one hour after
 the guide publisher schedule.
 
+This task updates local review state but does not commit or push. Git
+persistence runs one hour later.
+
 ## Files
 
 - `prompt.md`: standalone automation prompt used by the Codex app automation.
@@ -23,8 +26,8 @@ the guide publisher schedule.
 
 ## Automation Prompt
 
-The Codex app automation should point to:
+The Codex app automation should point to the local file:
 
 ```text
-/home/ubuntu/app/momentbook-guide/automation/tasks/post-publish-review/prompt.md
+/Users/hansol/Documents/New project/momentbook-guide/automation/tasks/post-publish-review/prompt.md
 ```
