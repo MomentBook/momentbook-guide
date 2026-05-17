@@ -10,7 +10,8 @@ local_workspace:
 
 development:
   ssh: ssh momentbook-dev
-  guide_workspace: /home/ubuntu/app/momentbook-guide
+  guide_workspace: not_used_after_local_migration
+  guide_workspace_note: The guide repository is local-only; remove or ignore /home/ubuntu/app/momentbook-guide on development.
   api_workspace: /home/ubuntu/app/momentbook-api
   web_workspace: /home/ubuntu/app/momentbook-web
 

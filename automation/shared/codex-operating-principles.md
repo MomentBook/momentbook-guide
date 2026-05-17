@@ -113,8 +113,8 @@ work to role agents.
     artifacts, and residual risks.
 
 13. Persist only intentional repository state.
-    After successful verification, stage only the allowlisted paths in
-    `automation/shared/environment.yaml`, commit as
-    `Codex <codex@openai.com>` with a message that names the task and
-    `translationGroupId`, then push to `origin main`. Never use `git add .`,
-    never commit locks or run directories, and never force-push.
+    Guide publication and post-publish review tasks update local durable files
+    but do not stage, commit, or push. The separate repo persistence task stages
+    only the allowlisted paths in `automation/shared/environment.yaml`, commits
+    as `Codex <codex@openai.com>`, then pushes to `origin main`. Never use
+    `git add .`, never commit locks or run directories, and never force-push.
