@@ -11,7 +11,7 @@ This is the manual fallback for the Codex app automation.
 ## Local Repo
 
 ```sh
-cd "/Users/hansol/Documents/New project/momentbook-guide"
+cd "/Users/hansol/workspace/momentbook-guide"
 ```
 
 Use this prompt file:

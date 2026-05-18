@@ -4,7 +4,7 @@ Publishes one new guide per run.
 
 ## Paths
 
-- repo: `/Users/hansol/Documents/New project/momentbook-guide`
+- repo: `/Users/hansol/workspace/momentbook-guide`
 - lock: `.automation/guide-publisher.lock`
 - run directory: `.automation/runs/<run_id>/`
 - durable output: `registry/editorial-guide-registry.md`

@@ -8,7 +8,7 @@ post-publish review, and git persistence automation.
 Canonical local path:
 
 ```text
-/Users/hansol/Documents/New project/momentbook-guide
+/Users/hansol/workspace/momentbook-guide
 ```
 
 ## Start Here

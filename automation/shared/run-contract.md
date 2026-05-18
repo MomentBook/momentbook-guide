@@ -4,7 +4,7 @@ This contract applies to every scheduled task in this repository.
 
 ## Preflight
 
-1. Run from `/Users/hansol/Documents/New project/momentbook-guide`.
+1. Run from `/Users/hansol/workspace/momentbook-guide`.
 2. Confirm the current `Asia/Seoul` date and time.
 3. Read `automation/shared/environment.yaml` and the task prompt before doing
    task-specific work.

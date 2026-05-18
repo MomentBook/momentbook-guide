@@ -4,7 +4,7 @@ Improves recently published guides with content-only patches.
 
 ## Paths
 
-- repo: `/Users/hansol/Documents/New project/momentbook-guide`
+- repo: `/Users/hansol/workspace/momentbook-guide`
 - lock: `.automation/post-publish-review.lock`
 - run directory: `.automation/review-runs/<run_id>/`
 - durable output: `.automation/post-publish-review-state.json`

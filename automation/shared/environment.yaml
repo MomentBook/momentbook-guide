@@ -1,9 +1,9 @@
 name: momentbook-guide-local-automation
-version: 4
+version: 5
 purpose: Run guide publication, post-publish review, and git persistence from the local momentbook-guide repository.
 
 local_workspace:
-  path: /Users/hansol/Documents/New project/momentbook-guide
+  path: /Users/hansol/workspace/momentbook-guide
   repository: momentbook-guide
   branch: main
   remote: origin

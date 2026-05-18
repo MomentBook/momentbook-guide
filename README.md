@@ -6,7 +6,7 @@ automation state persistence.
 Canonical path:
 
 ```text
-/Users/hansol/Documents/New project/momentbook-guide
+/Users/hansol/workspace/momentbook-guide
 ```
 
 ## What This Repo Does

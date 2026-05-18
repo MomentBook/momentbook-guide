@@ -5,7 +5,7 @@
 The guide repository is local-only after migration:
 
 ```sh
-cd "/Users/hansol/Documents/New project/momentbook-guide"
+cd "/Users/hansol/workspace/momentbook-guide"
 ```
 
 All guide automation prompts, workflows, registry updates, and git persistence

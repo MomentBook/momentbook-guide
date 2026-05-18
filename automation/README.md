@@ -3,7 +3,7 @@
 Scheduled Momentbook guide tasks run from the local repository:
 
 ```sh
-cd "/Users/hansol/Documents/New project/momentbook-guide"
+cd "/Users/hansol/workspace/momentbook-guide"
 ```
 
 ## Tasks

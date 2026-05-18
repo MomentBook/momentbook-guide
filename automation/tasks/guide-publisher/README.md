@@ -26,7 +26,7 @@ push.
 The Codex app automation should point to the local file:
 
 ```text
-/Users/hansol/Documents/New project/momentbook-guide/automation/tasks/guide-publisher/prompt.md
+/Users/hansol/workspace/momentbook-guide/automation/tasks/guide-publisher/prompt.md
 ```
 
 Git persistence is handled by `automation/tasks/repo-persistence/`.

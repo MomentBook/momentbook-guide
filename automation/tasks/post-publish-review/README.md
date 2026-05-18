@@ -30,5 +30,5 @@ persistence runs one hour later.
 The Codex app automation should point to the local file:
 
 ```text
-/Users/hansol/Documents/New project/momentbook-guide/automation/tasks/post-publish-review/prompt.md
+/Users/hansol/workspace/momentbook-guide/automation/tasks/post-publish-review/prompt.md
 ```
