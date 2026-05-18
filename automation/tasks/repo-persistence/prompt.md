@@ -16,6 +16,7 @@ post-publish review tasks.
 Read:
 
 - `automation/shared/environment.yaml`
+- `automation/shared/run-contract.md`
 - `automation/tasks/repo-persistence/workflow.md`
 - `registry/editorial-guide-registry.md`
 - `.automation/post-publish-review-state.json`, if it exists
@@ -24,6 +25,8 @@ Read:
 
 - Git only. Do not write guides, patch content, access DBs, touch production,
   or clean runtime artifacts.
+- Follow `automation/shared/run-contract.md` for preflight, controlled stops,
+  and final reporting. This task has no runtime lock.
 - Stage only:
   - `registry/editorial-guide-registry.md`
   - `.automation/post-publish-review-state.json`

@@ -18,6 +18,7 @@ Read:
 
 - `AGENTS.md`
 - `automation/shared/environment.yaml`
+- `automation/shared/run-contract.md`
 - `automation/shared/codex-operating-principles.md`
 - `automation/shared/article-writing-standard.md`
 - `automation/shared/content-repair-workflow.md`
@@ -28,6 +29,8 @@ Read:
 ## Constraints
 
 - Stop if the guide publisher lock is active.
+- Follow `automation/shared/run-contract.md` for preflight, lock handling,
+  controlled stops, cleanup, and final reporting.
 - Review only recent unreviewed groups from the configured window.
 - Build the review from current DB exports only. Do not use old generated
   bodies, dated plans, or removed archives as examples.
@@ -52,8 +55,9 @@ Read:
 - each reviewed group passes preview, dev, and production quality gates
 - dev and production contain the same verified content-only patch
 - `.automation/post-publish-review-state.json` records the reviewed groups
-- final report includes candidate window, reviewed groups, language coverage,
-  QA results, DB verification, state update, removed artifacts, and git deferral
+- final report includes the run-contract fields plus candidate window, reviewed
+  groups, language coverage, QA results, DB verification, state update, and git
+  deferral
 
 ## Stop
 

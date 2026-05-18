@@ -16,8 +16,7 @@ Only these paths may be staged and committed:
 
 ## Steps
 
-1. Confirm the working directory is
-   `/Users/hansol/Documents/New project/momentbook-guide`.
+1. Complete `automation/shared/run-contract.md` preflight.
 2. Run `git status --short --branch`.
 3. Stop if any modified tracked file is outside the allowlist.
 4. Fetch `origin main`.
@@ -27,7 +26,8 @@ Only these paths may be staged and committed:
 7. Stop as no-op if the staged diff is empty.
 8. Commit with author and committer `Codex <codex@openai.com>`.
 9. Push to `origin main`.
-10. Report commit hash and push result.
+10. Report commit hash and push result with the run-contract final report
+    fields.
 
 ## Commit Message
 

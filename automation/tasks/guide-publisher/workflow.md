@@ -11,10 +11,10 @@ Publishes one new guide per run.
 
 ## Steps
 
-1. Confirm the working directory and runtime `Asia/Seoul` clock.
+1. Complete `automation/shared/run-contract.md` preflight.
 2. Create the run directory and write `00-run-state.json`.
-3. Read the prompt, environment contract, shared Codex rules, authoring guide,
-   article writing standard, and registry.
+3. Read the prompt, environment contract, run contract, shared Codex rules,
+   authoring guide, article writing standard, and registry.
 4. Acquire the publisher lock. Stop if another run is active.
 5. Select one registry-safe topic.
 6. Verify hard facts with official sources and write `02-source-pack.md`.
@@ -30,7 +30,8 @@ Publishes one new guide per run.
     verify exactly 9 records.
 13. Update the registry from verified DB state.
 14. Remove lock and runtime artifacts unless preserved for diagnosis.
-15. Report the result. Do not stage, commit, or push.
+15. Report the result with the run-contract final report fields. Do not stage,
+    commit, or push.
 
 ## Parallelism
 

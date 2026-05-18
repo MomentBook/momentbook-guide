@@ -22,9 +22,9 @@ production:
   replication_scope: verified_translationGroupId_only
 
 schedules_asia_seoul:
-  guide_publisher: "03:00, 09:00, 15:00, 21:00"
-  post_publish_review: "04:00, 10:00, 16:00, 22:00"
-  repo_persistence: "05:00, 11:00, 17:00, 23:00"
+  guide_publisher: "00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00"
+  post_publish_review: "01:00, 04:00, 07:00, 10:00, 13:00, 16:00, 19:00, 22:00"
+  repo_persistence: "02:00, 05:00, 08:00, 11:00, 14:00, 17:00, 20:00, 23:00"
 
 date_policy:
   timezone: Asia/Seoul
@@ -94,6 +94,7 @@ quality_gates:
   - prod_db_verification
 
 active_contracts:
+  run_contract: automation/shared/run-contract.md
   article_writing_standard: automation/shared/article-writing-standard.md
   authoring_guide: playbooks/authoring-guide.md
   publisher_contract: prompts/guide-publisher.md

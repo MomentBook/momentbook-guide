@@ -3,8 +3,8 @@
 Commits and pushes verified durable state after the publisher and post-publish
 review automations have finished.
 
-Schedule: 05:00, 11:00, 17:00, and 23:00 Asia/Seoul, one hour after
-post-publish review.
+Schedule: 02:00, 05:00, 08:00, 11:00, 14:00, 17:00, 20:00, and 23:00
+Asia/Seoul, one hour after each post-publish review slot.
 
 ## Files
 

@@ -18,6 +18,7 @@ Read:
 
 - `AGENTS.md`
 - `automation/shared/environment.yaml`
+- `automation/shared/run-contract.md`
 - `automation/shared/codex-operating-principles.md`
 - `automation/shared/article-writing-standard.md`
 - `automation/tasks/guide-publisher/workflow.md`
@@ -28,6 +29,8 @@ Read:
 ## Constraints
 
 - Work only from the local repo path above.
+- Follow `automation/shared/run-contract.md` for preflight, lock handling,
+  controlled stops, cleanup, and final reporting.
 - Determine `runtimeWrittenDate` from the current `Asia/Seoul` clock.
 - Publish one `translationGroupId` per run.
 - Complete all 9 languages: `ko`, `en`, `ja`, `zh`, `es`, `pt`, `fr`, `th`,
@@ -47,8 +50,9 @@ Read:
 - dev DB has exactly 9 verified records for the new `translationGroupId`
 - production DB has the same verified 9 records
 - `registry/editorial-guide-registry.md` reflects the verified final state
-- final report includes topic, sources, runtime date, `publishedAt`, quality
-  gates, DB verification, registry update, removed artifacts, and git deferral
+- final report includes the run-contract fields plus topic, sources,
+  `publishedAt`, quality gates, DB verification, registry update, and git
+  deferral
 
 ## Stop
 

@@ -4,9 +4,9 @@ This is the manual fallback for the Codex app automation.
 
 ## Schedule
 
-- guide publisher: 03:00, 09:00, 15:00, 21:00 Asia/Seoul
-- post-publish review: 04:00, 10:00, 16:00, 22:00 Asia/Seoul
-- repo persistence: 05:00, 11:00, 17:00, 23:00 Asia/Seoul
+- guide publisher: 00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00 Asia/Seoul
+- post-publish review: 01:00, 04:00, 07:00, 10:00, 13:00, 16:00, 19:00, 22:00 Asia/Seoul
+- repo persistence: 02:00, 05:00, 08:00, 11:00, 14:00, 17:00, 20:00, 23:00 Asia/Seoul
 
 ## Local Repo
 
@@ -42,6 +42,7 @@ and automation contracts are local.
 
 ```sh
 test -f automation/shared/environment.yaml
+test -f automation/shared/run-contract.md
 test -f automation/tasks/guide-publisher/workflow.md
 test -f automation/tasks/guide-publisher/prompt.md
 test -f prompts/guide-publisher.md

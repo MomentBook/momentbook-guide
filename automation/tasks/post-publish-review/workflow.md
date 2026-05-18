@@ -17,9 +17,9 @@ Improves recently published guides with content-only patches.
 
 ## Steps
 
-1. Confirm the working directory.
+1. Complete `automation/shared/run-contract.md` preflight.
 2. Read the prompt, environment contract, shared Codex rules, repair workflow,
-   article writing standard, authoring guide, and registry.
+   run contract, article writing standard, authoring guide, and registry.
 3. Stop if the publisher lock is active.
 4. Acquire the review lock. Stop if another review is active.
 5. Export recent unreviewed candidate groups from development.
@@ -35,7 +35,8 @@ Improves recently published guides with content-only patches.
     and run the quality gate.
 13. Update `.automation/post-publish-review-state.json` after dev and prod pass.
 14. Remove lock and runtime artifacts unless preserved for diagnosis.
-15. Report the result. Do not stage, commit, or push.
+15. Report the result with the run-contract final report fields. Do not stage,
+    commit, or push.
 
 ## Parallelism
 

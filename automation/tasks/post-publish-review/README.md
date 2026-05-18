@@ -3,8 +3,8 @@
 Reviews recently published Momentbook guides and improves readability,
 translation naturalness, and localization parity without changing metadata.
 
-Codex app schedule: 04:00, 10:00, 16:00, and 22:00 Asia/Seoul, one hour after
-the guide publisher schedule.
+Codex app schedule: 01:00, 04:00, 07:00, 10:00, 13:00, 16:00, 19:00, and
+22:00 Asia/Seoul, one hour after each guide publisher slot.
 
 This task updates local review state but does not commit or push. Git
 persistence runs one hour later.

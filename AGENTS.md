@@ -17,6 +17,7 @@ Canonical local path:
 - Post-publish review: `automation/tasks/post-publish-review/prompt.md`
 - Git persistence: `automation/tasks/repo-persistence/prompt.md`
 - Shared environment contract: `automation/shared/environment.yaml`
+- Shared run contract: `automation/shared/run-contract.md`
 - Shared Codex automation rules: `automation/shared/codex-operating-principles.md`
 - Writing and localization standard: `automation/shared/article-writing-standard.md`
 - Authoring policy: `playbooks/authoring-guide.md`
@@ -50,7 +51,8 @@ scripts are intentionally not part of this repository's active context.
 
 ## Repository Boundaries
 
-- `automation/shared/`: shared contracts used by scheduled tasks.
+- `automation/shared/`: shared contracts used by scheduled tasks, including the
+  common run preflight, lock, cleanup, and reporting contract.
 - `automation/tasks/<task>/`: task prompt, workflow, role prompts, and runbook.
 - `playbooks/`: durable human-readable policy.
 - `registry/`: mutable topic and publication state.

@@ -25,6 +25,8 @@ The active automation contracts are:
 
 - Project instructions: `AGENTS.md`
 - Environment and schedules: `automation/shared/environment.yaml`
+- Run preflight, locks, cleanup, and final reports:
+  `automation/shared/run-contract.md`
 - Codex automation rules: `automation/shared/codex-operating-principles.md`
 - Writing and localization standard: `automation/shared/article-writing-standard.md`
 - Authoring and localization policy: `playbooks/authoring-guide.md`
@@ -38,9 +40,9 @@ state, not old examples.
 
 Asia/Seoul:
 
-- guide publisher: 03:00, 09:00, 15:00, 21:00
-- post-publish review: 04:00, 10:00, 16:00, 22:00
-- repo persistence: 05:00, 11:00, 17:00, 23:00
+- guide publisher: 00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00
+- post-publish review: 01:00, 04:00, 07:00, 10:00, 13:00, 16:00, 19:00, 22:00
+- repo persistence: 02:00, 05:00, 08:00, 11:00, 14:00, 17:00, 20:00, 23:00
 
 ## Operating Model
 
