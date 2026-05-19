@@ -38,10 +38,15 @@ Read:
 - Preserve `translationGroupId`, `slug`, `category`, `status`,
   `publishedAt`, and `createdAt`.
 - Keep all 9 supported languages complete.
+- Before planning content edits, run
+  `node tools/quality/article-contract-gate.js --db <export.json>` on current
+  dev and production exports. Stop if metadata already violates the publication
+  contract because this task may patch only `title` and `body`.
 - Improve readability and translation naturalness under
   `automation/shared/article-writing-standard.md`; structural pass alone is not
   enough.
-- Run the article quality gate on patched previews and on dev/prod exports.
+- Run the article quality gate and article contract gate on patched previews and
+  on dev/prod exports.
 - Apply the same verified content patch to dev and production.
 - Use production only for scoped DB-only content patching and verification.
 - Update `.automation/post-publish-review-state.json` only after dev and prod
@@ -52,7 +57,8 @@ Read:
 
 ## Done When
 
-- each reviewed group passes preview, dev, and production quality gates
+- each reviewed group passes preview, dev, and production quality and contract
+  gates
 - dev and production contain the same verified content-only patch
 - `.automation/post-publish-review-state.json` records the reviewed groups
 - final report includes the run-contract fields plus candidate window, reviewed
@@ -61,7 +67,7 @@ Read:
 
 ## Stop
 
-Stop and report if no candidate exists, any group is missing a language, a patch
-would change metadata, factual parity cannot be preserved, any quality gate or
-DB verification fails, or production cannot remain scoped to the verified
-`translationGroupId`.
+Stop and report if no candidate exists, any group is missing a language,
+existing metadata violates the contract, a patch would change metadata, factual
+parity cannot be preserved, any executable gate or DB verification fails, or
+production cannot remain scoped to the verified `translationGroupId`.

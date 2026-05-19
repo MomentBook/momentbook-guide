@@ -4,7 +4,7 @@
 새 guide를 고르기 전에 반드시 이 문서를 먼저 읽고, 새 글을 draft하거나 queue에 올린 직후 즉시 이 문서를 갱신한다.
 
 기준 시점:
-- 마지막 검토일: `2026-05-12`
+- 마지막 검토일: `2026-05-19`
 
 검토에 사용한 데이터:
 - local prod export: `editorial-guides-2026-04.prod-db-export.json`
@@ -67,6 +67,7 @@
   - `ssh momentbook-dev` 기준 `/home/ubuntu/app/momentbook-api/scripts/generated` 와 dev DB에 `andorra|andorra-la-vella|sant-julia|pas-de-la-casa|bus-ad` 중복 slug/title 없음 확인 후 dev DB upsert 완료
   - `ssh momentbook-dev` 기준 `/home/ubuntu/app/momentbook-api/scripts/generated` 와 dev DB에 `macao|macau|lrt|hengqin|taipa-ferry` 중복 slug/title 없음 확인 후 dev DB upsert 완료
   - `ssh momentbook-dev` 기준 `/home/ubuntu/app/momentbook-api/scripts/generated` 와 dev DB에 `ghana|cape-coast|gmmb|door-of-no-return` 중복 slug/title 없음 확인 후 dev DB upsert 완료
+  - 2026-05-19 기준 dev/prod DB slug 확인 결과 `namibia|mauritius|bolivia|andorra|macao|ghana` 관련 row는 양쪽 DB 모두 9개 언어 record 확인
 
 ## Selection Guard
 
@@ -101,8 +102,8 @@
 
 - reserved topics total: `122`
 - status counts:
-  - `prod+dev`: `111`
-  - `dev`: `10`
+  - `prod+dev`: `117`
+  - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
@@ -238,6 +239,12 @@
 | `prod+dev` | Fiji | Suva / Fiji Museum | Fiji Museum admission, guided tour, hours, and closure-day guide | `travel-guide` | `fiji-museum-suva-ticket-hours-guide-2026-05-11` |
 | `prod+dev` | Tanzania | Dar es Salaam / Zanzibar ferry route | Fast ferry ticket confirmation, class, luggage allowance, port timing, and booking-rule guide | `travel-guide` | `dar-es-salaam-zanzibar-ferry-ticket-luggage-guide-2026-05-11` |
 | `prod+dev` | Bermuda | Nationwide bus and ferry network | Shorelink fare, zone, pass, app, exact-cash, and transfer guide | `travel-guide` | `bermuda-shorelink-bus-ferry-pass-guide-2026-05-11` |
+| `prod+dev` | Namibia | Etosha National Park / Okaukuejo, Halali, Namutoni route | Etosha park fees, sunrise-sunset gates, self-drive rules, camp booking, and waterhole timing guide | `travel-guide` | `etosha-national-park-fees-gates-self-drive-guide-2026-07-20` |
+| `prod+dev` | Mauritius | Pamplemousses / Sir Seewoosagur Ramgoolam Botanic Garden | Ticket categories, daily hours, guide fees, golf cart, wheelchair, parking, and living-collection visitor rules | `travel-guide` | `pamplemousses-botanical-garden-ticket-hours-guide-2026-07-21` |
+| `prod+dev` | Bolivia | La Paz / El Alto metropolitan network | Mi Teleferico fare, transfer, hours, line-choice, smart-card, luggage, food, alcohol, and passenger-rule guide | `travel-guide` | `la-paz-mi-teleferico-fare-transfer-hours-guide-2026-07-22` |
+| `prod+dev` | Andorra | National bus network / Andorra la Vella, valleys, Pas de la Casa | Bus fare zones, timed transfers, pass choice, line selection, ski-season services, and Bus Nocturn planning guide | `travel-guide` | `andorra-national-bus-fare-zones-night-bus-guide-2026-07-23` |
+| `prod+dev` | Macao SAR | Airport / Taipa Ferry Terminal / Hengqin / LRT network | LRT, public bus fare, payment, and port-arrival planning guide | `travel-guide` | `macao-lrt-bus-fare-airport-hengqin-guide-2026-05-10` |
+| `prod+dev` | Ghana | Cape Coast / Central Region | Cape Coast Castle ticket, guided tour, Door of No Return, and museum timing guide | `travel-guide` | `cape-coast-castle-ticket-guided-tour-guide-2026-05-10` |
 
 ### `dev`
 
@@ -247,12 +254,6 @@
 | `dev` | South Korea | Incheon Airport and major KTX stations | KorailPassPlus pickup, top-up, and refund guide | `travel-guide` | `korail-pass-plus-pickup-top-up-refund-guide-2026-05-18` |
 | `dev` | Norway | Oslo | Oslo Pass airport train, zone coverage, and activation guide | `travel-guide` | `oslo-pass-airport-train-zone-guide-2026-05-19` |
 | `dev` | Bulgaria | Rila Monastery / Rila Mountains | Museum ticket, dress code, photography rule, and Sofia access guide | `travel-guide` | `rila-monastery-museum-ticket-dress-code-guide-2026-06-18` |
-| `dev` | Namibia | Etosha National Park / Okaukuejo, Halali, Namutoni route | Etosha park fees, sunrise-sunset gates, self-drive rules, camp booking, and waterhole timing guide | `travel-guide` | `etosha-national-park-fees-gates-self-drive-guide-2026-07-20` |
-| `dev` | Mauritius | Pamplemousses / Sir Seewoosagur Ramgoolam Botanic Garden | Ticket categories, daily hours, guide fees, golf cart, wheelchair, parking, and living-collection visitor rules | `travel-guide` | `pamplemousses-botanical-garden-ticket-hours-guide-2026-07-21` |
-| `dev` | Bolivia | La Paz / El Alto metropolitan network | Mi Teleferico fare, transfer, hours, line-choice, smart-card, luggage, food, alcohol, and passenger-rule guide | `travel-guide` | `la-paz-mi-teleferico-fare-transfer-hours-guide-2026-07-22` |
-| `dev` | Andorra | National bus network / Andorra la Vella, valleys, Pas de la Casa | Bus fare zones, timed transfers, pass choice, line selection, ski-season services, and Bus Nocturn planning guide | `travel-guide` | `andorra-national-bus-fare-zones-night-bus-guide-2026-07-23` |
-| `dev` | Macao SAR | Airport / Taipa Ferry Terminal / Hengqin / LRT network | LRT, public bus fare, payment, and port-arrival planning guide | `travel-guide` | `macao-lrt-bus-fare-airport-hengqin-guide-2026-05-10` |
-| `dev` | Ghana | Cape Coast / Central Region | Cape Coast Castle ticket, guided tour, Door of No Return, and museum timing guide | `travel-guide` | `cape-coast-castle-ticket-guided-tour-guide-2026-05-10` |
 
 ### `queued`
 

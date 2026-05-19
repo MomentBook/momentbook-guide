@@ -16,9 +16,9 @@ Required order:
 1. Audit dev and prod inventories.
 2. Back up current records before writes.
 3. Repair dev first.
-4. Run the quality gate against the full 9-language group.
+4. Run the quality and contract gates against the full 9-language group.
 5. Apply the same approved content patch to prod.
-6. Re-run the same quality gate against prod.
+6. Re-run the same gates against prod.
 7. Re-run the full inventory audit and record remaining failures.
 
 ## Fields That Must Not Drift
@@ -30,6 +30,7 @@ Content repair agents must not change:
 - `category`
 - `status`
 - `publishedAt`
+- `sourceCheckedDate`
 - `createdAt`
 
 The default apply tool only writes `title`, `body`, and `updatedAt`.
@@ -111,6 +112,12 @@ Run the quality gate:
 node tools/quality/article-quality-gate.js /tmp/group.json
 ```
 
+Run the contract gate on DB exports:
+
+```sh
+node tools/quality/article-contract-gate.js --db /tmp/group.json
+```
+
 ## Patch Shape
 
 ```json
@@ -126,5 +133,6 @@ node tools/quality/article-quality-gate.js /tmp/group.json
 }
 ```
 
-Patch files must not include `slug`, `category`, `publishedAt`, `status`, or
-`translationGroupId` inside individual updates.
+Patch files must not include `slug`, `category`, `publishedAt`,
+`sourceCheckedDate`, `status`, or `translationGroupId` inside individual
+updates.

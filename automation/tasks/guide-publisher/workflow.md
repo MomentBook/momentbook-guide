@@ -23,14 +23,19 @@ Publishes one new guide per run.
 8. Localize all 9 supported languages after the master and parity map are
    frozen.
 9. Assemble `payload/articles.json`.
-10. Run role QA for writing quality, localization naturalness, parity, and
-    `node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json`.
-11. Upsert dev DB and verify exactly 9 records.
-12. Replicate only the verified group to production with DB-only execution and
-    verify exactly 9 records.
-13. Update the registry from verified DB state.
-14. Remove lock and runtime artifacts unless preserved for diagnosis.
-15. Report the result with the run-contract final report fields. Do not stage,
+10. Run role QA for writing quality, localization naturalness, and parity.
+11. Run both executable gates before any DB write:
+    - `node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json`
+    - `node tools/quality/article-contract-gate.js .automation/runs/<run_id>/payload/articles.json`
+12. Upsert dev DB, export the written group, and verify exactly 9 records with:
+    - `node tools/quality/article-quality-gate.js <dev-export.json>`
+    - `node tools/quality/article-contract-gate.js --db <dev-export.json>`
+13. Replicate only the verified group to production with DB-only execution,
+    export the production group, and verify exactly 9 records with the same two
+    gates.
+14. Update the registry from verified production DB state.
+15. Remove lock and runtime artifacts unless preserved for diagnosis.
+16. Report the result with the run-contract final report fields. Do not stage,
     commit, or push.
 
 ## Parallelism
@@ -47,5 +52,6 @@ persistence.
 ## Stop Conditions
 
 Stop if the lock is active, topic overlaps the registry, official sources fail,
-dates fail, localization is incomplete, quality gate fails, DB verification
-fails, production scope is unsafe, or cleanup cannot be completed safely.
+dates or record metadata fail, localization is incomplete, either executable
+gate fails, DB verification fails, production scope is unsafe, or cleanup cannot
+be completed safely.

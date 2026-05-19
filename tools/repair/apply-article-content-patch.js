@@ -51,7 +51,16 @@ function validateUpdate(update) {
       throw new Error(`Update ${update.language} is missing ${field}.`);
     }
   }
-  for (const forbidden of ['slug', 'category', 'publishedAt', 'status', 'translationGroupId']) {
+  for (const forbidden of [
+    'slug',
+    'category',
+    'publishedAt',
+    'sourceCheckedDate',
+    'status',
+    'translationGroupId',
+    'createdAt',
+    'updatedAt',
+  ]) {
     if (Object.prototype.hasOwnProperty.call(update, forbidden)) {
       throw new Error(`Update ${update.language} must not include ${forbidden}.`);
     }
@@ -75,7 +84,7 @@ async function main() {
 
   const existing = await Article.find(
     { translationGroupId: patch.translationGroupId },
-    { _id: 1, language: 1, slug: 1, category: 1, publishedAt: 1, status: 1 },
+    { _id: 1, language: 1, slug: 1, category: 1, publishedAt: 1, sourceCheckedDate: 1, status: 1 },
   ).lean();
   const existingLanguages = new Set(existing.map((record) => record.language));
 

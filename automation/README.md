@@ -37,6 +37,9 @@ Asia/Seoul:
 - Repo persistence never writes guides, patches content, accesses DBs, or
   touches production.
 - Production work is DB-only and scoped to one verified `translationGroupId`.
+- Article records must pass both `tools/quality/article-quality-gate.js` and
+  `tools/quality/article-contract-gate.js`; DB exports use the contract gate's
+  `--db` mode.
 - Runtime locks, run directories, payloads, exports, backups, and helper files
   are not git state.
 

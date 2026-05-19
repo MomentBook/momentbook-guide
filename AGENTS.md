@@ -37,6 +37,8 @@ scripts are intentionally not part of this repository's active context.
    Do not invent prices, hours, routes, dates, rules, or reservation terms.
 4. Write for scan-first readability and full natural localization. Follow
    `automation/shared/article-writing-standard.md` for new writing and review.
+   Verify article bodies with `tools/quality/article-quality-gate.js` and record
+   metadata with `tools/quality/article-contract-gate.js`.
 5. Use the `Asia/Seoul` runtime date for written/source-checked dates. Use the
    actual DB write timestamp for `publishedAt`; it must not be in the future.
 6. Publication and post-publish review tasks must not stage, commit, or push.

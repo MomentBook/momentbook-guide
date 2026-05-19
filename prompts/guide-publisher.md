@@ -84,6 +84,7 @@ Each language record must include:
 - `title`
 - `body`
 - `publishedAt`
+- `sourceCheckedDate`
 - `status`: `PUBLISHED` for published-only records
 
 Choose category by user intent, not title wording.
@@ -171,6 +172,12 @@ Do not write to any DB unless all gates pass:
 ```sh
 node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json
 ```
+- automated contract gate:
+
+```sh
+node tools/quality/article-contract-gate.js .automation/runs/<run_id>/payload/articles.json
+node tools/quality/article-contract-gate.js --db <dev-or-production-export.json>
+```
 
 ## DB And Registry Rules
 
@@ -178,7 +185,8 @@ Development:
 
 - Upsert exactly 9 records for one `translationGroupId`.
 - Verify languages, slugs, category, titles, body structure, first image,
-  source section, script/diacritics, `publishedAt`, and quality gate result.
+  source section, script/diacritics, `sourceCheckedDate`, `publishedAt`, DB
+  timestamps, quality gate result, and contract gate result.
 
 Production, when required:
 
@@ -213,9 +221,10 @@ Stop without DB write if:
 - a lock is active
 - the topic overlaps the registry
 - official sources cannot verify hard facts
-- runtime date or `publishedAt` cannot be verified
+- runtime date, `sourceCheckedDate`, slug date, DB timestamps, or `publishedAt`
+  cannot be verified
 - any language is incomplete, unnatural, ASCII-stripped, or semantically weaker
-- the fact parity map or automated quality gate fails
+- the fact parity map, automated quality gate, or contract gate fails
 - dev verification fails
 - production replication cannot be scoped to one verified
   `translationGroupId`

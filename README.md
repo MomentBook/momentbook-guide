@@ -13,7 +13,8 @@ Canonical path:
 
 1. Publishes one source-backed travel guide at a time.
 2. Reviews recently published guides for readability and localization quality.
-3. Commits only verified durable state after DB verification is complete.
+3. Verifies article content and record metadata with executable gates.
+4. Commits only verified durable state after DB verification is complete.
 
 The active automation contracts are:
 
@@ -35,6 +36,20 @@ The active automation contracts are:
 Old generated articles, logs, import payloads, and dated batch plans were
 removed from active context. Use the registry and live DB verification for
 state, not old examples.
+
+## Quality Gates
+
+- `node tools/quality/article-quality-gate.js <json>` checks readable structure,
+  localized headings, source sections, image basics, depth, scripts, and
+  diacritics.
+- `node tools/quality/article-contract-gate.js <json>` checks publication
+  invariants before DB writes: 9 languages, shared slug/category/published date,
+  `sourceCheckedDate`, no future source/slug/published dates.
+- `node tools/quality/article-contract-gate.js --db <json>` adds DB record
+  checks for `status`, `createdAt`, and `updatedAt`.
+
+The prompts should not compensate for missing metadata with prose. If a gate
+fails, stop the run and report the exact failing group and fields.
 
 ## Current Schedule
 

@@ -86,6 +86,7 @@ required_languages:
 quality_gates:
   - official_source_gate
   - date_gate
+  - article_contract_gate
   - readability_gate
   - localization_gate
   - semantic_parity_gate
@@ -133,6 +134,7 @@ final_report:
     - task_result
     - translationGroupId
     - language_coverage
+    - article_contract_gate_result
     - quality_gate_results
     - dev_db_verification
     - prod_db_verification

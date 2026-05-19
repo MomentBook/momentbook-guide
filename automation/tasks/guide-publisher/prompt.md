@@ -39,6 +39,9 @@ Read:
 - Follow the writing standard for readable English and natural full
   localization. Do not imitate old generated articles or deleted archives.
 - Run `node tools/quality/article-quality-gate.js` before any DB write.
+- Run `node tools/quality/article-contract-gate.js` before any DB write so
+  language coverage, `sourceCheckedDate`, `publishedAt`, slug dates, and shared
+  group metadata are verified by code.
 - Use `ssh momentbook-dev` only for development DB/app access.
 - Use `ssh momentbook` only for DB-only production replication and verification.
 - Remove runtime artifacts and locks after success or controlled stop unless
@@ -49,14 +52,17 @@ Read:
 
 - dev DB has exactly 9 verified records for the new `translationGroupId`
 - production DB has the same verified 9 records
+- payload, dev export, and production export pass the article quality gate and
+  article contract gate; DB exports use `article-contract-gate.js --db`
 - `registry/editorial-guide-registry.md` reflects the verified final state
 - final report includes the run-contract fields plus topic, sources,
-  `publishedAt`, quality gates, DB verification, registry update, and git
-  deferral
+  `sourceCheckedDate`, `publishedAt`, quality gates, DB verification, registry
+  update, and git deferral
 
 ## Stop
 
 Stop and report without DB write if the lock is active, topic overlaps the
-registry, official sources are insufficient, dates cannot be verified, any
-language is incomplete or unnatural, a quality gate fails, dev/prod verification
-fails, or production cannot remain scoped to one verified `translationGroupId`.
+registry, official sources are insufficient, dates or metadata cannot be
+verified, any language is incomplete or unnatural, either executable gate fails,
+dev/prod verification fails, or production cannot remain scoped to one verified
+`translationGroupId`.

@@ -37,6 +37,7 @@ Every run must end with a visible final report containing:
 - current clock time used by the run
 - durable files changed, or `none`
 - locks and artifacts removed or preserved
-- verification performed
+- verification performed, including executable quality and contract gates when
+  the task touches article records
 - next owner: `none`, `post-publish-review`, or `repo-persistence`
 - residual blocker, if any

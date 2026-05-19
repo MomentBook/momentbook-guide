@@ -59,6 +59,7 @@ async function main() {
       title: 1,
       body: 1,
       publishedAt: 1,
+      sourceCheckedDate: 1,
       createdAt: 1,
       updatedAt: 1,
     },

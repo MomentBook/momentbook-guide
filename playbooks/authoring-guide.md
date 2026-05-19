@@ -40,6 +40,9 @@ Do not insert or update published guide records unless all are true:
 - Spanish, Portuguese, French, Thai, and Vietnamese preserve their required
   scripts or diacritics
 - `node tools/quality/article-quality-gate.js <payload-json>` exits 0
+- `node tools/quality/article-contract-gate.js <payload-json>` exits 0 before
+  DB write, and `node tools/quality/article-contract-gate.js --db <export-json>`
+  exits 0 after DB export
 
 Stop instead of publishing when language quality or source support is uncertain.
 
@@ -56,6 +59,7 @@ Each article record must include:
 | `title` | Natural localized title that matches the body. |
 | `body` | Markdown source for the public page. |
 | `publishedAt` | Actual DB write timestamp, shared across the group, never future. |
+| `sourceCheckedDate` | Actual source-check date in `YYYY-MM-DD`, shared across the group, never future. |
 | `status` | `PUBLISHED` for published-only guide records. |
 
 Choose `category` by the main user intent:
@@ -173,11 +177,13 @@ Before DB write, verify:
 - one H1 and at least six substantive H2 sections exist
 - first image, alt text, caption, and Sources section exist
 - hard facts trace to sources
-- `publishedAt` is not future
+- `sourceCheckedDate`, slug date, `publishedAt`, and DB timestamps are not
+  future
 - all localizations preserve semantic parity
 - required scripts and diacritics are present
 - localized prose is natural, not literal translated English
 - automated quality gate passed
+- automated contract gate passed
 
 Final rule: the body is the public contract. Summary and cover behavior are
 derived from it, so do not treat them as separate decoration.
