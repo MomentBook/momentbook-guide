@@ -16,8 +16,8 @@ function usage() {
     '  node tools/admin/articles-api.js export-group <translationGroupId> [--out file]',
     '  node tools/admin/articles-api.js create <article.json> --confirm-production [--out file]',
     '  node tools/admin/articles-api.js create-group <articles.json> --confirm-production [--out file]',
-    '  node tools/admin/articles-api.js patch <articleId> <patch.json> --confirm-production [--out file]',
-    '  node tools/admin/articles-api.js patch-group <translationGroupId> <patches.json> --confirm-production [--out file]',
+    '  node tools/admin/articles-api.js patch <articleId> <title-body-patch.json> --confirm-production [--out file]',
+    '  node tools/admin/articles-api.js patch-group <translationGroupId> <title-body-patches.json> --confirm-production [--out file]',
     '',
     'Credentials are read from environment variables or .codex/automation/admin-api.env:',
     '  MOMENTBOOK_ADMIN_API_BASE_URL=https://api.momentbook.app',
@@ -128,6 +128,13 @@ function compactArticleInput(record) {
 }
 
 function compactPatchInput(record) {
+  const allowedFields = new Set(['language', 'title', 'body']);
+  for (const field of Object.keys(record)) {
+    if (!allowedFields.has(field)) {
+      throw new Error(`Patch for ${record.language || '<unknown>'} must not include ${field}.`);
+    }
+  }
+
   const body = {};
   if (record.title !== undefined) {
     body.title = record.title;
@@ -135,11 +142,8 @@ function compactPatchInput(record) {
   if (record.body !== undefined) {
     body.body = record.body;
   }
-  if (record.category !== undefined) {
-    body.category = record.category;
-  }
   if (Object.keys(body).length === 0) {
-    throw new Error(`Patch for ${record.language || '<unknown>'} has no title/body/category.`);
+    throw new Error(`Patch for ${record.language || '<unknown>'} has no title/body.`);
   }
   return body;
 }

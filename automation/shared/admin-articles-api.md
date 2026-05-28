@@ -18,13 +18,14 @@ production response bodies that contain private data.
 
 ## Authentication
 
-Authenticate with:
+Authenticate with the admin email and password:
 
 ```text
 POST /v2/auth/email/login
 ```
 
-Use the returned `data.accessToken` as:
+Use the returned `data.accessToken` as a bearer token on every admin article API
+request:
 
 ```text
 Authorization: Bearer <accessToken>
@@ -47,6 +48,8 @@ part of guide publication or review.
 `POST /v2/admin/articles` creates one language record and publishes it after
 server validation.
 
+Current accepted create request fields for the POST body:
+
 ```json
 {
   "translationGroupId": "optional existing group id",
@@ -58,9 +61,23 @@ server validation.
 }
 ```
 
+Required: `language`, `category`, `title`, `body`.
+
+Optional: `translationGroupId`, `slug`.
+
+The local pre-create payload used by the quality and contract gates may include
+`sourceCheckedDate` and other local evidence fields. The helper compacts that
+payload before POST and sends only the accepted create request fields above.
+
+Do not send server-derived or local-evidence fields in the create request body:
+`publishedAt`, `sourceCheckedDate`, `status`, `createdAt`, `updatedAt`,
+`summary`, `coverImage`, `readingTimeMinutes`, or `authorName`.
+
 When creating a 9-language guide group, create exactly one record per supported
-language. Use one shared `translationGroupId`; if the first create starts a new
-group, reuse the returned `translationGroupId` for the remaining languages.
+language. Prefer one shared pre-generated `translationGroupId` in the local
+payload for deterministic gate checks. If the first create omits
+`translationGroupId`, the server starts a new group; reuse the returned
+`translationGroupId` for the remaining languages.
 
 ## Update Schema
 
@@ -90,7 +107,7 @@ ko, en, ja, zh, es, pt, fr, th, vi
 Before create:
 
 ```sh
-node tools/quality/article-quality-gate.js <payload.json>
+node tools/quality/article-quality-gate.js --admin-create-payload <payload.json>
 node tools/quality/article-contract-gate.js --admin-create-payload <payload.json>
 ```
 
@@ -101,9 +118,10 @@ node tools/quality/article-quality-gate.js <admin-api-export.json>
 node tools/quality/article-contract-gate.js --admin-api <admin-api-export.json>
 ```
 
-The admin API does not expose `sourceCheckedDate`, `status`, or `createdAt`.
-Keep source-check evidence in local run notes and validate pre-write payloads
-with the create-payload contract gate before calling the API.
+The create API sets `publishedAt`; the admin API export does not expose
+`sourceCheckedDate`, `status`, or `createdAt`. Keep source-check evidence in
+local run notes and validate pre-write payloads with create-payload gate modes
+before calling the API.
 
 ## Local Helper
 
@@ -114,3 +132,6 @@ node tools/admin/articles-api.js create-group <payload.json> --confirm-productio
 node tools/admin/articles-api.js export-group <translationGroupId> --out <api-export.json>
 node tools/admin/articles-api.js patch-group <translationGroupId> <patches.json> --confirm-production --out <api-patch.json>
 ```
+
+`create-group` accepts the local gate payload, then sends only `language`,
+`category`, `title`, `body`, and optional `translationGroupId`/`slug` to the API.

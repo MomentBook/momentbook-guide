@@ -60,11 +60,13 @@ Primary entry points:
 ## Quality Gates
 
 ```sh
-node tools/quality/article-quality-gate.js <payload-or-export.json>
+node tools/quality/article-quality-gate.js --admin-create-payload <payload.json>
 node tools/quality/article-contract-gate.js --admin-create-payload <payload.json>
+node tools/quality/article-quality-gate.js <admin-api-export.json>
 node tools/quality/article-contract-gate.js --admin-api <admin-api-export.json>
 ```
 
-Use `--admin-create-payload` before production creates and `--admin-api` after
+Use `--admin-create-payload` before production creates because the create API
+does not accept or return client-supplied `publishedAt`. Use `--admin-api` after
 production exports. If a gate fails, stop or repair the exact failing fields
 before continuing.

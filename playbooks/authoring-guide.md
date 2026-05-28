@@ -55,9 +55,11 @@ Each local pre-write article record must include:
 | `body` | Markdown source for the public page. |
 | `sourceCheckedDate` | Actual source-check date in `YYYY-MM-DD`, shared across the group, never future. |
 
-The create request sends only fields accepted by the admin API. The server sets
-publication timestamps and derived values such as summary, cover image, and
-reading time.
+The local pre-create payload keeps `sourceCheckedDate` so gates can verify
+source freshness. The create request itself sends only fields accepted by the
+admin API: required `language`, `category`, `title`, `body`, plus optional
+`translationGroupId` and `slug`. The server sets `publishedAt` and derived
+values such as summary, cover image, reading time, and author name.
 
 Choose `category` by the main user intent:
 

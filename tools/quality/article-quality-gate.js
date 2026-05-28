@@ -131,8 +131,26 @@ const HYPE_PATTERNS = [
   /\bbucket list\b/iu,
 ];
 
-function readInput() {
-  const file = process.argv[2];
+function parseArgs(argv) {
+  const args = {
+    file: null,
+    adminCreateMode: false,
+  };
+
+  for (const value of argv) {
+    if (value === '--admin-create-payload') {
+      args.adminCreateMode = true;
+    } else if (!args.file) {
+      args.file = value;
+    } else {
+      throw new Error(`Unexpected argument: ${value}`);
+    }
+  }
+
+  return args;
+}
+
+function readInput(file) {
   const raw = file ? fs.readFileSync(file, 'utf8') : fs.readFileSync(0, 'utf8');
   const parsed = JSON.parse(raw);
 
@@ -298,7 +316,7 @@ function hasSourceSection(language, body) {
   );
 }
 
-function validateRecord(record, groupPublishedAt, now) {
+function validateRecord(record, groupPublishedAt, now, options = {}) {
   const failures = [];
   const language = record.language;
   const body = String(record.body || '');
@@ -310,17 +328,21 @@ function validateRecord(record, groupPublishedAt, now) {
     return failures;
   }
 
-  for (const field of ['translationGroupId', 'slug', 'category', 'title', 'body', 'publishedAt']) {
+  const requiredFields = options.adminCreateMode
+    ? ['translationGroupId', 'slug', 'category', 'title', 'body']
+    : ['translationGroupId', 'slug', 'category', 'title', 'body', 'publishedAt'];
+
+  for (const field of requiredFields) {
     if (!record[field]) {
       failures.push(`missing ${field}`);
     }
   }
 
-  if (record.publishedAt && groupPublishedAt && record.publishedAt !== groupPublishedAt) {
+  if (!options.adminCreateMode && record.publishedAt && groupPublishedAt && record.publishedAt !== groupPublishedAt) {
     failures.push('publishedAt differs inside translation group');
   }
 
-  if (!process.env.ALLOW_FUTURE_PUBLISHED_AT && record.publishedAt) {
+  if (!options.adminCreateMode && !process.env.ALLOW_FUTURE_PUBLISHED_AT && record.publishedAt) {
     const publishedAt = new Date(record.publishedAt).getTime();
     if (Number.isFinite(publishedAt) && publishedAt > now + FUTURE_SKEW_MS) {
       failures.push(`future publishedAt: ${record.publishedAt}`);
@@ -430,7 +452,7 @@ function validateRecord(record, groupPublishedAt, now) {
   return failures;
 }
 
-function validate(records) {
+function validate(records, options = {}) {
   const failures = [];
   const byGroup = new Map();
   const now = Date.now();
@@ -465,7 +487,7 @@ function validate(records) {
 
     const groupPublishedAt = groupRecords[0]?.publishedAt;
     for (const record of groupRecords) {
-      const recordFailures = validateRecord(record, groupPublishedAt, now);
+      const recordFailures = validateRecord(record, groupPublishedAt, now, options);
       if (recordFailures.length > 0) {
         failures.push({
           group,
@@ -481,10 +503,12 @@ function validate(records) {
 }
 
 function main() {
-  const records = readInput();
-  const failures = validate(records);
+  const args = parseArgs(process.argv.slice(2));
+  const records = readInput(args.file);
+  const failures = validate(records, { adminCreateMode: args.adminCreateMode });
   const summary = {
     ok: failures.length === 0,
+    mode: args.adminCreateMode ? 'admin-create-payload' : 'admin-api',
     recordCount: records.length,
     groups: [...new Set(records.map((record) => record.translationGroupId))].length,
     failures,

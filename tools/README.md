@@ -13,7 +13,8 @@ content-only repair.
 ## Active Gates
 
 - `quality/article-quality-gate.js`: body/title readability, localization, and
-  source-section checks.
+  source-section checks. Use `--admin-create-payload` before create requests so
+  payloads are not rejected for server-set `publishedAt`.
 - `quality/article-contract-gate.js`: language coverage, shared group metadata,
   source-checked date, slug date, and timestamp checks. Use
   `--admin-create-payload` before API writes, `--db` only for explicit database

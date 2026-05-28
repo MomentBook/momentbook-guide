@@ -36,7 +36,9 @@ or legacy writer scripts.
    the registry.
 3. Build a current source pack from official or highly authoritative sources.
 4. Write the English master and a fact parity map.
-5. Complete all 9 localized records from the same fact map.
+5. Complete all 9 localized records from the same fact map. The local
+   pre-create payload must include gate evidence such as shared
+   `sourceCheckedDate`, but production create requests must not send that field.
 6. Run quality and contract gates before production writes.
 7. Publish through the production admin articles API.
 8. Export the production group, verify exactly 9 languages, and rerun gates.
@@ -124,7 +126,7 @@ Requirements:
 Before production create:
 
 ```sh
-node tools/quality/article-quality-gate.js <payload.json>
+node tools/quality/article-quality-gate.js --admin-create-payload <payload.json>
 node tools/quality/article-contract-gate.js --admin-create-payload <payload.json>
 ```
 
@@ -132,8 +134,17 @@ Production API only:
 
 - base URL: `https://api.momentbook.app`
 - authenticate with `POST /v2/auth/email/login`
+- use the returned access token as `Authorization: Bearer <token>`
 - create one record per language with `POST /v2/admin/articles`
-- reuse one shared `translationGroupId`
+- send only create fields accepted by the API: required `language`, `category`,
+  `title`, `body`; optional `translationGroupId`, `slug`
+- keep `sourceCheckedDate` in the local gate payload and source pack, but let the
+  helper strip it before POST
+- do not send `publishedAt`, `sourceCheckedDate`, `status`, `createdAt`,
+  `updatedAt`, summary, cover image, reading time, or author fields in the POST
+  body
+- reuse one shared `translationGroupId`; if the first create starts a new group,
+  use the returned group id for the remaining languages
 - verify with `GET /v2/admin/articles` and `GET /v2/admin/articles/{articleId}`
 
 After production create or patch:
