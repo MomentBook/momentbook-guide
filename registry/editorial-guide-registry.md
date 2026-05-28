@@ -68,6 +68,7 @@
   - `ssh momentbook-dev` 기준 `/home/ubuntu/app/momentbook-api/scripts/generated` 와 dev DB에 `macao|macau|lrt|hengqin|taipa-ferry` 중복 slug/title 없음 확인 후 dev DB upsert 완료
   - `ssh momentbook-dev` 기준 `/home/ubuntu/app/momentbook-api/scripts/generated` 와 dev DB에 `ghana|cape-coast|gmmb|door-of-no-return` 중복 slug/title 없음 확인 후 dev DB upsert 완료
   - 2026-05-19 기준 dev/prod DB slug 확인 결과 `namibia|mauritius|bolivia|andorra|macao|ghana` 관련 row는 양쪽 DB 모두 9개 언어 record 확인
+  - 2026-05-29 기준 production admin articles API에 `artgrp_kuwait_towers_20260529` 9개 언어 record 확인
 
 ## Selection Guard
 
@@ -100,18 +101,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `123`
+- reserved topics total: `124`
 - status counts:
-  - `prod+dev`: `118`
+  - `prod+dev`: `119`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `10`
-  - `travel-guide`: `98`
+  - `travel-guide`: `99`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `108`
-  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Ecuador, Egypt, Estonia, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Malaysia, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tunisia, Turkey, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam
+- already used countries or scopes: `109`
+  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Ecuador, Egypt, Estonia, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Malaysia, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tunisia, Turkey, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -246,6 +247,7 @@
 | `prod+dev` | Macao SAR | Airport / Taipa Ferry Terminal / Hengqin / LRT network | LRT, public bus fare, payment, and port-arrival planning guide | `travel-guide` | `macao-lrt-bus-fare-airport-hengqin-guide-2026-05-10` |
 | `prod+dev` | Ghana | Cape Coast / Central Region | Cape Coast Castle ticket, guided tour, Door of No Return, and museum timing guide | `travel-guide` | `cape-coast-castle-ticket-guided-tour-guide-2026-05-10` |
 | `prod+dev` | Moldova | Cricova / Cricova Winery | Tour reservation, package choice, surcharge, underground temperature, and holiday-rule guide | `travel-guide` | `cricova-winery-tour-reservation-guide-2026-05-29` |
+| `prod+dev` | Kuwait | Kuwait City / Arabian Gulf Road waterfront | Kuwait Towers viewing sphere hours, official ticket portal, restaurant timing, and holiday recheck guide | `travel-guide` | `kuwait-towers-viewing-sphere-restaurant-timing-guide-2026-05-29` |
 
 ### `dev`
 

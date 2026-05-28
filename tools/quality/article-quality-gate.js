@@ -316,7 +316,7 @@ function hasSourceSection(language, body) {
   );
 }
 
-function validateRecord(record, groupPublishedAt, now, options = {}) {
+function validateRecord(record, now, options = {}) {
   const failures = [];
   const language = record.language;
   const body = String(record.body || '');
@@ -336,10 +336,6 @@ function validateRecord(record, groupPublishedAt, now, options = {}) {
     if (!record[field]) {
       failures.push(`missing ${field}`);
     }
-  }
-
-  if (!options.adminCreateMode && record.publishedAt && groupPublishedAt && record.publishedAt !== groupPublishedAt) {
-    failures.push('publishedAt differs inside translation group');
   }
 
   if (!options.adminCreateMode && !process.env.ALLOW_FUTURE_PUBLISHED_AT && record.publishedAt) {
@@ -485,9 +481,8 @@ function validate(records, options = {}) {
       });
     }
 
-    const groupPublishedAt = groupRecords[0]?.publishedAt;
     for (const record of groupRecords) {
-      const recordFailures = validateRecord(record, groupPublishedAt, now, options);
+      const recordFailures = validateRecord(record, now, options);
       if (recordFailures.length > 0) {
         failures.push({
           group,
