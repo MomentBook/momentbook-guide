@@ -1,97 +1,76 @@
 # Guide Publisher Contract
 
-Use this contract to publish one Momentbook guide from official-source research
-through production admin API verification and registry update.
+Use this contract when a mobile/chat request asks for one Momentbook guide to be
+written, published, reviewed, and optionally committed.
 
 ## Goal
 
-Publish exactly one registry-safe travel guide with complete records for:
+Create exactly one source-backed guide group with complete production records for:
 
 ```text
 ko, en, ja, zh, es, pt, fr, th, vi
 ```
 
-The run is complete only when the production admin API state is verified and
-`registry/editorial-guide-registry.md` reflects the real state.
+The work is complete only when the production admin API state is verified, the
+registry reflects the real state, and any requested git persistence has succeeded
+or clearly reported why it stopped.
 
 ## Required Context
 
-Read these before work starts:
+Read these first:
 
 - `AGENTS.md`
-- `automation/shared/environment.yaml`
-- `automation/shared/admin-articles-api.md`
-- `automation/shared/codex-operating-principles.md`
-- `automation/shared/article-writing-standard.md`
-- `automation/tasks/guide-publisher/workflow.md`
+- `prompts/mobile-chat.md`
 - `playbooks/authoring-guide.md`
+- `automation/shared/article-writing-standard.md`
+- `automation/shared/admin-articles-api.md`
 - `registry/editorial-guide-registry.md`
 
-Do not look for old generated examples. This repository intentionally excludes
-old bodies, run logs, dated batch plans, import payloads, and legacy writer
-scripts from active context.
+Do not search for old generated examples, dated plans, run logs, import payloads,
+or legacy writer scripts.
+
+## Execution Order
+
+1. Inspect `git status --short` and note existing changes before editing.
+2. Choose one registry-safe topic, or validate the user's requested topic against
+   the registry.
+3. Build a current source pack from official or highly authoritative sources.
+4. Write the English master and a fact parity map.
+5. Complete all 9 localized records from the same fact map.
+6. Run quality and contract gates before production writes.
+7. Publish through the production admin articles API.
+8. Export the production group, verify exactly 9 languages, and rerun gates.
+9. Review the published group for readability and localization quality; patch
+   only `title` and `body` when a verified improvement is needed.
+10. Update the registry from verified production API state.
+11. Commit and push only if the chat request included git persistence.
 
 ## Topic Rules
 
-- Choose one topic not already covered or queued in the registry.
 - Prefer a country, city, scope, or information angle not already represented.
-- Avoid generic city introductions. Choose a practical traveler decision:
-  airport transfer, ticket or pass choice, timed entry, transport route,
-  permit, seasonal closure risk, official rule, or similar.
-- Use a topic only when official sources can verify the hard facts.
-- If same-country reuse is unavoidable, record the reuse reason in the registry.
+- Avoid generic city introductions when a practical decision angle is available:
+  ticket choice, transfer route, timed entry, permit, closure risk, rule, booking
+  term, pass comparison, or similar.
+- Same-country reuse needs a clear reason: explicit user request, stronger
+  official source quality, or a materially different geography and traveler
+  intent.
+- Stop or ask for a new direction when the topic overlaps the registry and no
+  defensible reuse reason exists.
 
 ## Source Rules
 
-Use official sources for hard facts:
+Use official sources for hard facts whenever possible:
 
 - government, immigration, tourism board, airport, railway, public transport,
   national park, museum, cultural institution, event organizer
-- UNESCO or public reference sources when appropriate
-- secondary sources only as support, never as the only basis for hard facts
+- UNESCO, public references, research institutions, or official reports when
+  appropriate
+- credible secondary sources only as context or cross-checks
 
-Create a source pack with:
+Record the source pack with URL, publisher, page title, checked date, purpose,
+volatility, and recheck item. Do not copy source prose.
 
-- URL, publisher, page or document title
-- checked date from the actual `Asia/Seoul` run date
-- source purpose
-- volatility: `low`, `medium`, or `high`
-- recheck item for prices, hours, routes, rules, booking terms, closures, or
-  other facts likely to change
-
-Do not copy source prose. Convert verified facts into traveler decision language.
-
-## Date Rules
-
-- At run start, record the local runtime clock and `Asia/Seoul`
-  `runtimeWrittenDate`.
-- Use `runtimeWrittenDate` for visible written/updated dates,
-  `sourceCheckedDate`, and slug dates if a slug includes a date.
-- Use the actual production API write timestamp for `publishedAt`.
-- `publishedAt` is not an event date, source date, travel season date, or batch
-  ordering tool.
-- The admin API sets `publishedAt`; verify returned timestamps are not in the
-  future.
-- Stop if any written/source/slug/published date would be in the future.
-
-## Article Record Contract
-
-Each language record must include:
-
-- `translationGroupId`
-- `language`
-- `slug`
-- `category`: `festival`, `travel-guide`, `destination-guide`, or
-  `wellbeing-guide`
-- `title`
-- `body`
-- `publishedAt`
-- `sourceCheckedDate`
-- `status`: `PUBLISHED` for published-only records
-
-Choose category by user intent, not title wording.
-
-## Body Shape
+## Article Shape
 
 Each localized `body` is publishable markdown:
 
@@ -108,18 +87,12 @@ with, and the most important constraint.
 ![Specific localized alt text](https://example.com/image.jpg)
 Source: short localized caption.
 
-## Practical decision section
-
-## Timing or route section
-
-## Rules or exceptions section
-
+## Choose the right ticket or route
+## Plan the timing and route
+## Rules and exceptions that change the visit
 ## Common mistakes
-
 ## Who should choose which option
-
 ## What to check before you go
-
 ## Sources
 
 - Official source links with human-readable labels.
@@ -130,108 +103,69 @@ Requirements:
 - one H1
 - at least six substantive H2 sections excluding Sources
 - short scan-friendly paragraphs
-- no hype, filler, unsupported superlatives, or marketing prose
+- no hype, filler, unsupported superlatives, copied source wording, or SEO padding
 - meaningful link labels, image alt text, and source captions
-- comply with `automation/shared/article-writing-standard.md`
 
 ## Localization Rules
 
-- Write the English master first, then freeze a fact parity map.
-- Translate fully; do not summarize.
+- Translate fully; never summarize a locale.
 - Preserve every hard fact, warning, exception, route, rule, price, time, date,
-  source meaning, image URL, alt text meaning, and caption meaning.
-- Localize title, H1, H2, paragraphs, bullets, image alt text, captions, and
+  source meaning, image URL, alt text meaning, caption meaning, and decision
+  point.
+- Localize titles, headings, paragraphs, bullets, image alt text, captions, and
   source labels.
-- Do not leave English headings or placeholders in non-English bodies.
-- Do not use external translation APIs or batch machine translation.
-- Translate meaning and decisions naturally, not word-by-word. Rewrite sentence
-  order when needed for the target language while preserving the fact map.
+- Keep required scripts and diacritics:
+  `ko`, `ja`, `zh`, `es`, `pt`, `fr`, `th`, `vi`.
+- Non-English bodies must not keep English headings or placeholders except for
+  official names that should remain unchanged.
 
-Script and diacritic requirements:
+## Validation And API Rules
 
-- `ko`: natural Korean and Hangul
-- `ja`: natural Japanese with kana, kanji, and Japanese punctuation
-- `zh`: one consistent Chinese variant inside the group
-- `es`, `pt`, `fr`: natural spelling with diacritics
-- `th`: Thai script
-- `vi`: Vietnamese tone marks throughout
-
-ASCII-stripped Spanish, Portuguese, French, Thai romanization, or Vietnamese
-without tone marks is a hard failure.
-
-## Quality Gates
-
-Do not write to the production API unless all gates pass:
-
-- official source gate
-- runtime date and `publishedAt` gate
-- readability and accessibility gate
-- article writing standard gate
-- localization script and diacritic gate
-- semantic parity gate against the fact map
-- automated quality gate:
+Before production create:
 
 ```sh
-node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/articles.json
+node tools/quality/article-quality-gate.js <payload.json>
+node tools/quality/article-contract-gate.js --admin-create-payload <payload.json>
 ```
-- automated contract gate:
+
+Production API only:
+
+- base URL: `https://api.momentbook.app`
+- authenticate with `POST /v2/auth/email/login`
+- create one record per language with `POST /v2/admin/articles`
+- reuse one shared `translationGroupId`
+- verify with `GET /v2/admin/articles` and `GET /v2/admin/articles/{articleId}`
+
+After production create or patch:
 
 ```sh
-node tools/quality/article-contract-gate.js --admin-create-payload .automation/runs/<run_id>/payload/articles.json
-node tools/quality/article-contract-gate.js --admin-api <production-api-export.json>
+node tools/quality/article-quality-gate.js <admin-api-export.json>
+node tools/quality/article-contract-gate.js --admin-api <admin-api-export.json>
 ```
 
-## Admin API And Registry Rules
+Do not use SSH, direct MongoDB access, remote helper scripts, or a development
+environment for publication or review.
 
-Production admin API:
+## Review And Git
 
-- Do not use SSH, direct MongoDB access, remote helper scripts, or a development
-  environment.
-- Authenticate with `POST /v2/auth/email/login` and call
-  `/v2/admin/articles` on `https://api.momentbook.app`.
-- Create exactly 9 records for one `translationGroupId`, one per supported
-  language, with `POST /v2/admin/articles`.
-- Verify languages, slugs, category, titles, body structure, first image,
-  source section, script/diacritics, `publishedAt`, API timestamps, quality gate
-  result, and contract gate result.
-- Export the created group with `GET /v2/admin/articles` and
-  `GET /v2/admin/articles/{articleId}`.
-
-Registry:
-
-- Set status from verified production admin API state only:
-  - before API write: `queued`
-  - verified production: `prod`
-- Record topic, scope, information angle, category, `translationGroupId`,
-  slugs, languages, source checked date, `publishedAt`, verification summary,
-  and reuse reason when applicable.
-
-## Artifact And Git Rules
-
-- Temporary scripts, payloads, exports, backups, helper files, locks, and run
-  directories are runtime artifacts.
-- Remove runtime artifacts after success or controlled stop unless needed for
-  diagnosis.
-- This task never stages, commits, pushes, or force-pushes. Git persistence is
-  handled by `automation/tasks/repo-persistence/`.
+- Review the published group from current production admin API exports only.
+- Patch only `title` and `body`; preserve language, slug, category,
+  `translationGroupId`, and timestamps except expected server-side `updatedAt`.
+- Update `registry/editorial-guide-registry.md` only from verified production API
+  state.
+- Commit and push only when requested in the chat and only after reviewing the
+  staged diff.
 
 ## Stop Conditions
 
-Stop without production API write if:
-
-- a lock is active
-- the topic overlaps the registry
-- official sources cannot verify hard facts
-- runtime date, `sourceCheckedDate`, slug date, API timestamps, or `publishedAt`
-  cannot be verified
-- any language is incomplete, unnatural, ASCII-stripped, or semantically weaker
-- the fact parity map, automated quality gate, or contract gate fails
-- production admin API verification fails
-- production API writes cannot be scoped to one verified `translationGroupId`
+Stop before production writes when official sources are insufficient, dates or
+metadata cannot be verified, the topic overlaps the registry, a language is
+incomplete or unnatural, semantic parity fails, a gate fails, API scope is unsafe,
+or credentials/API access are unavailable.
 
 ## Final Report
 
 Report topic, registry-safe reason, category, `translationGroupId`, language
-coverage, slugs, source pack summary, runtime date, `publishedAt`, all quality
-gate results, production API verification, registry status, removed artifacts,
-git deferral, and residual risks.
+coverage, source pack summary, `sourceCheckedDate`, production API verification,
+quality and contract gate results, review patches, registry update, commit/push
+result when requested, and residual risks.

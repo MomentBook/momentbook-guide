@@ -5,47 +5,41 @@ This is the durable content policy for Momentbook editorial guide records.
 ## Canonical Inputs
 
 - Topic and state ledger: `registry/editorial-guide-registry.md`
-- Publication execution contract: `prompts/guide-publisher.md`
-- Automation environment: `automation/shared/environment.yaml`
+- Mobile request templates: `prompts/mobile-chat.md`
+- Publication contract: `prompts/guide-publisher.md`
 - Writing and localization standard:
   `automation/shared/article-writing-standard.md`
 
 ## Completion Standard
 
-A guide is complete only when the production admin API has verified records for all
-supported languages:
+A guide is complete only when the production admin API returns verified records
+for all supported languages:
 
 ```text
 ko, en, ja, zh, es, pt, fr, th, vi
 ```
 
-Generated JSON, scripts, drafts, and exported payloads are not completion
-evidence by themselves.
+Draft JSON, scripts, payloads, and local exports are evidence only after they
+match the production API result and pass the gates.
 
 ## Hard Gates
 
-Do not insert or update published guide records unless all are true:
+Do not create or update published guide records unless all are true:
 
 - hard facts are backed by official or otherwise trustworthy sources
-- time-sensitive facts were checked on the run date
-- `publishedAt` is the real production API write timestamp and is not in the future
-- source checked dates and slug dates, when used, match the actual local run
-  date in `Asia/Seoul`
+- time-sensitive facts were checked on the work date
+- `sourceCheckedDate` uses the actual local date in `Asia/Seoul`
+- `publishedAt` is the real production API write timestamp and is not future
 - the article has one H1, at least six substantive H2 sections, a useful first
-  image, meaningful alt text, and a source section
-- the article satisfies the readable guide standard: practical opening,
-  decision-oriented headings, short paragraphs, and useful checklists
-- all 9 languages carry the same facts, warnings, routes, rules, dates, prices,
-  exceptions, source meaning, image meaning, and decision points
-- Spanish, Portuguese, French, Thai, and Vietnamese preserve their required
-  scripts or diacritics
-- `node tools/quality/article-quality-gate.js <payload-json>` exits 0
-- `node tools/quality/article-contract-gate.js --admin-create-payload <payload-json>`
-  exits 0 before API write, and
-  `node tools/quality/article-contract-gate.js --admin-api <export-json>` exits
-  0 after production admin API export
+  image, meaningful alt text, source caption, and Sources section
+- the opening explains the reader, the decision, and the main constraint
+- all 9 languages preserve the same facts, warnings, routes, rules, dates,
+  prices, exceptions, source meaning, image meaning, and decision points
+- required scripts and diacritics are present for every locale
+- article quality and contract gates pass before and after production API writes
 
-Stop instead of publishing when language quality or source support is uncertain.
+Stop instead of publishing when language quality, source support, or production
+API scope is uncertain.
 
 ## Record Schema
 
@@ -59,12 +53,11 @@ Each local pre-write article record must include:
 | `category` | One of `festival`, `travel-guide`, `destination-guide`, `wellbeing-guide`. |
 | `title` | Natural localized title that matches the body. |
 | `body` | Markdown source for the public page. |
-| `publishedAt` | Actual production API write timestamp set by the server, never future. |
-| `sourceCheckedDate` | Actual source-check date in `YYYY-MM-DD`, shared across the group, never future. Kept in run evidence; the admin API does not expose this field. |
+| `sourceCheckedDate` | Actual source-check date in `YYYY-MM-DD`, shared across the group, never future. |
 
-The production create request sends only `translationGroupId?`, `language`,
-`slug?`, `category`, `title`, and `body`. The API sets publication timestamps
-and derived fields such as summary, cover image, and reading time.
+The create request sends only fields accepted by the admin API. The server sets
+publication timestamps and derived values such as summary, cover image, and
+reading time.
 
 Choose `category` by the main user intent:
 
@@ -90,18 +83,12 @@ Two short intro paragraphs.
 ![Specific localized alt text](https://example.com/image.jpg)
 Source: localized source caption.
 
-## Access, ticket, reservation, or route decision
-
-## Timing and route plan
-
-## Rules that change the day
-
+## Choose the right ticket or route
+## Plan the timing and route
+## Rules and exceptions that change the visit
 ## Common mistakes
-
 ## Who should choose which option
-
 ## What to check before you go
-
 ## Sources
 
 - Official source links.
@@ -109,15 +96,13 @@ Source: localized source caption.
 
 Writing rules:
 
-- Put the reader's decision and the main constraint in the first two
-  paragraphs.
-- Keep paragraphs short and scannable.
-- Use lists for prices, hours, route choices, booking rules, exceptions, and
-  other volatile facts.
-- Avoid hype, filler, generic city prose, unsupported superlatives, and keyword
-  stuffing.
+- Put the reader's decision and the main constraint in the first two paragraphs.
+- Use short paragraphs and bullets for prices, hours, booking rules, route
+  choices, exceptions, and day-of-visit checks.
+- Avoid hype, filler, generic city prose, unsupported superlatives, keyword
+  stuffing, and copied source phrasing.
 - Use absolute `http` or `https` image URLs.
-- Alt text must describe the actual scene, not say only `image`, `photo`, or
+- Alt text must describe the actual scene, not only say `image`, `photo`, or
   `picture`.
 - Source links need human-readable labels.
 
@@ -131,16 +116,12 @@ Use official sources for hard facts whenever possible:
 3. credible secondary sources only for context or cross-checking
 
 Do not publish prices, hours, route names, booking terms, closures, visa rules,
-health claims, or safety rules without source support.
-
-When sources conflict, do not hide the conflict. Either stop or move the point
-to a "check before you go" item with clear uncertainty.
+health claims, or safety rules without source support. When sources conflict,
+stop or describe the uncertainty in a check-before-you-go item.
 
 ## Localization Policy
 
-Write or review the English master first, then maintain a fact parity map for
-all localizations.
-
+Write or review the English master first, then maintain a fact parity map.
 Every localization must preserve:
 
 - hard facts
@@ -160,34 +141,22 @@ Language requirements:
 - `th`: Thai script, not romanized Thai
 - `vi`: Vietnamese tone marks throughout
 
-Non-English bodies must not keep English headings, placeholders, or source
-labels except for official names that should remain untranslated.
-
-## Date Policy
-
-- `runtimeWrittenDate`: current `Asia/Seoul` calendar date at run start.
-- `sourceCheckedDate`: date the source was actually checked.
-- slug date, when present: same as the run date.
-- `publishedAt`: actual production API write timestamp.
-
-Do not use event dates, travel seasons, old markdown dates, source publication
-dates, or artificial batch spacing as `publishedAt`.
+Non-English bodies must not keep English headings, placeholders, or source labels
+except for official names that should remain untranslated.
 
 ## Review Checklist
 
-Before production API write, verify:
+Before and after production API writes, verify:
 
 - 9 supported languages exist
 - one H1 and at least six substantive H2 sections exist
 - first image, alt text, caption, and Sources section exist
 - hard facts trace to sources
-- `sourceCheckedDate`, slug date, `publishedAt`, and API timestamps are not
-  future
+- `sourceCheckedDate`, slug date, `publishedAt`, and API timestamps are not future
 - all localizations preserve semantic parity
 - required scripts and diacritics are present
 - localized prose is natural, not literal translated English
-- automated quality gate passed
-- automated contract gate passed
+- automated quality and contract gates passed
 
 Final rule: the body is the public contract. Summary and cover behavior are
 derived from it, so do not treat them as separate decoration.

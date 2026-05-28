@@ -1,6 +1,6 @@
 # Parallel Workflow For Guide Operations
 
-Use this playbook when more than one agent or run may work on guide content at
+Use this playbook when more than one agent or chat may work on guide content at
 the same time.
 
 ## Ownership Unit
@@ -9,8 +9,8 @@ The ownership unit is `translationGroupId`.
 
 - One write owner per `translationGroupId`.
 - Other agents may read the group but must not edit it.
-- production API records, payload files, review patches, and registry entries
-  for the same group follow the same ownership rule.
+- Production API records, payload files, review patches, and registry entries for
+  the same group follow the same ownership rule.
 
 ## Safe Parallel Work
 
@@ -19,9 +19,9 @@ Parallelize only when inputs are frozen and ownership is disjoint:
 - official source checks by independent source
 - localization groups after the English master and fact parity map are frozen
 - QA checks after all localized records exist
-- post-publish review by disjoint `translationGroupId` or language set
+- review by disjoint `translationGroupId` or language set
 
-Do not parallelize production API writes, registry updates, or git persistence.
+Do not parallelize production API writes, registry updates, commits, or pushes.
 
 ## Standard Order
 
@@ -43,13 +43,13 @@ For repair or review:
 2. Build a content-only patch.
 3. Validate the patched preview.
 4. Apply to production through the admin articles API and verify.
-5. Update durable review state.
+5. Report the production result and update durable state only when needed.
 
 ## Date Rule
 
 Do not distribute `publishedAt` across artificial dates. Published guide records
-use the actual production API write timestamp set by the server, and must not be
-in the future.
+use the actual production API write timestamp set by the server and must not be
+future.
 
 For content-only repairs, preserve existing `publishedAt` unless the user
 explicitly asks for a date repair and the API policy allows it.

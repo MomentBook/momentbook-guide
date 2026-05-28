@@ -1,6 +1,6 @@
-name: momentbook-guide-local-automation
-version: 7
-purpose: Run guide publication, post-publish review, and git persistence from the local momentbook-guide repository using the production admin articles API.
+name: momentbook-guide-mobile-chat
+version: 8
+purpose: Support mobile/chat-driven Momentbook guide writing, production API publication, review, and optional git persistence.
 
 local_workspace:
   path: /Users/hansol/workspace/momentbook-guide
@@ -18,56 +18,20 @@ production:
   publish_target: production_only
   scope: verified_translationGroupId_only
 
-schedules_asia_seoul:
-  guide_publisher: "00:00, 06:00, 12:00, 18:00"
-  post_publish_review: "01:00, 07:00, 13:00, 19:00"
-  repo_persistence: "02:00, 08:00, 14:00, 20:00"
+execution:
+  mode: mobile_chat
+  recurring_automations_active: false
+  one_translation_group_per_request: true
+  commit_and_push: only_when_requested_in_chat
 
 date_policy:
   timezone: Asia/Seoul
-  written_date_source: automation_runtime_clock
+  written_date_source: chat_runtime_clock
   written_date_format: YYYY-MM-DD
-  set_written_date_in_prompt: true
-  hardcoded_written_date_in_article_markdown: false
   sourceCheckedDate: same_as_actual_source_check_local_date
   slug_date_if_present: same_as_written_date
   publishedAt: actual_production_api_write_timestamp
   future_publishedAt_allowed: false
-
-tasks:
-  guide_publisher:
-    prompt: automation/tasks/guide-publisher/prompt.md
-    workflow: automation/tasks/guide-publisher/workflow.md
-    lock_path: .automation/guide-publisher.lock
-    run_base_path: .automation/runs
-    durable_outputs:
-      - registry/editorial-guide-registry.md
-    git_commit_or_push: false
-
-  post_publish_review:
-    prompt: automation/tasks/post-publish-review/prompt.md
-    workflow: automation/tasks/post-publish-review/workflow.md
-    lock_path: .automation/post-publish-review.lock
-    run_base_path: .automation/review-runs
-    state_path: .automation/post-publish-review-state.json
-    candidate_window_hours: 8
-    min_candidate_age_minutes: 10
-    skip_reviewed_groups: true
-    durable_outputs:
-      - .automation/post-publish-review-state.json
-    git_commit_or_push: false
-
-  repo_persistence:
-    prompt: automation/tasks/repo-persistence/prompt.md
-    workflow: automation/tasks/repo-persistence/workflow.md
-    git_only: true
-    runs_after_review_minutes: 60
-    commit_and_push: true
-
-concurrency:
-  allow_overlap: false
-  stale_lock_after_minutes: 360
-  remove_lock_after_run: true
 
 required_languages:
   - ko
@@ -91,11 +55,13 @@ quality_gates:
   - production_admin_api_verification
 
 active_contracts:
-  run_contract: automation/shared/run-contract.md
+  mobile_chat: prompts/mobile-chat.md
+  publisher_contract: prompts/guide-publisher.md
   admin_articles_api: automation/shared/admin-articles-api.md
   article_writing_standard: automation/shared/article-writing-standard.md
+  content_repair_workflow: automation/shared/content-repair-workflow.md
   authoring_guide: playbooks/authoring-guide.md
-  publisher_contract: prompts/guide-publisher.md
+  registry: registry/editorial-guide-registry.md
 
 review_patch_policy:
   writable_fields:
@@ -103,6 +69,7 @@ review_patch_policy:
     - body
   preserve_metadata:
     - translationGroupId
+    - language
     - slug
     - category
     - status
@@ -110,30 +77,31 @@ review_patch_policy:
     - createdAt
 
 git_persistence:
-  mode: separate_repo_persistence_task
+  mode: chat_requested
   remote: origin
   branch: main
   author_name: Codex
   author_email: codex@openai.com
   author: Codex <codex@openai.com>
   never_force_push: true
-  allowed_paths:
+  allowed_durable_paths:
     - registry/editorial-guide-registry.md
     - .automation/post-publish-review-state.json
   ignored_runtime_paths:
-    - .automation/guide-publisher.lock
-    - .automation/post-publish-review.lock
     - .automation/runs/
     - .automation/review-runs/
+    - .tmp/
 
 final_report:
   include:
     - task_result
     - translationGroupId
     - language_coverage
+    - source_pack_summary
     - article_contract_gate_result
     - quality_gate_results
     - production_admin_api_verification
+    - review_patch_summary
     - durable_files_changed
-    - git_persistence_status
+    - git_status_when_requested
     - residual_risks

@@ -1,14 +1,14 @@
 # Tools
 
-Active helper scripts for guide validation, production admin API publication,
-and content-only repair.
+Active helper scripts for guide validation, production admin API publication, and
+content-only repair.
 
 ## Stages
 
 - `quality/`: article quality gates and inventory guards.
 - `admin/`: production `api.momentbook.app` admin article API client.
-- `repair/`: content-only export, patch, and repair planning helpers used by
-  post-publish review.
+- `repair/`: content-only export, patch, and repair planning helpers used during
+  manual review.
 
 ## Active Gates
 
@@ -16,7 +16,7 @@ and content-only repair.
   source-section checks.
 - `quality/article-contract-gate.js`: language coverage, shared group metadata,
   source-checked date, slug date, and timestamp checks. Use
-  `--admin-create-payload` before API writes, `--db` for direct database
+  `--admin-create-payload` before API writes, `--db` only for explicit database
   exports, and `--admin-api` for `/v2/admin/articles` exports.
 - `admin/articles-api.js`: lists, reads, creates, verifies, and patches
   production editorial articles through the admin API. Write commands require
@@ -24,4 +24,4 @@ and content-only repair.
   untracked `.codex/automation/admin-api.env` file.
 
 Dated generation, seed, import, refresh, and write scripts were removed from
-active context so new runs do not imitate stale payloads or dates.
+active context so new work does not imitate stale payloads or dates.

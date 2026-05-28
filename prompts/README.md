@@ -1,8 +1,11 @@
 # Prompts
 
-Reusable prompts for AI-assisted guide work.
+Reusable prompts for mobile/chat-driven guide work.
 
-- `guide-publisher.md`: canonical prompt for selecting, writing, validating,
-  publishing through the production admin API, and registering one new guide.
+- `mobile-chat.md`: copy-ready requests for full runs, publish-only, review-only,
+  git-only, and topic-specific work.
+- `guide-publisher.md`: compact contract for writing, publishing, reviewing, and
+  optionally committing one guide group.
 
-Old specialist prompt templates were removed from active context.
+Old scheduled-task and specialist role prompt templates were removed from active
+context.

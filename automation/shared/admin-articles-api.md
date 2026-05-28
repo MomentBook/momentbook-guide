@@ -1,7 +1,7 @@
 # Production Admin Articles API Contract
 
-Scheduled publication and review tasks must use the production admin article
-API instead of SSH, direct MongoDB access, or remote helper scripts.
+Manual guide publication and review must use the production admin articles API
+instead of SSH, direct MongoDB access, or remote helper scripts.
 
 ## Base URL And Credentials
 
@@ -32,20 +32,20 @@ Authorization: Bearer <accessToken>
 
 ## Article Endpoints
 
-Use only these article endpoints for scheduled guide publication and review:
+Use only these article endpoints for normal guide publication and review:
 
 - `GET /v2/admin/articles`
 - `POST /v2/admin/articles`
 - `GET /v2/admin/articles/{articleId}`
 - `PATCH /v2/admin/articles/{articleId}`
 
-`DELETE /v2/admin/articles/{articleId}` exists for manual admin recovery only.
-Scheduled automation must not delete articles.
+`DELETE /v2/admin/articles/{articleId}` is manual admin recovery only and is not
+part of guide publication or review.
 
 ## Create Schema
 
-`POST /v2/admin/articles` creates one language record and publishes it
-immediately after server validation.
+`POST /v2/admin/articles` creates one language record and publishes it after
+server validation.
 
 ```json
 {
@@ -74,27 +74,27 @@ post-publish review, send content-only patches:
 }
 ```
 
-Do not change `language`, `slug`, or `translationGroupId` during scheduled
-post-publish review.
+Do not change `language`, `slug`, `category`, or `translationGroupId` during
+review. `updatedAt` may change as a server-side timestamp.
 
 ## Verification
 
 Use `GET /v2/admin/articles` to find all records in the target
-`translationGroupId`, then `GET /v2/admin/articles/{articleId}` for full
-details. A publication or review is complete only when the API returns exactly
-9 records for:
+`translationGroupId`, then `GET /v2/admin/articles/{articleId}` for full details.
+Publication or review is complete only when the API returns exactly 9 records:
 
 ```text
 ko, en, ja, zh, es, pt, fr, th, vi
 ```
 
-Before create, run the contract gate in create-payload mode:
+Before create:
 
 ```sh
+node tools/quality/article-quality-gate.js <payload.json>
 node tools/quality/article-contract-gate.js --admin-create-payload <payload.json>
 ```
 
-After API create or patch, run:
+After create or patch:
 
 ```sh
 node tools/quality/article-quality-gate.js <admin-api-export.json>
@@ -102,15 +102,15 @@ node tools/quality/article-contract-gate.js --admin-api <admin-api-export.json>
 ```
 
 The admin API does not expose `sourceCheckedDate`, `status`, or `createdAt`.
-Keep source-check evidence in the run source pack and validate pre-write
-payloads with the normal contract gate before calling the API.
+Keep source-check evidence in local run notes and validate pre-write payloads
+with the create-payload contract gate before calling the API.
 
 ## Local Helper
 
 Prefer the local helper over ad hoc shell JSON handling:
 
 ```sh
-node tools/admin/articles-api.js create-group .automation/runs/<run_id>/payload/articles.json --confirm-production --out .automation/runs/<run_id>/api-create.json
-node tools/admin/articles-api.js export-group <translationGroupId> --out .automation/runs/<run_id>/api-export.json
-node tools/admin/articles-api.js patch-group <translationGroupId> <patches.json> --confirm-production --out .automation/review-runs/<run_id>/api-patch.json
+node tools/admin/articles-api.js create-group <payload.json> --confirm-production --out <api-create.json>
+node tools/admin/articles-api.js export-group <translationGroupId> --out <api-export.json>
+node tools/admin/articles-api.js patch-group <translationGroupId> <patches.json> --confirm-production --out <api-patch.json>
 ```

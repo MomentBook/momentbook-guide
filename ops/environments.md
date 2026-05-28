@@ -2,78 +2,57 @@
 
 ## Local Guide Repository
 
-The guide repository is local-only after migration:
+The guide repository is local-only:
 
 ```sh
 cd "/Users/hansol/workspace/momentbook-guide"
 ```
 
-All guide automation prompts, workflows, registry updates, and git persistence
-must read files from this local checkout. Do not treat
-`/home/ubuntu/app/momentbook-guide` on the development server as canonical.
+Guide prompts, registry updates, validation, and git work should read files from
+this local checkout. Do not treat `/home/ubuntu/app/momentbook-guide` on the
+development server as canonical.
 
-## Development
+## Production Admin API
 
-```sh
-ssh momentbook-dev
+Normal guide publication and review use:
+
+```text
+https://api.momentbook.app/v2/admin/articles
 ```
 
-Development access is still used for app/API environment and DB verification.
+Authenticate with `POST /v2/auth/email/login`. Use the local untracked
+credential file or environment variables described in
+`automation/shared/admin-articles-api.md`.
+
+Do not use production SSH, direct MongoDB access, remote helper scripts, or a
+development environment for routine guide publication or post-publish review.
+
+## Development Hosts
+
+Development SSH access may still be useful for unrelated app/API debugging, but
+it is not part of the guide publication path.
+
 Related application paths:
 
 - `/home/ubuntu/app/momentbook-api`
 - `/home/ubuntu/app/momentbook-web`
 
-The development server does not need a `momentbook-guide` checkout for current
-automation.
-
-## Production
-
-```sh
-ssh momentbook
-```
-
-Production work for guide publication should be DB-only unless the user
-explicitly asks for files to be created. Do not leave import scripts, payload
-JSON, backups, or temp helpers in production after verification.
-
-Production guide replication must be scoped to the single `translationGroupId`
-verified in development for the current task. Do not copy "everything added this
-session" by time range unless the user explicitly provides and confirms that
-range.
-
 ## Git Persistence
 
-Guide publication and post-publish review tasks do not commit or push. The
-separate repo persistence automation commits and pushes verified durable state
-one hour after review.
+Git persistence is started by chat request, not by a recurring automation. Before
+committing:
 
-Allowed git persistence paths:
+1. Inspect `git status --short` and the diff.
+2. Stage only verified durable state such as the registry or an explicitly used
+   review state file.
+3. Commit only after production API verification has passed.
+4. Push only to the intended branch and never force-push without an explicit
+   request.
 
-- `registry/editorial-guide-registry.md`
-- `.automation/post-publish-review-state.json`
-
-Runtime locks, run directories, exports, payloads, backups, and temporary helper
-scripts stay out of git. Automation commits use `Codex <codex@openai.com>` as
-both author and committer.
+Runtime exports, payloads, backups, temporary helpers, and credential files stay
+out of git.
 
 ## Secret Handling
 
-Do not write credentials, database URLs, API keys, or environment-specific
-secret values into this workspace. Read environment config from the active
-application environment when needed.
-
-## Automation Files
-
-Local files:
-
-- `automation/shared/environment.yaml`
-- `automation/shared/codex-operating-principles.md`
-- `automation/tasks/guide-publisher/prompt.md`
-- `automation/tasks/guide-publisher/runbook.md`
-- `automation/tasks/post-publish-review/prompt.md`
-- `automation/tasks/repo-persistence/prompt.md`
-
-These files contain no secrets. They describe hosts, paths, policies, quality
-gates, and final reporting requirements for guide publication and
-post-publication review.
+Do not write credentials, database URLs, API keys, tokens, cookies, or private
+production responses into this workspace.
