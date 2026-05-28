@@ -1,6 +1,7 @@
 # Post-Publish Review Workflow
 
-Improves recently published guides with content-only patches.
+Improves recently published production guides with content-only admin API
+patches.
 
 ## Paths
 
@@ -18,15 +19,18 @@ Improves recently published guides with content-only patches.
 ## Steps
 
 1. Complete `automation/shared/run-contract.md` preflight.
-2. Read the prompt, environment contract, shared Codex rules, repair workflow,
-   run contract, article writing standard, authoring guide, and registry.
+2. Read the prompt, environment contract, admin articles API contract, shared
+   Codex rules, repair workflow, run contract, article writing standard,
+   authoring guide, and registry.
 3. Stop if the publisher lock is active.
 4. Acquire the review lock. Stop if another review is active.
-5. Export recent unreviewed candidate groups from development.
-6. Export current development and production records for each selected group,
-   then run `node tools/quality/article-contract-gate.js --db <export.json>`.
-   Stop here if metadata already violates the publication contract; content-only
-   review must not hide record-contract defects.
+5. Export recent unreviewed candidate groups from production with
+   `GET /v2/admin/articles`.
+6. Export current production records for each selected group with
+   `GET /v2/admin/articles` and `GET /v2/admin/articles/{articleId}`, then run
+   `node tools/quality/article-contract-gate.js --admin-api <export.json>`.
+   Stop here if visible metadata already violates the publication contract;
+   content-only review must not hide record-contract defects.
 7. Write a short review plan with exact readability and localization
    naturalness fixes.
 8. Create content-only patches by disjoint language ownership.
@@ -34,13 +38,13 @@ Improves recently published guides with content-only patches.
    `body`.
 10. Run both executable gates on the patched preview:
     - `node tools/quality/article-quality-gate.js <patched-preview.json>`
-    - `node tools/quality/article-contract-gate.js --db <patched-preview.json>`
-11. Apply the patch to development, export the group, and run both gates.
-12. Apply the same patch to production with DB-only execution, export the group,
-    and run both gates.
-13. Update `.automation/post-publish-review-state.json` after dev and prod pass.
-14. Remove lock and runtime artifacts unless preserved for diagnosis.
-15. Report the result with the run-contract final report fields. Do not stage,
+    - `node tools/quality/article-contract-gate.js --admin-api <patched-preview.json>`
+11. Apply the patch to production with `PATCH /v2/admin/articles/{articleId}`,
+    export the group through the admin API, and run both gates.
+12. Update `.automation/post-publish-review-state.json` after production API
+    verification passes.
+13. Remove lock and runtime artifacts unless preserved for diagnosis.
+14. Report the result with the run-contract final report fields. Do not stage,
     commit, or push.
 
 ## Parallelism
@@ -51,12 +55,11 @@ Allowed only when ownership is disjoint:
 - language reviewers after the review plan is frozen
 - QA after the merged patch is frozen
 
-Never run production repair before development passes. Never run git
-persistence in this task.
+Never run git persistence in this task.
 
 ## Stop Conditions
 
 Stop if the publisher lock is active, no candidate exists, a language is
 missing, existing metadata violates the contract, metadata would drift, factual
-parity cannot be preserved, either executable gate fails, DB verification fails,
-or production scope is unsafe.
+parity cannot be preserved, either executable gate fails, production API
+verification fails, or production scope is unsafe.

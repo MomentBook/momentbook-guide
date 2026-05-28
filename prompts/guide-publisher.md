@@ -1,7 +1,7 @@
 # Guide Publisher Contract
 
 Use this contract to publish one Momentbook guide from official-source research
-through DB verification and registry update.
+through production admin API verification and registry update.
 
 ## Goal
 
@@ -11,7 +11,7 @@ Publish exactly one registry-safe travel guide with complete records for:
 ko, en, ja, zh, es, pt, fr, th, vi
 ```
 
-The run is complete only when the DB state is verified and
+The run is complete only when the production admin API state is verified and
 `registry/editorial-guide-registry.md` reflects the real state.
 
 ## Required Context
@@ -20,6 +20,7 @@ Read these before work starts:
 
 - `AGENTS.md`
 - `automation/shared/environment.yaml`
+- `automation/shared/admin-articles-api.md`
 - `automation/shared/codex-operating-principles.md`
 - `automation/shared/article-writing-standard.md`
 - `automation/tasks/guide-publisher/workflow.md`
@@ -66,10 +67,11 @@ Do not copy source prose. Convert verified facts into traveler decision language
   `runtimeWrittenDate`.
 - Use `runtimeWrittenDate` for visible written/updated dates,
   `sourceCheckedDate`, and slug dates if a slug includes a date.
-- Use the actual DB write timestamp for `publishedAt`.
+- Use the actual production API write timestamp for `publishedAt`.
 - `publishedAt` is not an event date, source date, travel season date, or batch
   ordering tool.
-- All 9 records in the translation group must share the same `publishedAt`.
+- The admin API sets `publishedAt`; verify returned timestamps are not in the
+  future.
 - Stop if any written/source/slug/published date would be in the future.
 
 ## Article Record Contract
@@ -159,7 +161,7 @@ without tone marks is a hard failure.
 
 ## Quality Gates
 
-Do not write to any DB unless all gates pass:
+Do not write to the production API unless all gates pass:
 
 - official source gate
 - runtime date and `publishedAt` gate
@@ -175,32 +177,31 @@ node tools/quality/article-quality-gate.js .automation/runs/<run_id>/payload/art
 - automated contract gate:
 
 ```sh
-node tools/quality/article-contract-gate.js .automation/runs/<run_id>/payload/articles.json
-node tools/quality/article-contract-gate.js --db <dev-or-production-export.json>
+node tools/quality/article-contract-gate.js --admin-create-payload .automation/runs/<run_id>/payload/articles.json
+node tools/quality/article-contract-gate.js --admin-api <production-api-export.json>
 ```
 
-## DB And Registry Rules
+## Admin API And Registry Rules
 
-Development:
+Production admin API:
 
-- Upsert exactly 9 records for one `translationGroupId`.
+- Do not use SSH, direct MongoDB access, remote helper scripts, or a development
+  environment.
+- Authenticate with `POST /v2/auth/email/login` and call
+  `/v2/admin/articles` on `https://api.momentbook.app`.
+- Create exactly 9 records for one `translationGroupId`, one per supported
+  language, with `POST /v2/admin/articles`.
 - Verify languages, slugs, category, titles, body structure, first image,
-  source section, script/diacritics, `sourceCheckedDate`, `publishedAt`, DB
-  timestamps, quality gate result, and contract gate result.
-
-Production, when required:
-
-- Replicate only the verified `translationGroupId`.
-- Use DB-only execution.
-- Leave no files behind.
-- Verify the same 9 records and parity with development.
+  source section, script/diacritics, `publishedAt`, API timestamps, quality gate
+  result, and contract gate result.
+- Export the created group with `GET /v2/admin/articles` and
+  `GET /v2/admin/articles/{articleId}`.
 
 Registry:
 
-- Set status from verified DB state only:
-  - before DB write: `queued`
-  - verified dev only: `dev`
-  - verified dev and production: `prod+dev`
+- Set status from verified production admin API state only:
+  - before API write: `queued`
+  - verified production: `prod`
 - Record topic, scope, information angle, category, `translationGroupId`,
   slugs, languages, source checked date, `publishedAt`, verification summary,
   and reuse reason when applicable.
@@ -216,22 +217,21 @@ Registry:
 
 ## Stop Conditions
 
-Stop without DB write if:
+Stop without production API write if:
 
 - a lock is active
 - the topic overlaps the registry
 - official sources cannot verify hard facts
-- runtime date, `sourceCheckedDate`, slug date, DB timestamps, or `publishedAt`
+- runtime date, `sourceCheckedDate`, slug date, API timestamps, or `publishedAt`
   cannot be verified
 - any language is incomplete, unnatural, ASCII-stripped, or semantically weaker
 - the fact parity map, automated quality gate, or contract gate fails
-- dev verification fails
-- production replication cannot be scoped to one verified
-  `translationGroupId`
+- production admin API verification fails
+- production API writes cannot be scoped to one verified `translationGroupId`
 
 ## Final Report
 
 Report topic, registry-safe reason, category, `translationGroupId`, language
 coverage, slugs, source pack summary, runtime date, `publishedAt`, all quality
-gate results, dev/prod verification, registry status, removed artifacts, git
-deferral, and residual risks.
+gate results, production API verification, registry status, removed artifacts,
+git deferral, and residual risks.

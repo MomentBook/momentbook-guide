@@ -10,7 +10,7 @@ Languages:
 
 Inputs:
 
-- `groups/<translationGroupId>/before.dev.json`
+- `groups/<translationGroupId>/before.production.json`
 - `groups/<translationGroupId>/review-plan.md`
 - `groups/<translationGroupId>/english-readability.patch.json`, when present
 - `automation/shared/article-writing-standard.md`

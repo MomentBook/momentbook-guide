@@ -5,9 +5,9 @@ Use this standard for new guide publication and post-publish review.
 ## Fresh Context Rule
 
 Write from the current source pack, current English master, current fact parity
-map, and current DB export only. Do not search for or imitate old generated
-articles, old run logs, old batch plans, old import payloads, or dated helper
-scripts.
+map, and current production admin API export only. Do not search for or imitate
+old generated articles, old run logs, old batch plans, old import payloads, or
+dated helper scripts.
 
 ## Readable Guide Standard
 
@@ -48,7 +48,7 @@ Translation is a full rewrite in the target language with fact parity.
 Post-publish review should improve the article group, not only pass structure
 checks.
 
-- Build the review plan from current dev/prod exports only.
+- Build the review plan from current production admin API exports only.
 - Identify weak openings, vague headings, wall-like paragraphs, literal
   translation, missing diacritics, English leakage, thin locale bodies, and
   source-label drift.

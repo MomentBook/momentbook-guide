@@ -1,3 +1,4 @@
 .automation/*
 !.automation/
 !.automation/post-publish-review-state.json
+.codex/

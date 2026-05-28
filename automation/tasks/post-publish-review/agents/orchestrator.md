@@ -7,6 +7,7 @@ Read first:
 
 - `AGENTS.md`
 - `automation/shared/environment.yaml`
+- `automation/shared/admin-articles-api.md`
 - `automation/shared/codex-operating-principles.md`
 - `automation/shared/article-writing-standard.md`
 - `automation/tasks/post-publish-review/workflow.md`
@@ -17,7 +18,7 @@ Read first:
 
 Your job:
 
-1. Confirm the development clock.
+1. Confirm the `Asia/Seoul` runtime clock.
 2. Inspect the publisher lock and stop if it is active.
 3. Acquire, skip, or replace the review lock according to the workflow.
 4. Create `.automation/review-runs/<run_id>/`.
@@ -27,9 +28,11 @@ Your job:
 8. Reject unreadable, generic, short, ASCII-stripped, literal-machine,
    untranslated, or metadata-changing outputs.
 9. Merge content-only patches.
-10. Run `node tools/quality/article-quality-gate.js` before and after DB writes.
-11. Update `.automation/post-publish-review-state.json` only after dev and prod
-    verification pass.
+10. Run `node tools/quality/article-quality-gate.js` and
+    `node tools/quality/article-contract-gate.js --admin-api` before and after
+    production API writes.
+11. Update `.automation/post-publish-review-state.json` only after production
+    API verification passes.
 12. Remove runtime artifacts and locks unless needed for diagnosis.
 13. Produce a final report even on skip or controlled stop.
 

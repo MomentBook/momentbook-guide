@@ -30,7 +30,7 @@ scripts are intentionally not part of this repository's active context.
 
 1. Treat `registry/editorial-guide-registry.md` as the source of truth for
    topic coverage and final publication state.
-2. A guide is not complete until the active DB has exactly 9 records for the
+2. A guide is not complete until the production admin API has exactly 9 records for the
    same `translationGroupId`: `ko`, `en`, `ja`, `zh`, `es`, `pt`, `fr`, `th`,
    and `vi`.
 3. Time-sensitive facts must be checked from official sources on the run date.
@@ -40,14 +40,14 @@ scripts are intentionally not part of this repository's active context.
    Verify article bodies with `tools/quality/article-quality-gate.js` and record
    metadata with `tools/quality/article-contract-gate.js`.
 5. Use the `Asia/Seoul` runtime date for written/source-checked dates. Use the
-   actual DB write timestamp for `publishedAt`; it must not be in the future.
+   actual production API write timestamp for `publishedAt`; it must not be in
+   the future.
 6. Publication and post-publish review tasks must not stage, commit, or push.
    Only `automation/tasks/repo-persistence/` may commit and push durable state.
-7. Production writes must be DB-only and scoped to one verified
-   `translationGroupId`. Leave no scripts, payloads, backups, or helper files
-   on production.
-8. Do not store secrets, credentials, Mongo URIs, API keys, or raw production
-   host details in this repository.
+7. Production writes must use the admin articles API, never SSH or direct
+   MongoDB access, and must be scoped to one verified `translationGroupId`.
+8. Do not store secrets, credentials, Mongo URIs, API keys, tokens, or cookies
+   in this repository.
 9. Remove runtime locks and temporary run outputs after success or controlled
    stop unless they are needed for diagnosis.
 

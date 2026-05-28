@@ -70,24 +70,26 @@ This contract follows these sources:
 
 8. Keep old memory out of active work.
    Do not search for old generated articles, old run logs, old batch plans, or
-   dated helper scripts as examples. Use current sources and current DB exports.
+   dated helper scripts as examples. Use current sources and current production
+   admin API exports.
 
 9. Preserve semantic parity.
    Each supported language must keep the same facts, warnings, source meaning,
    image meaning, and decision points.
 
 10. Validate before writing.
-   DB writes require passing automated quality gates and role QA. Failed gates
-   feed a repair loop or stop the run.
+   Production API writes require passing automated quality gates and role QA.
+   Failed gates feed a repair loop or stop the run.
 
 11. Keep production clean.
-    Production work is DB-only, scoped to one verified `translationGroupId`,
-    and leaves no files behind.
+    Production work uses the admin articles API, never SSH or direct MongoDB
+    access, and is scoped to one verified `translationGroupId`.
 
-12. Separate DB work from git work.
+12. Separate article API work from git work.
     Guide publication and post-publish review do not stage, commit, or push.
     Repo persistence is the only task that commits durable state.
 
 13. Make the final report an audit record.
-    Report target IDs, gate results, DB verification, durable files changed,
-    removed artifacts, git deferral or commit status, and residual risks.
+    Report target IDs, gate results, production API verification, durable files
+    changed, removed artifacts, git deferral or commit status, and residual
+    risks.

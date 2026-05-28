@@ -1,6 +1,6 @@
 name: momentbook-guide-local-automation
-version: 6
-purpose: Run guide publication, post-publish review, and git persistence from the local momentbook-guide repository.
+version: 7
+purpose: Run guide publication, post-publish review, and git persistence from the local momentbook-guide repository using the production admin articles API.
 
 local_workspace:
   path: /Users/hansol/workspace/momentbook-guide
@@ -8,18 +8,15 @@ local_workspace:
   branch: main
   remote: origin
 
-development:
-  ssh: ssh momentbook-dev
-  guide_workspace: not_used_after_local_migration
-  guide_workspace_note: The guide repository is local-only; remove or ignore /home/ubuntu/app/momentbook-guide on development.
-  api_workspace: /home/ubuntu/app/momentbook-api
-  web_workspace: /home/ubuntu/app/momentbook-web
-
 production:
-  ssh: ssh momentbook
-  db_only: true
-  leave_files: false
-  replication_scope: verified_translationGroupId_only
+  api_base_url: https://api.momentbook.app
+  auth_endpoint: /v2/auth/email/login
+  articles_endpoint: /v2/admin/articles
+  credential_file: .codex/automation/admin-api.env
+  direct_ssh: false
+  direct_db_access: false
+  publish_target: production_only
+  scope: verified_translationGroupId_only
 
 schedules_asia_seoul:
   guide_publisher: "00:00, 06:00, 12:00, 18:00"
@@ -34,7 +31,7 @@ date_policy:
   hardcoded_written_date_in_article_markdown: false
   sourceCheckedDate: same_as_actual_source_check_local_date
   slug_date_if_present: same_as_written_date
-  publishedAt: actual_db_write_timestamp
+  publishedAt: actual_production_api_write_timestamp
   future_publishedAt_allowed: false
 
 tasks:
@@ -91,11 +88,11 @@ quality_gates:
   - localization_gate
   - semantic_parity_gate
   - automated_article_quality_gate
-  - dev_db_verification
-  - prod_db_verification
+  - production_admin_api_verification
 
 active_contracts:
   run_contract: automation/shared/run-contract.md
+  admin_articles_api: automation/shared/admin-articles-api.md
   article_writing_standard: automation/shared/article-writing-standard.md
   authoring_guide: playbooks/authoring-guide.md
   publisher_contract: prompts/guide-publisher.md
@@ -136,8 +133,7 @@ final_report:
     - language_coverage
     - article_contract_gate_result
     - quality_gate_results
-    - dev_db_verification
-    - prod_db_verification
+    - production_admin_api_verification
     - durable_files_changed
     - git_persistence_status
     - residual_risks

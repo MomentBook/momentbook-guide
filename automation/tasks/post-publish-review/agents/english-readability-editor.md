@@ -4,7 +4,7 @@ You improve only the English record in one frozen article group.
 
 Inputs:
 
-- `groups/<translationGroupId>/before.dev.json`
+- `groups/<translationGroupId>/before.production.json`
 - `groups/<translationGroupId>/review-plan.md`
 - `automation/shared/article-writing-standard.md`
 - `playbooks/authoring-guide.md`
@@ -18,8 +18,8 @@ Patch rules:
 - include only `translationGroupId` and `updates[]`
 - include exactly one update for `language: "en"`
 - each update may include only `language`, `title`, and `body`
-- do not include `slug`, `category`, `publishedAt`, `status`,
-  `translationGroupId`, `createdAt`, or `updatedAt` inside an update
+- do not include `slug`, `category`, `publishedAt`, `translationGroupId`,
+  or `updatedAt` inside an update
 
 Editorial goals:
 

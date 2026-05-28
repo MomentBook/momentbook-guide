@@ -12,7 +12,7 @@ This is the durable content policy for Momentbook editorial guide records.
 
 ## Completion Standard
 
-A guide is complete only when the active DB has verified records for all
+A guide is complete only when the production admin API has verified records for all
 supported languages:
 
 ```text
@@ -28,7 +28,7 @@ Do not insert or update published guide records unless all are true:
 
 - hard facts are backed by official or otherwise trustworthy sources
 - time-sensitive facts were checked on the run date
-- `publishedAt` is the real DB write timestamp and is not in the future
+- `publishedAt` is the real production API write timestamp and is not in the future
 - source checked dates and slug dates, when used, match the actual local run
   date in `Asia/Seoul`
 - the article has one H1, at least six substantive H2 sections, a useful first
@@ -40,15 +40,16 @@ Do not insert or update published guide records unless all are true:
 - Spanish, Portuguese, French, Thai, and Vietnamese preserve their required
   scripts or diacritics
 - `node tools/quality/article-quality-gate.js <payload-json>` exits 0
-- `node tools/quality/article-contract-gate.js <payload-json>` exits 0 before
-  DB write, and `node tools/quality/article-contract-gate.js --db <export-json>`
-  exits 0 after DB export
+- `node tools/quality/article-contract-gate.js --admin-create-payload <payload-json>`
+  exits 0 before API write, and
+  `node tools/quality/article-contract-gate.js --admin-api <export-json>` exits
+  0 after production admin API export
 
 Stop instead of publishing when language quality or source support is uncertain.
 
 ## Record Schema
 
-Each article record must include:
+Each local pre-write article record must include:
 
 | Field | Rule |
 | --- | --- |
@@ -58,9 +59,12 @@ Each article record must include:
 | `category` | One of `festival`, `travel-guide`, `destination-guide`, `wellbeing-guide`. |
 | `title` | Natural localized title that matches the body. |
 | `body` | Markdown source for the public page. |
-| `publishedAt` | Actual DB write timestamp, shared across the group, never future. |
-| `sourceCheckedDate` | Actual source-check date in `YYYY-MM-DD`, shared across the group, never future. |
-| `status` | `PUBLISHED` for published-only guide records. |
+| `publishedAt` | Actual production API write timestamp set by the server, never future. |
+| `sourceCheckedDate` | Actual source-check date in `YYYY-MM-DD`, shared across the group, never future. Kept in run evidence; the admin API does not expose this field. |
+
+The production create request sends only `translationGroupId?`, `language`,
+`slug?`, `category`, `title`, and `body`. The API sets publication timestamps
+and derived fields such as summary, cover image, and reading time.
 
 Choose `category` by the main user intent:
 
@@ -164,20 +168,20 @@ labels except for official names that should remain untranslated.
 - `runtimeWrittenDate`: current `Asia/Seoul` calendar date at run start.
 - `sourceCheckedDate`: date the source was actually checked.
 - slug date, when present: same as the run date.
-- `publishedAt`: actual DB write timestamp.
+- `publishedAt`: actual production API write timestamp.
 
 Do not use event dates, travel seasons, old markdown dates, source publication
 dates, or artificial batch spacing as `publishedAt`.
 
 ## Review Checklist
 
-Before DB write, verify:
+Before production API write, verify:
 
 - 9 supported languages exist
 - one H1 and at least six substantive H2 sections exist
 - first image, alt text, caption, and Sources section exist
 - hard facts trace to sources
-- `sourceCheckedDate`, slug date, `publishedAt`, and DB timestamps are not
+- `sourceCheckedDate`, slug date, `publishedAt`, and API timestamps are not
   future
 - all localizations preserve semantic parity
 - required scripts and diacritics are present

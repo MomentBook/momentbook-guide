@@ -11,6 +11,8 @@ function parseArgs(argv) {
   const args = {
     file: null,
     dbMode: false,
+    adminApiMode: false,
+    adminCreateMode: false,
     today: currentDateInAsiaSeoul(),
   };
 
@@ -18,6 +20,10 @@ function parseArgs(argv) {
     const value = argv[index];
     if (value === '--db') {
       args.dbMode = true;
+    } else if (value === '--admin-api') {
+      args.adminApiMode = true;
+    } else if (value === '--admin-create-payload') {
+      args.adminCreateMode = true;
     } else if (value === '--today') {
       args.today = argv[index + 1];
       index += 1;
@@ -30,6 +36,11 @@ function parseArgs(argv) {
 
   if (!ISO_DATE_PATTERN.test(args.today)) {
     throw new Error('--today must use YYYY-MM-DD.');
+  }
+
+  const modeCount = [args.dbMode, args.adminApiMode, args.adminCreateMode].filter(Boolean).length;
+  if (modeCount > 1) {
+    throw new Error('--db, --admin-api, and --admin-create-payload are mutually exclusive.');
   }
 
   return args;
@@ -132,7 +143,7 @@ function validateSlugDates(failures, record, today) {
 
 function validateRecord(record, options) {
   const failures = [];
-  const baseFields = [
+  const adminApiFields = [
     'translationGroupId',
     'language',
     'slug',
@@ -140,22 +151,47 @@ function validateRecord(record, options) {
     'title',
     'body',
     'publishedAt',
+  ];
+  const baseFields = [
+    ...adminApiFields,
+    'sourceCheckedDate',
+  ];
+  const adminCreateFields = [
+    'translationGroupId',
+    'language',
+    'slug',
+    'category',
+    'title',
+    'body',
     'sourceCheckedDate',
   ];
   const dbFields = ['status', 'createdAt', 'updatedAt'];
+  const requiredFields = options.adminApiMode
+    ? adminApiFields
+    : options.adminCreateMode
+      ? adminCreateFields
+      : options.dbMode
+        ? [...baseFields, ...dbFields]
+        : baseFields;
 
-  pushMissingFields(failures, record, options.dbMode ? [...baseFields, ...dbFields] : baseFields);
+  pushMissingFields(failures, record, requiredFields);
 
   if (hasValue(record, 'language') && !REQUIRED_LANGUAGES.includes(record.language)) {
     failures.push(`unsupported language: ${record.language}`);
   }
 
-  validateNotFutureTimestamp(failures, record, 'publishedAt', options.now);
+  if (!options.adminCreateMode) {
+    validateNotFutureTimestamp(failures, record, 'publishedAt', options.now);
+  }
   if (options.dbMode) {
     validateNotFutureTimestamp(failures, record, 'createdAt', options.now);
     validateNotFutureTimestamp(failures, record, 'updatedAt', options.now);
+  } else if (options.adminApiMode) {
+    validateNotFutureTimestamp(failures, record, 'updatedAt', options.now);
   }
-  validateNotFutureDate(failures, record, 'sourceCheckedDate', options.today);
+  if (!options.adminApiMode) {
+    validateNotFutureDate(failures, record, 'sourceCheckedDate', options.today);
+  }
   validateSlugDates(failures, record, options.today);
 
   return failures;
@@ -171,6 +207,8 @@ function validate(records, args) {
   const byGroup = new Map();
   const options = {
     dbMode: args.dbMode,
+    adminApiMode: args.adminApiMode,
+    adminCreateMode: args.adminCreateMode,
     now: Date.now(),
     today: args.today,
   };
@@ -205,9 +243,13 @@ function validate(records, args) {
     const groupFailures = [
       ...sameValueFailures(groupRecords, 'slug'),
       ...sameValueFailures(groupRecords, 'category'),
-      ...sameValueFailures(groupRecords, 'publishedAt'),
-      ...sameValueFailures(groupRecords, 'sourceCheckedDate'),
     ];
+    if (!args.adminApiMode && !args.adminCreateMode) {
+      groupFailures.push(...sameValueFailures(groupRecords, 'publishedAt'));
+    }
+    if (!args.adminApiMode) {
+      groupFailures.push(...sameValueFailures(groupRecords, 'sourceCheckedDate'));
+    }
     if (args.dbMode) {
       groupFailures.push(...sameValueFailures(groupRecords, 'status'));
     }
@@ -241,7 +283,13 @@ function main() {
   const failures = validate(records, args);
   const summary = {
     ok: failures.length === 0,
-    mode: args.dbMode ? 'db' : 'payload',
+    mode: args.adminApiMode
+      ? 'admin-api'
+      : args.adminCreateMode
+        ? 'admin-create-payload'
+        : args.dbMode
+          ? 'db'
+          : 'payload',
     today: args.today,
     recordCount: records.length,
     groups: [...new Set(records.map((record) => record.translationGroupId))].length,

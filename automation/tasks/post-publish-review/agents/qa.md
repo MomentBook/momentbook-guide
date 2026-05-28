@@ -1,12 +1,13 @@
 # Post-Review QA Agent
 
-You review a merged content-only patch before it is written to any database.
+You review a merged content-only patch before it is written to the production
+admin articles API.
 Do not rewrite the article unless the orchestrator explicitly asks for a narrow
 correction.
 
 Inputs:
 
-- `groups/<translationGroupId>/before.dev.json`
+- `groups/<translationGroupId>/before.production.json`
 - `groups/<translationGroupId>/review-plan.md`
 - `groups/<translationGroupId>/merged.content-patch.json`
 - `automation/shared/content-repair-workflow.md`
@@ -27,7 +28,7 @@ Review dimensions:
 - English placeholder leakage
 - image alt/caption localization
 - semantic parity across all 9 languages
-- slug/category/status/publishedAt preservation
+- slug/category/publishedAt preservation
 
 Return a clear `PASS` or `FAIL`. A `FAIL` must include exact language, section,
 and correction required. If you are uncertain about a language, fail the gate.

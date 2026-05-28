@@ -13,40 +13,40 @@ Repair work is always grouped by `translationGroupId`.
 
 Required order:
 
-1. Audit dev and prod inventories.
-2. Back up current records before writes.
-3. Repair dev first.
-4. Run the quality and contract gates against the full 9-language group.
-5. Apply the same approved content patch to prod.
-6. Re-run the same gates against prod.
-7. Re-run the full inventory audit and record remaining failures.
+1. Audit production inventory through the admin articles API.
+2. Export current records before writes.
+3. Build a content-only patch.
+4. Run the quality and contract gates against the full 9-language preview.
+5. Apply the approved content patch to production with
+   `PATCH /v2/admin/articles/{articleId}`.
+6. Re-run the same gates against a fresh production API export.
+7. Record remaining failures.
 
 ## Fields That Must Not Drift
 
 Content repair agents must not change:
 
 - `translationGroupId`
+- `language`
 - `slug`
 - `category`
-- `status`
 - `publishedAt`
-- `sourceCheckedDate`
-- `createdAt`
 
-The default apply tool only writes `title`, `body`, and `updatedAt`.
+The production API patch must write only `title` and `body`; `updatedAt` may
+change as a server-side timestamp.
 
 ## Role Split
 
 For large repair batches, run bounded workers in parallel with disjoint
 `translationGroupId` sets.
 
-- `inventory-planner`: reads the audit JSON and creates repair batches.
-- `dev-repair-worker`: exports one group, writes a content-only patch, applies
-  it to dev, and runs the gate.
-- `prod-replication-worker`: applies a dev-passed patch to prod and runs the
-  gate against prod.
-- `qa-summary-worker`: re-runs the full inventory audit and reports remaining
-  groups.
+- `inventory-planner`: reads the production API audit JSON and creates repair
+  batches.
+- `content-repair-worker`: exports one group, writes a content-only patch, and
+  runs the preview gates.
+- `api-publisher-worker`: applies a verified patch to production and runs the
+  gates against the fresh API export.
+- `qa-summary-worker`: re-runs the inventory audit and reports remaining groups.
 
 Never let two workers update the same `translationGroupId`.
 
@@ -91,13 +91,13 @@ Rules:
 Export one group:
 
 ```sh
-node tools/repair/export-article-group.js --group <translationGroupId> --out /tmp/group.json
+node tools/admin/articles-api.js export-group <translationGroupId> --out /tmp/group.json
 ```
 
 Apply a content-only patch:
 
 ```sh
-node tools/repair/apply-article-content-patch.js --file /tmp/group.patch.json --apply
+node tools/admin/articles-api.js patch-group <translationGroupId> /tmp/group.patch.json --confirm-production
 ```
 
 Plan batches from an audit:
@@ -112,10 +112,10 @@ Run the quality gate:
 node tools/quality/article-quality-gate.js /tmp/group.json
 ```
 
-Run the contract gate on DB exports:
+Run the contract gate on admin API exports:
 
 ```sh
-node tools/quality/article-contract-gate.js --db /tmp/group.json
+node tools/quality/article-contract-gate.js --admin-api /tmp/group.json
 ```
 
 ## Patch Shape
@@ -133,6 +133,5 @@ node tools/quality/article-contract-gate.js --db /tmp/group.json
 }
 ```
 
-Patch files must not include `slug`, `category`, `publishedAt`,
-`sourceCheckedDate`, `status`, or `translationGroupId` inside individual
-updates.
+Patch files must not include `slug`, `category`, `publishedAt`, `updatedAt`, or
+`translationGroupId` inside individual updates.

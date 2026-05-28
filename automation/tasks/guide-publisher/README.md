@@ -1,8 +1,8 @@
 # Guide Publisher Automation
 
-Publishes exactly one new Momentbook guide from source research through dev and
-production DB verification. It updates the local registry but does not commit or
-push.
+Publishes exactly one new Momentbook guide from source research through
+production admin API verification. It updates the local registry but does not
+commit or push.
 
 ## Files
 
@@ -15,6 +15,7 @@ push.
 ## Shared Inputs
 
 - `automation/shared/environment.yaml`
+- `automation/shared/admin-articles-api.md`
 - `automation/shared/codex-operating-principles.md`
 - `automation/shared/article-writing-standard.md`
 - `prompts/guide-publisher.md`

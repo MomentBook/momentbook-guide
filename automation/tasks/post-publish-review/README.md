@@ -3,8 +3,8 @@
 Reviews recently published Momentbook guides and improves readability,
 translation naturalness, and localization parity without changing metadata.
 
-Codex app schedule: 01:00, 04:00, 07:00, 10:00, 13:00, 16:00, 19:00, and
-22:00 Asia/Seoul, one hour after each guide publisher slot.
+Codex app schedule: 01:00, 07:00, 13:00, and 19:00 Asia/Seoul, one hour after
+each guide publisher slot.
 
 This task updates local review state but does not commit or push. Git
 persistence runs one hour later.
@@ -12,13 +12,14 @@ persistence runs one hour later.
 ## Files
 
 - `prompt.md`: standalone automation prompt used by the Codex app automation.
-- `workflow.md`: review, repair, validation, and DB replication contract.
+- `workflow.md`: review, repair, validation, and production API patch contract.
 - `agents/`: role prompts for planning, English editing, localization review,
   QA, and publishing.
 
 ## Shared Inputs
 
 - `automation/shared/environment.yaml`
+- `automation/shared/admin-articles-api.md`
 - `automation/shared/content-repair-workflow.md`
 - `automation/shared/codex-operating-principles.md`
 - `automation/shared/article-writing-standard.md`
