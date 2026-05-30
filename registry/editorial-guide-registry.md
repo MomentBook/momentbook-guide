@@ -74,6 +74,7 @@
   - 2026-05-30 기준 production admin articles API에 `artgrp_botswana_chobe_riverfront_20260530` 9개 언어 record 확인
   - 2026-05-30 기준 production admin articles API에 `artgrp_mozambique_gorongosa_no_self_drive_20260530` 9개 언어 record 확인
   - 2026-05-31 기준 production admin articles API에 `artgrp_dominican_republic_faro_a_colon_20260531` 9개 언어 record 확인
+  - 2026-05-31 기준 production admin articles API에 `artgrp_israel_masada_cable_car_snake_path_20260531` 9개 언어 record 확인
 
 ## Selection Guard
 
@@ -106,18 +107,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `129`
+- reserved topics total: `130`
 - status counts:
-  - `prod+dev`: `124`
+  - `prod+dev`: `125`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `10`
-  - `travel-guide`: `104`
+  - `travel-guide`: `105`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `114`
-  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, Estonia, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tunisia, Turkey, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam
+- already used countries or scopes: `115`
+  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, Estonia, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tunisia, Turkey, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -258,6 +259,7 @@
 | `prod+dev` | Botswana | Kasane / Chobe Riverfront | Chobe Riverfront entry fees, vehicle fee, seasonal gate hours, and boat-vs-self-drive planning guide | `travel-guide` | `chobe-national-park-riverfront-fees-gate-hours-guide-2026-05-30` |
 | `prod+dev` | Mozambique | Gorongosa National Park / Sofala Province | Conservation fee, seasonal gate hours, no self-drive safari rule, and Beira/Inchope access planning guide | `travel-guide` | `gorongosa-no-self-drive-fees-gate-times-guide-2026-05-30` |
 | `prod+dev` | Dominican Republic | Santo Domingo Este / Faro a Colón | Visitor hours, free guide service, bag/photo rules, and admission-price recheck guide | `travel-guide` | `faro-a-colon-hours-guide-rules-2026-05-31` |
+| `prod+dev` | Israel | Masada National Park / Dead Sea and Arad access | Cable car vs Snake Path vs Roman Ramp, heat-closure timing, last entry, and pass-exclusion guide | `travel-guide` | `masada-cable-car-snake-path-heat-guide-2026-05-31` |
 
 ### `dev`
 
