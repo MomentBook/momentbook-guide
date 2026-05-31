@@ -80,6 +80,7 @@
   - 2026-05-31 기준 production admin articles API에 `artgrp_trinidad_tobago_interisland_ferry_20260531` 9개 언어 record 확인
   - 2026-05-31 기준 production admin articles API에 `artgrp_madagascar_andasibe_mantadia_20260531` 9개 언어 record 확인
   - 2026-05-31 기준 production admin articles API에 `artgrp_eswatini_mantenga_cultural_village_falls_20260531` 9개 언어 record 확인
+  - 2026-05-31 기준 production admin articles API에 `artgrp_uganda_entebbe_expressway_toll_20260531` 9개 언어 record 확인
 
 ## Selection Guard
 
@@ -112,18 +113,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `135`
+- reserved topics total: `136`
 - status counts:
-  - `prod+dev`: `130`
+  - `prod+dev`: `131`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `10`
-  - `travel-guide`: `110`
+  - `travel-guide`: `111`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `120`
-  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam
+- already used countries or scopes: `121`
+  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -270,6 +271,7 @@
 | `prod+dev` | Trinidad and Tobago | Port of Spain / Scarborough inter-island ferry route | Ticket class, online booking immutability, two-hour check-in, ID, baggage, and vehicle rules guide | `travel-guide` | `trinidad-tobago-interisland-ferry-ticket-checkin-guide-2026-05-31` |
 | `prod+dev` | Madagascar | Andasibe / Analamazaotra and Mantadia | Analamazaotra vs Mantadia ticket, compulsory local guide, RN2/field-car access, circuit difficulty, and season planning guide | `travel-guide` | `andasibe-mantadia-ticket-guide-trail-choice-2026-05-31` |
 | `prod+dev` | Eswatini | Ezulwini Valley / Mantenga Nature Reserve | Cultural Village performance times, gate-price categories, falls trail, and crocodile no-swim guide | `travel-guide` | `mantenga-cultural-village-falls-hours-ticket-guide-2026-05-31` |
+| `prod+dev` | Uganda | Entebbe International Airport / Kampala-Entebbe Expressway | Toll class, cash vs Upesi card, discount-pass, 24/7 toll plaza, and expressway rule guide | `travel-guide` | `kampala-entebbe-expressway-toll-airport-guide-2026-05-31` |
 
 ### `dev`
 
