@@ -78,6 +78,7 @@
   - 2026-05-31 기준 production admin articles API에 `artgrp_laos_kuang_si_waterfall_20260531` 9개 언어 record 확인
   - 2026-05-31 기준 production admin articles API에 `artgrp_el_salvador_joya_de_ceren_20260531` 9개 언어 record 확인
   - 2026-05-31 기준 production admin articles API에 `artgrp_trinidad_tobago_interisland_ferry_20260531` 9개 언어 record 확인
+  - 2026-05-31 기준 production admin articles API에 `artgrp_madagascar_andasibe_mantadia_20260531` 9개 언어 record 확인
 
 ## Selection Guard
 
@@ -110,18 +111,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `133`
+- reserved topics total: `134`
 - status counts:
-  - `prod+dev`: `128`
+  - `prod+dev`: `129`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `10`
-  - `travel-guide`: `108`
+  - `travel-guide`: `109`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `118`
-  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam
+- already used countries or scopes: `119`
+  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -266,6 +267,7 @@
 | `prod+dev` | Laos | Luang Prabang / Kuang Si Waterfall | Open hours, foreign-vs-local ticket, shared-vs-private transfer, signed swimming pools, Bear Rescue Center, and local etiquette guide | `travel-guide` | `kuang-si-waterfall-hours-ticket-swimming-guide-2026-05-31` |
 | `prod+dev` | El Salvador | San Juan Opico / Joya de Cerén Archaeological Park | Ticket categories, Tuesday-Sunday hours, free guide service, accessibility features, and Monday-hours conflict guide | `travel-guide` | `joya-de-ceren-ticket-hours-free-guide-2026-05-31` |
 | `prod+dev` | Trinidad and Tobago | Port of Spain / Scarborough inter-island ferry route | Ticket class, online booking immutability, two-hour check-in, ID, baggage, and vehicle rules guide | `travel-guide` | `trinidad-tobago-interisland-ferry-ticket-checkin-guide-2026-05-31` |
+| `prod+dev` | Madagascar | Andasibe / Analamazaotra and Mantadia | Analamazaotra vs Mantadia ticket, compulsory local guide, RN2/field-car access, circuit difficulty, and season planning guide | `travel-guide` | `andasibe-mantadia-ticket-guide-trail-choice-2026-05-31` |
 
 ### `dev`
 
