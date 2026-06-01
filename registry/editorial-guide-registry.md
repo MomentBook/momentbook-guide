@@ -83,6 +83,7 @@
   - 2026-05-31 기준 production admin articles API에 `artgrp_uganda_entebbe_expressway_toll_20260531` 9개 언어 record 확인
   - 2026-05-31 기준 production admin articles API에 `artgrp_guyana_kaieteur_falls_flight_day_trip_20260531` 9개 언어 record 확인 후 title/body 현지화 patch 완료
   - 2026-06-01 기준 production admin articles API에 `artgrp_zimbabwe_victoria_falls_rainforest_20260601` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-01 기준 production admin articles API에 `artgrp_samoa_upolu_savaii_ferry_20260601` 9개 언어 record 확인 후 ko/th title/body 현지화 patch 완료
 
 ## Selection Guard
 
@@ -115,18 +116,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `138`
+- reserved topics total: `139`
 - status counts:
-  - `prod+dev`: `133`
+  - `prod+dev`: `134`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `10`
-  - `travel-guide`: `113`
+  - `travel-guide`: `114`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `123`
-  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Guyana, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam, Zimbabwe
+- already used countries or scopes: `124`
+  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Guyana, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam, Zimbabwe
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -276,6 +277,7 @@
 | `prod+dev` | Uganda | Entebbe International Airport / Kampala-Entebbe Expressway | Toll class, cash vs Upesi card, discount-pass, 24/7 toll plaza, and expressway rule guide | `travel-guide` | `kampala-entebbe-expressway-toll-airport-guide-2026-05-31` |
 | `prod+dev` | Guyana | Kaieteur National Park / Potaro River | Kaieteur Falls flight-dependent day trip, weather cancellation, 20-pound weight planning, no-rail viewpoint safety, and licensed-operator guide | `travel-guide` | `kaieteur-falls-flight-weather-viewpoint-guide-2026-05-31` |
 | `prod+dev` | Zimbabwe | Victoria Falls National Park / Rainforest, Matabeleland North | Rainforest Main gate vs V.I.P Gate vs Moonlight viewing fees, A8 access, spray clothing, and cliff-edge safety guide | `travel-guide` | `victoria-falls-rainforest-main-gate-fees-guide-2026-06-01` |
+| `prod+dev` | Samoa | Upolu-Savai‘i ferry route / Mulifanua and Salelologa | Ferry passenger fare, cash walk-on ticket, vehicle booking/check-in, VIP upgrade, and missed-sailing penalty guide | `travel-guide` | `samoa-upolu-savaii-ferry-ticket-vehicle-guide-2026-06-01` |
 
 ### `dev`
 
