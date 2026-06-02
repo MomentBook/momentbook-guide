@@ -86,6 +86,7 @@
   - 2026-06-01 기준 production admin articles API에 `artgrp_samoa_upolu_savaii_ferry_20260601` 9개 언어 record 확인 후 ko/th title/body 현지화 patch 완료
   - 2026-06-02 기준 production admin articles API에 `artgrp_honduras_copan_ticket_tunnel_museum_20260602` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-02 기준 production admin articles API에 `artgrp_palau_rock_islands_jellyfish_lake_permit_20260602` 9개 언어 record 확인 후 fr title/body 현지화 patch 완료
+  - 2026-06-02 기준 production admin articles API에 `artgrp_saint_kitts_brimstone_hill_fortress_20260602` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -118,18 +119,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `141`
+- reserved topics total: `142`
 - status counts:
-  - `prod+dev`: `136`
+  - `prod+dev`: `137`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `10`
-  - `travel-guide`: `116`
+  - `travel-guide`: `117`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `126`
-  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Palau, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam, Zimbabwe
+- already used countries or scopes: `127`
+  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Palau, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam, Zimbabwe
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -282,6 +283,7 @@
 | `prod+dev` | Samoa | Upolu-Savai‘i ferry route / Mulifanua and Salelologa | Ferry passenger fare, cash walk-on ticket, vehicle booking/check-in, VIP upgrade, and missed-sailing penalty guide | `travel-guide` | `samoa-upolu-savaii-ferry-ticket-vehicle-guide-2026-06-01` |
 | `prod+dev` | Honduras | Copán Ruinas / Parque Arqueológico de Copán | Ticket category, tunnel add-on, museum choice, student free-entry scope, and filming rule guide | `travel-guide` | `copan-archaeological-park-ticket-tunnel-museum-guide-2026-06-02` |
 | `prod+dev` | Palau | Koror / Rock Islands Southern Lagoon and Jellyfish Lake | Rock Island Use vs Jellyfish Lake permit, 10-day validity, voucher upgrade, designated-area, no-SCUBA, and lake-safety guide | `travel-guide` | `palau-rock-islands-jellyfish-lake-permit-guide-2026-06-02` |
+| `prod+dev` | Saint Kitts and Nevis | Sandy Point / Brimstone Hill Fortress National Park | Ticket, local-ID category, restaurant wristband, daily hours, hill-route, and UNESCO context guide | `travel-guide` | `brimstone-hill-fortress-ticket-hours-guide-2026-06-02` |
 
 ### `dev`
 
