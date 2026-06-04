@@ -90,6 +90,7 @@
   - 2026-06-03 기준 production admin articles API에 `artgrp_suriname_paramaribo_unesco_walk_20260603` 9개 언어 record 확인 후 ja/es/pt/fr/th/vi title/body 현지화 patch 완료
   - 2026-06-04 기준 production admin articles API에 `artgrp_ethiopia_unity_park_ticket_rules_20260604` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-04 기준 production admin articles API에 `artgrp_kosovo_bear_sanctuary_prishtina_20260604` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-04 기준 production admin articles API에 `artgrp_kosovo_prishtina_airport_transfer_20260604` 9개 언어 record 확인 후 ko/ja/zh/pt/th/vi title/body 현지화 patch 완료
 
 ## Selection Guard
 
@@ -122,15 +123,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `145`
+- reserved topics total: `146`
 - status counts:
-  - `prod+dev`: `140`
+  - `prod+dev`: `141`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `11`
-  - `travel-guide`: `119`
+  - `travel-guide`: `120`
   - `wellbeing-guide`: `3`
 - already used countries or scopes: `130`
   - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Palau, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam, Zimbabwe
@@ -290,6 +291,7 @@
 | `prod+dev` | Suriname | Paramaribo / Historic Inner City and Waterkant | UNESCO historic inner city walking route, wooden heritage, season, transport, cash, and evening-return guide | `destination-guide` | `paramaribo-unesco-walking-route-guide-2026-06-03` |
 | `prod+dev` | Ethiopia | Addis Ababa / Unity Park, Grand Palace compound | Unity Park Regular vs Special vs Photography ticket, Ethiopian-clock timing, ID category, payment, and visitor-security rules guide | `travel-guide` | `unity-park-addis-ababa-ticket-rules-guide-2026-06-04` |
 | `prod+dev` | Kosovo | Mramor / Badovc Lake near Prishtina | BEAR SANCTUARY Prishtina ticket, official-hours conflict, guided tour, taxi, bus, and animal-welfare visitor guide | `travel-guide` | `bear-sanctuary-prishtina-ticket-hours-transport-guide-2026-06-04` |
+| `prod+dev` | Kosovo | Prishtina International Airport / Prishtina route | Airport public transport timetable, official taxi price list, late-arrival, luggage, and pickup decision guide | `travel-guide` | `prishtina-airport-bus-taxi-transfer-guide-2026-06-04` |
 
 ### `dev`
 
@@ -312,6 +314,8 @@ Reuse reason:
 - Himeji coverage differs because it covers Himeji Castle admission, 16:00 gate close, Koko-en combo ticket, and locker logistics, not prior Japan destination overview, festival, or Miyajima ferry-tax coverage.
 - Nara coverage differs because it covers Tōdai-ji Great Buddha Hall seasonal hours, admission, audio guide logistics, and Nara deer safety, not prior Japan destination overview, festival, Miyajima ferry-tax, or Himeji Castle ticket coverage.
 - Matsumoto coverage differs because it covers Matsumoto Castle e-ticket vs paper ticket pricing, 2026 Golden Week extended hours, steep-stair/shoe rules, lockers, and station access, not prior Japan destination overview, festival, Miyajima ferry-tax, Himeji Castle, or Nara deer-safety coverage.
+- Kosovo reused because the Prishtina Airport transfer guide was selected, sourced, and production-published before the registry-visible Kosovo BEAR SANCTUARY row appeared in this working tree.
+- Existing Kosovo coverage differs because BEAR SANCTUARY covers a Mramor/Badovc Lake site visit with ticket, hours, guided-tour, taxi/bus, and animal-welfare rules, while Prishtina Airport transfer covers PRN public transport timetable, official airport taxi prices, late-arrival, luggage, and pickup decisions.
 
 ## Update Workflow
 
