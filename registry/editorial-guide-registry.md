@@ -89,6 +89,7 @@
   - 2026-06-02 기준 production admin articles API에 `artgrp_saint_kitts_brimstone_hill_fortress_20260602` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-03 기준 production admin articles API에 `artgrp_suriname_paramaribo_unesco_walk_20260603` 9개 언어 record 확인 후 ja/es/pt/fr/th/vi title/body 현지화 patch 완료
   - 2026-06-04 기준 production admin articles API에 `artgrp_ethiopia_unity_park_ticket_rules_20260604` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-04 기준 production admin articles API에 `artgrp_kosovo_bear_sanctuary_prishtina_20260604` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -121,18 +122,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `144`
+- reserved topics total: `145`
 - status counts:
-  - `prod+dev`: `139`
+  - `prod+dev`: `140`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `11`
-  - `travel-guide`: `118`
+  - `travel-guide`: `119`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `129`
-  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Palau, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam, Zimbabwe
+- already used countries or scopes: `130`
+  - Albania, Andorra, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cambodia, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Palau, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vatican City, Vietnam, Zimbabwe
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -288,6 +289,7 @@
 | `prod+dev` | Saint Kitts and Nevis | Sandy Point / Brimstone Hill Fortress National Park | Ticket, local-ID category, restaurant wristband, daily hours, hill-route, and UNESCO context guide | `travel-guide` | `brimstone-hill-fortress-ticket-hours-guide-2026-06-02` |
 | `prod+dev` | Suriname | Paramaribo / Historic Inner City and Waterkant | UNESCO historic inner city walking route, wooden heritage, season, transport, cash, and evening-return guide | `destination-guide` | `paramaribo-unesco-walking-route-guide-2026-06-03` |
 | `prod+dev` | Ethiopia | Addis Ababa / Unity Park, Grand Palace compound | Unity Park Regular vs Special vs Photography ticket, Ethiopian-clock timing, ID category, payment, and visitor-security rules guide | `travel-guide` | `unity-park-addis-ababa-ticket-rules-guide-2026-06-04` |
+| `prod+dev` | Kosovo | Mramor / Badovc Lake near Prishtina | BEAR SANCTUARY Prishtina ticket, official-hours conflict, guided tour, taxi, bus, and animal-welfare visitor guide | `travel-guide` | `bear-sanctuary-prishtina-ticket-hours-transport-guide-2026-06-04` |
 
 ### `dev`
 
