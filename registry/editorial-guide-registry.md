@@ -4,7 +4,7 @@
 새 guide를 고르기 전에 반드시 이 문서를 먼저 읽고, 새 글을 draft하거나 queue에 올린 직후 즉시 이 문서를 갱신한다.
 
 기준 시점:
-- 마지막 검토일: `2026-06-07`
+- 마지막 검토일: `2026-06-08`
 
 검토에 사용한 데이터:
 - local prod export: `editorial-guides-2026-04.prod-db-export.json`
@@ -103,6 +103,7 @@
   - 2026-06-07 기준 production admin articles API에 `artgrp_faroe_islands_mykines_ferry_hike_20260607` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-07 기준 production admin articles API에 `artgrp_lesotho_sani_pass_border_4x4_levy_20260607` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-07 기준 production admin articles API에 `artgrp_curacao_christoffel_mountain_climb_20260607` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-08 기준 production admin articles API에 `artgrp_gibraltar_upper_rock_nature_reserve_20260608` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -135,18 +136,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `158`
+- reserved topics total: `159`
 - status counts:
-  - `prod+dev`: `153`
+  - `prod+dev`: `154`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `131`
+  - `travel-guide`: `132`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `142`
-  - Albania, Andorra, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Palau, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zimbabwe
+- already used countries or scopes: `143`
+  - Albania, Andorra, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Palau, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zimbabwe
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -316,6 +317,7 @@
 | `prod+dev` | Faroe Islands | Mykines / Sørvágur ferry route | Route 36 ferry, mandatory guided outfield hike, hiking fee, puffin season, and lighthouse-path closure planning guide | `travel-guide` | `mykines-ferry-guided-hike-puffin-guide-2026-06-07` |
 | `prod+dev` | Lesotho | Sani Pass / Mokhotlong district and Underberg-Himeville approach | Border hours, 4x4 top-section planning, M100 tourism levy, weather closure, and alternative-port decision guide | `travel-guide` | `sani-pass-border-4x4-levy-guide-2026-06-07` |
 | `prod+dev` | Curaçao | Christoffelpark / Westpunt | Christoffel Mountain 10:00 climb cutoff, ticket categories, trail vs car-route, heat, weather, and pet-rule guide | `travel-guide` | `christoffel-mountain-10am-climb-ticket-route-guide-2026-06-07` |
+| `prod+dev` | Gibraltar | Upper Rock Nature Reserve | Nature Reserve ticket, cable car refurbishment closure, walking/taxi-tour access, macaque safety, and seasonal cutoff guide | `travel-guide` | `gibraltar-upper-rock-nature-reserve-ticket-cable-car-closure-guide-2026-06-08` |
 
 ### `dev`
 
