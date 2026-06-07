@@ -99,6 +99,7 @@
   - 2026-06-07 기준 production admin articles API에 `artgrp_saint_lucia_gros_piton_nature_trail_20260607` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-07 기준 production admin articles API에 `artgrp_cook_islands_rarotonga_bus_20260607` 9개 언어 record 확인 후 es/pt title/body 현지화 patch 완료
   - 2026-06-07 기준 production admin articles API에 `artgrp_cabo_verde_cidade_velha_unesco_walk_20260607` 9개 언어 record 확인 후 ko/ja/zh/es/pt/fr/th/vi title/body 현지화 patch 완료
+  - 2026-06-07 기준 production admin articles API에 `artgrp_papua_new_guinea_kokoda_track_permit_20260607` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -131,18 +132,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `154`
+- reserved topics total: `155`
 - status counts:
-  - `prod+dev`: `149`
+  - `prod+dev`: `150`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `127`
+  - `travel-guide`: `128`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `138`
-  - Albania, Andorra, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Palau, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zimbabwe
+- already used countries or scopes: `139`
+  - Albania, Andorra, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Fiji, Finland, France, Georgia, Germany, Ghana, Global / multi-country, Greece, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Laos, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, North Macedonia, Norway, Oman, Palau, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zimbabwe
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -308,6 +309,7 @@
 | `prod+dev` | Saint Lucia | Soufrière / Gros Piton Nature Trail | Certified-guide requirement, 4-6 hour hike timing, 2-liter water packing, weather, and protected-landscape checks | `travel-guide` | `gros-piton-nature-trail-guide-required-hike-2026-06-07` |
 | `prod+dev` | Cook Islands | Rarotonga / circular main road and Rarotonga International Airport | Public bus Clockwise vs Anti-Clockwise timetable, fare/pass, airport stop, luggage, and holiday-service guide | `travel-guide` | `rarotonga-bus-clockwise-fare-airport-guide-2026-06-07` |
 | `prod+dev` | Cabo Verde | Cidade Velha / Ribeira Grande de Santiago | UNESCO lower-town walking route, São Filipe fort climb, memory-site pacing, and Praia access checks | `destination-guide` | `cidade-velha-unesco-walking-route-guide-2026-06-07` |
+| `prod+dev` | Papua New Guinea | Kokoda Track / Owers Corner and Kokoda route | Trek Permit, licensed operator, short-walk options, training, insurance, and transport checks | `travel-guide` | `kokoda-track-permit-licensed-operator-guide-2026-06-07` |
 
 ### `dev`
 
