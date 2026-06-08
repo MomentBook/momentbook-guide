@@ -111,6 +111,7 @@
   - 2026-06-08 기준 production admin articles API에 `artgrp_grenada_underwater_sculpture_mpa_fee_20260608` 9개 언어 record 확인 후 ko/ja/zh/es/pt/fr/th/vi title/body 현지화 patch 완료
   - 2026-06-08 기준 production admin articles API에 `artgrp_anguilla_marigot_blowing_point_ferry_20260608` 9개 언어 record 확인 후 th title/body spacing patch 완료
   - 2026-06-09 기준 production admin articles API에 `artgrp_nigeria_lagos_blue_line_cowry_card_20260609` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-09 기준 production admin articles API에 `artgrp_malawi_liwonde_self_drive_boat_20260609` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -143,18 +144,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `166`
+- reserved topics total: `167`
 - status counts:
-  - `prod+dev`: `161`
+  - `prod+dev`: `162`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `139`
+  - `travel-guide`: `140`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `150`
-  - Albania, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zimbabwe
+- already used countries or scopes: `151`
+  - Albania, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zimbabwe
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -332,6 +333,7 @@
 | `prod+dev` | Grenada | Molinere/Beauséjour Marine Protected Area | Underwater Sculpture Park MPA entry fee, payment portal, snorkel vs scuba vs boat choice, mooring, and protected-area rules guide | `travel-guide` | `grenada-underwater-sculpture-park-mpa-fee-snorkel-guide-2026-06-08` |
 | `prod+dev` | Anguilla | Marigot / Blowing Point public ferry route | Public ferry schedule, on-site ticketing, passenger head fee, Anguilla port tax, passport, and weather-cancellation guide | `travel-guide` | `anguilla-marigot-blowing-point-ferry-guide-2026-06-08` |
 | `prod+dev` | Nigeria | Lagos / Marina-Mile 2 Blue Line corridor | Blue Line Monday-Saturday schedule, Cowry Card loading/payment, station order, personal-account warning, and route-fit guide | `travel-guide` | `lagos-blue-line-cowry-card-train-schedule-guide-2026-06-09` |
+| `prod+dev` | Malawi | Liwonde National Park / Shire River and Chimwala Camp | Self-drive access, 06:00-18:00 park hours, rainy-season road and 4x4 checks, boat-vs-game-drive choice, and 2025 fee recheck guide | `travel-guide` | `liwonde-national-park-self-drive-boat-fees-guide-2026-06-09` |
 
 ### `dev`
 
