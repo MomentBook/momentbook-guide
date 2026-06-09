@@ -115,6 +115,7 @@
   - 2026-06-09 기준 production admin articles API에 `artgrp_greenland_ilulissat_icefjord_trails_20260609` 9개 언어 record 확인 후 ko/ja title/body 현지화 patch 완료
   - 2026-06-09 기준 production admin articles API에 `artgrp_kyrgyzstan_ala_archa_shuttle_cableway_20260609` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-09 기준 production admin articles API에 `artgrp_sierra_leone_tacugama_sanctuary_tour_20260609` 9개 언어 record 확인 후 ko/fr/th title/body 현지화 patch 완료
+  - 2026-06-09 기준 production admin articles API에 `artgrp_pakistan_lahore_fort_hbn_20260609` 9개 언어 record 확인 후 ko/ja/zh/es/pt/fr/th/vi title/body 현지화 patch 완료
 
 ## Selection Guard
 
@@ -147,18 +148,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `170`
+- reserved topics total: `171`
 - status counts:
-  - `prod+dev`: `165`
+  - `prod+dev`: `166`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `143`
+  - `travel-guide`: `144`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `154`
-  - Albania, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zimbabwe
+- already used countries or scopes: `155`
+  - Albania, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zimbabwe
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -340,6 +341,7 @@
 | `prod+dev` | Greenland | Ilulissat / Sermermiut and Ilulissat Icefjord | Site fee, Sermermiut boardwalk, red/yellow/blue route choice, coast safety, and Icefjord Centre ticket-separation guide | `travel-guide` | `ilulissat-icefjord-trail-site-fee-guide-2026-06-09` |
 | `prod+dev` | Kyrgyzstan | Ala-Archa National Park / Chuy region | Entry fee, electric shuttle and private-vehicle rule, 2026 cableway, and day-hike choice guide | `travel-guide` | `ala-archa-national-park-shuttle-cableway-guide-2026-06-09` |
 | `prod+dev` | Sierra Leone | Freetown / Western Area Peninsula National Park | Tacugama Chimpanzee Sanctuary tour slots, fee categories, payment, 4WD access, and birdwatching timing guide | `travel-guide` | `tacugama-chimpanzee-sanctuary-tour-guide-2026-06-09` |
+| `prod+dev` | Pakistan | Lahore / Lahore Fort and Walled City | Daytime visit vs History by Night, official-hours conflict, booking-page confirmation, refund terms, and Food Street gathering-point guide | `travel-guide` | `lahore-fort-daytime-history-by-night-guide-2026-06-09` |
 
 ### `dev`
 
