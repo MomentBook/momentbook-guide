@@ -118,6 +118,7 @@
   - 2026-06-09 기준 production admin articles API에 `artgrp_pakistan_lahore_fort_hbn_20260609` 9개 언어 record 확인 후 ko/ja/zh/es/pt/fr/th/vi title/body 현지화 patch 완료
   - 2026-06-09 기준 production admin articles API에 `artgrp_zambia_kafue_fees_self_drive_busanga_20260609` 9개 언어 record 확인 후 es/pt title/body 현지화 patch 완료
   - 2026-06-09 기준 production admin articles API에 `artgrp_tonga_whale_swim_rules_20260609` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-09 기준 production admin articles API에 `artgrp_algeria_algiers_metro_ticket_hours_20260609` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -150,18 +151,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `173`
+- reserved topics total: `174`
 - status counts:
-  - `prod+dev`: `168`
+  - `prod+dev`: `169`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `146`
+  - `travel-guide`: `147`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `157`
-  - Albania, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
+- already used countries or scopes: `158`
+  - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
 - repeated countries already visible:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
@@ -346,6 +347,7 @@
 | `prod+dev` | Pakistan | Lahore / Lahore Fort and Walled City | Daytime visit vs History by Night, official-hours conflict, booking-page confirmation, refund terms, and Food Street gathering-point guide | `travel-guide` | `lahore-fort-daytime-history-by-night-guide-2026-06-09` |
 | `prod+dev` | Zambia | Kafue National Park / Busanga Plains and Lusaka-Livingstone access | 2025 fee recheck, Kafue Main Gate payment, 4x4 self-drive limits, Busanga seasonal access, and route-choice guide | `travel-guide` | `kafue-national-park-fees-self-drive-busanga-guide-2026-06-09` |
 | `prod+dev` | Tonga | Vavaʻu / Haʻapai / Tongatapu whale-swim operator network | Whale swim July-October season, licensed operator choice, no-SCUBA rule, 4-client plus guide in-water limit, pod-rest timing, and marine-weather check guide | `travel-guide` | `tonga-whale-swim-licensed-operator-rules-guide-2026-06-09` |
+| `prod+dev` | Algeria | Algiers / Metro Line 01 | Algiers Metro ticket, 60-minute validation, Metro+Tramway transfer, hours-conflict, and accessibility guide | `travel-guide` | `algiers-metro-ticket-hours-transfer-guide-2026-06-09` |
 
 ### `dev`
 
