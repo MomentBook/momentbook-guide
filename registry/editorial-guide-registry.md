@@ -1,10 +1,12 @@
 # Editorial Guide Registry
 
-이 문서는 중복된 국가 guide와 중복된 정보 angle guide를 막기 위한 단일 관리 문서다.
+이 문서는 중복된 content coverage guide를 막기 위한 단일 관리 문서다.
 새 guide를 고르기 전에 반드시 이 문서를 먼저 읽고, 새 글을 draft하거나 queue에 올린 직후 즉시 이 문서를 갱신한다.
 
+중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
+
 기준 시점:
-- 마지막 검토일: `2026-06-09`
+- 마지막 검토일: `2026-06-10`
 
 검토에 사용한 데이터:
 - local prod export: `editorial-guides-2026-04.prod-db-export.json`
@@ -120,21 +122,22 @@
   - 2026-06-09 기준 production admin articles API에 `artgrp_tonga_whale_swim_rules_20260609` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-09 기준 production admin articles API에 `artgrp_algeria_algiers_metro_ticket_hours_20260609` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-09 기준 production admin articles API에 `artgrp_bahamas_exuma_cays_mooring_rules_20260609` 9개 언어 record 확인 후 ko/ja/zh/es/pt/fr/th/vi title/body 현지화 patch 완료
+  - 2026-06-10 기준 production admin articles API에 `artgrp_singapore_night_safari_tram_time_slot_20260610` 9개 언어 record 확인 후 image URL title/body patch 완료
 
 ## Selection Guard
 
 - 이 문서에 있는 모든 row는 이미 사용 중인 주제로 간주한다.
 - `queued` status도 이미 선점된 주제다. 아직 import되지 않았더라도 새 글 후보에서 제외한다.
-- 기본 규칙은 "아직 이 문서에 없는 국가 또는 scope"를 고르는 것이다.
-- 같은 국가를 다시 쓰지 않는 것을 기본값으로 둔다. 이미 반복이 많은 국가부터 먼저 피한다.
-- 국가가 달라도 정보 angle이 겹치면 피한다.
-  - 예: 같은 유형의 `first-time city guide`
-  - 예: 같은 유형의 `entry authorization / arrival card / ETA` guide
-  - 예: 같은 유형의 대표 annual festival guide
-- 같은 국가를 다시 써야 한다면 아래 3가지를 모두 만족해야 한다.
-  - 사용자가 그 국가를 명시적으로 요청했거나, 공식 source quality가 다른 미사용 국가보다 분명히 좋다.
-  - 기존 row와 geography 또는 traveller intent가 실질적으로 다르다.
-  - 이 문서의 신규 row 옆이나 아래에 reuse reason을 짧게 남긴다.
+- 기본 규칙은 "아직 이 문서에 없는 coverage signature"를 고르는 것이다.
+- Coverage signature는 `Country / Scope`, `City / Region`, `Information Angle`, `Category`, `Slug`를 함께 읽어 판단한다. 핵심은 국가가 아니라 특정 장소/여행지 종류, 행사/페스티벌 종류, 이동 route, ticket/pass/permit/rule, traveller intent다.
+- 같은 국가나 같은 지역을 다시 써도 된다. 기존 row와 named place, event/festival type, route, ticket/pass/permit/rule, traveller decision이 실질적으로 다르면 후보로 유지한다.
+- 국가가 달라도 coverage signature가 겹치면 피한다.
+  - 예: 같은 유형의 generic `first-time city guide`를 도시명만 바꿔 반복
+  - 예: 같은 유형의 `entry authorization / arrival card / ETA` guide를 사실상 같은 reader decision으로 반복
+  - 예: 특정 차별점 없이 대표 annual festival overview를 반복
+  - 예: 같은 named place, 같은 official ticket/pass/permit, 같은 access rule을 다른 제목으로 반복
+- 같은 국가 안의 같은 broad type은 자동 중복이 아니다. 예를 들어 일본의 미야코지마 신사 guide와 신주쿠 신사 guide는 named shrine, 지역, 접근 방식, 방문 decision이 다르면 공존할 수 있다.
+- 기존 row와 가까워 보이는 같은 국가/지역 topic을 선택했다면 신규 row 옆이나 아래에 coverage distinction note를 짧게 남긴다.
 
 ## Research And Image Rules
 
@@ -152,27 +155,28 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `175`
+- reserved topics total: `176`
 - status counts:
-  - `prod+dev`: `170`
+  - `prod+dev`: `171`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `148`
+  - `travel-guide`: `149`
   - `wellbeing-guide`: `3`
-- already used countries or scopes: `159`
+- country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
-- repeated countries already visible:
+- repeated country metadata already visible, allowed when coverage differs:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
   - Thailand: Songkran Bangkok, TDAC queued
   - Germany: Oktoberfest Munich, Berlin first-time queued
+  - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning
 
 운영 해석:
 - 현재 dataset은 `festival` 과 `first-time city guide` 비중이 높다.
-- 따라서 다음 글은 가능하면 미사용 국가를 우선하고, 같은 country family 또는 같은 angle family를 반복하지 않는 편이 좋다.
+- 따라서 다음 글은 generic festival overview나 generic first-time city guide를 반복하지 않는 편이 좋다. 미사용 국가는 다양성 관점에서 좋은 후보지만 필수 조건이 아니며, 같은 국가/지역도 coverage signature가 다르면 선택할 수 있다.
 
 ## Registry
 
@@ -250,6 +254,7 @@
 | `prod+dev` | France | Cannes | Film festival visitor guide | `festival` | `cannes-film-festival-2026-travel-guide-2026-04-22` |
 | `prod+dev` | New Zealand | New Zealand | NZeTA guide | `travel-guide` | `new-zealand-nzeta-2026-guide-cost-validity-transit-2026-04-23` |
 | `prod+dev` | Singapore | Singapore | SG Arrival Card guide | `travel-guide` | `singapore-arrival-card-sgac-2026-guide-2026-04-24` |
+| `prod+dev` | Singapore | Mandai / Night Safari | Night Safari time-slot, tram inclusion, Creatures of the Night seat booking, M2 Khatib Bus, parking, and low-light visitor-rule guide | `travel-guide` | `singapore-night-safari-tram-time-slot-guide-2026-06-10` |
 | `prod+dev` | Australia | Sydney | First-time city guide | `destination-guide` | `sydney-first-time-travel-guide-2026-04-25` |
 | `prod+dev` | United Arab Emirates | Dubai | First-time city guide | `destination-guide` | `dubai-first-time-travel-guide-2026-04-26` |
 | `prod+dev` | Portugal | Lisbon | First-time city guide | `destination-guide` | `lisbon-first-time-travel-guide-2026-04-27` |
@@ -366,20 +371,19 @@
 | --- | --- | --- | --- | --- | --- |
 | `queued` | Hungary | Budapest | Széchenyi Bath locker, cabin, and swim-cap guide | `wellbeing-guide` | `szechenyi-bath-locker-cabin-swim-cap-guide-2026-05-13` |
 
-Reuse reason:
-- Country reused because the user explicitly requested Japan guides.
-- Miyajima coverage differs because it covers Hiroshima/Miyajima ferry access, visitor tax, Great Torii route timing, and Itsukushima Shrine admission, not Kyoto/Tokyo destination overview or Kyoto/Sapporo festival coverage.
+Coverage distinction notes:
+- Japan coverage is intentionally content-level, not country-level. Miyajima covers Hiroshima/Miyajima ferry access, visitor tax, Great Torii route timing, and Itsukushima Shrine admission, not Kyoto/Tokyo destination overview or Kyoto/Sapporo festival coverage.
 - Himeji coverage differs because it covers Himeji Castle admission, 16:00 gate close, Koko-en combo ticket, and locker logistics, not prior Japan destination overview, festival, or Miyajima ferry-tax coverage.
 - Nara coverage differs because it covers Tōdai-ji Great Buddha Hall seasonal hours, admission, audio guide logistics, and Nara deer safety, not prior Japan destination overview, festival, Miyajima ferry-tax, or Himeji Castle ticket coverage.
 - Matsumoto coverage differs because it covers Matsumoto Castle e-ticket vs paper ticket pricing, 2026 Golden Week extended hours, steep-stair/shoe rules, lockers, and station access, not prior Japan destination overview, festival, Miyajima ferry-tax, Himeji Castle, or Nara deer-safety coverage.
-- Kosovo reused because the Prishtina Airport transfer guide was selected, sourced, and production-published before the registry-visible Kosovo BEAR SANCTUARY row appeared in this working tree.
-- Existing Kosovo coverage differs because BEAR SANCTUARY covers a Mramor/Badovc Lake site visit with ticket, hours, guided-tour, taxi/bus, and animal-welfare rules, while Prishtina Airport transfer covers PRN public transport timetable, official airport taxi prices, late-arrival, luggage, and pickup decisions.
+- Kosovo overlap was resolved by content distinction: BEAR SANCTUARY covers a Mramor/Badovc Lake site visit with ticket, hours, guided-tour, taxi/bus, and animal-welfare rules, while Prishtina Airport transfer covers PRN public transport timetable, official airport taxi prices, late-arrival, luggage, and pickup decisions.
+- Singapore overlap was resolved by content distinction: SG Arrival Card covers entry declaration rules for arriving travelers, while Night Safari covers a Mandai evening attraction visit with ticket timing, tram inclusion, Creatures of the Night seat booking, M2 Khatib Bus, parking, low-light behavior rules, and late-return decisions.
 
 ## Update Workflow
 
 새 guide를 만들 때는 아래 순서를 지킨다.
 
-1. 이 문서에서 이미 잡힌 country, city, information angle을 먼저 제외한다.
+1. 이 문서에서 이미 잡힌 coverage signature를 먼저 제외한다. Country / Scope는 메타데이터로 보고, City / Region, Information Angle, Category, Slug를 함께 읽어 특정 장소/행사/route/pass/permit/rule/traveller decision이 겹치는지 판단한다.
 2. 공식 source pack을 먼저 만들고, time-sensitive fact를 재확인한다.
 3. 새 글을 draft하거나 generated JSON에 넣는 단계에서는 필요하면 임시로 `queued` row를 추가할 수 있다.
 4. DB insert 또는 upsert가 성공하면 registry status를 실제 DB 상태에 맞게 즉시 갱신한다.
@@ -388,12 +392,12 @@ Reuse reason:
    - `queued`: generated 되었지만 dev/prod DB에는 아직 반영되지 않음
    - `dev`: dev dataset 또는 dev DB에 실제로 존재함
    - `prod+dev`: prod에도 실제로 반영됨
-7. 같은 국가를 다시 썼다면 아래 template로 이유를 남긴다.
+7. 기존 row와 같은 국가/지역이거나 broad type이 가까워 보이면 아래 template로 coverage distinction을 남긴다.
 
 ```md
-Reuse reason:
-- Country reused because ...
-- Existing coverage differs because ...
+Coverage distinction note:
+- New coverage signature: ...
+- Existing nearby coverage differs because ...
 ```
 
 ## New Row Template
@@ -402,4 +406,8 @@ Reuse reason:
 
 ```md
 | `status` | Country / Scope | City / Region | Information Angle | `category` | `slug` |
+
+Coverage distinction note, if close to an existing row:
+- New coverage signature: ...
+- Existing nearby coverage differs because ...
 ```
