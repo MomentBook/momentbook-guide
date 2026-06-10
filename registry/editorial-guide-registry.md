@@ -124,6 +124,7 @@
   - 2026-06-09 기준 production admin articles API에 `artgrp_bahamas_exuma_cays_mooring_rules_20260609` 9개 언어 record 확인 후 ko/ja/zh/es/pt/fr/th/vi title/body 현지화 patch 완료
   - 2026-06-10 기준 production admin articles API에 `artgrp_singapore_night_safari_tram_time_slot_20260610` 9개 언어 record 확인 후 image URL title/body patch 완료
   - 2026-06-10 기준 production admin articles API에 `artgrp_singapore_jewel_changi_canopy_park_20260610` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-10 기준 production admin articles API에 `artgrp_taipei_maokong_gondola_ticket_weather_20260610` 9개 언어 record 확인 후 th title/body 현지화 patch 완료
 
 ## Selection Guard
 
@@ -156,15 +157,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `177`
+- reserved topics total: `178`
 - status counts:
-  - `prod+dev`: `172`
+  - `prod+dev`: `173`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `150`
+  - `travel-guide`: `151`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -174,6 +175,7 @@
   - Thailand: Songkran Bangkok, TDAC queued
   - Germany: Oktoberfest Munich, Berlin first-time queued
   - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
+  - Taiwan: Taipei first-time, Maokong Gondola ticket/cabin/weather closure guide
 
 운영 해석:
 - 현재 dataset은 `festival` 과 `first-time city guide` 비중이 높다.
@@ -262,6 +264,7 @@
 | `prod+dev` | Portugal | Lisbon | First-time city guide | `destination-guide` | `lisbon-first-time-travel-guide-2026-04-27` |
 | `prod+dev` | Germany | Berlin | First-time city guide | `destination-guide` | `berlin-first-time-travel-guide-2026-04-28` |
 | `prod+dev` | Taiwan | Taipei | First-time city guide | `destination-guide` | `taipei-first-time-travel-guide-2026-04-29` |
+| `prod+dev` | Taiwan | Taipei / Maokong Gondola | Ticket choice, crystal-cabin surcharge, Monday maintenance exceptions, weather suspension rules, and Taipei Zoo access guide | `travel-guide` | `maokong-gondola-ticket-crystal-cabin-weather-guide-2026-06-10` |
 | `prod+dev` | Spain | Pamplona | San Fermin guide | `festival` | `san-fermin-pamplona-2026-guide-2026-04-30` |
 | `prod+dev` | Hong Kong | Hong Kong | First-time city guide | `destination-guide` | `hong-kong-first-time-travel-guide-2026-05-01` |
 | `prod+dev` | Malta | Malta | First-time travel guide | `destination-guide` | `malta-first-time-travel-guide-2026-05-02` |
@@ -381,6 +384,7 @@ Coverage distinction notes:
 - Kosovo overlap was resolved by content distinction: BEAR SANCTUARY covers a Mramor/Badovc Lake site visit with ticket, hours, guided-tour, taxi/bus, and animal-welfare rules, while Prishtina Airport transfer covers PRN public transport timetable, official airport taxi prices, late-arrival, luggage, and pickup decisions.
 - Singapore overlap was resolved by content distinction: SG Arrival Card covers entry declaration rules for arriving travelers, while Night Safari covers a Mandai evening attraction visit with ticket timing, tram inclusion, Creatures of the Night seat booking, M2 Khatib Bus, parking, low-light behavior rules, and late-return decisions.
 - Jewel Changi coverage differs because it covers a landside Changi Airport visit with Canopy Park ticket choice, Rain Vortex timing, terminal link bridges/T4 shuttle, 24-hour baggage storage, and private-event advisory checks, not SG Arrival Card entry declaration or Mandai Night Safari evening attraction planning.
+- Taiwan overlap was resolved by content distinction: Taipei first-time covers a broad city introduction, while Maokong Gondola covers a named Wenshan attraction/transport line with ticket choice, crystal-cabin surcharge, Monday maintenance exceptions, weather-suspension thresholds, Taipei Zoo access, and cabin-use rules.
 
 ## Update Workflow
 
