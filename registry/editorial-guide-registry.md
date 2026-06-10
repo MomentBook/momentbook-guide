@@ -123,6 +123,7 @@
   - 2026-06-09 기준 production admin articles API에 `artgrp_algeria_algiers_metro_ticket_hours_20260609` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-09 기준 production admin articles API에 `artgrp_bahamas_exuma_cays_mooring_rules_20260609` 9개 언어 record 확인 후 ko/ja/zh/es/pt/fr/th/vi title/body 현지화 patch 완료
   - 2026-06-10 기준 production admin articles API에 `artgrp_singapore_night_safari_tram_time_slot_20260610` 9개 언어 record 확인 후 image URL title/body patch 완료
+  - 2026-06-10 기준 production admin articles API에 `artgrp_singapore_jewel_changi_canopy_park_20260610` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -155,15 +156,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `176`
+- reserved topics total: `177`
 - status counts:
-  - `prod+dev`: `171`
+  - `prod+dev`: `172`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `149`
+  - `travel-guide`: `150`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -172,7 +173,7 @@
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
   - Thailand: Songkran Bangkok, TDAC queued
   - Germany: Oktoberfest Munich, Berlin first-time queued
-  - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning
+  - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
 
 운영 해석:
 - 현재 dataset은 `festival` 과 `first-time city guide` 비중이 높다.
@@ -255,6 +256,7 @@
 | `prod+dev` | New Zealand | New Zealand | NZeTA guide | `travel-guide` | `new-zealand-nzeta-2026-guide-cost-validity-transit-2026-04-23` |
 | `prod+dev` | Singapore | Singapore | SG Arrival Card guide | `travel-guide` | `singapore-arrival-card-sgac-2026-guide-2026-04-24` |
 | `prod+dev` | Singapore | Mandai / Night Safari | Night Safari time-slot, tram inclusion, Creatures of the Night seat booking, M2 Khatib Bus, parking, and low-light visitor-rule guide | `travel-guide` | `singapore-night-safari-tram-time-slot-guide-2026-06-10` |
+| `prod+dev` | Singapore | Changi Airport / Jewel Changi | Canopy Park ticket, Rain Vortex timing, terminal link bridge/T4 shuttle, baggage storage, and private-event advisory guide | `travel-guide` | `singapore-jewel-changi-canopy-park-luggage-guide-2026-06-10` |
 | `prod+dev` | Australia | Sydney | First-time city guide | `destination-guide` | `sydney-first-time-travel-guide-2026-04-25` |
 | `prod+dev` | United Arab Emirates | Dubai | First-time city guide | `destination-guide` | `dubai-first-time-travel-guide-2026-04-26` |
 | `prod+dev` | Portugal | Lisbon | First-time city guide | `destination-guide` | `lisbon-first-time-travel-guide-2026-04-27` |
@@ -378,6 +380,7 @@ Coverage distinction notes:
 - Matsumoto coverage differs because it covers Matsumoto Castle e-ticket vs paper ticket pricing, 2026 Golden Week extended hours, steep-stair/shoe rules, lockers, and station access, not prior Japan destination overview, festival, Miyajima ferry-tax, Himeji Castle, or Nara deer-safety coverage.
 - Kosovo overlap was resolved by content distinction: BEAR SANCTUARY covers a Mramor/Badovc Lake site visit with ticket, hours, guided-tour, taxi/bus, and animal-welfare rules, while Prishtina Airport transfer covers PRN public transport timetable, official airport taxi prices, late-arrival, luggage, and pickup decisions.
 - Singapore overlap was resolved by content distinction: SG Arrival Card covers entry declaration rules for arriving travelers, while Night Safari covers a Mandai evening attraction visit with ticket timing, tram inclusion, Creatures of the Night seat booking, M2 Khatib Bus, parking, low-light behavior rules, and late-return decisions.
+- Jewel Changi coverage differs because it covers a landside Changi Airport visit with Canopy Park ticket choice, Rain Vortex timing, terminal link bridges/T4 shuttle, 24-hour baggage storage, and private-event advisory checks, not SG Arrival Card entry declaration or Mandai Night Safari evening attraction planning.
 
 ## Update Workflow
 
