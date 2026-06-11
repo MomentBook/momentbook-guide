@@ -6,7 +6,7 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-06-10`
+- 마지막 검토일: `2026-06-11`
 
 검토에 사용한 데이터:
 - local prod export: `editorial-guides-2026-04.prod-db-export.json`
@@ -125,6 +125,7 @@
   - 2026-06-10 기준 production admin articles API에 `artgrp_singapore_night_safari_tram_time_slot_20260610` 9개 언어 record 확인 후 image URL title/body patch 완료
   - 2026-06-10 기준 production admin articles API에 `artgrp_singapore_jewel_changi_canopy_park_20260610` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-10 기준 production admin articles API에 `artgrp_taipei_maokong_gondola_ticket_weather_20260610` 9개 언어 record 확인 후 th title/body 현지화 patch 완료
+  - 2026-06-11 기준 production admin articles API에 `artgrp_south_korea_gyeongbokgung_hanbok_ticket_20260611` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -157,15 +158,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `178`
+- reserved topics total: `179`
 - status counts:
-  - `prod+dev`: `173`
+  - `prod+dev`: `174`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `151`
+  - `travel-guide`: `152`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -176,6 +177,7 @@
   - Germany: Oktoberfest Munich, Berlin first-time queued
   - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
   - Taiwan: Taipei first-time, Maokong Gondola ticket/cabin/weather closure guide
+  - South Korea: KorailPassPlus pickup/top-up/refund dev coverage, Gyeongbokgung Palace ticket/hanbok/Tuesday closure production coverage
 
 운영 해석:
 - 현재 dataset은 `festival` 과 `first-time city guide` 비중이 높다.
@@ -360,6 +362,7 @@
 | `prod+dev` | Tonga | Vavaʻu / Haʻapai / Tongatapu whale-swim operator network | Whale swim July-October season, licensed operator choice, no-SCUBA rule, 4-client plus guide in-water limit, pod-rest timing, and marine-weather check guide | `travel-guide` | `tonga-whale-swim-licensed-operator-rules-guide-2026-06-09` |
 | `prod+dev` | Algeria | Algiers / Metro Line 01 | Algiers Metro ticket, 60-minute validation, Metro+Tramway transfer, hours-conflict, and accessibility guide | `travel-guide` | `algiers-metro-ticket-hours-transfer-guide-2026-06-09` |
 | `prod+dev` | Bahamas | Exuma Cays Land & Sea Park / Warderick Wells | ParkPay fee vs non-reservation rule, Warderick Wells VHF 09 mooring request, no-take restrictions, VAT, and waste/camping permit guide | `travel-guide` | `bahamas-exuma-cays-mooring-no-take-guide-2026-06-09` |
+| `prod+dev` | South Korea | Seoul / Gyeongbokgung Palace and Gwanghwamun access | KRW 3,000 regular ticket vs hanbok free-entry rule, Tuesday closure/public-holiday exception, Integrated Palace Ticket, and subway/parking access guide | `travel-guide` | `gyeongbokgung-palace-hanbok-ticket-tuesday-guide-2026-06-11` |
 
 ### `dev`
 
@@ -385,6 +388,7 @@ Coverage distinction notes:
 - Singapore overlap was resolved by content distinction: SG Arrival Card covers entry declaration rules for arriving travelers, while Night Safari covers a Mandai evening attraction visit with ticket timing, tram inclusion, Creatures of the Night seat booking, M2 Khatib Bus, parking, low-light behavior rules, and late-return decisions.
 - Jewel Changi coverage differs because it covers a landside Changi Airport visit with Canopy Park ticket choice, Rain Vortex timing, terminal link bridges/T4 shuttle, 24-hour baggage storage, and private-event advisory checks, not SG Arrival Card entry declaration or Mandai Night Safari evening attraction planning.
 - Taiwan overlap was resolved by content distinction: Taipei first-time covers a broad city introduction, while Maokong Gondola covers a named Wenshan attraction/transport line with ticket choice, crystal-cabin surcharge, Monday maintenance exceptions, weather-suspension thresholds, Taipei Zoo access, and cabin-use rules.
+- South Korea overlap was resolved by content distinction: KorailPassPlus covers rail pass pickup, top-up, and refund decisions at Incheon Airport and major KTX stations, while Gyeongbokgung covers a named Seoul palace visit with KRW 3,000 admission, hanbok free-entry clothing criteria, Tuesday closure/public-holiday exception, Integrated Palace Ticket, and subway/parking access.
 
 ## Update Workflow
 
