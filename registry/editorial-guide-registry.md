@@ -127,6 +127,7 @@
   - 2026-06-10 기준 production admin articles API에 `artgrp_taipei_maokong_gondola_ticket_weather_20260610` 9개 언어 record 확인 후 th title/body 현지화 patch 완료
   - 2026-06-11 기준 production admin articles API에 `artgrp_south_korea_gyeongbokgung_hanbok_ticket_20260611` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-12 기준 production admin articles API에 `artgrp_spain_alhambra_nasrid_palaces_ticket_20260612` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-12 기준 production admin articles API에 `artgrp_washington_monument_ticket_walkup_security_20260612` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -159,21 +160,21 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `180`
+- reserved topics total: `181`
 - status counts:
-  - `prod+dev`: `175`
+  - `prod+dev`: `176`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `153`
+  - `travel-guide`: `154`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
 - repeated country metadata already visible, allowed when coverage differs:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
-  - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans
+  - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning
   - Thailand: Songkran Bangkok, TDAC queued
   - Germany: Oktoberfest Munich, Berlin first-time queued
   - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
@@ -222,6 +223,7 @@
 | `prod+dev` | Mexico | Mexico City | Day of the Dead guide | `festival` | `day-of-the-dead-mexico-city-2026-guide-2026-04-11` |
 | `prod+dev` | Japan | Kyoto | Gion Matsuri festival guide | `festival` | `gion-matsuri-kyoto-2026-guide-2026-03-06` |
 | `prod+dev` | United States | New Orleans, Louisiana | Mardi Gras guide | `festival` | `mardi-gras-new-orleans-2026-travel-guide-2026-01-27` |
+| `prod+dev` | United States | Washington, D.C. / National Mall | Washington Monument online reservation vs same-day walk-up ticket, security screening, closure, and timing guide | `travel-guide` | `washington-monument-ticket-walkup-security-guide-2026-06-12` |
 | `prod+dev` | Germany | Munich | Oktoberfest guide | `festival` | `oktoberfest-munich-2026-guide-2026-04-03` |
 | `prod+dev` | Brazil | Rio de Janeiro | Rio Carnival guide | `festival` | `rio-carnival-2026-travel-guide-2026-01-16` |
 | `prod+dev` | Japan | Sapporo | Snow festival guide | `festival` | `sapporo-snow-festival-2026-travel-guide-2026-01-09` |
@@ -393,6 +395,7 @@ Coverage distinction notes:
 - Taiwan overlap was resolved by content distinction: Taipei first-time covers a broad city introduction, while Maokong Gondola covers a named Wenshan attraction/transport line with ticket choice, crystal-cabin surcharge, Monday maintenance exceptions, weather-suspension thresholds, Taipei Zoo access, and cabin-use rules.
 - South Korea overlap was resolved by content distinction: KorailPassPlus covers rail pass pickup, top-up, and refund decisions at Incheon Airport and major KTX stations, while Gyeongbokgung covers a named Seoul palace visit with KRW 3,000 admission, hanbok free-entry clothing criteria, Tuesday closure/public-holiday exception, Integrated Palace Ticket, and subway/parking access.
 - Spain overlap was resolved by content distinction: San Fermin covers a Pamplona festival visit, while Alhambra covers a named Granada monument visit with Alhambra General vs Gardens/Night/Dobla de Oro ticket choice, Nasrid Palaces timed entry, original ID/passport, 40 x 40 cm bag rule, route order, and purchase-policy decisions.
+- United States overlap was resolved by content distinction: Albuquerque Balloon Fiesta and Mardi Gras New Orleans cover festival travel, while Washington Monument covers a named National Mall monument visit with online reservation vs free same-day walk-up ticket choice, 10:00 and 15:00 release timing, 8:45 lodge window, security-screening item rules, elevator flow, and weather/maintenance closure checks.
 
 ## Update Workflow
 
