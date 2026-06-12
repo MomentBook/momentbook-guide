@@ -129,6 +129,7 @@
   - 2026-06-12 기준 production admin articles API에 `artgrp_spain_alhambra_nasrid_palaces_ticket_20260612` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-12 기준 production admin articles API에 `artgrp_washington_monument_ticket_walkup_security_20260612` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-12 기준 production admin articles API에 `artgrp_statue_liberty_ellis_ferry_crown_security_20260612` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-12 기준 production admin articles API에 `artgrp_yosemite_no_reservation_fee_shuttle_20260612` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -161,21 +162,21 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `182`
+- reserved topics total: `183`
 - status counts:
-  - `prod+dev`: `177`
+  - `prod+dev`: `178`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `155`
+  - `travel-guide`: `156`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
 - repeated country metadata already visible, allowed when coverage differs:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
-  - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning, Statue of Liberty ferry/pedestal/crown/security planning
+  - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning, Statue of Liberty ferry/pedestal/crown/security planning, Yosemite 2026 no timed entrance reservation/fee/pass/traffic/shuttle/road-check planning
   - Thailand: Songkran Bangkok, TDAC queued
   - Germany: Oktoberfest Munich, Berlin first-time queued
   - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
@@ -226,6 +227,7 @@
 | `prod+dev` | United States | New Orleans, Louisiana | Mardi Gras guide | `festival` | `mardi-gras-new-orleans-2026-travel-guide-2026-01-27` |
 | `prod+dev` | United States | Washington, D.C. / National Mall | Washington Monument online reservation vs same-day walk-up ticket, security screening, closure, and timing guide | `travel-guide` | `washington-monument-ticket-walkup-security-guide-2026-06-12` |
 | `prod+dev` | United States | New York Harbor / Liberty Island and Ellis Island | Statue City Cruises official ferry, reserve vs pedestal vs crown access, Battery vs Liberty State Park departure, security screening, locker, pass, and crown-stair guide | `travel-guide` | `statue-liberty-ellis-ferry-crown-security-guide-2026-06-12` |
+| `prod+dev` | United States | Yosemite National Park / Yosemite Valley, Glacier Point, Mariposa Grove, and access roads | 2026 no timed entrance reservation, Standard vs Annual/America the Beautiful pass, cashless/nonresident fee, traffic, Valley shuttle/YARTS, parking, and road-condition planning guide | `travel-guide` | `yosemite-2026-no-reservation-fee-shuttle-road-guide-2026-06-12` |
 | `prod+dev` | Germany | Munich | Oktoberfest guide | `festival` | `oktoberfest-munich-2026-guide-2026-04-03` |
 | `prod+dev` | Brazil | Rio de Janeiro | Rio Carnival guide | `festival` | `rio-carnival-2026-travel-guide-2026-01-16` |
 | `prod+dev` | Japan | Sapporo | Snow festival guide | `festival` | `sapporo-snow-festival-2026-travel-guide-2026-01-09` |
@@ -397,7 +399,7 @@ Coverage distinction notes:
 - Taiwan overlap was resolved by content distinction: Taipei first-time covers a broad city introduction, while Maokong Gondola covers a named Wenshan attraction/transport line with ticket choice, crystal-cabin surcharge, Monday maintenance exceptions, weather-suspension thresholds, Taipei Zoo access, and cabin-use rules.
 - South Korea overlap was resolved by content distinction: KorailPassPlus covers rail pass pickup, top-up, and refund decisions at Incheon Airport and major KTX stations, while Gyeongbokgung covers a named Seoul palace visit with KRW 3,000 admission, hanbok free-entry clothing criteria, Tuesday closure/public-holiday exception, Integrated Palace Ticket, and subway/parking access.
 - Spain overlap was resolved by content distinction: San Fermin covers a Pamplona festival visit, while Alhambra covers a named Granada monument visit with Alhambra General vs Gardens/Night/Dobla de Oro ticket choice, Nasrid Palaces timed entry, original ID/passport, 40 x 40 cm bag rule, route order, and purchase-policy decisions.
-- United States overlap was resolved by content distinction: Albuquerque Balloon Fiesta and Mardi Gras New Orleans cover festival travel; Washington Monument covers a named National Mall monument visit with online reservation vs free same-day walk-up ticket choice, 10:00 and 15:00 release timing, 8:45 lodge window, security-screening item rules, elevator flow, and weather/maintenance closure checks; Statue of Liberty covers New York Harbor ferry access to Liberty Island/Ellis Island, Statue City Cruises authorized-provider rules, reserve vs pedestal vs crown ticket choice, The Battery vs Liberty State Park departure, two-stage security, locker/deposit rules, pass exclusions, and the 162-stair crown decision.
+- United States overlap was resolved by content distinction: Albuquerque Balloon Fiesta and Mardi Gras New Orleans cover festival travel; Washington Monument covers a named National Mall monument visit with online reservation vs free same-day walk-up ticket choice, 10:00 and 15:00 release timing, 8:45 lodge window, security-screening item rules, elevator flow, and weather/maintenance closure checks; Statue of Liberty covers New York Harbor ferry access to Liberty Island/Ellis Island, Statue City Cruises authorized-provider rules, reserve vs pedestal vs crown ticket choice, The Battery vs Liberty State Park departure, two-stage security, locker/deposit rules, pass exclusions, and the 162-stair crown decision; Yosemite covers a named national park visit with the 2026 no timed entrance reservation policy, entrance fee/pass and nonresident-fee decisions, cashless gates, Valley shuttle/YARTS movement, parking timing, roadwork/current-condition checks, and Mariposa Grove/Hetch Hetchy access limits.
 
 ## Update Workflow
 
