@@ -133,6 +133,7 @@
   - 2026-06-13 기준 production admin articles API에 `artgrp_stonehenge_timed_ticket_shuttle_20260613` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-13 기준 production admin articles API에 `artgrp_barcelona_sagrada_familia_ticket_towers_20260613` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-13 기준 production admin articles API에 `artgrp_paris_louvre_ticket_entrance_bag_20260613` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-13 기준 production admin articles API에 `artgrp_rome_colosseum_ticket_arena_forum_20260613` 9개 언어 record 확인 후 zh title/body 현지화 patch 완료
 
 ## Selection Guard
 
@@ -165,15 +166,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `186`
+- reserved topics total: `187`
 - status counts:
-  - `prod+dev`: `181`
+  - `prod+dev`: `182`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `159`
+  - `travel-guide`: `160`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -188,6 +189,7 @@
   - Spain: San Fermin Pamplona festival, Alhambra General/Nasrid Palaces timed-entry ticket and visitor-rule planning, Sagrada Família ticket/tower/security/access planning
   - United Kingdom: UK ETA entry authorization guide, Stonehenge timed-ticket/shuttle/parking/Stone Circle Experience planning guide
   - France: Cannes Film Festival visitor guide, Louvre ticket/entrance/bag/security planning
+  - Italy: Venice Carnival festival coverage, Rome Colosseum timed/nominative ticket, arena/underground choice, and Forum-Palatine one-entry timing coverage
 
 운영 해석:
 - 현재 dataset은 `festival` 과 `first-time city guide` 비중이 높다.
@@ -238,6 +240,7 @@
 | `prod+dev` | Japan | Sapporo | Snow festival guide | `festival` | `sapporo-snow-festival-2026-travel-guide-2026-01-09` |
 | `prod+dev` | Ireland | Dublin | St. Patrick's Festival guide | `festival` | `st-patricks-festival-dublin-2026-guide-2026-02-19` |
 | `prod+dev` | Italy | Venice | Venice Carnival guide | `festival` | `venice-carnival-2026-travel-guide-2026-02-06` |
+| `prod+dev` | Italy | Rome / Colosseum, Roman Forum, and Palatine access | Official timed and nominative Colosseum ticket choice, 24h vs Only Arena vs Full Experience Arena/Underground, ID/name-change rule, Forum-Palatine one-entry timing, transport, terrain, and visitor-rule guide | `travel-guide` | `colosseum-ticket-arena-forum-id-guide-2026-06-13` |
 | `prod+dev` | Oman | Muscat | Sultan Qaboos Grand Mosque visitor hours, dress code, and official-source check guide | `travel-guide` | `sultan-qaboos-grand-mosque-visitor-hours-dress-code-guide-2026-06-01` |
 | `prod+dev` | Saudi Arabia | AlUla / Hegra | Hegra Day Tour ticket, visitor-centre transport notice, e-ticket, and ID guide | `travel-guide` | `hegra-day-tour-ticket-visitor-centre-guide-2026-06-02` |
 | `prod+dev` | Sri Lanka | Sigiriya / Central Province | Sigiriya current-price page, counter collection, passport relief-ticket check, single-entry, and drone-approval guide | `travel-guide` | `sigiriya-ticket-passport-drone-rule-guide-2026-06-03` |
@@ -410,6 +413,7 @@ Coverage distinction notes:
 - France overlap was resolved by content distinction: Cannes covers an organizer-led film festival visit, while Louvre covers a named Paris museum visit with timed ticket and free-admission proof, EEA vs non-EEA pricing, Pyramid/Carrousel/Richelieu/Porte des Lions entrance choice, final-exit rule, 55 x 35 x 20 cm bag limit, security/locker/photo rules, accessibility, maps, and audio-guide decisions.
 - United States overlap was resolved by content distinction: Albuquerque Balloon Fiesta and Mardi Gras New Orleans cover festival travel; Washington Monument covers a named National Mall monument visit with online reservation vs free same-day walk-up ticket choice, 10:00 and 15:00 release timing, 8:45 lodge window, security-screening item rules, elevator flow, and weather/maintenance closure checks; Statue of Liberty covers New York Harbor ferry access to Liberty Island/Ellis Island, Statue City Cruises authorized-provider rules, reserve vs pedestal vs crown ticket choice, The Battery vs Liberty State Park departure, two-stage security, locker/deposit rules, pass exclusions, and the 162-stair crown decision; Yosemite covers a named national park visit with the 2026 no timed entrance reservation policy, entrance fee/pass and nonresident-fee decisions, cashless gates, Valley shuttle/YARTS movement, parking timing, roadwork/current-condition checks, and Mariposa Grove/Hetch Hetchy access limits.
 - United Kingdom overlap was resolved by content distinction: UK ETA covers country-level entry authorization, fee/validity, and who-needs-it decisions, while Stonehenge covers a named Wiltshire site visit with English Heritage timed general admission vs Stone Circle Experience, visitor-centre shuttle/walk choice, Salisbury bus transfer, £4 parking, membership/companion rules, dog/access rules, and solstice recheck decisions.
+- Italy overlap was resolved by content distinction: Venice Carnival covers an organizer-led seasonal festival visit, while Rome Colosseum covers a named monument and archaeological-area visit with official timed and nominative ticket products, 24h vs arena vs underground decisions, ID/name-change rules, Forum-Palatine one-entry timing, access route, terrain, and visitor-conduct rules.
 
 ## Update Workflow
 
