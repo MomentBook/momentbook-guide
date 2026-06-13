@@ -131,6 +131,7 @@
   - 2026-06-12 기준 production admin articles API에 `artgrp_statue_liberty_ellis_ferry_crown_security_20260612` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-12 기준 production admin articles API에 `artgrp_yosemite_no_reservation_fee_shuttle_20260612` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-13 기준 production admin articles API에 `artgrp_stonehenge_timed_ticket_shuttle_20260613` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-13 기준 production admin articles API에 `artgrp_barcelona_sagrada_familia_ticket_towers_20260613` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -163,15 +164,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `184`
+- reserved topics total: `185`
 - status counts:
-  - `prod+dev`: `179`
+  - `prod+dev`: `180`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `157`
+  - `travel-guide`: `158`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -183,7 +184,7 @@
   - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
   - Taiwan: Taipei first-time, Maokong Gondola ticket/cabin/weather closure guide
   - South Korea: KorailPassPlus pickup/top-up/refund dev coverage, Gyeongbokgung Palace ticket/hanbok/Tuesday closure production coverage
-  - Spain: San Fermin Pamplona festival, Alhambra General/Nasrid Palaces timed-entry ticket and visitor-rule planning
+  - Spain: San Fermin Pamplona festival, Alhambra General/Nasrid Palaces timed-entry ticket and visitor-rule planning, Sagrada Família ticket/tower/security/access planning
   - United Kingdom: UK ETA entry authorization guide, Stonehenge timed-ticket/shuttle/parking/Stone Circle Experience planning guide
 
 운영 해석:
@@ -375,6 +376,7 @@
 | `prod+dev` | Bahamas | Exuma Cays Land & Sea Park / Warderick Wells | ParkPay fee vs non-reservation rule, Warderick Wells VHF 09 mooring request, no-take restrictions, VAT, and waste/camping permit guide | `travel-guide` | `bahamas-exuma-cays-mooring-no-take-guide-2026-06-09` |
 | `prod+dev` | South Korea | Seoul / Gyeongbokgung Palace and Gwanghwamun access | KRW 3,000 regular ticket vs hanbok free-entry rule, Tuesday closure/public-holiday exception, Integrated Palace Ticket, and subway/parking access guide | `travel-guide` | `gyeongbokgung-palace-hanbok-ticket-tuesday-guide-2026-06-11` |
 | `prod+dev` | Spain | Granada / Alhambra and Generalife | Alhambra General vs Gardens/Night/Dobla de Oro ticket choice, Nasrid Palaces timed entry, ID, bag, stroller, route, and purchase-rule guide | `travel-guide` | `alhambra-general-ticket-nasrid-palaces-time-guide-2026-06-12` |
+| `prod+dev` | Spain | Barcelona / Sagrada Família and Eixample access | Official online timed ticket, basic vs guided vs tower ticket choice, Nativity façade entrance, late-arrival rule, tower age/health/bag limits, security, dress, quiet-hour, app/audioguide, and accessibility planning guide | `travel-guide` | `sagrada-familia-ticket-tower-security-guide-2026-06-13` |
 
 ### `dev`
 
@@ -401,7 +403,7 @@ Coverage distinction notes:
 - Jewel Changi coverage differs because it covers a landside Changi Airport visit with Canopy Park ticket choice, Rain Vortex timing, terminal link bridges/T4 shuttle, 24-hour baggage storage, and private-event advisory checks, not SG Arrival Card entry declaration or Mandai Night Safari evening attraction planning.
 - Taiwan overlap was resolved by content distinction: Taipei first-time covers a broad city introduction, while Maokong Gondola covers a named Wenshan attraction/transport line with ticket choice, crystal-cabin surcharge, Monday maintenance exceptions, weather-suspension thresholds, Taipei Zoo access, and cabin-use rules.
 - South Korea overlap was resolved by content distinction: KorailPassPlus covers rail pass pickup, top-up, and refund decisions at Incheon Airport and major KTX stations, while Gyeongbokgung covers a named Seoul palace visit with KRW 3,000 admission, hanbok free-entry clothing criteria, Tuesday closure/public-holiday exception, Integrated Palace Ticket, and subway/parking access.
-- Spain overlap was resolved by content distinction: San Fermin covers a Pamplona festival visit, while Alhambra covers a named Granada monument visit with Alhambra General vs Gardens/Night/Dobla de Oro ticket choice, Nasrid Palaces timed entry, original ID/passport, 40 x 40 cm bag rule, route order, and purchase-policy decisions.
+- Spain overlap was resolved by content distinction: San Fermin covers a Pamplona festival visit, Alhambra covers a named Granada monument visit with Alhambra General vs Gardens/Night/Dobla de Oro ticket choice, Nasrid Palaces timed entry, original ID/passport, 40 x 40 cm bag rule, route order, and purchase-policy decisions, while Sagrada Família covers a named Barcelona basilica visit with official online timed tickets, basic/guided/tower choice, Nativity façade entrance, late-arrival rule, tower health/age/bag restrictions, security/dress rules, quiet-hour, app/audioguide, and accessibility decisions.
 - United States overlap was resolved by content distinction: Albuquerque Balloon Fiesta and Mardi Gras New Orleans cover festival travel; Washington Monument covers a named National Mall monument visit with online reservation vs free same-day walk-up ticket choice, 10:00 and 15:00 release timing, 8:45 lodge window, security-screening item rules, elevator flow, and weather/maintenance closure checks; Statue of Liberty covers New York Harbor ferry access to Liberty Island/Ellis Island, Statue City Cruises authorized-provider rules, reserve vs pedestal vs crown ticket choice, The Battery vs Liberty State Park departure, two-stage security, locker/deposit rules, pass exclusions, and the 162-stair crown decision; Yosemite covers a named national park visit with the 2026 no timed entrance reservation policy, entrance fee/pass and nonresident-fee decisions, cashless gates, Valley shuttle/YARTS movement, parking timing, roadwork/current-condition checks, and Mariposa Grove/Hetch Hetchy access limits.
 - United Kingdom overlap was resolved by content distinction: UK ETA covers country-level entry authorization, fee/validity, and who-needs-it decisions, while Stonehenge covers a named Wiltshire site visit with English Heritage timed general admission vs Stone Circle Experience, visitor-centre shuttle/walk choice, Salisbury bus transfer, £4 parking, membership/companion rules, dog/access rules, and solstice recheck decisions.
 
