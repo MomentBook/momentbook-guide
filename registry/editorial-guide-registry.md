@@ -135,6 +135,7 @@
   - 2026-06-13 기준 production admin articles API에 `artgrp_paris_louvre_ticket_entrance_bag_20260613` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-13 기준 production admin articles API에 `artgrp_rome_colosseum_ticket_arena_forum_20260613` 9개 언어 record 확인 후 zh title/body 현지화 patch 완료
   - 2026-06-14 기준 production admin articles API에 `artgrp_dubai_museum_future_ticket_metro_20260614` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-14 기준 production admin articles API에 `artgrp_malaysia_klia_ekspres_transit_20260614` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -167,15 +168,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `188`
+- reserved topics total: `189`
 - status counts:
-  - `prod+dev`: `183`
+  - `prod+dev`: `184`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `161`
+  - `travel-guide`: `162`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -192,6 +193,7 @@
   - France: Cannes Film Festival visitor guide, Louvre ticket/entrance/bag/security planning
   - Italy: Venice Carnival festival coverage, Rome Colosseum timed/nominative ticket, arena/underground choice, and Forum-Palatine one-entry timing coverage
   - United Arab Emirates: Dubai first-time guide, Museum of the Future AED 169 timed-ticket/Metro/bag/family/accessibility planning guide
+  - Malaysia: Penang Hill express/normal lane and one-way ticket coverage, KLIA Ekspres/Transit airport rail ticket and T1-T2 terminal-transfer coverage
 
 운영 해석:
 - 현재 dataset은 `festival` 과 `first-time city guide` 비중이 높다.
@@ -230,6 +232,7 @@
 | `prod+dev` | Chile | Torres del Paine National Park, Magallanes | Full Day vehicular pass vs Base Torres ticket, April cutoff times, and current route-status guide | `travel-guide` | `torres-del-paine-full-day-base-torres-guide-2026-05-29` |
 | `prod+dev` | Morocco | Marrakech | Official online-only tickets, Wednesday museum closures, and last-entry guide | `travel-guide` | `jardin-majorelle-online-ticket-wednesday-guide-2026-05-30` |
 | `prod+dev` | Malaysia | Penang, Penang Island | Express vs normal lane, 24-hour online cutoff, and one-way on-site-only guide | `travel-guide` | `penang-hill-express-lane-one-way-guide-2026-05-31` |
+| `prod+dev` | Malaysia | Kuala Lumpur International Airport / KL Sentral / ERL airport rail corridor | KLIA Ekspres vs KLIA Transit ticket choice, KL Sentral-airport fare, 23:00 all-stops pattern, T1-T2 transfer fare, child ticket, and late-arrival schedule guide | `travel-guide` | `klia-ekspres-transit-ticket-terminal-transfer-guide-2026-06-14` |
 | `prod+dev` | United States | Albuquerque, New Mexico | Balloon fiesta guide | `festival` | `albuquerque-balloon-fiesta-2026-guide-2026-03-21` |
 | `prod+dev` | Mexico | Mexico City | Day of the Dead guide | `festival` | `day-of-the-dead-mexico-city-2026-guide-2026-04-11` |
 | `prod+dev` | Japan | Kyoto | Gion Matsuri festival guide | `festival` | `gion-matsuri-kyoto-2026-guide-2026-03-06` |
@@ -418,6 +421,7 @@ Coverage distinction notes:
 - United Kingdom overlap was resolved by content distinction: UK ETA covers country-level entry authorization, fee/validity, and who-needs-it decisions, while Stonehenge covers a named Wiltshire site visit with English Heritage timed general admission vs Stone Circle Experience, visitor-centre shuttle/walk choice, Salisbury bus transfer, £4 parking, membership/companion rules, dog/access rules, and solstice recheck decisions.
 - Italy overlap was resolved by content distinction: Venice Carnival covers an organizer-led seasonal festival visit, while Rome Colosseum covers a named monument and archaeological-area visit with official timed and nominative ticket products, 24h vs arena vs underground decisions, ID/name-change rules, Forum-Palatine one-entry timing, access route, terrain, and visitor-conduct rules.
 - United Arab Emirates overlap was resolved by content distinction: Dubai first-time is a broad city introduction, while Museum of the Future covers a named Trade Centre attraction with AED 169 timed ticket, free-entry proof process, official-hours conflict handling, Emirates Towers Metro link, parking limits, bag/photo/food rules, family supervision, and accessibility checks.
+- Malaysia overlap was resolved by content distinction: Penang Hill covers Penang Island hill railway express vs normal lane, 24-hour online cutoff, and one-way on-site-only ticket decisions, while KLIA Ekspres/Transit covers the Kuala Lumpur airport rail corridor with Ekspres vs Transit ticket choice, KL Sentral-airport fare, 23:00 all-stops pattern, T1-T2 transfer fare, child ticket handling, and late-arrival schedule checks.
 
 ## Update Workflow
 
