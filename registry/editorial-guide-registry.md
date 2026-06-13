@@ -132,6 +132,7 @@
   - 2026-06-12 기준 production admin articles API에 `artgrp_yosemite_no_reservation_fee_shuttle_20260612` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-13 기준 production admin articles API에 `artgrp_stonehenge_timed_ticket_shuttle_20260613` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-13 기준 production admin articles API에 `artgrp_barcelona_sagrada_familia_ticket_towers_20260613` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-13 기준 production admin articles API에 `artgrp_paris_louvre_ticket_entrance_bag_20260613` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -164,15 +165,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `185`
+- reserved topics total: `186`
 - status counts:
-  - `prod+dev`: `180`
+  - `prod+dev`: `181`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `158`
+  - `travel-guide`: `159`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -186,6 +187,7 @@
   - South Korea: KorailPassPlus pickup/top-up/refund dev coverage, Gyeongbokgung Palace ticket/hanbok/Tuesday closure production coverage
   - Spain: San Fermin Pamplona festival, Alhambra General/Nasrid Palaces timed-entry ticket and visitor-rule planning, Sagrada Família ticket/tower/security/access planning
   - United Kingdom: UK ETA entry authorization guide, Stonehenge timed-ticket/shuttle/parking/Stone Circle Experience planning guide
+  - France: Cannes Film Festival visitor guide, Louvre ticket/entrance/bag/security planning
 
 운영 해석:
 - 현재 dataset은 `festival` 과 `first-time city guide` 비중이 높다.
@@ -269,6 +271,7 @@
 | `prod+dev` | Thailand | Thailand | Digital Arrival Card guide | `travel-guide` | `thailand-digital-arrival-card-tdac-2026-guide-2026-04-17` |
 | `prod+dev` | Japan | Tokyo | First-time city guide | `destination-guide` | `tokyo-first-time-travel-guide-2026-04-20` |
 | `prod+dev` | France | Cannes | Film festival visitor guide | `festival` | `cannes-film-festival-2026-travel-guide-2026-04-22` |
+| `prod+dev` | France | Paris / Louvre Museum, Cour Napoléon, Carrousel, Richelieu, and Porte des Lions access | Timed ticket and free-admission proof, EEA vs non-EEA rate, entrance choice, final-exit rule, bag-size/security/locker/photo rules, accessibility, map, and audio-guide planning | `travel-guide` | `louvre-ticket-entrance-bag-guide-2026-06-13` |
 | `prod+dev` | New Zealand | New Zealand | NZeTA guide | `travel-guide` | `new-zealand-nzeta-2026-guide-cost-validity-transit-2026-04-23` |
 | `prod+dev` | Singapore | Singapore | SG Arrival Card guide | `travel-guide` | `singapore-arrival-card-sgac-2026-guide-2026-04-24` |
 | `prod+dev` | Singapore | Mandai / Night Safari | Night Safari time-slot, tram inclusion, Creatures of the Night seat booking, M2 Khatib Bus, parking, and low-light visitor-rule guide | `travel-guide` | `singapore-night-safari-tram-time-slot-guide-2026-06-10` |
@@ -404,6 +407,7 @@ Coverage distinction notes:
 - Taiwan overlap was resolved by content distinction: Taipei first-time covers a broad city introduction, while Maokong Gondola covers a named Wenshan attraction/transport line with ticket choice, crystal-cabin surcharge, Monday maintenance exceptions, weather-suspension thresholds, Taipei Zoo access, and cabin-use rules.
 - South Korea overlap was resolved by content distinction: KorailPassPlus covers rail pass pickup, top-up, and refund decisions at Incheon Airport and major KTX stations, while Gyeongbokgung covers a named Seoul palace visit with KRW 3,000 admission, hanbok free-entry clothing criteria, Tuesday closure/public-holiday exception, Integrated Palace Ticket, and subway/parking access.
 - Spain overlap was resolved by content distinction: San Fermin covers a Pamplona festival visit, Alhambra covers a named Granada monument visit with Alhambra General vs Gardens/Night/Dobla de Oro ticket choice, Nasrid Palaces timed entry, original ID/passport, 40 x 40 cm bag rule, route order, and purchase-policy decisions, while Sagrada Família covers a named Barcelona basilica visit with official online timed tickets, basic/guided/tower choice, Nativity façade entrance, late-arrival rule, tower health/age/bag restrictions, security/dress rules, quiet-hour, app/audioguide, and accessibility decisions.
+- France overlap was resolved by content distinction: Cannes covers an organizer-led film festival visit, while Louvre covers a named Paris museum visit with timed ticket and free-admission proof, EEA vs non-EEA pricing, Pyramid/Carrousel/Richelieu/Porte des Lions entrance choice, final-exit rule, 55 x 35 x 20 cm bag limit, security/locker/photo rules, accessibility, maps, and audio-guide decisions.
 - United States overlap was resolved by content distinction: Albuquerque Balloon Fiesta and Mardi Gras New Orleans cover festival travel; Washington Monument covers a named National Mall monument visit with online reservation vs free same-day walk-up ticket choice, 10:00 and 15:00 release timing, 8:45 lodge window, security-screening item rules, elevator flow, and weather/maintenance closure checks; Statue of Liberty covers New York Harbor ferry access to Liberty Island/Ellis Island, Statue City Cruises authorized-provider rules, reserve vs pedestal vs crown ticket choice, The Battery vs Liberty State Park departure, two-stage security, locker/deposit rules, pass exclusions, and the 162-stair crown decision; Yosemite covers a named national park visit with the 2026 no timed entrance reservation policy, entrance fee/pass and nonresident-fee decisions, cashless gates, Valley shuttle/YARTS movement, parking timing, roadwork/current-condition checks, and Mariposa Grove/Hetch Hetchy access limits.
 - United Kingdom overlap was resolved by content distinction: UK ETA covers country-level entry authorization, fee/validity, and who-needs-it decisions, while Stonehenge covers a named Wiltshire site visit with English Heritage timed general admission vs Stone Circle Experience, visitor-centre shuttle/walk choice, Salisbury bus transfer, £4 parking, membership/companion rules, dog/access rules, and solstice recheck decisions.
 
