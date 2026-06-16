@@ -168,15 +168,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `189`
+- reserved topics total: `190`
 - status counts:
-  - `prod+dev`: `184`
+  - `prod+dev`: `185`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `162`
+  - `travel-guide`: `163`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -192,7 +192,7 @@
   - United Kingdom: UK ETA entry authorization guide, Stonehenge timed-ticket/shuttle/parking/Stone Circle Experience planning guide
   - France: Cannes Film Festival visitor guide, Louvre ticket/entrance/bag/security planning
   - Italy: Venice Carnival festival coverage, Rome Colosseum timed/nominative ticket, arena/underground choice, and Forum-Palatine one-entry timing coverage
-  - United Arab Emirates: Dubai first-time guide, Museum of the Future AED 169 timed-ticket/Metro/bag/family/accessibility planning guide
+  - United Arab Emirates: Dubai first-time guide, Museum of the Future AED 169 timed-ticket/Metro/bag/family/accessibility planning guide, Qasr Al Watan dated ticket/dress-code/security/Visitor Centre shuttle planning guide
   - Malaysia: Penang Hill express/normal lane and one-way ticket coverage, KLIA Ekspres/Transit airport rail ticket and T1-T2 terminal-transfer coverage
 
 운영 해석:
@@ -287,6 +287,7 @@
 | `prod+dev` | Australia | Sydney | First-time city guide | `destination-guide` | `sydney-first-time-travel-guide-2026-04-25` |
 | `prod+dev` | United Arab Emirates | Dubai | First-time city guide | `destination-guide` | `dubai-first-time-travel-guide-2026-04-26` |
 | `prod+dev` | United Arab Emirates | Dubai / Museum of the Future and Emirates Towers access | AED 169 timed-entry ticket, free-entry proof, official-hours conflict, Emirates Towers Metro link, parking limits, bag/photo/food, family, and accessibility rules guide | `travel-guide` | `museum-of-the-future-dubai-ticket-metro-guide-2026-06-14` |
+| `prod+dev` | United Arab Emirates | Abu Dhabi / Qasr Al Watan and Al Ras Al Akhdar Visitor Centre | Qasr Al Watan dated ticket, no-refund/no-re-entry rule, dress code, 500 x 350 mm bag security limit, Visitor Centre parking/free shuttle, photography limits, and Palace in Motion cutoff guide | `travel-guide` | `qasr-al-watan-ticket-security-dress-code-guide-2026-06-16` |
 | `prod+dev` | Portugal | Lisbon | First-time city guide | `destination-guide` | `lisbon-first-time-travel-guide-2026-04-27` |
 | `prod+dev` | Germany | Berlin | First-time city guide | `destination-guide` | `berlin-first-time-travel-guide-2026-04-28` |
 | `prod+dev` | Taiwan | Taipei | First-time city guide | `destination-guide` | `taipei-first-time-travel-guide-2026-04-29` |
@@ -421,6 +422,7 @@ Coverage distinction notes:
 - United Kingdom overlap was resolved by content distinction: UK ETA covers country-level entry authorization, fee/validity, and who-needs-it decisions, while Stonehenge covers a named Wiltshire site visit with English Heritage timed general admission vs Stone Circle Experience, visitor-centre shuttle/walk choice, Salisbury bus transfer, £4 parking, membership/companion rules, dog/access rules, and solstice recheck decisions.
 - Italy overlap was resolved by content distinction: Venice Carnival covers an organizer-led seasonal festival visit, while Rome Colosseum covers a named monument and archaeological-area visit with official timed and nominative ticket products, 24h vs arena vs underground decisions, ID/name-change rules, Forum-Palatine one-entry timing, access route, terrain, and visitor-conduct rules.
 - United Arab Emirates overlap was resolved by content distinction: Dubai first-time is a broad city introduction, while Museum of the Future covers a named Trade Centre attraction with AED 169 timed ticket, free-entry proof process, official-hours conflict handling, Emirates Towers Metro link, parking limits, bag/photo/food rules, family supervision, and accessibility checks.
+- Qasr Al Watan coverage differs because it covers a named Abu Dhabi presidential palace visit with dated ticket validity, no-refund/no-re-entry rule, dress code, 500 x 350 mm bag security limit, Visitor Centre parking/free shuttle, photography limits, and Palace in Motion cutoff checks, not Dubai first-time planning or the Museum of the Future timed-ticket/Metro/bag guide.
 - Malaysia overlap was resolved by content distinction: Penang Hill covers Penang Island hill railway express vs normal lane, 24-hour online cutoff, and one-way on-site-only ticket decisions, while KLIA Ekspres/Transit covers the Kuala Lumpur airport rail corridor with Ekspres vs Transit ticket choice, KL Sentral-airport fare, 23:00 all-stops pattern, T1-T2 transfer fare, child ticket handling, and late-arrival schedule checks.
 
 ## Update Workflow
