@@ -91,13 +91,38 @@ const SOURCE_SECTION_HINTS = {
   vi: [/^##\s+Nguồn|^##\s+Nguồn tham khảo/im],
 };
 
+const IMAGE_CAPTION_HINTS = {
+  en: [/^Source\s*:/iu],
+  ko: [/^출처\s*[:：]/u],
+  ja: [/^(出典|情報源)\s*[:：]/u],
+  zh: [/^(来源|資料來源|资料来源|信息来源)\s*[:：]/u],
+  es: [/^Fuente\s*:/iu],
+  pt: [/^Fonte\s*:/iu],
+  fr: [/^Source\s*:/iu],
+  th: [/^(ที่มา|แหล่งข้อมูล|แหล่งที่มา)\s*[:：]/u],
+  vi: [/^Nguồn(?: tham khảo)?\s*:/iu],
+};
+
 const ENGLISH_HEADING_LEAKS = [
   /^#{1,3}\s+What to know first\s*$/im,
   /^#{1,3}\s+Common mistakes\s*$/im,
   /^#{1,3}\s+Who should choose/i,
   /^#{1,3}\s+What to check before you go\s*$/im,
+  /^#{1,3}\s+Choose the right/i,
+  /^#{1,3}\s+Plan the timing/i,
+  /^#{1,3}\s+Rules and exceptions/i,
   /^#{1,3}\s+Timing and route plan\s*$/im,
   /^#{1,3}\s+Rules that change/i,
+];
+
+const ENGLISH_TEMPLATE_LEAKS = [
+  /\bWhat to know first\b/i,
+  /\bChoose the right\b/i,
+  /\bPlan the timing\b/i,
+  /\bRules and exceptions\b/i,
+  /\bCommon mistakes\b/i,
+  /\bWho should choose\b/i,
+  /\bWhat to check before you go\b/i,
 ];
 
 const PROSE_CASE_LANGUAGES = new Set(['en', 'es', 'pt', 'fr', 'vi']);
@@ -189,6 +214,11 @@ function h1Count(body) {
   return (String(body || '').match(/^#\s+\S/gm) || []).length;
 }
 
+function h1Heading(body) {
+  const match = String(body || '').match(/^#\s+(.+?)\s*$/m);
+  return match ? match[1].trim() : '';
+}
+
 function h2Headings(body) {
   return String(body || '')
     .split('\n')
@@ -271,6 +301,27 @@ function firstImage(body) {
   return match ? { alt: match[1].trim(), url: match[2].trim() } : null;
 }
 
+function firstImageCaptionLine(body) {
+  const lines = String(body || '').split('\n');
+  const imageIndex = lines.findIndex((line) => /!\[[^\]]*]\(https?:\/\/[^)\s]+/.test(line));
+  if (imageIndex === -1) {
+    return '';
+  }
+
+  for (let index = imageIndex + 1; index < lines.length; index += 1) {
+    const line = lines[index].trim();
+    if (!line) {
+      continue;
+    }
+    if (/^#{1,6}\s+/.test(line) || /^[-*]\s+/.test(line)) {
+      return '';
+    }
+    return line;
+  }
+
+  return '';
+}
+
 function firstProseParagraph(body) {
   const lines = String(body || '').split('\n');
   for (const rawLine of lines) {
@@ -316,6 +367,12 @@ function hasSourceSection(language, body) {
   );
 }
 
+function hasLocalizedImageCaption(language, caption) {
+  return (IMAGE_CAPTION_HINTS[language] || []).some((pattern) =>
+    pattern.test(caption),
+  );
+}
+
 function validateRecord(record, now, options = {}) {
   const failures = [];
   const language = record.language;
@@ -349,6 +406,11 @@ function validateRecord(record, now, options = {}) {
     failures.push(`expected exactly one H1, found ${h1Count(body)}`);
   }
 
+  const h1 = h1Heading(body);
+  if (h1 && title && h1 !== title) {
+    failures.push('title and H1 should match exactly');
+  }
+
   const h2Count = substantiveH2Count(body, language);
   if (h2Count < 6) {
     failures.push(`expected at least 6 substantive H2 sections, found ${h2Count}`);
@@ -379,6 +441,13 @@ function validateRecord(record, now, options = {}) {
     failures.push('missing first markdown image with absolute http(s) URL');
   } else if (image.alt.length < 18 || /^(image|photo|picture|img)$/i.test(image.alt)) {
     failures.push('first image alt text is too weak');
+  }
+
+  const caption = firstImageCaptionLine(body);
+  if (!caption) {
+    failures.push('missing first image source caption');
+  } else if (!hasLocalizedImageCaption(language, caption)) {
+    failures.push(`first image source caption is not localized for ${language}`);
   }
 
   if (PROSE_CASE_LANGUAGES.has(language) && startsWithLowercaseLetter(firstProseParagraph(body))) {
@@ -441,6 +510,11 @@ function validateRecord(record, now, options = {}) {
     for (const leak of ENGLISH_HEADING_LEAKS) {
       if (leak.test(body)) {
         failures.push(`unlocalized English heading: ${leak}`);
+      }
+    }
+    for (const leak of ENGLISH_TEMPLATE_LEAKS) {
+      if (leak.test(body)) {
+        failures.push(`unlocalized English template phrase: ${leak}`);
       }
     }
   }

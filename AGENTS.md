@@ -28,8 +28,11 @@ scripts are intentionally not active context.
 
 ## Rules
 
-1. Treat `registry/editorial-guide-registry.md` as the source of truth for topic
-   coverage and final publication state.
+1. Treat `registry/editorial-guide-registry.md` as the source of truth for
+   content-level topic coverage and final publication state. Registry safety is
+   judged by the specific place, event or festival type, route, pass, permit,
+   rule, and traveler decision covered by the guide; country or city alone is
+   metadata, not a duplicate key.
 2. Work on one `translationGroupId` at a time unless the user explicitly asks for
    a batch.
 3. A guide is complete only when the production admin API has exactly 9 verified

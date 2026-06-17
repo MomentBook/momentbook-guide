@@ -13,12 +13,19 @@ scripts.
 
 A publishable guide helps a traveler make decisions quickly.
 
+- Start with a reader-decision brief: traveler type, practical decision, main
+  constraint, likely wrong assumption, and volatile facts to recheck.
+- Build a fact parity map before localization. Include names, numbers, dates,
+  times, prices, routes, booking rules, exceptions, warnings, image meaning,
+  caption meaning, and source labels.
 - The first two paragraphs must identify the reader, the decision, and the main
   constraint.
 - `What to know first` must contain 5-7 concrete decision bullets, not generic
   tips.
 - Each H2 must answer a practical question. Avoid vague headings such as
   "Overview", "Details", "More information", or "Practical decision section".
+- Read the title, H1, intro, and H2 sequence as one flow before translating.
+  The article should feel like a planned decision path, not a filled template.
 - Keep paragraphs short. Split paragraphs that mix route, price, exception, and
   recommendation into bullets or separate paragraphs.
 - Use bullets for prices, opening windows, booking terms, route choices,
@@ -43,11 +50,24 @@ Translation is a full rewrite in the target language with fact parity.
 - Keep required scripts and diacritics throughout:
   `ko`, `ja`, `zh`, `es`, `pt`, `fr`, `th`, `vi`.
 
+Run three passes for every locale:
+
+1. Fact pass: compare against the parity map for every hard fact, route,
+   exception, warning, image meaning, and source label.
+2. Native-prose pass: read the localized title, H1, intro, H2 flow, and section
+   bodies as target-language prose. Fix literal calques, English rhythm,
+   awkward punctuation, and paragraphs that feel translated rather than written.
+3. Publish-surface pass: verify the first image alt text, caption prefix,
+   Sources heading, source link labels, and final checklist are localized and
+   useful without seeing the English master.
+
 ## Review Standard
 
 Post-publish review should improve the article group, not only pass structure
 checks.
 
+- Run the same readability/localization review before production create; do not
+  rely on post-publish repair for issues that are visible in the draft.
 - Build the review from current production admin API exports only.
 - Identify weak openings, vague headings, wall-like paragraphs, literal
   translation, missing diacritics, English leakage, thin locale bodies, and
@@ -67,6 +87,7 @@ Fail the gate when any of these are present:
 - H2 headings are generic or placeholder-like
 - `What to know first` is generic, too short, or too long
 - paragraphs hide prices, route choices, or exceptions
+- the title, H1, intro, and H2 sequence do not form a clear reader decision path
 - a locale reads like machine translation or a short summary
 - a non-English body keeps English headings or source labels
 - required scripts, accents, or Vietnamese tone marks are missing

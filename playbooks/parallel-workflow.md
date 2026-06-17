@@ -27,7 +27,7 @@ Do not parallelize production API writes, registry updates, commits, or pushes.
 
 For new guide publication:
 
-1. Choose a registry-safe topic.
+1. Choose a registry-safe topic by coverage signature, not by country alone.
 2. Build and freeze the source pack.
 3. Write and freeze the English master.
 4. Write the fact parity map.

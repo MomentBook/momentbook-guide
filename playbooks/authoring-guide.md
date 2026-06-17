@@ -22,6 +22,25 @@ ko, en, ja, zh, es, pt, fr, th, vi
 Draft JSON, scripts, payloads, and local exports are evidence only after they
 match the production API result and pass the gates.
 
+## Topic Coverage Policy
+
+Use the registry to avoid duplicate content, not duplicate countries.
+
+- Build a coverage signature before choosing or accepting a topic: named place
+  or destination type, event or festival type, route, ticket, pass, permit, rule,
+  traveler decision, category, and slug keywords.
+- Country, region, and city are lookup metadata and diversity signals. They do
+  not block a topic by themselves.
+- Same-country and same-city guides are acceptable when the specific content is
+  different. For example, two Japan shrine guides can coexist when they cover
+  different named shrines, neighborhoods or islands, access patterns, and visit
+  decisions.
+- Reject or re-scope candidates that repeat the same named place, event, route,
+  ticket/pass/permit, operational rule, or generic angle already represented.
+- When a same-country topic might look close to an existing row, record the
+  content distinction in the registry rather than treating country reuse as an
+  exception.
+
 ## Hard Gates
 
 Do not create or update published guide records unless all are true:
@@ -30,11 +49,16 @@ Do not create or update published guide records unless all are true:
 - time-sensitive facts were checked on the work date
 - `sourceCheckedDate` uses the actual local date in `Asia/Seoul`
 - `publishedAt` is the real production API write timestamp and is not future
+- a reader-decision brief and fact parity map exist before localization starts
+- the English master has been edited for title promise, opening decision, H2
+  flow, paragraph density, and scan-first bullets before it is localized
 - the article has one H1, at least six substantive H2 sections, a useful first
   image, meaningful alt text, source caption, and Sources section
 - the opening explains the reader, the decision, and the main constraint
 - all 9 languages preserve the same facts, warnings, routes, rules, dates,
   prices, exceptions, source meaning, image meaning, and decision points
+- every non-English body has had a separate natural-prose review after
+  translation, not only a structural gate check
 - required scripts and diacritics are present for every locale
 - article quality and contract gates pass before and after production API writes
 
@@ -145,6 +169,27 @@ Language requirements:
 
 Non-English bodies must not keep English headings, placeholders, or source labels
 except for official names that should remain untranslated.
+
+## Naturalness And Flow Review
+
+Use this review before production create and again after production export. The
+automated gates catch structure, but they cannot prove that the article is good.
+
+- Title promise: the localized title and H1 must tell the same practical story
+  as the body. Avoid vague attraction names when the article is really about a
+  ticket, route, permit, closure, or rule.
+- Opening flow: the first two paragraphs must name who the guide is for, what
+  decision it helps with, and the constraint that changes the plan.
+- H2 flow: headings should read like a route through the decision, not like a
+  copied template. Each section needs one clear job.
+- Paragraph rhythm: move mixed prices, routes, times, exceptions, and warnings
+  into bullets. Break wall-like paragraphs before translating them.
+- Locale naturalness: translate the idea and action, not the English word order.
+  Adjust sentence order, punctuation, and paragraph breaks when the target
+  language needs it.
+- Full parity: after polishing, compare every locale back to the fact parity map
+  for numbers, dates, prices, route sequence, booking terms, warnings, image
+  meaning, captions, and source labels.
 
 ## Review Checklist
 

@@ -24,13 +24,17 @@ Primary entry points:
 - `automation/shared/article-writing-standard.md`: readability and localization
   standard.
 - `automation/shared/admin-articles-api.md`: production admin API contract.
-- `registry/editorial-guide-registry.md`: topic coverage and publication state.
+- `registry/editorial-guide-registry.md`: content-level topic coverage and
+  publication state.
 
 ## Standard Mobile Flow
 
 1. Read the required repo context and inspect `git status --short`.
 2. Choose one registry-safe topic, or use the topic explicitly requested by the
-   user after checking registry overlap.
+   user after checking registry overlap. Registry safety is judged by coverage
+   signature: specific place, destination or festival type, route,
+   ticket/pass/permit/rule, traveler decision, category, and slug keywords.
+   Country or city alone does not block a topic.
 3. Verify hard facts from current official sources and record the checked date in
    `Asia/Seoul`.
 4. Write the English master, freeze a fact parity map, then complete all 9

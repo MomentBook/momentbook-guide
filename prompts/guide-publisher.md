@@ -35,29 +35,47 @@ or legacy writer scripts.
 2. Choose one registry-safe topic, or validate the user's requested topic against
    the registry.
 3. Build a current source pack from official or highly authoritative sources.
-4. Write the English master and a fact parity map.
-5. Complete all 9 localized records from the same fact map. The local
+4. Write a reader-decision brief, then a fact parity map.
+5. Write and self-edit the English master until the title, intro, H2 flow,
+   bullets, image, and sources read like a finished public article.
+6. Complete all 9 localized records from the same fact map, then run a
+   native-prose pass for each locale. The local
    pre-create payload must include gate evidence such as shared
    `sourceCheckedDate`, but production create requests must not send that field.
-6. Run quality and contract gates before production writes.
-7. Publish through the production admin articles API.
-8. Export the production group, verify exactly 9 languages, and rerun gates.
-9. Review the published group for readability and localization quality; patch
+7. Run manual readability/localization review, then quality and contract gates
+   before production writes.
+8. Publish through the production admin articles API.
+9. Export the production group, verify exactly 9 languages, and rerun gates.
+10. Review the published group for readability and localization quality; patch
    only `title` and `body` when a verified improvement is needed.
-10. Update the registry from verified production API state.
-11. Commit and push only if the chat request included git persistence.
+11. Update the registry from verified production API state.
+12. Commit and push only if the chat request included git persistence.
 
 ## Topic Rules
 
-- Prefer a country, city, scope, or information angle not already represented.
+- Registry safety is content-level, not country-level. Build a coverage
+  signature for each candidate from the named place or destination type, event
+  or festival type, route, ticket, pass, permit, rule, traveler decision,
+  category, and slug keywords.
+- Do not reject a candidate only because the country, region, or city already
+  appears in the registry. Country and city are metadata for lookup and
+  diversity, not duplicate keys.
+- Prefer a coverage signature not already represented. Same-country and
+  same-region reuse is allowed when the specific place, event, route, product,
+  rule, or traveler intent is materially different from existing rows.
 - Avoid generic city introductions when a practical decision angle is available:
   ticket choice, transfer route, timed entry, permit, closure risk, rule, booking
   term, pass comparison, or similar.
-- Same-country reuse needs a clear reason: explicit user request, stronger
-  official source quality, or a materially different geography and traveler
-  intent.
-- Stop or ask for a new direction when the topic overlaps the registry and no
-  defensible reuse reason exists.
+- Treat near-duplicates as unsafe even across different countries when the guide
+  would repeat the same broad angle without a distinct place or decision, such
+  as another generic first-time city guide, arrival-card/ETA explainer, or broad
+  annual festival overview.
+- A Japan shrine guide, for example, may coexist with other Japan guides when it
+  covers a different named shrine, island/neighborhood, access pattern, and visit
+  decision. It is unsafe only when it repeats the same shrine, the same route or
+  rule, or a generic shrine-etiquette article already covered.
+- Stop or ask for a new direction when the coverage signature overlaps the
+  registry and no clear content distinction exists.
 
 ## Source Rules
 
@@ -71,6 +89,31 @@ Use official sources for hard facts whenever possible:
 
 Record the source pack with URL, publisher, page title, checked date, purpose,
 volatility, and recheck item. Do not copy source prose.
+
+## Quality-First Writing Workflow
+
+Automated gates are the floor, not the publishing standard. Before creating the
+production payload, complete these human checks:
+
+- Reader-decision brief: name the traveler, the decision the article helps them
+  make, the main constraint, the likely wrong assumption, and the volatile facts
+  that must be rechecked.
+- Section plan: for every H2, write the practical question it answers and the
+  source-backed action the reader should take. Remove sections that only repeat
+  background.
+- English master edit: read the title, H1, first two paragraphs, and H2 sequence
+  as one flow. Move mixed prices, routes, exceptions, and timing into bullets.
+  Split dense paragraphs before localization.
+- Fact parity map: record names, numbers, dates, times, prices, route sequence,
+  booking rules, exceptions, warnings, image meaning, and source labels that
+  every locale must preserve.
+- Localization rewrite: translate the meaning, not the English sentence order.
+  Each locale may change sentence order and paragraph breaks when that makes
+  the target language more natural, but it must not drop or add facts.
+- Locale QA: reread each target body end to end after translation. Fix literal
+  calques, English rhythm, thin summaries, unnatural headings, missing
+  diacritics, weak title/H1 fit, and unlocalized alt text, caption, or source
+  labels before running the create gates.
 
 ## Article Shape
 
@@ -107,6 +150,8 @@ Requirements:
 - short scan-friendly paragraphs
 - no hype, filler, unsupported superlatives, copied source wording, or SEO padding
 - meaningful link labels, image alt text, and source captions
+- headings that answer reader decisions in the target language, not mechanical
+  copies of the English template
 
 ## Localization Rules
 
@@ -114,6 +159,8 @@ Requirements:
 - Preserve every hard fact, warning, exception, route, rule, price, time, date,
   source meaning, image URL, alt text meaning, caption meaning, and decision
   point.
+- Rewrite naturally from the fact parity map and English meaning. Do not keep a
+  single English sentence order across all languages when it creates stiff prose.
 - Localize titles, headings, paragraphs, bullets, image alt text, captions, and
   source labels.
 - Keep required scripts and diacritics:
@@ -160,6 +207,9 @@ environment for publication or review.
 ## Review And Git
 
 - Review the published group from current production admin API exports only.
+- Treat a passing automated gate as necessary but insufficient; reread all 9
+  exported bodies for title promise, opening decision, H2 flow, paragraph
+  density, locale naturalness, and source-label localization.
 - Patch only `title` and `body`; preserve language, slug, category,
   `translationGroupId`, and timestamps except expected server-side `updatedAt`.
 - Update `registry/editorial-guide-registry.md` only from verified production API

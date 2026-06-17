@@ -69,6 +69,24 @@ Rules:
 - do not add a section only to satisfy the counter
 - update every supported locale, not only English
 
+### Localization Naturalness Repair
+
+Use when a locale passes structure checks but still reads like a literal
+translation, thin summary, or English template with localized words.
+
+Rules:
+
+- repair from the current production export, the improved English meaning, and
+  the fact parity map
+- preserve every hard fact, warning, route, rule, price, date, source link,
+  image URL, alt-text meaning, and caption meaning
+- rewrite the full affected `title` and `body` when needed; do not patch isolated
+  sentences while leaving a stiff title, weak intro, or awkward H2 sequence
+- localize image caption prefixes and source labels, except where the target
+  language convention legitimately uses the same word
+- read the repaired locale end to end without the English master before applying
+  the patch
+
 ## Commands
 
 Export one group:
