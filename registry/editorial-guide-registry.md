@@ -6,7 +6,7 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-06-14`
+- 마지막 검토일: `2026-06-23`
 
 검토에 사용한 데이터:
 - local prod export: `editorial-guides-2026-04.prod-db-export.json`
@@ -136,6 +136,7 @@
   - 2026-06-13 기준 production admin articles API에 `artgrp_rome_colosseum_ticket_arena_forum_20260613` 9개 언어 record 확인 후 zh title/body 현지화 patch 완료
   - 2026-06-14 기준 production admin articles API에 `artgrp_dubai_museum_future_ticket_metro_20260614` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-14 기준 production admin articles API에 `artgrp_malaysia_klia_ekspres_transit_20260614` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-23 기준 production admin articles API에 `artgrp_eiffel_tower_ticket_20260622` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -168,15 +169,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `190`
+- reserved topics total: `191`
 - status counts:
-  - `prod+dev`: `185`
+  - `prod+dev`: `186`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `163`
+  - `travel-guide`: `164`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `159`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -190,7 +191,7 @@
   - South Korea: KorailPassPlus pickup/top-up/refund dev coverage, Gyeongbokgung Palace ticket/hanbok/Tuesday closure production coverage
   - Spain: San Fermin Pamplona festival, Alhambra General/Nasrid Palaces timed-entry ticket and visitor-rule planning, Sagrada Família ticket/tower/security/access planning
   - United Kingdom: UK ETA entry authorization guide, Stonehenge timed-ticket/shuttle/parking/Stone Circle Experience planning guide
-  - France: Cannes Film Festival visitor guide, Louvre ticket/entrance/bag/security planning
+  - France: Cannes Film Festival visitor guide, Louvre ticket/entrance/bag/security planning, Eiffel Tower stairs vs elevator ticket/ID/summit/weather-closure guide
   - Italy: Venice Carnival festival coverage, Rome Colosseum timed/nominative ticket, arena/underground choice, and Forum-Palatine one-entry timing coverage
   - United Arab Emirates: Dubai first-time guide, Museum of the Future AED 169 timed-ticket/Metro/bag/family/accessibility planning guide, Qasr Al Watan dated ticket/dress-code/security/Visitor Centre shuttle planning guide
   - Malaysia: Penang Hill express/normal lane and one-way ticket coverage, KLIA Ekspres/Transit airport rail ticket and T1-T2 terminal-transfer coverage
@@ -391,6 +392,8 @@
 | `prod+dev` | Spain | Granada / Alhambra and Generalife | Alhambra General vs Gardens/Night/Dobla de Oro ticket choice, Nasrid Palaces timed entry, ID, bag, stroller, route, and purchase-rule guide | `travel-guide` | `alhambra-general-ticket-nasrid-palaces-time-guide-2026-06-12` |
 | `prod+dev` | Spain | Barcelona / Sagrada Família and Eixample access | Official online timed ticket, basic vs guided vs tower ticket choice, Nativity façade entrance, late-arrival rule, tower age/health/bag limits, security, dress, quiet-hour, app/audioguide, and accessibility planning guide | `travel-guide` | `sagrada-familia-ticket-tower-security-guide-2026-06-13` |
 
+| `prod+dev` | France | Paris / Eiffel Tower and Champ de Mars access | Official ticket choice (stairs vs elevator, 2nd floor vs summit), 60-day booking timeline, ID/nominative rules, accessibility limits, weather closure, security, transport, and July 13 2026 exceptional closure guide | `travel-guide` | `eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22` |
+
 ### `dev`
 
 | Status | Country / Scope | City / Region | Information Angle | Category | Slug |
@@ -424,6 +427,7 @@ Coverage distinction notes:
 - United Arab Emirates overlap was resolved by content distinction: Dubai first-time is a broad city introduction, while Museum of the Future covers a named Trade Centre attraction with AED 169 timed ticket, free-entry proof process, official-hours conflict handling, Emirates Towers Metro link, parking limits, bag/photo/food rules, family supervision, and accessibility checks.
 - Qasr Al Watan coverage differs because it covers a named Abu Dhabi presidential palace visit with dated ticket validity, no-refund/no-re-entry rule, dress code, 500 x 350 mm bag security limit, Visitor Centre parking/free shuttle, photography limits, and Palace in Motion cutoff checks, not Dubai first-time planning or the Museum of the Future timed-ticket/Metro/bag guide.
 - Malaysia overlap was resolved by content distinction: Penang Hill covers Penang Island hill railway express vs normal lane, 24-hour online cutoff, and one-way on-site-only ticket decisions, while KLIA Ekspres/Transit covers the Kuala Lumpur airport rail corridor with Ekspres vs Transit ticket choice, KL Sentral-airport fare, 23:00 all-stops pattern, T1-T2 transfer fare, child ticket handling, and late-arrival schedule checks.
+- Eiffel Tower coverage differs because it covers a named Paris monument visit with four ticket types (stairs vs elevator, 2nd floor vs summit), 60-day advance booking, nominative e-tickets, ID requirements, accessibility restrictions for the top and stairs, weather-closure rules, security screening, transport options, and an exceptional July 13 2026 closure, not the Cannes film festival or the Louvre museum ticket/entrance/bag guide.
 
 ## Update Workflow
 
