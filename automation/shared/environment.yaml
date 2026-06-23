@@ -3,7 +3,7 @@ version: 8
 purpose: Support mobile/chat-driven Momentbook guide writing, production API publication, review, and optional git persistence.
 
 local_workspace:
-  path: /Users/hansol/workspace/momentbook-guide
+  path: .
   repository: momentbook-guide
   branch: main
   remote: origin

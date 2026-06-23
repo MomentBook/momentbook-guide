@@ -6,7 +6,7 @@ there is no recurring automation behind it.
 ## Full Guide Run
 
 ```text
-/Users/hansol/workspace/momentbook-guide 에서 Momentbook guide 작업을 진행해줘.
+Momentbook guide 작업을 진행해줘.
 
 목표:
 - registry와 겹치지 않는 새 여행 가이드 1개를 고른다.
@@ -37,27 +37,27 @@ there is no recurring automation behind it.
 ## Publish Only
 
 ```text
-/Users/hansol/workspace/momentbook-guide 에서 새 Momentbook guide 1개를 production에 게시해줘.
+새 Momentbook guide 1개를 production에 게시해줘.
 AGENTS.md와 prompts/guide-publisher.md를 따른다. 게시 후 registry를 갱신하되 commit/push는 하지 말고 최종 diff와 검증 결과만 보고해줘.
 ```
 
 ## Review Only
 
 ```text
-/Users/hansol/workspace/momentbook-guide 에서 최근 게시된 guide 1개를 production admin API export 기준으로 검토해줘.
+최근 게시된 guide 1개를 production admin API export 기준으로 검토해줘.
 metadata는 보존하고, 개선이 확실한 경우 title/body만 patch한다. patch 전후 gate 결과와 translationGroupId를 보고해줘.
 ```
 
 ## Git Only
 
 ```text
-/Users/hansol/workspace/momentbook-guide 의 현재 변경 중 검증된 durable state만 확인해서 commit/push해줘.
+현재 변경 중 검증된 durable state만 확인해서 commit/push해줘.
 article content나 production API는 건드리지 말고, diff 검토 후 registry 또는 명시된 상태 파일만 stage해줘.
 ```
 
 ## Topic-Specific Run
 
 ```text
-/Users/hansol/workspace/momentbook-guide 에서 [주제/국가/도시] guide를 작성해줘.
+[주제/국가/도시] guide를 작성해줘.
 먼저 registry 중복 여부와 공식 source quality를 확인하고 진행해줘. 중복 판단은 국가가 아니라 content coverage signature 기준으로 한다. 같은 국가/도시라도 특정 장소, festival/event type, route, ticket/pass/permit/rule, traveller intent가 다르면 후보로 유지하고, 실제 콘텐츠가 겹치거나 공식 source가 약하면 대체 주제를 제안해줘.
 ```

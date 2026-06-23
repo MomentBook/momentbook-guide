@@ -2,12 +2,7 @@
 
 ## Local Guide Repository
 
-The guide repository is local-only:
-
-```sh
-cd "/Users/hansol/workspace/momentbook-guide"
-```
-
+The guide repository is local-only. The agent runs from the repository root.
 Guide prompts, registry updates, validation, and git work should read files from
 this local checkout. Do not treat `/home/ubuntu/app/momentbook-guide` on the
 development server as canonical.

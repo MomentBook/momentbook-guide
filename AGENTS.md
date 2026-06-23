@@ -7,12 +7,6 @@ guide work: writing one source-backed guide, publishing it through the productio
 admin API, reviewing the published result, and committing only verified durable
 state when requested.
 
-Canonical local path:
-
-```text
-/Users/hansol/workspace/momentbook-guide
-```
-
 ## Start Here
 
 - Mobile request templates: `prompts/mobile-chat.md`

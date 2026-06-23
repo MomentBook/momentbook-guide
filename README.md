@@ -3,12 +3,6 @@
 Local workspace for manual Momentbook guide writing, production publication,
 post-publish review, and verified git persistence.
 
-Canonical path:
-
-```text
-/Users/hansol/workspace/momentbook-guide
-```
-
 ## Current Operating Model
 
 Recurring Codex automations have been removed. Start guide work from a mobile or

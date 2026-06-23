@@ -1,0 +1,86 @@
+{
+  "translationGroupId": "artgrp_eiffel_tower_ticket_20260622",
+  "created": [
+    {
+      "articleId": "6a394ee41e5e3b3699f72c87",
+      "translationGroupId": "artgrp_eiffel_tower_ticket_20260622",
+      "language": "ko",
+      "category": "travel-guide",
+      "slug": "eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22",
+      "publishedAt": "2026-06-22T15:04:04.091Z",
+      "updatedAt": "2026-06-22T15:04:04.092Z"
+    },
+    {
+      "articleId": "6a394ee41e5e3b3699f72c8a",
+      "translationGroupId": "artgrp_eiffel_tower_ticket_20260622",
+      "language": "en",
+      "category": "travel-guide",
+      "slug": "eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22",
+      "publishedAt": "2026-06-22T15:04:04.558Z",
+      "updatedAt": "2026-06-22T15:04:04.560Z"
+    },
+    {
+      "articleId": "6a394ee41e5e3b3699f72c8d",
+      "translationGroupId": "artgrp_eiffel_tower_ticket_20260622",
+      "language": "ja",
+      "category": "travel-guide",
+      "slug": "eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22",
+      "publishedAt": "2026-06-22T15:04:04.972Z",
+      "updatedAt": "2026-06-22T15:04:04.974Z"
+    },
+    {
+      "articleId": "6a394ee51e5e3b3699f72c90",
+      "translationGroupId": "artgrp_eiffel_tower_ticket_20260622",
+      "language": "zh",
+      "category": "travel-guide",
+      "slug": "eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22",
+      "publishedAt": "2026-06-22T15:04:05.398Z",
+      "updatedAt": "2026-06-22T15:04:05.400Z"
+    },
+    {
+      "articleId": "6a394ee51e5e3b3699f72c93",
+      "translationGroupId": "artgrp_eiffel_tower_ticket_20260622",
+      "language": "es",
+      "category": "travel-guide",
+      "slug": "eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22",
+      "publishedAt": "2026-06-22T15:04:05.802Z",
+      "updatedAt": "2026-06-22T15:04:05.804Z"
+    },
+    {
+      "articleId": "6a394ee61e5e3b3699f72c96",
+      "translationGroupId": "artgrp_eiffel_tower_ticket_20260622",
+      "language": "pt",
+      "category": "travel-guide",
+      "slug": "eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22",
+      "publishedAt": "2026-06-22T15:04:06.204Z",
+      "updatedAt": "2026-06-22T15:04:06.205Z"
+    },
+    {
+      "articleId": "6a394ee61e5e3b3699f72c99",
+      "translationGroupId": "artgrp_eiffel_tower_ticket_20260622",
+      "language": "fr",
+      "category": "travel-guide",
+      "slug": "eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22",
+      "publishedAt": "2026-06-22T15:04:06.610Z",
+      "updatedAt": "2026-06-22T15:04:06.611Z"
+    },
+    {
+      "articleId": "6a394ee71e5e3b3699f72c9c",
+      "translationGroupId": "artgrp_eiffel_tower_ticket_20260622",
+      "language": "th",
+      "category": "travel-guide",
+      "slug": "eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22",
+      "publishedAt": "2026-06-22T15:04:07.151Z",
+      "updatedAt": "2026-06-22T15:04:07.152Z"
+    },
+    {
+      "articleId": "6a394ee71e5e3b3699f72c9f",
+      "translationGroupId": "artgrp_eiffel_tower_ticket_20260622",
+      "language": "vi",
+      "category": "travel-guide",
+      "slug": "eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22",
+      "publishedAt": "2026-06-22T15:04:07.538Z",
+      "updatedAt": "2026-06-22T15:04:07.539Z"
+    }
+  ]
+}
