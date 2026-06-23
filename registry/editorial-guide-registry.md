@@ -137,6 +137,7 @@
   - 2026-06-14 기준 production admin articles API에 `artgrp_dubai_museum_future_ticket_metro_20260614` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-14 기준 production admin articles API에 `artgrp_malaysia_klia_ekspres_transit_20260614` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-23 기준 production admin articles API에 `artgrp_eiffel_tower_ticket_20260622` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-23 기준 production admin articles API에 `artgrp_cuba_viazul_bus_20260623` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -169,18 +170,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `193`
+- reserved topics total: `194`
 - status counts:
-  - `prod+dev`: `188`
+  - `prod+dev`: `189`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `165`
+  - `travel-guide`: `166`
   - `wellbeing-guide`: `3`
-- country/scope metadata already visible, not an exclusion list: `160`
-  - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
+- country/scope metadata already visible, not an exclusion list: `161`
+  - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
 - repeated country metadata already visible, allowed when coverage differs:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning, Statue of Liberty ferry/pedestal/crown/security planning, Yosemite 2026 no timed entrance reservation/fee/pass/traffic/shuttle/road-check planning
@@ -396,6 +397,7 @@
 | `prod+dev` | France | Paris / Eiffel Tower and Champ de Mars access | Official ticket choice (stairs vs elevator, 2nd floor vs summit), 60-day booking timeline, ID/nominative rules, accessibility limits, weather closure, security, transport, and July 13 2026 exceptional closure guide | `travel-guide` | `eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22` |
 | `prod+dev` | Myanmar | Bagan Archaeological Zone, Mandalay Region | Zone Pass, e-bike vs horse cart vs car transport, temple climbing restrictions, and visit planning guide | `travel-guide` | `bagan-zone-pass-transport-guide-20260623` |
 | `prod+dev` | Mexico | Yucatán / Chichén Itzá | Federal INAH fee ($105 MXN) vs Yucatán CULTUR state surcharge ($592 MXN foreign/$205 MXN national), transport from Mérida/Cancún/Valladolid, permanent pyramid-climbing ban since 2006, and Noches de Kukulkán night show (Wed-Sun 19:00) guide | `travel-guide` | `chichen-itza-ticket-surcharge-visit-guide-20260623` |
+| `prod+dev` | Cuba | Havana / nationwide Viazul network | Viazul intercity bus online booking vs counter, luggage 25 kg limit, route planning (Havana–Viñales, Havana–Varadero, Havana–Trinidad, Havana–Santiago de Cuba, Havana–Cienfuegos, Havana–Camagüey, Havana–Baracoa), departure points, and common booking mistakes guide | `travel-guide` | `cuba-viazul-bus-ticket-luggage-route-guide-2026-06-23` |
  
 ### `dev`
 
