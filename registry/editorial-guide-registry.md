@@ -6,7 +6,7 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-06-24`
+- 마지막 검토일: `2026-06-24` (Mount Fuji climbing guide published)
 - 2026-06-24 기준 production admin articles API에 `artgrp_seoraksan_cable_car_trail_20260624` 9개 언어 record 확인
 - 2026-06-24 기준 production admin articles API에 `artgrp_masaya_volcano_night_lava_20260624` 9개 언어 record 확인
 - 2026-06-24 기준 production admin articles API에 `artgrp_auschwitz_birkenau_entry_card_20260624` 9개 언어 record 확인
@@ -144,6 +144,7 @@
   - 2026-06-23 기준 production admin articles API에 `artgrp_eiffel_tower_ticket_20260622` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-23 기준 production admin articles API에 `artgrp_cuba_viazul_bus_20260623` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-24 기준 production admin articles API에 `artgrp_masaya_volcano_night_lava_20260624` 9개 언어 record 확인 후 title/body patch 불필요
+- 2026-06-24 기준 production admin articles API에 `artgrp_mount_fuji_climbing_20260624` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -176,9 +177,9 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `200`
+- reserved topics total: `201`
 - status counts:
-  - `prod+dev`: `195`
+  - `prod+dev`: `196`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
@@ -189,7 +190,7 @@
 - country/scope metadata already visible, not an exclusion list: `162`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
 - repeated country metadata already visible, allowed when coverage differs:
-  - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
+  - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes, Mount Fuji climbing fee/trail/reservation
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning, Statue of Liberty ferry/pedestal/crown/security planning, Yosemite 2026 no timed entrance reservation/fee/pass/traffic/shuttle/road-check planning
   - Thailand: Songkran Bangkok, TDAC queued
   - Germany: Oktoberfest Munich, Berlin first-time queued, Neuschwanstein Castle ticket/transport/Marienbrücke/rules production coverage
@@ -415,6 +416,7 @@
 
 | `prod+dev` | Germany | Schwangau / Hohenschwangau, Bavaria | Neuschwanstein Castle online vs on-site ticket, timed guided tour, shuttle bus vs horse carriage vs walk uphill, Marienbrücke viewpoint access, bag/photo/animal rules, parking, B16 bridge renovation delay, and day-trip from Munich planning guide | `travel-guide` | `neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24` |
 | `prod+dev` | South Korea | Sokcho / Seoraksan National Park, Gangwon Province | Seorak Cable Car same-day walk-up ticket (₩16,000 adult, ₩12,000 child, no reservation, no one-way), trail choice (Ulsanbawi 3.8 km vs Biryong Falls 2.4 km vs Geumganggul vs Daecheongbong summit courses), seasonal entry cutoff times, fall foliage parking closure, winter trail controls, and Seoul-Sokcho express bus access guide | `travel-guide` | `seoraksan-cable-car-trail-seasonal-guide-2026-06-24` |
+| `prod+dev` | Japan | Fujiyoshida / Fujinomiya / Gotemba / Subashiri (Yamanashi and Shizuoka) | Mount Fuji climbing guide: ¥4,000 mandatory hiking fee (2026 flat rate), 4-trail choice (Yoshida 6.8 km 4,000 daily cap vs Fujinomiya 4.3 km vs Subashiri 6.9 km vs Gotemba 10.5 km), asoview (Yamanashi) vs FUJI NAVI app (Shizuoka) pre-registration, mountain hut booking (¥8,000–¥15,000/night), bullet-climbing ban, gate hours 14:00–03:00, Tokyo-Shinjuku bus transport (¥3,800), gear gate-check, altitude sickness, volcano alert, and Ohachimeguri crater walk guide | `travel-guide` | `mount-fuji-climbing-fee-trail-hut-guide-2026-06-24` |
 
 ### `dev`
 
@@ -456,6 +458,7 @@ Coverage distinction notes:
 - Germany coverage expanded with Neuschwanstein Castle, which differs because it covers a named Bavaria castle visit with online vs on-site ticket choice, timed guided-tour only entry, shuttle bus vs horse carriage vs walk uphill logistics, Marienbrücke viewpoint access timing, bag/photo rules, parking costs, B16 bridge renovation delay (May-Aug 2026), and Munich day-trip planning, not the Oktoberfest Munich festival or Berlin first-time destination overview.
 - Indonesia overlap was resolved by content distinction: Borobudur covers a Magelang Buddhist temple with Ground vs Structure ticket, Upanat access, and sunrise-sunset timing, while Prambanan covers a different named Hindu temple complex in Yogyakarta with Prambanan-only vs Ratu Boko combo ticket choice, transport from Yogyakarta, visitor rules including no-interior-access and dress code, Candi Sewu inclusion, and Ramayana Ballet add-on decisions, not a Borobudur ticket/access/timing guide.
 - South Korea overlap was resolved by content distinction: KorailPassPlus covers rail pass pickup/top-up/refund and Gyeongbokgung covers a Seoul palace ticket/hanbok/closure, while Seoraksan covers a named Gangwon Province national park visit with cable car same-day walk-up ticket (₩16,000 adult, no reservation), Ulsanbawi vs Biryong Falls trail choice, seasonal entry cutoff times, fall foliage parking closure, and Seoul-Sokcho express bus logistics, not a rail pass or Seoul palace visit.
+- Japan overlap was resolved by content distinction: existing Japan rows cover city introductions (Kyoto, Tokyo), seasonal festivals (Gion Matsuri, Sapporo Snow Festival), and named shrine/temple/castle visits (Miyajima ferry/shrine, Himeji Castle ticket/hours, Nara Tōdai-ji/deer, Matsumoto Castle ticket/stairs). Mount Fuji covers a named mountain climbing expedition with a mandatory ¥4,000 hiking fee (2026 flat rate), dual-prefecture reservation systems (asoview vs FUJI NAVI app), 4-trail choice with daily climber cap (Yoshida 4,000), mountain hut booking, bullet-climbing prohibition, gate-hour restrictions, altitude sickness management, gear gate-check requirements, private-vehicle restriction dates, and volcano-alert safety, not a city overview, festival, or single-building monument visit.
 
 ## Update Workflow
 
