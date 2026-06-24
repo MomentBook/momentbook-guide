@@ -9,6 +9,7 @@
 - 마지막 검토일: `2026-06-24`
 - 2026-06-24 기준 production admin articles API에 `artgrp_masaya_volcano_night_lava_20260624` 9개 언어 record 확인
 - 2026-06-24 기준 production admin articles API에 `artgrp_auschwitz_birkenau_entry_card_20260624` 9개 언어 record 확인
+- 2026-06-24 기준 production admin articles API에 `artgrp_prambanan_temple_ticket_guide_20260624` 9개 언어 record 확인
 
 검토에 사용한 데이터:
 - local prod export: `editorial-guides-2026-04.prod-db-export.json`
@@ -173,15 +174,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `197`
+- reserved topics total: `198`
 - status counts:
-  - `prod+dev`: `192`
+  - `prod+dev`: `193`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `168`
+  - `travel-guide`: `169`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `162`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -201,6 +202,7 @@
   - Malaysia: Penang Hill express/normal lane and one-way ticket coverage, KLIA Ekspres/Transit airport rail ticket and T1-T2 terminal-transfer coverage
   - Mexico: Day of the Dead Mexico City festival guide, Chichén Itzá ticket/surcharge/transport/night-show guide
   - Poland: Wieliczka Salt Mine Tourist vs Miners' Route guide, Auschwitz-Birkenau Memorial entry card/guide/bag/dress-code/shuttle logistics guide
+  - Indonesia: Borobudur Ground vs Structure ticket/Upanat guide, Prambanan Temple ticket/transport/Ratu Boko combo/Ramayana Ballet add-on guide
 
 운영 해석:
 - 현재 dataset은 `festival` 과 `first-time city guide` 비중이 높다.
@@ -231,6 +233,7 @@
 | `prod+dev` | Jordan | Petra / Wadi Musa | Jordan Pass vs gate ticket, consecutive-day use, and Petra by Night guide | `travel-guide` | `petra-jordan-pass-gate-ticket-petra-by-night-guide-2026-05-22` |
 | `prod+dev` | Estonia | Virtsu-Kuivastu / Saaremaa route | Ferry e-ticket, 48-hour validity, and number plate guide | `travel-guide` | `saaremaa-ferry-e-ticket-48-hour-number-plate-guide-2026-05-23` |
 | `prod+dev` | Indonesia | Borobudur, Magelang, Central Java | Ground vs Structure ticket, Upanat, and sunrise-sunset guide | `travel-guide` | `borobudur-ground-vs-structure-upanat-guide-2026-05-24` |
+| `prod+dev` | Indonesia | Prambanan, Sleman, Yogyakarta | Prambanan Temple ticket choice, transport from Yogyakarta, Ratu Boko combo, visitor rules, and Ramayana Ballet add-on guide | `travel-guide` | `prambanan-temple-ticket-transport-rules-guide-20260624` |
 | `prod+dev` | Poland | Wieliczka, Lesser Poland | Tourist Route vs Miners’ Route, stairs, temperature, and luggage guide | `travel-guide` | `wieliczka-salt-mine-tourist-vs-miners-route-guide-2026-05-25` |
 | `prod+dev` | Sweden | Stockholm / Djurgården | Vasa Museum ticket, bag rules, queue reality, and Vrak combo guide | `travel-guide` | `stockholm-vasa-museum-ticket-bag-queue-guide-2026-05-26` |
 | `prod+dev` | Turkey | Istanbul / nationwide ministry museum route | MuseumPass Istanbul vs MuseumPass Türkiye validity, one-entry rule, and night-museum limits | `travel-guide` | `istanbul-museum-pass-vs-turkiye-pass-guide-2026-05-27` |
@@ -445,6 +448,7 @@ Coverage distinction notes:
 - Mexico overlap was resolved by content distinction: Mexico City Day of the Dead covers a seasonal festival attendance guide in Mexico City, while Chichén Itzá covers a named Yucatán archaeological zone visit with the two-part federal-fee/state-surcharge ticket system, permanent pyramid-climbing ban since 2006, transport-route decisions from Mérida/Cancún/Valladolid, and the Noches de Kukulkán evening video-mapping show booking, not a seasonal festival event or any prior Mexico travel coverage.
 - Poland overlap was resolved by content distinction: Wieliczka covers a named salt mine with Tourist vs Miners' Route, stairs, temperature, and luggage decisions, while Auschwitz-Birkenau covers a named memorial museum in Oświęcim with entry card reservation, guided vs self-guided tour choice, bag-size/dress-code/ID enforcement, month-by-month entrance hours, dual-site shuttle logistics, and visitor-rule compliance, not a salt-mine route or ticket decision.
 - Nicaragua coverage differs because it covers a named active volcano park visit with night lava viewing, crater access timing, transport logistics from Managua and Granada, and safety rules for gas and explosion risk, not any existing country, destination, festival, ticket/pass, or transport coverage in the registry.
+- Indonesia overlap was resolved by content distinction: Borobudur covers a Magelang Buddhist temple with Ground vs Structure ticket, Upanat access, and sunrise-sunset timing, while Prambanan covers a different named Hindu temple complex in Yogyakarta with Prambanan-only vs Ratu Boko combo ticket choice, transport from Yogyakarta, visitor rules including no-interior-access and dress code, Candi Sewu inclusion, and Ramayana Ballet add-on decisions, not a Borobudur ticket/access/timing guide.
 
 ## Update Workflow
 
