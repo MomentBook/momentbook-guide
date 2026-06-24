@@ -6,7 +6,7 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-06-23`
+- 마지막 검토일: `2026-06-24`
 
 검토에 사용한 데이터:
 - local prod export: `editorial-guides-2026-04.prod-db-export.json`
@@ -170,9 +170,9 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `194`
+- reserved topics total: `195`
 - status counts:
-  - `prod+dev`: `189`
+  - `prod+dev`: `190`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
@@ -193,7 +193,7 @@
   - Spain: San Fermin Pamplona festival, Alhambra General/Nasrid Palaces timed-entry ticket and visitor-rule planning, Sagrada Família ticket/tower/security/access planning
   - United Kingdom: UK ETA entry authorization guide, Stonehenge timed-ticket/shuttle/parking/Stone Circle Experience planning guide
   - France: Cannes Film Festival visitor guide, Louvre ticket/entrance/bag/security planning, Eiffel Tower stairs vs elevator ticket/ID/summit/weather-closure guide
-  - Italy: Venice Carnival festival coverage, Rome Colosseum timed/nominative ticket, arena/underground choice, and Forum-Palatine one-entry timing coverage
+  - Italy: Venice Carnival festival coverage, Rome Colosseum timed/nominative ticket/arena/underground/Forum-Palatine one-entry timing coverage, Pompeii nominative ticket choice (Express vs Pompeii+ vs Pompeii Plus 3-day)/time-slot entrance/20,000 daily cap/three-entrance transport planning coverage
   - United Arab Emirates: Dubai first-time guide, Museum of the Future AED 169 timed-ticket/Metro/bag/family/accessibility planning guide, Qasr Al Watan dated ticket/dress-code/security/Visitor Centre shuttle planning guide
   - Malaysia: Penang Hill express/normal lane and one-way ticket coverage, KLIA Ekspres/Transit airport rail ticket and T1-T2 terminal-transfer coverage
   - Mexico: Day of the Dead Mexico City festival guide, Chichén Itzá ticket/surcharge/transport/night-show guide
@@ -397,6 +397,8 @@
 | `prod+dev` | France | Paris / Eiffel Tower and Champ de Mars access | Official ticket choice (stairs vs elevator, 2nd floor vs summit), 60-day booking timeline, ID/nominative rules, accessibility limits, weather closure, security, transport, and July 13 2026 exceptional closure guide | `travel-guide` | `eiffel-tower-ticket-stairs-vs-lift-guide-2026-06-22` |
 | `prod+dev` | Myanmar | Bagan Archaeological Zone, Mandalay Region | Zone Pass, e-bike vs horse cart vs car transport, temple climbing restrictions, and visit planning guide | `travel-guide` | `bagan-zone-pass-transport-guide-20260623` |
 | `prod+dev` | Mexico | Yucatán / Chichén Itzá | Federal INAH fee ($105 MXN) vs Yucatán CULTUR state surcharge ($592 MXN foreign/$205 MXN national), transport from Mérida/Cancún/Valladolid, permanent pyramid-climbing ban since 2006, and Noches de Kukulkán night show (Wed-Sun 19:00) guide | `travel-guide` | `chichen-itza-ticket-surcharge-visit-guide-20260623` |
+| `prod+dev` | Italy | Pompeii / Campania | Pompeii ticket choice, entrance selection, and day-trip transport guide from Naples, Sorrento, and Salerno | `travel-guide` | `pompeii-ticket-entrance-transport-day-trip-guide-2026-06-24` |
+
 | `prod+dev` | Cuba | Havana / nationwide Viazul network | Viazul intercity bus online booking vs counter, luggage 25 kg limit, route planning (Havana–Viñales, Havana–Varadero, Havana–Trinidad, Havana–Santiago de Cuba, Havana–Cienfuegos, Havana–Camagüey, Havana–Baracoa), departure points, and common booking mistakes guide | `travel-guide` | `cuba-viazul-bus-ticket-luggage-route-guide-2026-06-23` |
  
 ### `dev`
@@ -428,7 +430,7 @@ Coverage distinction notes:
 - France overlap was resolved by content distinction: Cannes covers an organizer-led film festival visit, while Louvre covers a named Paris museum visit with timed ticket and free-admission proof, EEA vs non-EEA pricing, Pyramid/Carrousel/Richelieu/Porte des Lions entrance choice, final-exit rule, 55 x 35 x 20 cm bag limit, security/locker/photo rules, accessibility, maps, and audio-guide decisions.
 - United States overlap was resolved by content distinction: Albuquerque Balloon Fiesta and Mardi Gras New Orleans cover festival travel; Washington Monument covers a named National Mall monument visit with online reservation vs free same-day walk-up ticket choice, 10:00 and 15:00 release timing, 8:45 lodge window, security-screening item rules, elevator flow, and weather/maintenance closure checks; Statue of Liberty covers New York Harbor ferry access to Liberty Island/Ellis Island, Statue City Cruises authorized-provider rules, reserve vs pedestal vs crown ticket choice, The Battery vs Liberty State Park departure, two-stage security, locker/deposit rules, pass exclusions, and the 162-stair crown decision; Yosemite covers a named national park visit with the 2026 no timed entrance reservation policy, entrance fee/pass and nonresident-fee decisions, cashless gates, Valley shuttle/YARTS movement, parking timing, roadwork/current-condition checks, and Mariposa Grove/Hetch Hetchy access limits.
 - United Kingdom overlap was resolved by content distinction: UK ETA covers country-level entry authorization, fee/validity, and who-needs-it decisions, while Stonehenge covers a named Wiltshire site visit with English Heritage timed general admission vs Stone Circle Experience, visitor-centre shuttle/walk choice, Salisbury bus transfer, £4 parking, membership/companion rules, dog/access rules, and solstice recheck decisions.
-- Italy overlap was resolved by content distinction: Venice Carnival covers an organizer-led seasonal festival visit, while Rome Colosseum covers a named monument and archaeological-area visit with official timed and nominative ticket products, 24h vs arena vs underground decisions, ID/name-change rules, Forum-Palatine one-entry timing, access route, terrain, and visitor-conduct rules.
+- Italy overlap was resolved by content distinction: Venice Carnival covers an organizer-led seasonal festival visit; Rome Colosseum covers a named monument and archaeological-area visit with official timed and nominative ticket products, 24h vs arena vs underground decisions, ID/name-change rules, Forum-Palatine one-entry timing, access route, terrain, and visitor-conduct rules; Pompeii covers a different named archaeological site in Campania with nominative ticket types (Express vs Pompeii+ vs Pompeii Plus 3-day), time-slot entry, 20,000-visitor daily cap, three-entrance choice, Circumvesuviana/Trenitalia transport, bag/ID/group rules, and Tuesday satellite-site closures, not Venetian festival or Roman Colosseum ticket/access decisions.
 - United Arab Emirates overlap was resolved by content distinction: Dubai first-time is a broad city introduction, while Museum of the Future covers a named Trade Centre attraction with AED 169 timed ticket, free-entry proof process, official-hours conflict handling, Emirates Towers Metro link, parking limits, bag/photo/food rules, family supervision, and accessibility checks.
 - Qasr Al Watan coverage differs because it covers a named Abu Dhabi presidential palace visit with dated ticket validity, no-refund/no-re-entry rule, dress code, 500 x 350 mm bag security limit, Visitor Centre parking/free shuttle, photography limits, and Palace in Motion cutoff checks, not Dubai first-time planning or the Museum of the Future timed-ticket/Metro/bag guide.
 - Malaysia overlap was resolved by content distinction: Penang Hill covers Penang Island hill railway express vs normal lane, 24-hour online cutoff, and one-way on-site-only ticket decisions, while KLIA Ekspres/Transit covers the Kuala Lumpur airport rail corridor with Ekspres vs Transit ticket choice, KL Sentral-airport fare, 23:00 all-stops pattern, T1-T2 transfer fare, child ticket handling, and late-arrival schedule checks.
