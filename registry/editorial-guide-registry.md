@@ -10,6 +10,7 @@
 - 2026-06-24 기준 production admin articles API에 `artgrp_masaya_volcano_night_lava_20260624` 9개 언어 record 확인
 - 2026-06-24 기준 production admin articles API에 `artgrp_auschwitz_birkenau_entry_card_20260624` 9개 언어 record 확인
 - 2026-06-24 기준 production admin articles API에 `artgrp_prambanan_temple_ticket_guide_20260624` 9개 언어 record 확인
+- 2026-06-24 기준 production admin articles API에 `artgrp_neuschwanstein_castle_ticket_transport_20260624` 9개 언어 record 확인
 
 검토에 사용한 데이터:
 - local prod export: `editorial-guides-2026-04.prod-db-export.json`
@@ -174,15 +175,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `198`
+- reserved topics total: `199`
 - status counts:
-  - `prod+dev`: `193`
+  - `prod+dev`: `194`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `169`
+  - `travel-guide`: `170`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `162`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -190,7 +191,7 @@
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning, Statue of Liberty ferry/pedestal/crown/security planning, Yosemite 2026 no timed entrance reservation/fee/pass/traffic/shuttle/road-check planning
   - Thailand: Songkran Bangkok, TDAC queued
-  - Germany: Oktoberfest Munich, Berlin first-time queued
+  - Germany: Oktoberfest Munich, Berlin first-time queued, Neuschwanstein Castle ticket/transport/Marienbrücke/rules production coverage
   - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
   - Taiwan: Taipei first-time, Maokong Gondola ticket/cabin/weather closure guide
   - South Korea: KorailPassPlus pickup/top-up/refund dev coverage, Gyeongbokgung Palace ticket/hanbok/Tuesday closure production coverage
@@ -411,6 +412,8 @@
  
 | `prod+dev` | Nicaragua | Masaya / Managua and Granada access | Night lava viewing, crater access timing, transport, and safety rules guide | `travel-guide` | `masaya-volcano-night-lava-crater-guide-2026-06-24` |
 
+| `prod+dev` | Germany | Schwangau / Hohenschwangau, Bavaria | Neuschwanstein Castle online vs on-site ticket, timed guided tour, shuttle bus vs horse carriage vs walk uphill, Marienbrücke viewpoint access, bag/photo/animal rules, parking, B16 bridge renovation delay, and day-trip from Munich planning guide | `travel-guide` | `neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24` |
+
 ### `dev`
 
 | Status | Country / Scope | City / Region | Information Angle | Category | Slug |
@@ -448,6 +451,7 @@ Coverage distinction notes:
 - Mexico overlap was resolved by content distinction: Mexico City Day of the Dead covers a seasonal festival attendance guide in Mexico City, while Chichén Itzá covers a named Yucatán archaeological zone visit with the two-part federal-fee/state-surcharge ticket system, permanent pyramid-climbing ban since 2006, transport-route decisions from Mérida/Cancún/Valladolid, and the Noches de Kukulkán evening video-mapping show booking, not a seasonal festival event or any prior Mexico travel coverage.
 - Poland overlap was resolved by content distinction: Wieliczka covers a named salt mine with Tourist vs Miners' Route, stairs, temperature, and luggage decisions, while Auschwitz-Birkenau covers a named memorial museum in Oświęcim with entry card reservation, guided vs self-guided tour choice, bag-size/dress-code/ID enforcement, month-by-month entrance hours, dual-site shuttle logistics, and visitor-rule compliance, not a salt-mine route or ticket decision.
 - Nicaragua coverage differs because it covers a named active volcano park visit with night lava viewing, crater access timing, transport logistics from Managua and Granada, and safety rules for gas and explosion risk, not any existing country, destination, festival, ticket/pass, or transport coverage in the registry.
+- Germany coverage expanded with Neuschwanstein Castle, which differs because it covers a named Bavaria castle visit with online vs on-site ticket choice, timed guided-tour only entry, shuttle bus vs horse carriage vs walk uphill logistics, Marienbrücke viewpoint access timing, bag/photo rules, parking costs, B16 bridge renovation delay (May-Aug 2026), and Munich day-trip planning, not the Oktoberfest Munich festival or Berlin first-time destination overview.
 - Indonesia overlap was resolved by content distinction: Borobudur covers a Magelang Buddhist temple with Ground vs Structure ticket, Upanat access, and sunrise-sunset timing, while Prambanan covers a different named Hindu temple complex in Yogyakarta with Prambanan-only vs Ratu Boko combo ticket choice, transport from Yogyakarta, visitor rules including no-interior-access and dress code, Candi Sewu inclusion, and Ramayana Ballet add-on decisions, not a Borobudur ticket/access/timing guide.
 
 ## Update Workflow
