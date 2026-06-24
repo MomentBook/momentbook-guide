@@ -7,6 +7,7 @@
 
 기준 시점:
 - 마지막 검토일: `2026-06-24`
+- 2026-06-24 기준 production admin articles API에 `artgrp_masaya_volcano_night_lava_20260624` 9개 언어 record 확인
 - 2026-06-24 기준 production admin articles API에 `artgrp_auschwitz_birkenau_entry_card_20260624` 9개 언어 record 확인
 
 검토에 사용한 데이터:
@@ -139,6 +140,7 @@
   - 2026-06-14 기준 production admin articles API에 `artgrp_malaysia_klia_ekspres_transit_20260614` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-23 기준 production admin articles API에 `artgrp_eiffel_tower_ticket_20260622` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-23 기준 production admin articles API에 `artgrp_cuba_viazul_bus_20260623` 9개 언어 record 확인 후 title/body patch 불필요
+  - 2026-06-24 기준 production admin articles API에 `artgrp_masaya_volcano_night_lava_20260624` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -171,18 +173,18 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `196`
+- reserved topics total: `197`
 - status counts:
-  - `prod+dev`: `191`
+  - `prod+dev`: `192`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `167`
+  - `travel-guide`: `168`
   - `wellbeing-guide`: `3`
-- country/scope metadata already visible, not an exclusion list: `161`
-  - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
+- country/scope metadata already visible, not an exclusion list: `162`
+  - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
 - repeated country metadata already visible, allowed when coverage differs:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning, Statue of Liberty ferry/pedestal/crown/security planning, Yosemite 2026 no timed entrance reservation/fee/pass/traffic/shuttle/road-check planning
@@ -404,6 +406,8 @@
 | `prod+dev` | Cuba | Havana / nationwide Viazul network | Viazul intercity bus online booking vs counter, luggage 25 kg limit, route planning (Havana–Viñales, Havana–Varadero, Havana–Trinidad, Havana–Santiago de Cuba, Havana–Cienfuegos, Havana–Camagüey, Havana–Baracoa), departure points, and common booking mistakes guide | `travel-guide` | `cuba-viazul-bus-ticket-luggage-route-guide-2026-06-23` |
 | `prod+dev` | Poland | Oświęcim / Auschwitz-Birkenau Memorial and Museum | Entry card online reservation, guided-tour vs self-guided choice, bag-size/dress-code/ID rules, month-by-month entrance hours, and dual-site shuttle logistics guide | `travel-guide` | `auschwitz-birkenau-entry-card-guide-2026-06-24` |
  
+| `prod+dev` | Nicaragua | Masaya / Managua and Granada access | Night lava viewing, crater access timing, transport, and safety rules guide | `travel-guide` | `masaya-volcano-night-lava-crater-guide-2026-06-24` |
+
 ### `dev`
 
 | Status | Country / Scope | City / Region | Information Angle | Category | Slug |
@@ -440,6 +444,7 @@ Coverage distinction notes:
 - Eiffel Tower coverage differs because it covers a named Paris monument visit with four ticket types (stairs vs elevator, 2nd floor vs summit), 60-day advance booking, nominative e-tickets, ID requirements, accessibility restrictions for the top and stairs, weather-closure rules, security screening, transport options, and an exceptional July 13 2026 closure, not the Cannes film festival or the Louvre museum ticket/entrance/bag guide.
 - Mexico overlap was resolved by content distinction: Mexico City Day of the Dead covers a seasonal festival attendance guide in Mexico City, while Chichén Itzá covers a named Yucatán archaeological zone visit with the two-part federal-fee/state-surcharge ticket system, permanent pyramid-climbing ban since 2006, transport-route decisions from Mérida/Cancún/Valladolid, and the Noches de Kukulkán evening video-mapping show booking, not a seasonal festival event or any prior Mexico travel coverage.
 - Poland overlap was resolved by content distinction: Wieliczka covers a named salt mine with Tourist vs Miners' Route, stairs, temperature, and luggage decisions, while Auschwitz-Birkenau covers a named memorial museum in Oświęcim with entry card reservation, guided vs self-guided tour choice, bag-size/dress-code/ID enforcement, month-by-month entrance hours, dual-site shuttle logistics, and visitor-rule compliance, not a salt-mine route or ticket decision.
+- Nicaragua coverage differs because it covers a named active volcano park visit with night lava viewing, crater access timing, transport logistics from Managua and Granada, and safety rules for gas and explosion risk, not any existing country, destination, festival, ticket/pass, or transport coverage in the registry.
 
 ## Update Workflow
 
