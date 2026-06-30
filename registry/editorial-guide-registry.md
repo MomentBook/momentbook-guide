@@ -6,7 +6,8 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-06-24` (Mount Fuji climbing guide published)
+- 마지막 검토일: `2026-06-30` (National Palace Museum guide published)
+- 2026-06-24 기준 Mount Fuji climbing guide published
 - 2026-06-24 기준 production admin articles API에 `artgrp_seoraksan_cable_car_trail_20260624` 9개 언어 record 확인
 - 2026-06-24 기준 production admin articles API에 `artgrp_masaya_volcano_night_lava_20260624` 9개 언어 record 확인
 - 2026-06-24 기준 production admin articles API에 `artgrp_auschwitz_birkenau_entry_card_20260624` 9개 언어 record 확인
@@ -145,6 +146,7 @@
   - 2026-06-23 기준 production admin articles API에 `artgrp_cuba_viazul_bus_20260623` 9개 언어 record 확인 후 title/body patch 불필요
   - 2026-06-24 기준 production admin articles API에 `artgrp_masaya_volcano_night_lava_20260624` 9개 언어 record 확인 후 title/body patch 불필요
 - 2026-06-24 기준 production admin articles API에 `artgrp_mount_fuji_climbing_20260624` 9개 언어 record 확인 후 title/body patch 불필요
+- 2026-06-30 기준 production admin articles API에 `artgrp_national_palace_museum_taipei_ticket_guide_20260630` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -177,15 +179,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `201`
+- reserved topics total: `202`
 - status counts:
-  - `prod+dev`: `196`
+  - `prod+dev`: `197`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `171`
+  - `travel-guide`: `172`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `162`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -195,7 +197,7 @@
   - Thailand: Songkran Bangkok, TDAC queued
   - Germany: Oktoberfest Munich, Berlin first-time queued, Neuschwanstein Castle ticket/transport/Marienbrücke/rules production coverage
   - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
-  - Taiwan: Taipei first-time, Maokong Gondola ticket/cabin/weather closure guide
+  - Taiwan: Taipei first-time, Maokong Gondola ticket/cabin/weather closure guide, National Palace Museum ticket/hours/Monday/bag/transport/audio-guide production coverage
   - South Korea: KorailPassPlus pickup/top-up/refund dev coverage, Gyeongbokgung Palace ticket/hanbok/Tuesday closure production coverage, Seoraksan cable car/trail/seasonal production coverage
   - Spain: San Fermin Pamplona festival, Alhambra General/Nasrid Palaces timed-entry ticket and visitor-rule planning, Sagrada Família ticket/tower/security/access planning
   - United Kingdom: UK ETA entry authorization guide, Stonehenge timed-ticket/shuttle/parking/Stone Circle Experience planning guide
@@ -417,6 +419,7 @@
 | `prod+dev` | Germany | Schwangau / Hohenschwangau, Bavaria | Neuschwanstein Castle online vs on-site ticket, timed guided tour, shuttle bus vs horse carriage vs walk uphill, Marienbrücke viewpoint access, bag/photo/animal rules, parking, B16 bridge renovation delay, and day-trip from Munich planning guide | `travel-guide` | `neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24` |
 | `prod+dev` | South Korea | Sokcho / Seoraksan National Park, Gangwon Province | Seorak Cable Car same-day walk-up ticket (₩16,000 adult, ₩12,000 child, no reservation, no one-way), trail choice (Ulsanbawi 3.8 km vs Biryong Falls 2.4 km vs Geumganggul vs Daecheongbong summit courses), seasonal entry cutoff times, fall foliage parking closure, winter trail controls, and Seoul-Sokcho express bus access guide | `travel-guide` | `seoraksan-cable-car-trail-seasonal-guide-2026-06-24` |
 | `prod+dev` | Japan | Fujiyoshida / Fujinomiya / Gotemba / Subashiri (Yamanashi and Shizuoka) | Mount Fuji climbing guide: ¥4,000 mandatory hiking fee (2026 flat rate), 4-trail choice (Yoshida 6.8 km 4,000 daily cap vs Fujinomiya 4.3 km vs Subashiri 6.9 km vs Gotemba 10.5 km), asoview (Yamanashi) vs FUJI NAVI app (Shizuoka) pre-registration, mountain hut booking (¥8,000–¥15,000/night), bullet-climbing ban, gate hours 14:00–03:00, Tokyo-Shinjuku bus transport (¥3,800), gear gate-check, altitude sickness, volcano alert, and Ohachimeguri crater walk guide | `travel-guide` | `mount-fuji-climbing-fee-trail-hut-guide-2026-06-24` |
+| `prod+dev` | Taiwan | Taipei / Shilin District, National Palace Museum Northern Branch | NPM Exhibition Hall I Tuesday-Sunday hours (09:00-17:00), ticket choice (NT$350 regular vs NT$150 discount/ROC citizen/ISIC vs free under-17/all nationalities), 2026 special Monday opening days (21 dates), mandatory NPM group audio tour system for 10+ (NT$50 from 2026-05-01), A3 bag-size cloakroom check rule, no-flash/no-tripod/no-selfie-stick photography, metro-bus access from Shilin/Jiannan Road/Dazhi stations, and Zhishan/Zhide free garden guide | `travel-guide` | `national-palace-museum-taipei-ticket-hours-guide-2026-06-30` |
 
 ### `dev`
 
@@ -442,6 +445,7 @@ Coverage distinction notes:
 - Singapore overlap was resolved by content distinction: SG Arrival Card covers entry declaration rules for arriving travelers, while Night Safari covers a Mandai evening attraction visit with ticket timing, tram inclusion, Creatures of the Night seat booking, M2 Khatib Bus, parking, low-light behavior rules, and late-return decisions.
 - Jewel Changi coverage differs because it covers a landside Changi Airport visit with Canopy Park ticket choice, Rain Vortex timing, terminal link bridges/T4 shuttle, 24-hour baggage storage, and private-event advisory checks, not SG Arrival Card entry declaration or Mandai Night Safari evening attraction planning.
 - Taiwan overlap was resolved by content distinction: Taipei first-time covers a broad city introduction, while Maokong Gondola covers a named Wenshan attraction/transport line with ticket choice, crystal-cabin surcharge, Monday maintenance exceptions, weather-suspension thresholds, Taipei Zoo access, and cabin-use rules.
+- National Palace Museum coverage differs because it covers a named Shilin District museum with Exhibition Hall I Tuesday-Sunday hours, NT$350/NT$150/free ticket categories including under-17 free admission for all nationalities, 21 special 2026 Monday opening dates, mandatory NPM group audio tour system for groups of 10+, A3 bag-size cloakroom rule, no-flash/no-tripod/no-selfie-stick photography rules, metro-bus access from three Taipei Metro stations, and Zhishan/Zhide free garden extensions, not a broad Taipei city introduction or a Maokong Gondola transport/attraction guide.
 - South Korea overlap was resolved by content distinction: KorailPassPlus covers rail pass pickup, top-up, and refund decisions at Incheon Airport and major KTX stations, while Gyeongbokgung covers a named Seoul palace visit with KRW 3,000 admission, hanbok free-entry clothing criteria, Tuesday closure/public-holiday exception, Integrated Palace Ticket, and subway/parking access.
 - Spain overlap was resolved by content distinction: San Fermin covers a Pamplona festival visit, Alhambra covers a named Granada monument visit with Alhambra General vs Gardens/Night/Dobla de Oro ticket choice, Nasrid Palaces timed entry, original ID/passport, 40 x 40 cm bag rule, route order, and purchase-policy decisions, while Sagrada Família covers a named Barcelona basilica visit with official online timed tickets, basic/guided/tower choice, Nativity façade entrance, late-arrival rule, tower health/age/bag restrictions, security/dress rules, quiet-hour, app/audioguide, and accessibility decisions.
 - France overlap was resolved by content distinction: Cannes covers an organizer-led film festival visit, while Louvre covers a named Paris museum visit with timed ticket and free-admission proof, EEA vs non-EEA pricing, Pyramid/Carrousel/Richelieu/Porte des Lions entrance choice, final-exit rule, 55 x 35 x 20 cm bag limit, security/locker/photo rules, accessibility, maps, and audio-guide decisions.
