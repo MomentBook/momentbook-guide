@@ -6,7 +6,8 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-06-30` (National Palace Museum guide published)
+- 마지막 검토일: `2026-06-30` (Uffizi Gallery guide published)
+- 2026-06-30 기준 National Palace Museum guide published
 - 2026-06-24 기준 Mount Fuji climbing guide published
 - 2026-06-24 기준 production admin articles API에 `artgrp_seoraksan_cable_car_trail_20260624` 9개 언어 record 확인
 - 2026-06-24 기준 production admin articles API에 `artgrp_masaya_volcano_night_lava_20260624` 9개 언어 record 확인
@@ -147,6 +148,7 @@
   - 2026-06-24 기준 production admin articles API에 `artgrp_masaya_volcano_night_lava_20260624` 9개 언어 record 확인 후 title/body patch 불필요
 - 2026-06-24 기준 production admin articles API에 `artgrp_mount_fuji_climbing_20260624` 9개 언어 record 확인 후 title/body patch 불필요
 - 2026-06-30 기준 production admin articles API에 `artgrp_national_palace_museum_taipei_ticket_guide_20260630` 9개 언어 record 확인 후 title/body patch 불필요
+- 2026-06-30 기준 production admin articles API에 `artgrp_uffizi_gallery_ticket_free_sunday_20260630` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -179,15 +181,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `202`
+- reserved topics total: `203`
 - status counts:
-  - `prod+dev`: `197`
+  - `prod+dev`: `198`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `172`
+  - `travel-guide`: `173`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `162`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -202,7 +204,7 @@
   - Spain: San Fermin Pamplona festival, Alhambra General/Nasrid Palaces timed-entry ticket and visitor-rule planning, Sagrada Família ticket/tower/security/access planning
   - United Kingdom: UK ETA entry authorization guide, Stonehenge timed-ticket/shuttle/parking/Stone Circle Experience planning guide
   - France: Cannes Film Festival visitor guide, Louvre ticket/entrance/bag/security planning, Eiffel Tower stairs vs elevator ticket/ID/summit/weather-closure guide
-  - Italy: Venice Carnival festival coverage, Rome Colosseum timed/nominative ticket/arena/underground/Forum-Palatine one-entry timing coverage, Pompeii nominative ticket choice (Express vs Pompeii+ vs Pompeii Plus 3-day)/time-slot entrance/20,000 daily cap/three-entrance transport planning coverage
+  - Italy: Venice Carnival festival coverage, Rome Colosseum timed/nominative ticket/arena/underground/Forum-Palatine one-entry timing coverage, Pompeii nominative ticket choice (Express vs Pompeii+ vs Pompeii Plus 3-day)/time-slot entrance/20,000 daily cap/three-entrance transport planning coverage, Uffizi Gallery timed ticket choice/free-Sunday/no-reservation/advance-vs-same-day/PassePartout 5-day-combo/visitor-rules production coverage
   - United Arab Emirates: Dubai first-time guide, Museum of the Future AED 169 timed-ticket/Metro/bag/family/accessibility planning guide, Qasr Al Watan dated ticket/dress-code/security/Visitor Centre shuttle planning guide
   - Malaysia: Penang Hill express/normal lane and one-way ticket coverage, KLIA Ekspres/Transit airport rail ticket and T1-T2 terminal-transfer coverage
   - Mexico: Day of the Dead Mexico City festival guide, Chichén Itzá ticket/surcharge/transport/night-show guide
@@ -420,6 +422,7 @@
 | `prod+dev` | South Korea | Sokcho / Seoraksan National Park, Gangwon Province | Seorak Cable Car same-day walk-up ticket (₩16,000 adult, ₩12,000 child, no reservation, no one-way), trail choice (Ulsanbawi 3.8 km vs Biryong Falls 2.4 km vs Geumganggul vs Daecheongbong summit courses), seasonal entry cutoff times, fall foliage parking closure, winter trail controls, and Seoul-Sokcho express bus access guide | `travel-guide` | `seoraksan-cable-car-trail-seasonal-guide-2026-06-24` |
 | `prod+dev` | Japan | Fujiyoshida / Fujinomiya / Gotemba / Subashiri (Yamanashi and Shizuoka) | Mount Fuji climbing guide: ¥4,000 mandatory hiking fee (2026 flat rate), 4-trail choice (Yoshida 6.8 km 4,000 daily cap vs Fujinomiya 4.3 km vs Subashiri 6.9 km vs Gotemba 10.5 km), asoview (Yamanashi) vs FUJI NAVI app (Shizuoka) pre-registration, mountain hut booking (¥8,000–¥15,000/night), bullet-climbing ban, gate hours 14:00–03:00, Tokyo-Shinjuku bus transport (¥3,800), gear gate-check, altitude sickness, volcano alert, and Ohachimeguri crater walk guide | `travel-guide` | `mount-fuji-climbing-fee-trail-hut-guide-2026-06-24` |
 | `prod+dev` | Taiwan | Taipei / Shilin District, National Palace Museum Northern Branch | NPM Exhibition Hall I Tuesday-Sunday hours (09:00-17:00), ticket choice (NT$350 regular vs NT$150 discount/ROC citizen/ISIC vs free under-17/all nationalities), 2026 special Monday opening days (21 dates), mandatory NPM group audio tour system for 10+ (NT$50 from 2026-05-01), A3 bag-size cloakroom check rule, no-flash/no-tripod/no-selfie-stick photography, metro-bus access from Shilin/Jiannan Road/Dazhi stations, and Zhishan/Zhide free garden guide | `travel-guide` | `national-palace-museum-taipei-ticket-hours-guide-2026-06-30` |
+| `prod+dev` | Italy | Florence / Piazzale degli Uffizi, Gallerie degli Uffizi | Uffizi Gallery timed ticket choice (advance €29/same-day €25/afternoon discount from 16:00 €16), PassePartout 5-day combo (€40 Uffizi+Pitti+Boboli, €58 incl. Vasari Corridor), free admission categories (under-18 any nationality, disabled+companion), reduced €2 ticket (EU 18-25 and select countries), first Sunday free entry with no reservation and suspended priority lanes, Monday closure, group rules (11+ people €70 extra, 6+ whisper headset mandatory), nominative ticket ID check, visitor rules (cloakroom, metal detector, no flash/selfie-stick/tripod, no food/drink, dress code, phone silent, no weapons), audioguide (€6 in 8 languages), and pre-visit notice check guide | `travel-guide` | `uffizi-gallery-ticket-free-sunday-guide-2026-06-30` |
 
 ### `dev`
 
@@ -463,6 +466,7 @@ Coverage distinction notes:
 - Indonesia overlap was resolved by content distinction: Borobudur covers a Magelang Buddhist temple with Ground vs Structure ticket, Upanat access, and sunrise-sunset timing, while Prambanan covers a different named Hindu temple complex in Yogyakarta with Prambanan-only vs Ratu Boko combo ticket choice, transport from Yogyakarta, visitor rules including no-interior-access and dress code, Candi Sewu inclusion, and Ramayana Ballet add-on decisions, not a Borobudur ticket/access/timing guide.
 - South Korea overlap was resolved by content distinction: KorailPassPlus covers rail pass pickup/top-up/refund and Gyeongbokgung covers a Seoul palace ticket/hanbok/closure, while Seoraksan covers a named Gangwon Province national park visit with cable car same-day walk-up ticket (₩16,000 adult, no reservation), Ulsanbawi vs Biryong Falls trail choice, seasonal entry cutoff times, fall foliage parking closure, and Seoul-Sokcho express bus logistics, not a rail pass or Seoul palace visit.
 - Japan overlap was resolved by content distinction: existing Japan rows cover city introductions (Kyoto, Tokyo), seasonal festivals (Gion Matsuri, Sapporo Snow Festival), and named shrine/temple/castle visits (Miyajima ferry/shrine, Himeji Castle ticket/hours, Nara Tōdai-ji/deer, Matsumoto Castle ticket/stairs). Mount Fuji covers a named mountain climbing expedition with a mandatory ¥4,000 hiking fee (2026 flat rate), dual-prefecture reservation systems (asoview vs FUJI NAVI app), 4-trail choice with daily climber cap (Yoshida 4,000), mountain hut booking, bullet-climbing prohibition, gate-hour restrictions, altitude sickness management, gear gate-check requirements, private-vehicle restriction dates, and volcano-alert safety, not a city overview, festival, or single-building monument visit.
+- Italy overlap was resolved by content distinction: existing Italy rows cover a Venice seasonal festival, Rome Colosseum timed/nominative ticket and archaeological-area access, and Pompeii nominative ticket types with Campania archaeological site entry. Uffizi Gallery covers a named Florence museum visit with different ticket products (advance €29/same-day €25/afternoon €16, PassePartout 5-day combo, annual pass), free-Sunday access rules with suspended priority, free admission eligibility for under-18 all nationalities, EU 18-25 reduced €2 ticket, nominative ticket ID enforcement, cloakroom/metal-detector/dress-code/weapon rules, and group whisper-headset requirements, not a Venice festival, Roman monument ticket, or Campania archaeological site.
 
 ## Update Workflow
 
