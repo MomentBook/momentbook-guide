@@ -1,0 +1,86 @@
+{
+  "translationGroupId": "artgrp_pompeii_ticket_entrance_transport_20260624",
+  "created": [
+    {
+      "articleId": "6a3bc146178610e45c8154ec",
+      "translationGroupId": "artgrp_pompeii_ticket_entrance_transport_20260624",
+      "language": "ko",
+      "category": "travel-guide",
+      "slug": "pompeii-ticket-entrance-transport-day-trip-guide-2026-06-24",
+      "publishedAt": "2026-06-24T11:36:38.168Z",
+      "updatedAt": "2026-06-24T11:36:38.170Z"
+    },
+    {
+      "articleId": "6a3bc147178610e45c8154ef",
+      "translationGroupId": "artgrp_pompeii_ticket_entrance_transport_20260624",
+      "language": "en",
+      "category": "travel-guide",
+      "slug": "pompeii-ticket-entrance-transport-day-trip-guide-2026-06-24",
+      "publishedAt": "2026-06-24T11:36:39.018Z",
+      "updatedAt": "2026-06-24T11:36:39.019Z"
+    },
+    {
+      "articleId": "6a3bc147178610e45c8154f2",
+      "translationGroupId": "artgrp_pompeii_ticket_entrance_transport_20260624",
+      "language": "ja",
+      "category": "travel-guide",
+      "slug": "pompeii-ticket-entrance-transport-day-trip-guide-2026-06-24",
+      "publishedAt": "2026-06-24T11:36:39.458Z",
+      "updatedAt": "2026-06-24T11:36:39.459Z"
+    },
+    {
+      "articleId": "6a3bc147178610e45c8154f5",
+      "translationGroupId": "artgrp_pompeii_ticket_entrance_transport_20260624",
+      "language": "zh",
+      "category": "travel-guide",
+      "slug": "pompeii-ticket-entrance-transport-day-trip-guide-2026-06-24",
+      "publishedAt": "2026-06-24T11:36:39.892Z",
+      "updatedAt": "2026-06-24T11:36:39.892Z"
+    },
+    {
+      "articleId": "6a3bc148178610e45c8154f8",
+      "translationGroupId": "artgrp_pompeii_ticket_entrance_transport_20260624",
+      "language": "es",
+      "category": "travel-guide",
+      "slug": "pompeii-ticket-entrance-transport-day-trip-guide-2026-06-24",
+      "publishedAt": "2026-06-24T11:36:40.403Z",
+      "updatedAt": "2026-06-24T11:36:40.405Z"
+    },
+    {
+      "articleId": "6a3bc148178610e45c8154fb",
+      "translationGroupId": "artgrp_pompeii_ticket_entrance_transport_20260624",
+      "language": "pt",
+      "category": "travel-guide",
+      "slug": "pompeii-ticket-entrance-transport-day-trip-guide-2026-06-24",
+      "publishedAt": "2026-06-24T11:36:40.839Z",
+      "updatedAt": "2026-06-24T11:36:40.840Z"
+    },
+    {
+      "articleId": "6a3bc149178610e45c8154fe",
+      "translationGroupId": "artgrp_pompeii_ticket_entrance_transport_20260624",
+      "language": "fr",
+      "category": "travel-guide",
+      "slug": "pompeii-ticket-entrance-transport-day-trip-guide-2026-06-24",
+      "publishedAt": "2026-06-24T11:36:41.273Z",
+      "updatedAt": "2026-06-24T11:36:41.274Z"
+    },
+    {
+      "articleId": "6a3bc149178610e45c815501",
+      "translationGroupId": "artgrp_pompeii_ticket_entrance_transport_20260624",
+      "language": "th",
+      "category": "travel-guide",
+      "slug": "pompeii-ticket-entrance-transport-day-trip-guide-2026-06-24",
+      "publishedAt": "2026-06-24T11:36:41.729Z",
+      "updatedAt": "2026-06-24T11:36:41.730Z"
+    },
+    {
+      "articleId": "6a3bc14a178610e45c815504",
+      "translationGroupId": "artgrp_pompeii_ticket_entrance_transport_20260624",
+      "language": "vi",
+      "category": "travel-guide",
+      "slug": "pompeii-ticket-entrance-transport-day-trip-guide-2026-06-24",
+      "publishedAt": "2026-06-24T11:36:42.164Z",
+      "updatedAt": "2026-06-24T11:36:42.165Z"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "translationGroupId": "artgrp_mount_fuji_climbing_20260624",
+  "created": [
+    {
+      "articleId": "6a3bd7ce178610e45c8172cb",
+      "translationGroupId": "artgrp_mount_fuji_climbing_20260624",
+      "language": "ko",
+      "category": "travel-guide",
+      "slug": "mount-fuji-climbing-fee-trail-hut-guide-2026-06-24",
+      "publishedAt": "2026-06-24T13:12:46.807Z",
+      "updatedAt": "2026-06-24T13:12:46.808Z"
+    },
+    {
+      "articleId": "6a3bd7cf178610e45c8172ce",
+      "translationGroupId": "artgrp_mount_fuji_climbing_20260624",
+      "language": "en",
+      "category": "travel-guide",
+      "slug": "mount-fuji-climbing-fee-trail-hut-guide-2026-06-24",
+      "publishedAt": "2026-06-24T13:12:47.851Z",
+      "updatedAt": "2026-06-24T13:12:47.851Z"
+    },
+    {
+      "articleId": "6a3bd7d0178610e45c8172d1",
+      "translationGroupId": "artgrp_mount_fuji_climbing_20260624",
+      "language": "ja",
+      "category": "travel-guide",
+      "slug": "mount-fuji-climbing-fee-trail-hut-guide-2026-06-24",
+      "publishedAt": "2026-06-24T13:12:48.292Z",
+      "updatedAt": "2026-06-24T13:12:48.292Z"
+    },
+    {
+      "articleId": "6a3bd7d1178610e45c8172d4",
+      "translationGroupId": "artgrp_mount_fuji_climbing_20260624",
+      "language": "zh",
+      "category": "travel-guide",
+      "slug": "mount-fuji-climbing-fee-trail-hut-guide-2026-06-24",
+      "publishedAt": "2026-06-24T13:12:49.456Z",
+      "updatedAt": "2026-06-24T13:12:49.457Z"
+    },
+    {
+      "articleId": "6a3bd7d1178610e45c8172d7",
+      "translationGroupId": "artgrp_mount_fuji_climbing_20260624",
+      "language": "es",
+      "category": "travel-guide",
+      "slug": "mount-fuji-climbing-fee-trail-hut-guide-2026-06-24",
+      "publishedAt": "2026-06-24T13:12:49.912Z",
+      "updatedAt": "2026-06-24T13:12:49.915Z"
+    },
+    {
+      "articleId": "6a3bd7d2178610e45c8172da",
+      "translationGroupId": "artgrp_mount_fuji_climbing_20260624",
+      "language": "pt",
+      "category": "travel-guide",
+      "slug": "mount-fuji-climbing-fee-trail-hut-guide-2026-06-24",
+      "publishedAt": "2026-06-24T13:12:50.373Z",
+      "updatedAt": "2026-06-24T13:12:50.374Z"
+    },
+    {
+      "articleId": "6a3bd7d2178610e45c8172dd",
+      "translationGroupId": "artgrp_mount_fuji_climbing_20260624",
+      "language": "fr",
+      "category": "travel-guide",
+      "slug": "mount-fuji-climbing-fee-trail-hut-guide-2026-06-24",
+      "publishedAt": "2026-06-24T13:12:50.816Z",
+      "updatedAt": "2026-06-24T13:12:50.816Z"
+    },
+    {
+      "articleId": "6a3bd7d3178610e45c8172e0",
+      "translationGroupId": "artgrp_mount_fuji_climbing_20260624",
+      "language": "th",
+      "category": "travel-guide",
+      "slug": "mount-fuji-climbing-fee-trail-hut-guide-2026-06-24",
+      "publishedAt": "2026-06-24T13:12:51.372Z",
+      "updatedAt": "2026-06-24T13:12:51.372Z"
+    },
+    {
+      "articleId": "6a3bd7d3178610e45c8172e3",
+      "translationGroupId": "artgrp_mount_fuji_climbing_20260624",
+      "language": "vi",
+      "category": "travel-guide",
+      "slug": "mount-fuji-climbing-fee-trail-hut-guide-2026-06-24",
+      "publishedAt": "2026-06-24T13:12:51.962Z",
+      "updatedAt": "2026-06-24T13:12:51.963Z"
+    }
+  ]
+}

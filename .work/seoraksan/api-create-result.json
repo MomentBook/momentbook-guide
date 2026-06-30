@@ -1,0 +1,86 @@
+{
+  "translationGroupId": "artgrp_seoraksan_cable_car_trail_20260624",
+  "created": [
+    {
+      "articleId": "6a3bd0f6178610e45c8170bc",
+      "translationGroupId": "artgrp_seoraksan_cable_car_trail_20260624",
+      "language": "ko",
+      "category": "travel-guide",
+      "slug": "seoraksan-cable-car-trail-seasonal-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:43:34.557Z",
+      "updatedAt": "2026-06-24T12:43:34.558Z"
+    },
+    {
+      "articleId": "6a3bd0f8178610e45c8170bf",
+      "translationGroupId": "artgrp_seoraksan_cable_car_trail_20260624",
+      "language": "en",
+      "category": "travel-guide",
+      "slug": "seoraksan-cable-car-trail-seasonal-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:43:36.130Z",
+      "updatedAt": "2026-06-24T12:43:36.130Z"
+    },
+    {
+      "articleId": "6a3bd0f8178610e45c8170c2",
+      "translationGroupId": "artgrp_seoraksan_cable_car_trail_20260624",
+      "language": "ja",
+      "category": "travel-guide",
+      "slug": "seoraksan-cable-car-trail-seasonal-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:43:36.557Z",
+      "updatedAt": "2026-06-24T12:43:36.558Z"
+    },
+    {
+      "articleId": "6a3bd0f9178610e45c8170c5",
+      "translationGroupId": "artgrp_seoraksan_cable_car_trail_20260624",
+      "language": "zh",
+      "category": "travel-guide",
+      "slug": "seoraksan-cable-car-trail-seasonal-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:43:37.034Z",
+      "updatedAt": "2026-06-24T12:43:37.034Z"
+    },
+    {
+      "articleId": "6a3bd0f9178610e45c8170c8",
+      "translationGroupId": "artgrp_seoraksan_cable_car_trail_20260624",
+      "language": "es",
+      "category": "travel-guide",
+      "slug": "seoraksan-cable-car-trail-seasonal-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:43:37.547Z",
+      "updatedAt": "2026-06-24T12:43:37.548Z"
+    },
+    {
+      "articleId": "6a3bd0f9178610e45c8170cb",
+      "translationGroupId": "artgrp_seoraksan_cable_car_trail_20260624",
+      "language": "pt",
+      "category": "travel-guide",
+      "slug": "seoraksan-cable-car-trail-seasonal-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:43:37.980Z",
+      "updatedAt": "2026-06-24T12:43:37.981Z"
+    },
+    {
+      "articleId": "6a3bd0fa178610e45c8170ce",
+      "translationGroupId": "artgrp_seoraksan_cable_car_trail_20260624",
+      "language": "fr",
+      "category": "travel-guide",
+      "slug": "seoraksan-cable-car-trail-seasonal-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:43:38.399Z",
+      "updatedAt": "2026-06-24T12:43:38.399Z"
+    },
+    {
+      "articleId": "6a3bd0fa178610e45c8170d1",
+      "translationGroupId": "artgrp_seoraksan_cable_car_trail_20260624",
+      "language": "th",
+      "category": "travel-guide",
+      "slug": "seoraksan-cable-car-trail-seasonal-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:43:38.841Z",
+      "updatedAt": "2026-06-24T12:43:38.841Z"
+    },
+    {
+      "articleId": "6a3bd0fb178610e45c8170d4",
+      "translationGroupId": "artgrp_seoraksan_cable_car_trail_20260624",
+      "language": "vi",
+      "category": "travel-guide",
+      "slug": "seoraksan-cable-car-trail-seasonal-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:43:39.270Z",
+      "updatedAt": "2026-06-24T12:43:39.270Z"
+    }
+  ]
+}

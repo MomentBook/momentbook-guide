@@ -1,0 +1,86 @@
+{
+  "translationGroupId": "artgrp_masaya_volcano_night_lava_20260624",
+  "created": [
+    {
+      "articleId": "6a3bc6d7178610e45c8156aa",
+      "translationGroupId": "artgrp_masaya_volcano_night_lava_20260624",
+      "language": "ko",
+      "category": "travel-guide",
+      "slug": "masaya-volcano-night-lava-crater-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:00:23.586Z",
+      "updatedAt": "2026-06-24T12:00:23.588Z"
+    },
+    {
+      "articleId": "6a3bc6d8178610e45c8156ad",
+      "translationGroupId": "artgrp_masaya_volcano_night_lava_20260624",
+      "language": "en",
+      "category": "travel-guide",
+      "slug": "masaya-volcano-night-lava-crater-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:00:24.394Z",
+      "updatedAt": "2026-06-24T12:00:24.395Z"
+    },
+    {
+      "articleId": "6a3bc6d8178610e45c8156b0",
+      "translationGroupId": "artgrp_masaya_volcano_night_lava_20260624",
+      "language": "ja",
+      "category": "travel-guide",
+      "slug": "masaya-volcano-night-lava-crater-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:00:24.911Z",
+      "updatedAt": "2026-06-24T12:00:24.912Z"
+    },
+    {
+      "articleId": "6a3bc6d9178610e45c8156b3",
+      "translationGroupId": "artgrp_masaya_volcano_night_lava_20260624",
+      "language": "zh",
+      "category": "travel-guide",
+      "slug": "masaya-volcano-night-lava-crater-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:00:25.328Z",
+      "updatedAt": "2026-06-24T12:00:25.329Z"
+    },
+    {
+      "articleId": "6a3bc6d9178610e45c8156b6",
+      "translationGroupId": "artgrp_masaya_volcano_night_lava_20260624",
+      "language": "es",
+      "category": "travel-guide",
+      "slug": "masaya-volcano-night-lava-crater-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:00:25.753Z",
+      "updatedAt": "2026-06-24T12:00:25.754Z"
+    },
+    {
+      "articleId": "6a3bc6da178610e45c8156b9",
+      "translationGroupId": "artgrp_masaya_volcano_night_lava_20260624",
+      "language": "pt",
+      "category": "travel-guide",
+      "slug": "masaya-volcano-night-lava-crater-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:00:26.172Z",
+      "updatedAt": "2026-06-24T12:00:26.173Z"
+    },
+    {
+      "articleId": "6a3bc6da178610e45c8156bc",
+      "translationGroupId": "artgrp_masaya_volcano_night_lava_20260624",
+      "language": "fr",
+      "category": "travel-guide",
+      "slug": "masaya-volcano-night-lava-crater-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:00:26.596Z",
+      "updatedAt": "2026-06-24T12:00:26.597Z"
+    },
+    {
+      "articleId": "6a3bc6db178610e45c8156bf",
+      "translationGroupId": "artgrp_masaya_volcano_night_lava_20260624",
+      "language": "th",
+      "category": "travel-guide",
+      "slug": "masaya-volcano-night-lava-crater-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:00:27.031Z",
+      "updatedAt": "2026-06-24T12:00:27.032Z"
+    },
+    {
+      "articleId": "6a3bc6db178610e45c8156c2",
+      "translationGroupId": "artgrp_masaya_volcano_night_lava_20260624",
+      "language": "vi",
+      "category": "travel-guide",
+      "slug": "masaya-volcano-night-lava-crater-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:00:27.536Z",
+      "updatedAt": "2026-06-24T12:00:27.536Z"
+    }
+  ]
+}

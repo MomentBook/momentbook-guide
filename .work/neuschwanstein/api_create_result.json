@@ -1,0 +1,86 @@
+{
+  "translationGroupId": "artgrp_neuschwanstein_castle_ticket_transport_20260624",
+  "created": [
+    {
+      "articleId": "6a3bccd3178610e45c81588e",
+      "translationGroupId": "artgrp_neuschwanstein_castle_ticket_transport_20260624",
+      "language": "ko",
+      "category": "travel-guide",
+      "slug": "neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:25:55.621Z",
+      "updatedAt": "2026-06-24T12:25:55.622Z"
+    },
+    {
+      "articleId": "6a3bccd4178610e45c815891",
+      "translationGroupId": "artgrp_neuschwanstein_castle_ticket_transport_20260624",
+      "language": "en",
+      "category": "travel-guide",
+      "slug": "neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:25:56.397Z",
+      "updatedAt": "2026-06-24T12:25:56.398Z"
+    },
+    {
+      "articleId": "6a3bccd4178610e45c815894",
+      "translationGroupId": "artgrp_neuschwanstein_castle_ticket_transport_20260624",
+      "language": "ja",
+      "category": "travel-guide",
+      "slug": "neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:25:56.904Z",
+      "updatedAt": "2026-06-24T12:25:56.905Z"
+    },
+    {
+      "articleId": "6a3bccd5178610e45c815897",
+      "translationGroupId": "artgrp_neuschwanstein_castle_ticket_transport_20260624",
+      "language": "zh",
+      "category": "travel-guide",
+      "slug": "neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:25:57.332Z",
+      "updatedAt": "2026-06-24T12:25:57.333Z"
+    },
+    {
+      "articleId": "6a3bccd5178610e45c81589a",
+      "translationGroupId": "artgrp_neuschwanstein_castle_ticket_transport_20260624",
+      "language": "es",
+      "category": "travel-guide",
+      "slug": "neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:25:57.752Z",
+      "updatedAt": "2026-06-24T12:25:57.752Z"
+    },
+    {
+      "articleId": "6a3bccd6178610e45c81589d",
+      "translationGroupId": "artgrp_neuschwanstein_castle_ticket_transport_20260624",
+      "language": "pt",
+      "category": "travel-guide",
+      "slug": "neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:25:58.175Z",
+      "updatedAt": "2026-06-24T12:25:58.176Z"
+    },
+    {
+      "articleId": "6a3bccd6178610e45c8158a0",
+      "translationGroupId": "artgrp_neuschwanstein_castle_ticket_transport_20260624",
+      "language": "fr",
+      "category": "travel-guide",
+      "slug": "neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:25:58.595Z",
+      "updatedAt": "2026-06-24T12:25:58.596Z"
+    },
+    {
+      "articleId": "6a3bccd7178610e45c8158a3",
+      "translationGroupId": "artgrp_neuschwanstein_castle_ticket_transport_20260624",
+      "language": "th",
+      "category": "travel-guide",
+      "slug": "neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:25:59.044Z",
+      "updatedAt": "2026-06-24T12:25:59.045Z"
+    },
+    {
+      "articleId": "6a3bccd7178610e45c8158a6",
+      "translationGroupId": "artgrp_neuschwanstein_castle_ticket_transport_20260624",
+      "language": "vi",
+      "category": "travel-guide",
+      "slug": "neuschwanstein-castle-ticket-transport-visit-guide-2026-06-24",
+      "publishedAt": "2026-06-24T12:25:59.608Z",
+      "updatedAt": "2026-06-24T12:25:59.610Z"
+    }
+  ]
+}
