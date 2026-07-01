@@ -6,7 +6,8 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-07-01` (Cinque Terre Card guide published)
+- 마지막 검토일: `2026-07-02` (Pena Palace Sintra guide published)
+- 2026-07-02 기준 production admin articles API에 `artgrp_pena_palace_sintra_ticket_transport_20260702` 9개 언어 record 확인
 - 2026-07-01 기준 production admin articles API에 `artgrp_cinque_terre_card_trail_rules_20260701` 9개 언어 record 확인
 - 2026-06-30 기준 production admin articles API에 `artgrp_versailles_ticket_passport_fountains_20260630` 9개 언어 record 확인 후 title/body factual error patch 완료
 - 2026-06-30 기준 Uffizi Gallery guide published
@@ -186,15 +187,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `206`
+- reserved topics total: `207`
 - status counts:
-  - `prod+dev`: `201`
+  - `prod+dev`: `202`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `176`
+  - `travel-guide`: `177`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `163`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -214,6 +215,7 @@
   - Malaysia: Penang Hill express/normal lane and one-way ticket coverage, KLIA Ekspres/Transit airport rail ticket and T1-T2 terminal-transfer coverage
   - Mexico: Day of the Dead Mexico City festival guide, Chichén Itzá ticket/surcharge/transport/night-show guide
   - Poland: Wieliczka Salt Mine Tourist vs Miners' Route guide, Auschwitz-Birkenau Memorial entry card/guide/bag/dress-code/shuttle logistics guide
+  - Portugal: Lisbon first-time city guide, Pena Palace timed ticket/transport/visitor rules production coverage
   - Indonesia: Borobudur Ground vs Structure ticket/Upanat guide, Prambanan Temple ticket/transport/Ratu Boko combo/Ramayana Ballet add-on guide
 
 운영 해석:
@@ -431,6 +433,7 @@
 | `prod+dev` | France | Versailles / Île-de-France | Versailles Palace Passport ticket choice (€35 standard/€32 EEA/€12 reduced) with timed entry, estate-of-Trianon-only alternative, Musical Fountains Show/Gardens seasonal calendar, free admission categories (under-18 all nationalities, EU under-26, disabled+companion), first Sunday free (Nov–Mar only), Paris Museum Pass rules (free timed Passport required, gardens not included on fountain days), RER C summer closure (Jul 15–Aug 22 2026 with SNCF N/U/P and bus 171 alternatives), and visitor rules (no food/drink, no flash/tripod/selfie-stick, free left luggage) guide | `travel-guide` | `versailles-palace-ticket-passport-fountains-guide-20260630` |
 | `prod+dev` | Italy | Cinque Terre National Park / Monterosso, Vernazza, Corniglia, Manarola, Riomaggiore (Liguria) | Cinque Terre Treno Card (train+trails, €22–€35 adult 1-day by season) vs Trekking Card (trails only, €10–€15 adult 1-day), trail open/closed status (Corniglia–Manarola SVA 592-2 closed-landslide, Manarola–Volastra–Corniglia free detour), Via dell'Amore one-way timed-entry reservation rules (Riomaggiore→Manarola only, Mar–Oct 09:00–21:00), CETS Guest Card exception, Cinque Terre Express every 20 min with €5–€10 single tickets, paper ticket validation rules, winter Nov 2–Mar 12 free-trails season, and la Spezia–Levanto access planning guide | `travel-guide` | `cinque-terre-card-trail-rules-train-guide-20260701` |
 | `prod+dev` | Russia | Moscow / Sheremetyevo, Domodedovo, and Vnukovo airports | Moscow Metro Troika wallet (67 RUB) vs Ediny ticket (80 RUB) vs Ediny day pass (1 day 375 RUB / 3 days 720 RUB) choice, Aeroexpress train (700 RUB, 46 min Belorussky-SVO / 45 min Paveletsky-DME) vs express bus (450 RUB) vs metro Line 8A direct to VKO (since 2024 train cancellation), Troika card purchase/cash top-up rules (foreign Visa/Mastercard do not work), station navigation by line color, modified SVO schedule June 25–July 13 2026, and 01:00 system close rule | `travel-guide` | `moscow-metro-troika-card-aeroexpress-guide-20260701` |
+| `prod+dev` | Portugal | Sintra / Lisbon access | Pena Palace Essential Visit (€20) vs Park-only (€12) ticket choice, strict timed-entry slot booking (zero delay tolerance, 30-min park-to-palace walk), CP Lisbon–Sintra train + Scotturb 434 bus transport, hiking trail routes, and visitor rules with Chalet of Countess of Edla inclusion guide | `travel-guide` | `pena-palace-sintra-ticket-transport-guide-20260702` |
 
 ### `dev`
 
@@ -478,6 +481,7 @@ Coverage distinction notes:
 - Italy overlap was resolved by content distinction: existing Italy rows cover a Venice seasonal festival, Rome Colosseum timed/nominative ticket, Pompeii nominative ticket types, and Uffizi Gallery timed-ticket/free-Sunday. Cinque Terre covers a named Ligurian coastal national park visit with two card types (Treno Card train+trails vs Trekking Card trails only), seasonal pricing tiers that change by day, an open/closed trail matrix including a permanently closed landslide-affected section, Via dell'Amore one-way timed-entry reservation rules with Guest Card exceptions, paper train ticket validation and fines, winter free-trail season, and Cinque Terre Express 20-minute-frequency logistics, not a Venetian festival, Roman monument, Campania archaeological site, or Florence museum visit.
 - France overlap expanded with Versailles Palace: existing France rows cover a Cannes film festival, Louvre museum ticket/entrance/bag/security, and Eiffel Tower stairs/elevator/summit/weather-closure. Versailles Palace covers a named Île-de-France palace-estate visit with Passport ticket choice including garden access on Musical Fountains Show/Gardens days, separate Trianon-only ticket, free admission rules, first-Sunday-free policy, Paris Museum Pass garden-exclusion rule, and the critical RER C summer closure transport decision, not a film festival, Paris museum entrance/security guide, or Eiffel Tower monument access guide.
 - Russia coverage is new: Moscow Metro Troika card/Ediny ticket choice and Aeroexpress airport transfer guide covers a named city transport network with specific ticket/pass products (Troika wallet 67 RUB, Ediny 1-ride 80 RUB, Ediny day passes 375/720 RUB, Aeroexpress 700 RUB), three-airport route decisions including VKO train cancellation, foreign-card cash-only rule, June 25-July 13 2026 modified SVO schedule, and 01:00 system closure, not any existing registry coverage.
+- Portugal overlap was resolved by content distinction: Lisbon first-time covers a broad city introduction, while Pena Palace covers a named Sintra monument visit with Essential Visit (€20) vs Park-only (€12) ticket choice, strict timed-entry slot booking with zero delay tolerance, 30-minute park-to-palace walking time, CP Lisbon–Sintra train + Scotturb 434 bus transport logistics, hiking trail options, Chalet of Countess of Edla inclusion, and visitor rules, not a generic city destination overview.
 
 ## Update Workflow
 
