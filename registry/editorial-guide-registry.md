@@ -6,8 +6,9 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-07-02` (Ha Long Bay cruise guide published)
+- 마지막 검토일: `2026-07-02` (Ubud Monkey Forest guide published)
 - 2026-07-02 기준 production admin articles API에 `artgrp_halong_bay_cruise_entry_fee_20260702` 9개 언어 record 확인
+- 2026-07-02 기준 production admin articles API에 `artgrp_ubud_monkey_forest_ticket_rules_20260702` 9개 언어 record 확인
 - 2026-07-02 기준 Pena Palace Sintra guide published + 7개 기존 가이드 이미지 URL 일괄 패치
 - 2026-07-02 기준 production admin articles API에 `artgrp_pena_palace_sintra_ticket_transport_20260702` 9개 언어 record 확인
 - 2026-07-01 기준 production admin articles API에 `artgrp_cinque_terre_card_trail_rules_20260701` 9개 언어 record 확인
@@ -196,15 +197,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `208`
+- reserved topics total: `209`
 - status counts:
-  - `prod+dev`: `203`
+  - `prod+dev`: `204`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `178`
+  - `travel-guide`: `179`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `163`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -225,7 +226,7 @@
   - Mexico: Day of the Dead Mexico City festival guide, Chichén Itzá ticket/surcharge/transport/night-show guide
   - Poland: Wieliczka Salt Mine Tourist vs Miners' Route guide, Auschwitz-Birkenau Memorial entry card/guide/bag/dress-code/shuttle logistics guide
   - Portugal: Lisbon first-time city guide, Pena Palace timed ticket/transport/visitor rules production coverage
-  - Indonesia: Borobudur Ground vs Structure ticket/Upanat guide, Prambanan Temple ticket/transport/Ratu Boko combo/Ramayana Ballet add-on guide
+  - Indonesia: Borobudur Ground vs Structure ticket/Upanat guide, Prambanan Temple ticket/transport/Ratu Boko combo/Ramayana Ballet add-on guide, Ubud Monkey Forest ticket/rules/visitor-safety/temple-etiquette guide
   - Vietnam: Hue Imperial City e-ticket/combo guide, Ha Long Bay entry fee/cruise choice/transport guide
 
 운영 해석:
@@ -447,6 +448,8 @@
 
 | `prod+dev` | Vietnam | Ha Long Bay / Quảng Ninh and Hải Phòng | Ha Long Bay environmental fee (70,000–750,000 VND by route), day vs overnight cruise choice, Ha Long vs Lan Ha vs Bai Tu Long bay comparison, Tuần Châu and Gia Luận port logistics, Hanoi–Ha Long transport (bus 2.5–3.5 hours, seaplane, private car), summer/winter operating hours, and typhoon-season cancellation guide | `travel-guide` | `halong-bay-cruise-entry-fee-transport-guide-20260702` |
 
+| `prod+dev` | Indonesia | Ubud, Bali / Padangtegal | Sacred Monkey Forest Sanctuary ticket (Adult IDR 130,000 / Child IDR 100,000), visitor safety rules (no food/drink/plastic, no eye contact, calm-if-monkey-jumps), dress code (shoulders/knees covered), locker use for loose items, monkey-selfie supervised add-on (IDR 50,000), best arrival timing (9:00–10:00 AM or 3:00–4:30 PM), three active Hindu temple perimeter access, 14-year no-rabies study, Nyepi closure check, and Ubud transport (walking from centre, car from Seminyak/Canggu/Sanur) guide | `travel-guide` | `ubud-monkey-forest-ticket-rules-guide-20260702` |
+
 ### `dev`
 
 | Status | Country / Scope | City / Region | Information Angle | Category | Slug |
@@ -495,6 +498,7 @@ Coverage distinction notes:
 - Russia coverage is new: Moscow Metro Troika card/Ediny ticket choice and Aeroexpress airport transfer guide covers a named city transport network with specific ticket/pass products (Troika wallet 67 RUB, Ediny 1-ride 80 RUB, Ediny day passes 375/720 RUB, Aeroexpress 700 RUB), three-airport route decisions including VKO train cancellation, foreign-card cash-only rule, June 25-July 13 2026 modified SVO schedule, and 01:00 system closure, not any existing registry coverage.
 - Portugal overlap was resolved by content distinction: Lisbon first-time covers a broad city introduction, while Pena Palace covers a named Sintra monument visit with Essential Visit (€20) vs Park-only (€12) ticket choice, strict timed-entry slot booking with zero delay tolerance, 30-minute park-to-palace walking time, CP Lisbon–Sintra train + Scotturb 434 bus transport logistics, hiking trail options, Chalet of Countess of Edla inclusion, and visitor rules, not a generic city destination overview.
 - Vietnam overlap was resolved by content distinction: Hue Imperial City covers a named central Vietnam palace/monument visit with e-ticket types, combo validity, and Ngo Mon entry, while Ha Long Bay covers a named northeast Vietnam bay destination with environmental fee system (70,000–750,000 VND by route), VHL1–VHL8 day-route choice vs overnight-route fees, Ha Long vs Lan Ha vs Bai Tu Long bay comparison, Tuần Châu and Gia Luận port logistics, Hanoi–Ha Long transport, seasonal operating hours, and typhoon cancellation decisions, not a Hue palace/museum ticket guide.
+- Indonesia overlap was resolved by content distinction: Borobudur covers a Magelang (Central Java) Buddhist temple with Ground vs Structure ticket and Upanat sunrise-sunset timing, and Prambanan covers a Sleman/Yogyakarta (Central Java) Hindu temple complex with temple ticket choice, Ratu Boko combo, and Ramayana Ballet add-on. Ubud Monkey Forest covers a named Bali wildlife sanctuary and temple complex on a different island with a completely different attraction type: semi-wild macaque safety rules (no food/no plastic/no eye contact/calm-if-monkey-jumps), locker use, dress code at active Hindu temples, supervised monkey-selfie add-on, 14-year no-rabies study, Nyepi closure check, and visitor timing/walkability from Ubud centre, not a Central Java temple ticket, structure access, or sunrise-sunset guide.
 
 ## Update Workflow
 
