@@ -70,6 +70,6 @@ stage only verified durable state such as:
 - `.automation/post-publish-review-state.json`, if a manual review state file is
   intentionally used
 
-Use `Codex <codex@openai.com>` only when the user asks for a Codex-authored
+Use `DeepSeek <deepseek@deepseek.com>` only when the user asks for a DeepSeek-authored
 commit, push only to the intended branch, and never force-push without an
 explicit user request.

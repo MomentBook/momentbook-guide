@@ -80,9 +80,9 @@ git_persistence:
   mode: chat_requested
   remote: origin
   branch: main
-  author_name: Codex
-  author_email: codex@openai.com
-  author: Codex <codex@openai.com>
+  author_name: DeepSeek
+  author_email: deepseek@deepseek.com
+  author: DeepSeek <deepseek@deepseek.com>
   never_force_push: true
   allowed_durable_paths:
     - registry/editorial-guide-registry.md
