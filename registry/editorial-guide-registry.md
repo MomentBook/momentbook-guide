@@ -6,7 +6,8 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-07-02` (Ubud Monkey Forest guide published)
+- 마지막 검토일: `2026-07-02` (Grand Palace guide published)
+- 2026-07-02 기준 production admin articles API에 `artgrp_grand_palace_ticket_dress_code_20260702` 9개 언어 record 확인
 - 2026-07-02 기준 production admin articles API에 `artgrp_halong_bay_cruise_entry_fee_20260702` 9개 언어 record 확인
 - 2026-07-02 기준 production admin articles API에 `artgrp_ubud_monkey_forest_ticket_rules_20260702` 9개 언어 record 확인
 - 2026-07-02 기준 Pena Palace Sintra guide published + 7개 기존 가이드 이미지 URL 일괄 패치
@@ -197,22 +198,22 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `209`
+- reserved topics total: `210`
 - status counts:
-  - `prod+dev`: `204`
+  - `prod+dev`: `205`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `179`
+  - `travel-guide`: `180`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `163`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
 - repeated country metadata already visible, allowed when coverage differs:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes, Mount Fuji climbing fee/trail/reservation
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning, Statue of Liberty ferry/pedestal/crown/security planning, Yosemite 2026 no timed entrance reservation/fee/pass/traffic/shuttle/road-check planning
-  - Thailand: Songkran Bangkok, TDAC queued
+  - Thailand: Songkran Bangkok, TDAC, Grand Palace ticket/dress-code/transport production coverage
   - Germany: Oktoberfest Munich, Berlin first-time queued, Neuschwanstein Castle ticket/transport/Marienbrücke/rules production coverage
   - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
   - Taiwan: Taipei first-time, Maokong Gondola ticket/cabin/weather closure guide, National Palace Museum ticket/hours/Monday/bag/transport/audio-guide production coverage
@@ -450,6 +451,8 @@
 
 | `prod+dev` | Indonesia | Ubud, Bali / Padangtegal | Sacred Monkey Forest Sanctuary ticket (Adult IDR 130,000 / Child IDR 100,000), visitor safety rules (no food/drink/plastic, no eye contact, calm-if-monkey-jumps), dress code (shoulders/knees covered), locker use for loose items, monkey-selfie supervised add-on (IDR 50,000), best arrival timing (9:00–10:00 AM or 3:00–4:30 PM), three active Hindu temple perimeter access, 14-year no-rabies study, Nyepi closure check, and Ubud transport (walking from centre, car from Seminyak/Canggu/Sanur) guide | `travel-guide` | `ubud-monkey-forest-ticket-rules-guide-20260702` |
 
+| `prod+dev` | Thailand | Bangkok / Rattanakosin Island, Phra Nakhon | Grand Palace 500 THB foreign-visitor ticket (includes Wat Phra Kaew + Queen Sirikit Museum of Textiles), strict 12-item dress code enforced at Mani Noppharat Gate (no sleeveless/shorts/see-through/ripped/tight fabric, shoulders and knees covered), non-refundable single-entry policy, online booking up to 1 month ahead, audio guide 200 THB (8 languages, passport/credit card deposit), daily 8:30–15:30 ticket sales (grounds close 16:30), child under 120 cm free, Thai citizens free with ID, boat (BTS Saphan Taksin → Chao Phraya Express orange flag → Tha Chang N9), MRT Sanam Chai (15-min walk), tuk-tuk "Palace closed" scam awareness, Khon performance not included, Chakri Maha Prasat Throne Hall, nearby Wat Pho (300 THB, 10-min walk south), schedule page check for royal ceremony closures, contact +66-2-623-5500 ext 2171/2158 guide | `travel-guide` | `grand-palace-bangkok-ticket-dress-code-guide-20260702` |
+
 ### `dev`
 
 | Status | Country / Scope | City / Region | Information Angle | Category | Slug |
@@ -499,6 +502,7 @@ Coverage distinction notes:
 - Portugal overlap was resolved by content distinction: Lisbon first-time covers a broad city introduction, while Pena Palace covers a named Sintra monument visit with Essential Visit (€20) vs Park-only (€12) ticket choice, strict timed-entry slot booking with zero delay tolerance, 30-minute park-to-palace walking time, CP Lisbon–Sintra train + Scotturb 434 bus transport logistics, hiking trail options, Chalet of Countess of Edla inclusion, and visitor rules, not a generic city destination overview.
 - Vietnam overlap was resolved by content distinction: Hue Imperial City covers a named central Vietnam palace/monument visit with e-ticket types, combo validity, and Ngo Mon entry, while Ha Long Bay covers a named northeast Vietnam bay destination with environmental fee system (70,000–750,000 VND by route), VHL1–VHL8 day-route choice vs overnight-route fees, Ha Long vs Lan Ha vs Bai Tu Long bay comparison, Tuần Châu and Gia Luận port logistics, Hanoi–Ha Long transport, seasonal operating hours, and typhoon cancellation decisions, not a Hue palace/museum ticket guide.
 - Indonesia overlap was resolved by content distinction: Borobudur covers a Magelang (Central Java) Buddhist temple with Ground vs Structure ticket and Upanat sunrise-sunset timing, and Prambanan covers a Sleman/Yogyakarta (Central Java) Hindu temple complex with temple ticket choice, Ratu Boko combo, and Ramayana Ballet add-on. Ubud Monkey Forest covers a named Bali wildlife sanctuary and temple complex on a different island with a completely different attraction type: semi-wild macaque safety rules (no food/no plastic/no eye contact/calm-if-monkey-jumps), locker use, dress code at active Hindu temples, supervised monkey-selfie add-on, 14-year no-rabies study, Nyepi closure check, and visitor timing/walkability from Ubud centre, not a Central Java temple ticket, structure access, or sunrise-sunset guide.
+- Thailand overlap was resolved by content distinction: Songkran covers a seasonal water festival visit in Bangkok with event logistics, while TDAC covers the Thailand Digital Arrival Card entry declaration process for arriving travelers. Grand Palace covers a named Bangkok monument/museum visit with the 500 THB foreign-visitor ticket, strict 12-item dress code enforced at Mani Noppharat Gate, non-refundable single-entry policy, online booking, audio guide deposit rules, child/free-entry categories, boat/MRT/tuk-tuk access planning, and royal ceremony closure recheck, not a seasonal festival or an arrival card declaration guide.
 
 ## Update Workflow
 
