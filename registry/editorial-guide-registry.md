@@ -6,7 +6,8 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-07-02` (Grand Palace guide published)
+- 마지막 검토일: `2026-07-03` (Uluṟu-Kata Tjuṯa guide published)
+- 2026-07-03 기준 production admin articles API에 `artgrp_uluru_kata_tjuta_pass_walk_climb_20260703` 9개 언어 record 확인
 - 2026-07-02 기준 production admin articles API에 `artgrp_grand_palace_ticket_dress_code_20260702` 9개 언어 record 확인
 - 2026-07-02 기준 production admin articles API에 `artgrp_halong_bay_cruise_entry_fee_20260702` 9개 언어 record 확인
 - 2026-07-02 기준 production admin articles API에 `artgrp_ubud_monkey_forest_ticket_rules_20260702` 9개 언어 record 확인
@@ -198,15 +199,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `210`
+- reserved topics total: `211`
 - status counts:
-  - `prod+dev`: `205`
+  - `prod+dev`: `206`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `180`
+  - `travel-guide`: `181`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `163`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -321,6 +322,7 @@
 | `prod+dev` | Singapore | Mandai / Night Safari | Night Safari time-slot, tram inclusion, Creatures of the Night seat booking, M2 Khatib Bus, parking, and low-light visitor-rule guide | `travel-guide` | `singapore-night-safari-tram-time-slot-guide-2026-06-10` |
 | `prod+dev` | Singapore | Changi Airport / Jewel Changi | Canopy Park ticket, Rain Vortex timing, terminal link bridge/T4 shuttle, baggage storage, and private-event advisory guide | `travel-guide` | `singapore-jewel-changi-canopy-park-luggage-guide-2026-06-10` |
 | `prod+dev` | Australia | Sydney | First-time city guide | `destination-guide` | `sydney-first-time-travel-guide-2026-04-25` |
+| `prod+dev` | Australia | Uluṟu-Kata Tjuṯa National Park / Yulara and Alice Springs access | Park pass (AUD 38 adult 3-day / under-18 free), Uluṟu base/Mala/Kuniya walk choice, Kata Tjuṯa Valley of the Winds 36°C heat-closure rule, Waḻpa Gorge photo rule, permanent Uluṟu climb closure, monthly opening hours, and Yulara/Alice Springs access guide | `travel-guide` | `uluru-kata-tjuta-park-pass-walk-climb-closure-guide-20260703` |
 | `prod+dev` | United Arab Emirates | Dubai | First-time city guide | `destination-guide` | `dubai-first-time-travel-guide-2026-04-26` |
 | `prod+dev` | United Arab Emirates | Dubai / Museum of the Future and Emirates Towers access | AED 169 timed-entry ticket, free-entry proof, official-hours conflict, Emirates Towers Metro link, parking limits, bag/photo/food, family, and accessibility rules guide | `travel-guide` | `museum-of-the-future-dubai-ticket-metro-guide-2026-06-14` |
 | `prod+dev` | United Arab Emirates | Abu Dhabi / Qasr Al Watan and Al Ras Al Akhdar Visitor Centre | Qasr Al Watan dated ticket, no-refund/no-re-entry rule, dress code, 500 x 350 mm bag security limit, Visitor Centre parking/free shuttle, photography limits, and Palace in Motion cutoff guide | `travel-guide` | `qasr-al-watan-ticket-security-dress-code-guide-2026-06-16` |
@@ -503,6 +505,7 @@ Coverage distinction notes:
 - Vietnam overlap was resolved by content distinction: Hue Imperial City covers a named central Vietnam palace/monument visit with e-ticket types, combo validity, and Ngo Mon entry, while Ha Long Bay covers a named northeast Vietnam bay destination with environmental fee system (70,000–750,000 VND by route), VHL1–VHL8 day-route choice vs overnight-route fees, Ha Long vs Lan Ha vs Bai Tu Long bay comparison, Tuần Châu and Gia Luận port logistics, Hanoi–Ha Long transport, seasonal operating hours, and typhoon cancellation decisions, not a Hue palace/museum ticket guide.
 - Indonesia overlap was resolved by content distinction: Borobudur covers a Magelang (Central Java) Buddhist temple with Ground vs Structure ticket and Upanat sunrise-sunset timing, and Prambanan covers a Sleman/Yogyakarta (Central Java) Hindu temple complex with temple ticket choice, Ratu Boko combo, and Ramayana Ballet add-on. Ubud Monkey Forest covers a named Bali wildlife sanctuary and temple complex on a different island with a completely different attraction type: semi-wild macaque safety rules (no food/no plastic/no eye contact/calm-if-monkey-jumps), locker use, dress code at active Hindu temples, supervised monkey-selfie add-on, 14-year no-rabies study, Nyepi closure check, and visitor timing/walkability from Ubud centre, not a Central Java temple ticket, structure access, or sunrise-sunset guide.
 - Thailand overlap was resolved by content distinction: Songkran covers a seasonal water festival visit in Bangkok with event logistics, while TDAC covers the Thailand Digital Arrival Card entry declaration process for arriving travelers. Grand Palace covers a named Bangkok monument/museum visit with the 500 THB foreign-visitor ticket, strict 12-item dress code enforced at Mani Noppharat Gate, non-refundable single-entry policy, online booking, audio guide deposit rules, child/free-entry categories, boat/MRT/tuk-tuk access planning, and royal ceremony closure recheck, not a seasonal festival or an arrival card declaration guide.
+- Australia overlap was resolved by content distinction: Sydney first-time is a broad city introduction, while Uluṟu-Kata Tjuṯa covers a named Northern Territory national park visit with the park-pass decision, Uluṟu and Kata Tjuṯa walk choice, Valley of the Winds heat-closure rule, Waḻpa Gorge photo rule, permanent Uluṟu climb-closure rule, monthly opening hours, and Yulara/Alice Springs access planning, not an east-coast city overview.
 
 ## Update Workflow
 
