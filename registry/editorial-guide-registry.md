@@ -6,7 +6,8 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-07-11` (Vintgar Gorge guide published)
+- 마지막 검토일: `2026-07-11` (Milford Track and Vintgar Gorge guides published)
+- 2026-07-11 기준 production admin articles API에 `artgrp_milford_track_hut_boat_route_20260711` 9개 언어 record 확인
 - 2026-07-03 기준 production admin articles API에 `artgrp_uluru_kata_tjuta_pass_walk_climb_20260703` 9개 언어 record 확인
 - 2026-07-02 기준 production admin articles API에 `artgrp_grand_palace_ticket_dress_code_20260702` 9개 언어 record 확인
 - 2026-07-02 기준 production admin articles API에 `artgrp_halong_bay_cruise_entry_fee_20260702` 9개 언어 record 확인
@@ -204,15 +205,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `211`
+- reserved topics total: `212`
 - status counts:
-  - `prod+dev`: `206`
+  - `prod+dev`: `207`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `181`
+  - `travel-guide`: `182`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `163`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -323,6 +324,7 @@
 | `prod+dev` | France | Cannes | Film festival visitor guide | `festival` | `cannes-film-festival-2026-travel-guide-2026-04-22` |
 | `prod+dev` | France | Paris / Louvre Museum, Cour Napoléon, Carrousel, Richelieu, and Porte des Lions access | Timed ticket and free-admission proof, EEA vs non-EEA rate, entrance choice, final-exit rule, bag-size/security/locker/photo rules, accessibility, map, and audio-guide planning | `travel-guide` | `louvre-ticket-entrance-bag-guide-2026-06-13` |
 | `prod+dev` | New Zealand | New Zealand | NZeTA guide | `travel-guide` | `new-zealand-nzeta-2026-guide-cost-validity-transit-2026-04-23` |
+| `prod+dev` | New Zealand | Fiordland National Park / Te Anau–Milford Sound | Milford Track 53.5 km one-way Great Walk, three-hut booking, Te Anau Downs–Glade Wharf and Sandfly Point–Milford Sound boat chain, season, fees, camping prohibition, and weather/river safety guide | `travel-guide` | `milford-track-hut-booking-one-way-transport-guide-20260711` |
 | `prod+dev` | Singapore | Singapore | SG Arrival Card guide | `travel-guide` | `singapore-arrival-card-sgac-2026-guide-2026-04-24` |
 | `prod+dev` | Singapore | Mandai / Night Safari | Night Safari time-slot, tram inclusion, Creatures of the Night seat booking, M2 Khatib Bus, parking, and low-light visitor-rule guide | `travel-guide` | `singapore-night-safari-tram-time-slot-guide-2026-06-10` |
 | `prod+dev` | Singapore | Changi Airport / Jewel Changi | Canopy Park ticket, Rain Vortex timing, terminal link bridge/T4 shuttle, baggage storage, and private-event advisory guide | `travel-guide` | `singapore-jewel-changi-canopy-park-luggage-guide-2026-06-10` |
@@ -513,6 +515,7 @@ Coverage distinction notes:
 - Thailand overlap was resolved by content distinction: Songkran covers a seasonal water festival visit in Bangkok with event logistics, while TDAC covers the Thailand Digital Arrival Card entry declaration process for arriving travelers. Grand Palace covers a named Bangkok monument/museum visit with the 500 THB foreign-visitor ticket, strict 12-item dress code enforced at Mani Noppharat Gate, non-refundable single-entry policy, online booking, audio guide deposit rules, child/free-entry categories, boat/MRT/tuk-tuk access planning, and royal ceremony closure recheck, not a seasonal festival or an arrival card declaration guide.
 - Australia overlap was resolved by content distinction: Sydney first-time is a broad city introduction, while Uluṟu-Kata Tjuṯa covers a named Northern Territory national park visit with the park-pass decision, Uluṟu and Kata Tjuṯa walk choice, Valley of the Winds heat-closure rule, Waḻpa Gorge photo rule, permanent Uluṟu climb-closure rule, monthly opening hours, and Yulara/Alice Springs access planning, not an east-coast city overview.
 - Slovenia overlap was resolved by content distinction: the existing Postojna row covers a named cave visit with reserved entry time, cave train, temperature, and combo-ticket choice, while Vintgar covers a different named protected gorge with a digital All-in-One Pass, time-slot capacity, Central VINTGAR LIP parking and shuttle transfer, a one-way 5.7 km return route, mandatory helmet, dog, drone, swimming, and route-direction rules. It is not a generic Bled or Slovenia destination guide.
+- New Zealand overlap was resolved by content distinction: the existing NZeTA row covers country-level entry authorization, while Milford Track covers a named Fiordland Great Walk with a 53.5 km one-way route, three named DOC huts, Te Anau Downs–Glade Wharf and Sandfly Point–Milford Sound boat transfers, season-specific hut fees and booking rules, a camping prohibition, and route/weather/river-safety decisions. It is not an immigration or arrival-authorization guide.
 
 ## Update Workflow
 
