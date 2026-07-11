@@ -6,7 +6,7 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-07-03` (Uluṟu-Kata Tjuṯa guide published)
+- 마지막 검토일: `2026-07-11` (Vintgar Gorge guide published)
 - 2026-07-03 기준 production admin articles API에 `artgrp_uluru_kata_tjuta_pass_walk_climb_20260703` 9개 언어 record 확인
 - 2026-07-02 기준 production admin articles API에 `artgrp_grand_palace_ticket_dress_code_20260702` 9개 언어 record 확인
 - 2026-07-02 기준 production admin articles API에 `artgrp_halong_bay_cruise_entry_fee_20260702` 9개 언어 record 확인
@@ -167,6 +167,11 @@
 - 2026-07-02 기준 production admin articles API에 `artgrp_H5pN9mQ2vL7r` (Borobudur) 이미지 URL patch 완료 (Wikimedia Commons 직접 URL로 교체)
 - 2026-07-02 기준 production admin articles API에 `artgrp_G6mN4vQ8tL2p` (Table Mountain Cableway) 이미지 URL patch 완료 (Wikimedia Commons 직접 URL로 교체)
 - 2026-07-02 기준 production admin articles API에 `artgrp_W4rM8tC2pN7x` (Tokyo first-time) 이미지 URL patch 완료 (Wikimedia Commons 직접 URL로 교체, es broken markdown fix 포함)
+- 2026-07-02 기준 production admin articles API에 `artgrp_ubud_monkey_forest_ticket_rules_20260702` (Ubud Monkey Forest) 이미지 URL patch 완료 (hallucinated URL → Wikimedia Commons 직접 URL로 교체)
+- 2026-07-02 기준 production admin articles API에 `artgrp_halong_bay_cruise_entry_fee_20260702` (Ha Long Bay) 이미지 URL patch 완료 (잘못된 hash path → 정확한 Wikimedia Commons URL로 교체)
+- 2026-07-02 기준 production admin articles API에 `artgrp_O7mN3qS6vK9r` (Sultan Qaboos Grand Mosque) 이미지 URL patch 완료 (thumbnail URL 괄호로 인한 markdown 파싱 깨짐 → 직접 URL로 교체)
+- 2026-07-02 기준 production admin articles API에 `artgrp_G6mN4vQ8tL2p` (Table Mountain Cableway) 이미지 URL patch 완료 (thumbnail URL 괄호로 인한 markdown 파싱 깨짐 → 직접 URL로 교체)
+- 2026-07-11 기준 production admin articles API에 `artgrp_vintgar_gorge_timed_entry_shuttle_20260711` 9개 언어 record 확인 후 title/body patch 불필요
 
 ## Selection Guard
 
@@ -354,6 +359,7 @@
 | `prod+dev` | Azerbaijan | Gobustan / Boyukdash and museum area | Rock art reserve hours, ticket categories, guide services, and UNESCO context | `travel-guide` | `gobustan-rock-art-ticket-hours-guide-2026-07-09` |
 | `prod+dev` | Bahrain | Manama / Qal’at al-Bahrain | Qal'at Al-Bahrain Site Museum working-hours conflict, fort route, free guided tour, and audio-guide planning | `travel-guide` | `qal-at-al-bahrain-site-museum-fort-hours-guide-2026-07-10` |
 | `prod+dev` | Uruguay | Colonia del Sacramento | Historic Quarter UNESCO walking route, Calle de los Suspiros, lighthouse, and short-stay pacing guide | `travel-guide` | `colonia-del-sacramento-historic-quarter-walking-guide-2026-07-11` |
+| `prod+dev` | Slovenia | Bled–Gorje / Vintgar Gorge | Digital All-in-One Pass, time-slot entry, VINTGAR Shuttle and parking hub, 5.7 km one-way circular route, helmet, dog, drone, and swimming rules | `travel-guide` | `vintgar-gorge-timed-entry-one-way-shuttle-guide-20260711` |
 | `prod+dev` | Brunei | Temburong District / Ulu Temburong National Park | Certified permit, public launch, temuai ride, boardwalk, packing, and forest rules guide | `travel-guide` | `ulu-temburong-permit-boardwalk-temuai-guide-2026-07-12` |
 | `prod+dev` | Barbados | St. Thomas / Harrison’s Cave | Harrison’s Cave opening days, tram tour time window, Bridgetown-airport distance, and UNESCO add-on guide | `travel-guide` | `harrisons-cave-barbados-tour-hours-guide-2026-07-13` |
 | `prod+dev` | Kazakhstan | Almaty / Medeu and Shymbulak | Medeu-Shymbulak cableway, altitude, Route 123 easy trek, season, and mountain day-trip pacing guide | `travel-guide` | `shymbulak-medeu-cableway-altitude-day-trip-guide-2026-07-14` |
@@ -506,6 +512,7 @@ Coverage distinction notes:
 - Indonesia overlap was resolved by content distinction: Borobudur covers a Magelang (Central Java) Buddhist temple with Ground vs Structure ticket and Upanat sunrise-sunset timing, and Prambanan covers a Sleman/Yogyakarta (Central Java) Hindu temple complex with temple ticket choice, Ratu Boko combo, and Ramayana Ballet add-on. Ubud Monkey Forest covers a named Bali wildlife sanctuary and temple complex on a different island with a completely different attraction type: semi-wild macaque safety rules (no food/no plastic/no eye contact/calm-if-monkey-jumps), locker use, dress code at active Hindu temples, supervised monkey-selfie add-on, 14-year no-rabies study, Nyepi closure check, and visitor timing/walkability from Ubud centre, not a Central Java temple ticket, structure access, or sunrise-sunset guide.
 - Thailand overlap was resolved by content distinction: Songkran covers a seasonal water festival visit in Bangkok with event logistics, while TDAC covers the Thailand Digital Arrival Card entry declaration process for arriving travelers. Grand Palace covers a named Bangkok monument/museum visit with the 500 THB foreign-visitor ticket, strict 12-item dress code enforced at Mani Noppharat Gate, non-refundable single-entry policy, online booking, audio guide deposit rules, child/free-entry categories, boat/MRT/tuk-tuk access planning, and royal ceremony closure recheck, not a seasonal festival or an arrival card declaration guide.
 - Australia overlap was resolved by content distinction: Sydney first-time is a broad city introduction, while Uluṟu-Kata Tjuṯa covers a named Northern Territory national park visit with the park-pass decision, Uluṟu and Kata Tjuṯa walk choice, Valley of the Winds heat-closure rule, Waḻpa Gorge photo rule, permanent Uluṟu climb-closure rule, monthly opening hours, and Yulara/Alice Springs access planning, not an east-coast city overview.
+- Slovenia overlap was resolved by content distinction: the existing Postojna row covers a named cave visit with reserved entry time, cave train, temperature, and combo-ticket choice, while Vintgar covers a different named protected gorge with a digital All-in-One Pass, time-slot capacity, Central VINTGAR LIP parking and shuttle transfer, a one-way 5.7 km return route, mandatory helmet, dog, drone, swimming, and route-direction rules. It is not a generic Bled or Slovenia destination guide.
 
 ## Update Workflow
 
