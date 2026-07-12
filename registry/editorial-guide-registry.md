@@ -6,7 +6,9 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-07-11` (Milford Track and Vintgar Gorge guides published)
+- 마지막 검토일: `2026-07-12` (Haiti Citadelle Laferrière guide published)
+- 2026-07-11 (Milford Track and Vintgar Gorge guides published)
+- 2026-07-12 기준 production admin articles API에 `artgrp_haiti_citadelle_sans_souci_guide_20260712` 9개 언어 record 확인
 - 2026-07-11 기준 production admin articles API에 `artgrp_milford_track_hut_boat_route_20260711` 9개 언어 record 확인
 - 2026-07-03 기준 production admin articles API에 `artgrp_uluru_kata_tjuta_pass_walk_climb_20260703` 9개 언어 record 확인
 - 2026-07-02 기준 production admin articles API에 `artgrp_grand_palace_ticket_dress_code_20260702` 9개 언어 record 확인
@@ -205,9 +207,9 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `212`
+- reserved topics total: `213`
 - status counts:
-  - `prod+dev`: `207`
+  - `prod+dev`: `208`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
@@ -215,8 +217,8 @@
   - `destination-guide`: `12`
   - `travel-guide`: `182`
   - `wellbeing-guide`: `3`
-- country/scope metadata already visible, not an exclusion list: `163`
-  - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
+- country/scope metadata already visible, not an exclusion list: `164`
+  - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Haiti, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
 - repeated country metadata already visible, allowed when coverage differs:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes, Mount Fuji climbing fee/trail/reservation
   - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning, Statue of Liberty ferry/pedestal/crown/security planning, Yosemite 2026 no timed entrance reservation/fee/pass/traffic/shuttle/road-check planning
@@ -462,6 +464,7 @@
 | `prod+dev` | Indonesia | Ubud, Bali / Padangtegal | Sacred Monkey Forest Sanctuary ticket (Adult IDR 130,000 / Child IDR 100,000), visitor safety rules (no food/drink/plastic, no eye contact, calm-if-monkey-jumps), dress code (shoulders/knees covered), locker use for loose items, monkey-selfie supervised add-on (IDR 50,000), best arrival timing (9:00–10:00 AM or 3:00–4:30 PM), three active Hindu temple perimeter access, 14-year no-rabies study, Nyepi closure check, and Ubud transport (walking from centre, car from Seminyak/Canggu/Sanur) guide | `travel-guide` | `ubud-monkey-forest-ticket-rules-guide-20260702` |
 
 | `prod+dev` | Thailand | Bangkok / Rattanakosin Island, Phra Nakhon | Grand Palace 500 THB foreign-visitor ticket (includes Wat Phra Kaew + Queen Sirikit Museum of Textiles), strict 12-item dress code enforced at Mani Noppharat Gate (no sleeveless/shorts/see-through/ripped/tight fabric, shoulders and knees covered), non-refundable single-entry policy, online booking up to 1 month ahead, audio guide 200 THB (8 languages, passport/credit card deposit), daily 8:30–15:30 ticket sales (grounds close 16:30), child under 120 cm free, Thai citizens free with ID, boat (BTS Saphan Taksin → Chao Phraya Express orange flag → Tha Chang N9), MRT Sanam Chai (15-min walk), tuk-tuk "Palace closed" scam awareness, Khon performance not included, Chakri Maha Prasat Throne Hall, nearby Wat Pho (300 THB, 10-min walk south), schedule page check for royal ceremony closures, contact +66-2-623-5500 ext 2171/2158 guide | `travel-guide` | `grand-palace-bangkok-ticket-dress-code-guide-20260702` |
+| `prod+dev` | Haiti | Milot, Nord Department / Cap‑Haïtien | National History Park (Citadelle Henry/Sans‑Souci Palace/Ramiers) compulsory guide, ticket price, Milot access (4×4 moto/hike/horse), 970 m physical fitness climb, ISPAN visitor hours, Sans‑Souci and Ramiers ground-level stops, Labadee cruise connection, cash-only payment, English-guide availability, and UNESCO visitor-rule guide | `travel-guide` | `citadelle-laferriere-sans-souci-ticket-guide-20260712` |
 
 ### `dev`
 
@@ -516,6 +519,7 @@ Coverage distinction notes:
 - Australia overlap was resolved by content distinction: Sydney first-time is a broad city introduction, while Uluṟu-Kata Tjuṯa covers a named Northern Territory national park visit with the park-pass decision, Uluṟu and Kata Tjuṯa walk choice, Valley of the Winds heat-closure rule, Waḻpa Gorge photo rule, permanent Uluṟu climb-closure rule, monthly opening hours, and Yulara/Alice Springs access planning, not an east-coast city overview.
 - Slovenia overlap was resolved by content distinction: the existing Postojna row covers a named cave visit with reserved entry time, cave train, temperature, and combo-ticket choice, while Vintgar covers a different named protected gorge with a digital All-in-One Pass, time-slot capacity, Central VINTGAR LIP parking and shuttle transfer, a one-way 5.7 km return route, mandatory helmet, dog, drone, swimming, and route-direction rules. It is not a generic Bled or Slovenia destination guide.
 - New Zealand overlap was resolved by content distinction: the existing NZeTA row covers country-level entry authorization, while Milford Track covers a named Fiordland Great Walk with a 53.5 km one-way route, three named DOC huts, Te Anau Downs–Glade Wharf and Sandfly Point–Milford Sound boat transfers, season-specific hut fees and booking rules, a camping prohibition, and route/weather/river-safety decisions. It is not an immigration or arrival-authorization guide.
+- Haiti is a completely new country with no existing registry entry. The coverage signature — named fortress/palace UNESCO site, compulsory guide, 4×4/moto/hike mountain access, 970 m climb, cash-only payment, ISPAN management, Labadee cruise connection — does not overlap any existing guide in place, event type, route, ticket/pass/permit, rule, or traveler decision.
 
 ## Update Workflow
 
