@@ -6,8 +6,10 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
-- 마지막 검토일: `2026-07-12` (Haiti Citadelle Laferrière guide published)
+- 마지막 검토일: `2026-07-12` (Hallasan National Park guide published)
+- 2026-07-12 (Haiti Citadelle Laferrière guide published)
 - 2026-07-11 (Milford Track and Vintgar Gorge guides published)
+- 2026-07-12 기준 production admin articles API에 `artgrp_hallasan_jeju_trail_summit_gate_20260712` 9개 언어 record 확인
 - 2026-07-12 기준 production admin articles API에 `artgrp_haiti_citadelle_sans_souci_guide_20260712` 9개 언어 record 확인
 - 2026-07-11 기준 production admin articles API에 `artgrp_milford_track_hut_boat_route_20260711` 9개 언어 record 확인
 - 2026-07-03 기준 production admin articles API에 `artgrp_uluru_kata_tjuta_pass_walk_climb_20260703` 9개 언어 record 확인
@@ -207,15 +209,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `213`
+- reserved topics total: `214`
 - status counts:
-  - `prod+dev`: `208`
+  - `prod+dev`: `209`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `182`
+  - `travel-guide`: `183`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `164`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Haiti, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -226,7 +228,7 @@
   - Germany: Oktoberfest Munich, Berlin first-time queued, Neuschwanstein Castle ticket/transport/Marienbrücke/rules production coverage
   - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
   - Taiwan: Taipei first-time, Maokong Gondola ticket/cabin/weather closure guide, National Palace Museum ticket/hours/Monday/bag/transport/audio-guide production coverage
-  - South Korea: KorailPassPlus pickup/top-up/refund dev coverage, Gyeongbokgung Palace ticket/hanbok/Tuesday closure production coverage, Seoraksan cable car/trail/seasonal production coverage
+  - South Korea: KorailPassPlus pickup/top-up/refund dev coverage, Gyeongbokgung Palace ticket/hanbok/Tuesday closure production coverage, Seoraksan cable car/trail/seasonal production coverage, Hallasan National Park trail choice/summit gate/seasonal gear production coverage
   - Spain: San Fermin Pamplona festival, Alhambra General/Nasrid Palaces timed-entry ticket and visitor-rule planning, Sagrada Família ticket/tower/security/access planning
   - United Kingdom: UK ETA entry authorization guide, Stonehenge timed-ticket/shuttle/parking/Stone Circle Experience planning guide
   - France: Cannes Film Festival visitor guide, Louvre ticket/entrance/bag/security planning, Eiffel Tower stairs vs elevator ticket/ID/summit/weather-closure guide, Versailles Palace Passport/timed entry/garden fountains/Paris transport guide
@@ -465,6 +467,7 @@
 
 | `prod+dev` | Thailand | Bangkok / Rattanakosin Island, Phra Nakhon | Grand Palace 500 THB foreign-visitor ticket (includes Wat Phra Kaew + Queen Sirikit Museum of Textiles), strict 12-item dress code enforced at Mani Noppharat Gate (no sleeveless/shorts/see-through/ripped/tight fabric, shoulders and knees covered), non-refundable single-entry policy, online booking up to 1 month ahead, audio guide 200 THB (8 languages, passport/credit card deposit), daily 8:30–15:30 ticket sales (grounds close 16:30), child under 120 cm free, Thai citizens free with ID, boat (BTS Saphan Taksin → Chao Phraya Express orange flag → Tha Chang N9), MRT Sanam Chai (15-min walk), tuk-tuk "Palace closed" scam awareness, Khon performance not included, Chakri Maha Prasat Throne Hall, nearby Wat Pho (300 THB, 10-min walk south), schedule page check for royal ceremony closures, contact +66-2-623-5500 ext 2171/2158 guide | `travel-guide` | `grand-palace-bangkok-ticket-dress-code-guide-20260702` |
 | `prod+dev` | Haiti | Milot, Nord Department / Cap‑Haïtien | National History Park (Citadelle Henry/Sans‑Souci Palace/Ramiers) compulsory guide, ticket price, Milot access (4×4 moto/hike/horse), 970 m physical fitness climb, ISPAN visitor hours, Sans‑Souci and Ramiers ground-level stops, Labadee cruise connection, cash-only payment, English-guide availability, and UNESCO visitor-rule guide | `travel-guide` | `citadelle-laferriere-sans-souci-ticket-guide-20260712` |
+| `prod+dev` | South Korea | Jeju Island / Hallasan National Park, Seogwipo‑si and Jeju‑si | Hallasan National Park free entry, trail choice (Seongpanak 9.6 km summit / Gwaneumsa 8.7 km summit / Eorimok 6.8 km no‑summit / Yeongsil 5.8 km no‑summit), summit gate control (Seongpanak 10:00 / Gwaneumsa 09:00), reservation required for summit trails, seasonal gear (crampons winter / rain gear summer), trailhead bus access (181/281/240/475), and visitor‑safety rules guide | `travel-guide` | `hallasan-jeju-trail-summit-gate-guide-20260712` |
 
 ### `dev`
 
