@@ -6,10 +6,12 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
+- 마지막 검토일: `2026-08-03` (Haleakalā sunrise reservation guide published)
 - 마지막 검토일: `2026-07-12` (Hallasan National Park guide published)
 - 2026-07-12 (Haiti Citadelle Laferrière guide published)
 - 2026-07-11 (Milford Track and Vintgar Gorge guides published)
 - 2026-07-12 기준 production admin articles API에 `artgrp_hallasan_jeju_trail_summit_gate_20260712` 9개 언어 record 확인
+- 2026-08-03 기준 production admin articles API에 `artgrp_haleakala_sunrise_reservation_20260803` 9개 언어 record 확인
 - 2026-07-12 기준 production admin articles API에 `artgrp_haiti_citadelle_sans_souci_guide_20260712` 9개 언어 record 확인
 - 2026-07-11 기준 production admin articles API에 `artgrp_milford_track_hut_boat_route_20260711` 9개 언어 record 확인
 - 2026-07-03 기준 production admin articles API에 `artgrp_uluru_kata_tjuta_pass_walk_climb_20260703` 9개 언어 record 확인
@@ -209,21 +211,21 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `214`
+- reserved topics total: `215`
 - status counts:
-  - `prod+dev`: `209`
+  - `prod+dev`: `210`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `183`
+  - `travel-guide`: `184`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `164`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Haiti, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
 - repeated country metadata already visible, allowed when coverage differs:
   - Japan: Kyoto first-time, Gion Matsuri Kyoto, Sapporo Snow Festival, Tokyo first-time queued, Miyajima ferry/visitor tax, Himeji Castle ticket/hours, Nara Tōdai-ji/deer safety, Matsumoto Castle ticket/stairs/shoes, Mount Fuji climbing fee/trail/reservation
-  - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning, Statue of Liberty ferry/pedestal/crown/security planning, Yosemite 2026 no timed entrance reservation/fee/pass/traffic/shuttle/road-check planning
+  - United States: Albuquerque Balloon Fiesta, Mardi Gras New Orleans, Washington Monument timed-entry ticket/walk-up/security planning, Statue of Liberty ferry/pedestal/crown/security planning, Yosemite 2026 no timed entrance reservation/fee/pass/traffic/shuttle/road-check planning, Haleakalā sunrise reservation/fee/viewpoint/drive planning
   - Thailand: Songkran Bangkok, TDAC, Grand Palace ticket/dress-code/transport production coverage
   - Germany: Oktoberfest Munich, Berlin first-time queued, Neuschwanstein Castle ticket/transport/Marienbrücke/rules production coverage
   - Singapore: SG Arrival Card entry declaration, Night Safari ticket/tram/presentation/late-transport planning, Jewel Changi Canopy Park/Rain Vortex/luggage timing
@@ -468,6 +470,7 @@
 | `prod+dev` | Thailand | Bangkok / Rattanakosin Island, Phra Nakhon | Grand Palace 500 THB foreign-visitor ticket (includes Wat Phra Kaew + Queen Sirikit Museum of Textiles), strict 12-item dress code enforced at Mani Noppharat Gate (no sleeveless/shorts/see-through/ripped/tight fabric, shoulders and knees covered), non-refundable single-entry policy, online booking up to 1 month ahead, audio guide 200 THB (8 languages, passport/credit card deposit), daily 8:30–15:30 ticket sales (grounds close 16:30), child under 120 cm free, Thai citizens free with ID, boat (BTS Saphan Taksin → Chao Phraya Express orange flag → Tha Chang N9), MRT Sanam Chai (15-min walk), tuk-tuk "Palace closed" scam awareness, Khon performance not included, Chakri Maha Prasat Throne Hall, nearby Wat Pho (300 THB, 10-min walk south), schedule page check for royal ceremony closures, contact +66-2-623-5500 ext 2171/2158 guide | `travel-guide` | `grand-palace-bangkok-ticket-dress-code-guide-20260702` |
 | `prod+dev` | Haiti | Milot, Nord Department / Cap‑Haïtien | National History Park (Citadelle Henry/Sans‑Souci Palace/Ramiers) compulsory guide, ticket price, Milot access (4×4 moto/hike/horse), 970 m physical fitness climb, ISPAN visitor hours, Sans‑Souci and Ramiers ground-level stops, Labadee cruise connection, cash-only payment, English-guide availability, and UNESCO visitor-rule guide | `travel-guide` | `citadelle-laferriere-sans-souci-ticket-guide-20260712` |
 | `prod+dev` | South Korea | Jeju Island / Hallasan National Park, Seogwipo‑si and Jeju‑si | Hallasan National Park free entry, trail choice (Seongpanak 9.6 km summit / Gwaneumsa 8.7 km summit / Eorimok 6.8 km no‑summit / Yeongsil 5.8 km no‑summit), summit gate control (Seongpanak 10:00 / Gwaneumsa 09:00), reservation required for summit trails, seasonal gear (crampons winter / rain gear summer), trailhead bus access (181/281/240/475), and visitor‑safety rules guide | `travel-guide` | `hallasan-jeju-trail-summit-gate-guide-20260712` |
+| `prod+dev` | United States | Maui / Haleakalā National Park, Summit District | Haleakalā sunrise reservation guide: US$1 per-vehicle Recreation.gov reservation required 3:00–7:00 AM entry (60-day and 2-day releases at 7:00 AM HST, one per customer every 3 days, ID matching, no same-day/phone/gate sales, non-refundable), cashless Standard Pass US$30/3-day vs Park/Tri-Park/America the Beautiful pass choice, four summit overlooks, 2.5 h Kahului drive, no gas/EV charging inside park, fee-free-day exclusion, and visitor rules guide | `travel-guide` | `haleakala-sunrise-reservation-summit-guide-20260803` |
 
 ### `dev`
 
@@ -485,6 +488,7 @@
 | `queued` | Hungary | Budapest | Széchenyi Bath locker, cabin, and swim-cap guide | `wellbeing-guide` | `szechenyi-bath-locker-cabin-swim-cap-guide-2026-05-13` |
 
 Coverage distinction notes:
+- United States overlap was resolved by content distinction: existing US rows cover festivals (Albuquerque Balloon Fiesta, Mardi Gras New Orleans), Washington Monument timed-entry reservation/walk-up security, Statue of Liberty ferry/pedestal/crown access, and Yosemite 2026 no-timed-reservation/fee/pass/shuttle/road planning. Haleakalā covers a named Maui national park sunrise visit with a US$1 per-vehicle sunrise reservation (3:00–7:00 AM entry), Recreation.gov 60-day/2-day release schedule, ID and one-per-3-days rules, cashless entrance-pass choices, four summit viewpoints with elevation, drive times and no-gas/no-EV rules, and fee-free-day exclusion — not a festival, monument, harbor ferry, or Yosemite park-access guide.
 - Japan coverage is intentionally content-level, not country-level. Miyajima covers Hiroshima/Miyajima ferry access, visitor tax, Great Torii route timing, and Itsukushima Shrine admission, not Kyoto/Tokyo destination overview or Kyoto/Sapporo festival coverage.
 - Himeji coverage differs because it covers Himeji Castle admission, 16:00 gate close, Koko-en combo ticket, and locker logistics, not prior Japan destination overview, festival, or Miyajima ferry-tax coverage.
 - Nara coverage differs because it covers Tōdai-ji Great Buddha Hall seasonal hours, admission, audio guide logistics, and Nara deer safety, not prior Japan destination overview, festival, Miyajima ferry-tax, or Himeji Castle ticket coverage.
