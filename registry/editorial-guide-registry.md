@@ -6,6 +6,8 @@
 중복 판단의 기본 단위는 국가가 아니라 coverage signature다. Coverage signature는 특정 장소 또는 여행지 종류, 행사/페스티벌 종류, route, ticket/pass/permit/rule, traveller intent, category, slug keyword를 함께 본 값이다. `Country / Scope`와 `City / Region`은 검색과 다양성 관리를 위한 메타데이터이며, 같은 국가나 같은 지역이라는 이유만으로 새 글을 제외하지 않는다.
 
 기준 시점:
+- 마지막 검토일: `2026-08-09` (Prague Castle ticket circuit guide published)
+- 2026-08-09 기준 production admin articles API에 `artgrp_prague_castle_ticket_circuit_guide_20260809` 9개 언어 record 확인
 - 마지막 검토일: `2026-08-03` (Haleakalā sunrise reservation guide published)
 - 마지막 검토일: `2026-07-12` (Hallasan National Park guide published)
 - 2026-07-12 (Haiti Citadelle Laferrière guide published)
@@ -211,15 +213,15 @@
 
 ## Coverage Snapshot
 
-- reserved topics total: `215`
+- reserved topics total: `216`
 - status counts:
-  - `prod+dev`: `210`
+  - `prod+dev`: `211`
   - `dev`: `4`
   - `queued`: `1`
 - category counts:
   - `festival`: `12`
   - `destination-guide`: `12`
-  - `travel-guide`: `184`
+  - `travel-guide`: `185`
   - `wellbeing-guide`: `3`
 - country/scope metadata already visible, not an exclusion list: `164`
   - Albania, Algeria, Andorra, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, British Virgin Islands, Bulgaria, Cabo Verde, Cambodia, Canada, Chile, China, Colombia, Cook Islands, Costa Rica, Croatia, Cuba, Curaçao, Cyprus, Czechia, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Eswatini, Europe (multi-country), Faroe Islands, Fiji, Finland, France, Georgia, Germany, Ghana, Gibraltar, Global / multi-country, Greece, Greenland, Grenada, Guatemala, Guyana, Haiti, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Isle of Man, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macao SAR, Madagascar, Malawi, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Monaco, Montserrat, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Zealand, Nicaragua, Netherlands, Nigeria, North Macedonia, Norway, Oman, Palau, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saint Kitts and Nevis, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Suriname, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkey, Uganda, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Vatican City, Vietnam, Zambia, Zimbabwe
@@ -471,6 +473,7 @@
 | `prod+dev` | Haiti | Milot, Nord Department / Cap‑Haïtien | National History Park (Citadelle Henry/Sans‑Souci Palace/Ramiers) compulsory guide, ticket price, Milot access (4×4 moto/hike/horse), 970 m physical fitness climb, ISPAN visitor hours, Sans‑Souci and Ramiers ground-level stops, Labadee cruise connection, cash-only payment, English-guide availability, and UNESCO visitor-rule guide | `travel-guide` | `citadelle-laferriere-sans-souci-ticket-guide-20260712` |
 | `prod+dev` | South Korea | Jeju Island / Hallasan National Park, Seogwipo‑si and Jeju‑si | Hallasan National Park free entry, trail choice (Seongpanak 9.6 km summit / Gwaneumsa 8.7 km summit / Eorimok 6.8 km no‑summit / Yeongsil 5.8 km no‑summit), summit gate control (Seongpanak 10:00 / Gwaneumsa 09:00), reservation required for summit trails, seasonal gear (crampons winter / rain gear summer), trailhead bus access (181/281/240/475), and visitor‑safety rules guide | `travel-guide` | `hallasan-jeju-trail-summit-gate-guide-20260712` |
 | `prod+dev` | United States | Maui / Haleakalā National Park, Summit District | Haleakalā sunrise reservation guide: US$1 per-vehicle Recreation.gov reservation required 3:00–7:00 AM entry (60-day and 2-day releases at 7:00 AM HST, one per customer every 3 days, ID matching, no same-day/phone/gate sales, non-refundable), cashless Standard Pass US$30/3-day vs Park/Tri-Park/America the Beautiful pass choice, four summit overlooks, 2.5 h Kahului drive, no gas/EV charging inside park, fee-free-day exclusion, and visitor rules guide | `travel-guide` | `haleakala-sunrise-reservation-summit-guide-20260803` |
+| `prod+dev` | Czechia | Prague / Hradčany | Prague Castle ticket circuit guide: Main circuit (450/300/950 CZK, Old Royal Palace, St. George's Basilica, Golden Lane, St. Vitus Cathedral) vs Permanent exhibitions (300/200/700 CZK) vs Picture Gallery and Tower single tickets, 2-day validity and one-entry-per-building rule, guided tour 250 CZK/hour/person with 4-person minimum and Reservatic advance booking, audioguide 350 CZK/3h with 500 CZK deposit in 8 languages incl. Korean, summer/winter opening hours with cathedral last entrance 16:40/15:40 and Sunday 12:00 opening, tram 22/metro A access, random security checks, no-baggage/no-drone rules, and state-ceremonial closure checks | `travel-guide` | `prague-castle-ticket-circuit-guided-tour-guide-2026-08-09` |
 
 ### `dev`
 
@@ -527,6 +530,7 @@ Coverage distinction notes:
 - Slovenia overlap was resolved by content distinction: the existing Postojna row covers a named cave visit with reserved entry time, cave train, temperature, and combo-ticket choice, while Vintgar covers a different named protected gorge with a digital All-in-One Pass, time-slot capacity, Central VINTGAR LIP parking and shuttle transfer, a one-way 5.7 km return route, mandatory helmet, dog, drone, swimming, and route-direction rules. It is not a generic Bled or Slovenia destination guide.
 - New Zealand overlap was resolved by content distinction: the existing NZeTA row covers country-level entry authorization, while Milford Track covers a named Fiordland Great Walk with a 53.5 km one-way route, three named DOC huts, Te Anau Downs–Glade Wharf and Sandfly Point–Milford Sound boat transfers, season-specific hut fees and booking rules, a camping prohibition, and route/weather/river-safety decisions. It is not an immigration or arrival-authorization guide.
 - Haiti is a completely new country with no existing registry entry. The coverage signature — named fortress/palace UNESCO site, compulsory guide, 4×4/moto/hike mountain access, 970 m climb, cash-only payment, ISPAN management, Labadee cruise connection — does not overlap any existing guide in place, event type, route, ticket/pass/permit, rule, or traveler decision.
+- Czechia coverage expanded with Prague Castle: the existing Czechia row covers Václav Havel Airport–city transport decisions, while Prague Castle covers a named Hradčany castle complex visit with Main circuit vs Permanent exhibitions ticket choice, guided-tour 4-person/booking rules vs audioguide deposit decisions, summer/winter building hours with cathedral last-entrance and Sunday-opening rules, tram 22/metro A access routes, security/baggage/drone rules, and state-ceremonial closure checks. It is not a city introduction or an airport transfer guide.
 
 ## Update Workflow
 
